@@ -8,7 +8,7 @@ Small Windows Tkinter tool for sorting Darkest Dungeon mods and writing the enab
 2. Click `Auto Detect`.
 3. If Auto Detect finds your mods, review the enabled/disabled lists.
 4. Choose a profile from the `Profile` menu.
-5. Click `Load Profile Mods` if you want the app to mirror that profile's current active mod list and order.
+5. Click `Load Profile Mods` to mirror that profile's current active mod list and order in the manager.
 6. Click `Patch Selected Profile` to update that profile's `persist.game.json`.
 7. Launch Darkest Dungeon.
 
@@ -16,11 +16,11 @@ If Auto Detect cannot find your mods, click `Browse`, select the folder that con
 
 ## Save Patching
 
+`Patch Selected Profile` is the main workflow and should cover normal use.
+
 `Patch Chosen Save` lets you manually pick a `persist.game.json`.
 
-`Patch Auto-Detected Save` tries to find the newest Steam save automatically.
-
-`Patch Selected Profile` patches the profile currently chosen in the profile dropdown.
+`Patch Auto-Detected Save (Legacy)` is still available from the `Tools` menu as a fallback if profile detection is not the right fit for a specific case.
 
 Patch actions:
 
@@ -47,6 +47,11 @@ Click `Check Setup` to see:
 
 If setup detection fails, use `Browse` for the mods folder and `Patch Chosen Save` for the save file.
 
+## Notes
+
+- The app remembers your working mod state automatically, so the older loadout import/export buttons are currently disabled in the UI.
+- Legacy patch helpers are still available under `Tools` if you need them later.
+
 ## Releases
 
 `.\build.ps1` now does two things:
@@ -70,3 +75,5 @@ This repo includes a GitHub Actions workflow at `.github/workflows/release.yml` 
 - `DD Manager Portable.sha256`
 
 If you want to draft release notes first, create the tag after your final code push, then edit the generated GitHub Release page.
+
+See [`CHANGELOG.md`](CHANGELOG.md) for patch and release notes.
