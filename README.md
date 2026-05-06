@@ -1,0 +1,78 @@
+# Darkest Dungeon Mod Manager
+
+Small Windows Tkinter tool for sorting Darkest Dungeon mods and writing the enabled mod list into `persist.game.json`.
+
+## Quick Start
+
+1. Run `dd2.py`.
+2. Click `Auto Detect`.
+3. If Auto Detect finds your mods, review the enabled/disabled lists.
+4. Choose a profile from the `Profile` menu.
+5. Click `Load Profile Mods` if you want the app to mirror that profile's current active mod list and order.
+6. Click `Patch Selected Profile` to update that profile's `persist.game.json`.
+7. Launch Darkest Dungeon.
+
+If Auto Detect cannot find your mods, click `Browse`, select the folder that contains your mod folders, then click `Load Mods`.
+
+## Save Patching
+
+`Patch Chosen Save` lets you manually pick a `persist.game.json`.
+
+`Patch Auto-Detected Save` tries to find the newest Steam save automatically.
+
+`Patch Selected Profile` patches the profile currently chosen in the profile dropdown.
+
+Patch actions:
+
+- create a timestamped backup beside the original save
+- validate the patched save metadata
+- write the patched data back to the default `persist.game.json` filename
+
+That means the game can load the patched save without manually renaming or moving files.
+
+## Restore
+
+Use `Restore Last Backup` if you want to undo the most recent patch. The backup file remains beside the save file.
+
+## Troubleshooting
+
+Click `Check Setup` to see:
+
+- whether the mods folder is valid
+- how many mods are loaded and enabled
+- which profile is selected
+- whether a save file was detected
+- whether the save contains the expected `applied_ugcs_1_0` mod block
+- the most recent backup path
+
+If setup detection fails, use `Browse` for the mods folder and `Patch Chosen Save` for the save file.
+
+## GitHub Setup
+
+GitHub is a better fit for this project than uploading the raw `.exe` to a mod site:
+
+1. Track the source files in git.
+2. Keep generated folders like `dist/`, `build/`, `release/`, and `DD Manager Data/` out of the repo.
+3. Publish packaged builds as GitHub Release assets such as `DD Manager Portable.zip`.
+
+Suggested first-time setup from this folder:
+
+```powershell
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/<your-user>/<your-repo>.git
+git push -u origin main
+```
+
+For each new version:
+
+```powershell
+git add .
+git commit -m "Release v0.1.0"
+git push
+.\build.ps1
+```
+
+Then upload the generated zip from `release/` or `dist/` to a GitHub Release instead of committing the built executable into the repository.

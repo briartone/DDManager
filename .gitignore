@@ -1,0 +1,31 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+
+# Local editor settings
+.vscode/
+
+# Build artifacts
+build/
+dist/
+release/
+*.spec
+
+# App/runtime data and backups
+DD Manager Data/
+DD Manager Data backup*/
+_patch_flow_test/
+*.backup.json
+startup_crash.log
+startup_profile.log
+
+# Sample and scratch files that should not be part of the main repo history
+new code.py
+import os.py
+persist.game*.json
+_orig.decoded.json
+_real_state_sample*.json
+
+# OS junk
+Thumbs.db
+.DS_Store
