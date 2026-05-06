@@ -76,3 +76,27 @@ git push
 ```
 
 Then upload the generated zip from `release/` or `dist/` to a GitHub Release instead of committing the built executable into the repository.
+
+## Releases
+
+`.\build.ps1` now does two things:
+
+1. Builds the Windows app into `dist/DD Manager/`
+2. Creates a portable release zip at `release/DD Manager Portable.zip`
+
+To publish a GitHub Release automatically:
+
+```powershell
+git add .
+git commit -m "Prepare v0.1.0"
+git push
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+This repo includes a GitHub Actions workflow at `.github/workflows/release.yml` that builds the portable zip on tag pushes matching `v*` and uploads:
+
+- `DD Manager Portable.zip`
+- `DD Manager Portable.sha256`
+
+If you want to draft release notes first, create the tag after your final code push, then edit the generated GitHub Release page.
