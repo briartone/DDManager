@@ -1,0 +1,2 @@
+# DDManager
+Darkest Dungeon Manager
