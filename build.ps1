@@ -18,6 +18,7 @@ $portableZip = Join-Path $releaseRoot "$portableName.zip"
 $portableReadme = Join-Path $portableDir "README.md"
 $dataReadme = Join-Path $portableDataDir "README.txt"
 $iconKeep = Join-Path $iconCacheDir ".keep"
+$zipAttemptCount = 5
 
 if (-not (Test-Path $entryPoint)) {
     throw "Could not find $entryPoint in the current folder."
@@ -68,7 +69,30 @@ Set-Content -LiteralPath $dataReadme -Value @(
 )
 Set-Content -LiteralPath $iconKeep -Value ""
 
-Compress-Archive -LiteralPath $portableDir -DestinationPath $portableZip -CompressionLevel Optimal
+$zipComplete = $false
+
+for ($attempt = 1; $attempt -le $zipAttemptCount; $attempt++) {
+    try {
+        Compress-Archive -LiteralPath $portableDir -DestinationPath $portableZip -CompressionLevel Optimal
+        $zipComplete = $true
+        break
+    }
+    catch {
+        if (Test-Path $portableZip) {
+            Remove-Item -LiteralPath $portableZip -Force -ErrorAction SilentlyContinue
+        }
+
+        if ($attempt -eq $zipAttemptCount) {
+            throw
+        }
+
+        Start-Sleep -Seconds 2
+    }
+}
+
+if (-not $zipComplete) {
+    throw "Failed to create $portableZip."
+}
 
 Write-Host ""
 Write-Host "Build complete:"
