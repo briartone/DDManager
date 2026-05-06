@@ -47,36 +47,6 @@ Click `Check Setup` to see:
 
 If setup detection fails, use `Browse` for the mods folder and `Patch Chosen Save` for the save file.
 
-## GitHub Setup
-
-GitHub is a better fit for this project than uploading the raw `.exe` to a mod site:
-
-1. Track the source files in git.
-2. Keep generated folders like `dist/`, `build/`, `release/`, and `DD Manager Data/` out of the repo.
-3. Publish packaged builds as GitHub Release assets such as `DD Manager Portable.zip`.
-
-Suggested first-time setup from this folder:
-
-```powershell
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<your-user>/<your-repo>.git
-git push -u origin main
-```
-
-For each new version:
-
-```powershell
-git add .
-git commit -m "Release v0.1.0"
-git push
-.\build.ps1
-```
-
-Then upload the generated zip from `release/` or `dist/` to a GitHub Release instead of committing the built executable into the repository.
-
 ## Releases
 
 `.\build.ps1` now does two things:
