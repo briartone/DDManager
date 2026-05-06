@@ -36,6 +36,11 @@ STARTUP_PROFILING_ENABLED = False
 STEAM_APP_ID = "262060"
 DD_GAME_NAME = "DarkestDungeon"
 
+# Profile-based patching is now the default flow. Keep older save-patch and
+# loadout features behind secondary UI until they are needed again.
+ENABLE_LOADOUT_BUTTONS = False
+SHOW_PRIMARY_AUTO_PATCH_BUTTON = False
+
 # Category colors are used in the enabled list to make load
 # order groups visually scannable.
 CATEGORY_COLORS = {
@@ -3450,9 +3455,36 @@ class ModManager:
         action_frame.pack(fill="x", padx=14, pady=(0, 10))
 
         self.themed_button(action_frame, text="Load Mods", command=self.load_mods).pack(side="left", padx=(0, 4))
-        self.themed_button(action_frame, text="Save Loadout", command=self.save_loadout).pack(side="left", padx=4)
-        self.themed_button(action_frame, text="Load Loadout", command=self.load_loadout).pack(side="left", padx=4)
-        self.themed_button(action_frame, text="Patch Auto-Detected Save", command=self.patch_latest_save_file, style="primary").pack(side="left", padx=4)
+
+        # Loadouts are currently disabled in the UI because the app already
+        # persists and restores the working mod state automatically. Keep the
+        # underlying save/load methods intact in case this workflow is needed again.
+        self.themed_button(
+            action_frame,
+            text="Save Loadout",
+            command=self.save_loadout,
+            state=("normal" if ENABLE_LOADOUT_BUTTONS else "disabled"),
+            disabledforeground=THEME["muted"],
+            cursor=("hand2" if ENABLE_LOADOUT_BUTTONS else "arrow"),
+        ).pack(side="left", padx=4)
+        self.themed_button(
+            action_frame,
+            text="Load Loadout",
+            command=self.load_loadout,
+            state=("normal" if ENABLE_LOADOUT_BUTTONS else "disabled"),
+            disabledforeground=THEME["muted"],
+            cursor=("hand2" if ENABLE_LOADOUT_BUTTONS else "arrow"),
+        ).pack(side="left", padx=4)
+
+        # Auto-detected save patching is now a legacy fallback because profile
+        # patching covers the main workflow more reliably.
+        if SHOW_PRIMARY_AUTO_PATCH_BUTTON:
+            self.themed_button(
+                action_frame,
+                text="Patch Auto-Detected Save",
+                command=self.patch_latest_save_file,
+                style="primary"
+            ).pack(side="left", padx=4)
 
         self.tools_menu = tk.Menubutton(
             action_frame,
@@ -3482,6 +3514,7 @@ class ModManager:
         )
         self.tools_menu["menu"] = self.tools_menu.menu
         self.tools_menu.menu.add_command(label="Patch Chosen Save", command=self.patch_save_file)
+        self.tools_menu.menu.add_command(label="Patch Auto-Detected Save (Legacy)", command=self.patch_latest_save_file)
         self.tools_menu.menu.add_command(label="Generate Save Code", command=self.generate_save_code)
         self.tools_menu.menu.add_command(label="Apply Order to Local Mods", command=self.apply_order)
         self.tools_menu.menu.add_command(label="Restore Last Backup", command=self.restore_last_backup)
