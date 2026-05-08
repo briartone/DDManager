@@ -687,6 +687,46 @@ def dson_find_meta2_by_name(raw, header, meta2_entries, name):
     raise ValueError(f"Could not find {name!r} in save metadata.")
 
 
+def dson_field_payload_layout(data, entry, next_offset):
+    info = entry["info"] & 0x7FFFFFFF
+    name_length = (info >> 2) & 0x1FF
+    value_start = entry["offset"] + name_length
+    value_end = next_offset
+
+    if dson_object_index_from_info(entry["info"]) is not None:
+        return b"", value_start, value_end
+
+    if value_end <= value_start:
+        return b"", value_start, value_end
+
+    raw_value = data[value_start:value_end]
+    if len(raw_value) == 1:
+        return bytes(raw_value), value_start, value_end
+
+    aligned_start = value_start + ((-value_start) % 4)
+    if aligned_start > value_end:
+        return b"", aligned_start, value_end
+    return bytes(data[aligned_start:value_end]), aligned_start, value_end
+
+
+def dson_decode_scalar_field(data, entry, next_offset):
+    payload, _, _ = dson_field_payload_layout(data, entry, next_offset)
+    if not payload:
+        return None
+
+    if len(payload) == 1:
+        return bool(payload[0])
+
+    value, _, _, _ = dson_read_len_string_with_layout(payload, 0)
+    if value is not None:
+        return value
+
+    if len(payload) >= 4:
+        return struct.unpack_from("<i", payload, 0)[0]
+
+    return bytes(payload)
+
+
 def dson_align_pad(relative_offset, field_name):
     after_name = relative_offset + len(field_name.encode("utf-8")) + 1
     return (-after_name) % 4
@@ -1449,17 +1489,80 @@ class ModManager:
             return (9999, slot.get("path", "").lower())
         return (number, slot.get("path", "").lower())
 
+    def format_elapsed_hours(self, totalelapsed):
+        try:
+            hours = float(totalelapsed) / (1000 * 60 * 60)
+        except Exception:
+            return ""
+
+        if hours < 0:
+            return ""
+        return f"{hours:.1f}h"
+
+    def read_save_profile_metadata(self, path):
+        try:
+            mtime = os.path.getmtime(path)
+        except Exception:
+            mtime = None
+
+        cached = self.profile_metadata_cache.get(path)
+        if cached and cached.get("mtime") == mtime:
+            return dict(cached["metadata"])
+
+        metadata = {}
+
+        try:
+            with open(path, "rb") as f:
+                raw = f.read()
+
+            header = dson_parse_header(raw)
+            meta2_entries = dson_parse_meta2(raw, header)
+            data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
+            for field_index, entry in enumerate(meta2_entries):
+                name = dson_meta2_name(raw, header, entry)
+                if name not in {"date_time", "totalelapsed"}:
+                    continue
+                if dson_object_index_from_info(entry["info"]) is not None:
+                    continue
+
+                next_offset = (
+                    meta2_entries[field_index + 1]["offset"]
+                    if field_index + 1 < len(meta2_entries)
+                    else header["data_length"]
+                )
+                metadata[name] = dson_decode_scalar_field(data, entry, next_offset)
+
+                if "date_time" in metadata and "totalelapsed" in metadata:
+                    break
+        except Exception:
+            metadata = {}
+
+        self.profile_metadata_cache[path] = {
+            "mtime": mtime,
+            "metadata": dict(metadata),
+        }
+        return metadata
+
     def profile_label(self, path):
         number = self.profile_number_from_path(path)
-        try:
-            mtime = datetime.fromtimestamp(os.path.getmtime(path)).strftime("%Y-%m-%d %H:%M")
-        except Exception:
-            mtime = "unknown date"
+        metadata = self.read_save_profile_metadata(path)
+
+        save_date = str(metadata.get("date_time") or "").strip()
+        if not save_date:
+            try:
+                save_date = datetime.fromtimestamp(os.path.getmtime(path)).strftime("%Y-%m-%d %H:%M")
+            except Exception:
+                save_date = "unknown date"
+
+        hours_text = self.format_elapsed_hours(metadata.get("totalelapsed"))
 
         if number is None:
-            base = f"Unknown Profile - {mtime}"
+            base = f"Unknown Profile - {save_date}"
         else:
-            base = f"Profile {number} (slot {number + 1}) - {mtime}"
+            base = f"Profile {number} (slot {number + 1}) - {save_date}"
+
+        if hours_text:
+            base = f"{base} - {hours_text}"
 
         parent = os.path.basename(os.path.dirname(path))
         return f"{base} [{parent}]"
@@ -2321,8 +2424,10 @@ class ModManager:
         self.drag_label = None
         self.profile_slots = []
         self.profile_label_to_path = {}
+        self.profile_metadata_cache = {}
         self.startup_splash = None
         self.search_refresh_job = None
+        self.view_mode_job = None
         self.icon_redraw_job = None
         self.icon_load_job = None
         self.icon_load_queue = []
@@ -3058,6 +3163,15 @@ class ModManager:
         if mode not in VIEW_MODES:
             mode = "Comfortable"
         self.view_mode.set(mode)
+        if self.view_mode_job is not None:
+            try:
+                self.root.after_cancel(self.view_mode_job)
+            except Exception:
+                pass
+        self.view_mode_job = self.root.after(90, self.apply_pending_view_mode)
+
+    def apply_pending_view_mode(self):
+        self.view_mode_job = None
         self.icon_load_queue.clear()
         self.icon_load_pending.clear()
         if self.icon_load_job is not None:
@@ -3067,10 +3181,10 @@ class ModManager:
                 pass
             self.icon_load_job = None
         self.apply_view_mode()
-        if self.icons_enabled():
-            self.preload_preview_icons(self.state.get("order", []), max_size=self.preview_icon_size())
         self.save_state()
         self.refresh()
+        if self.icons_enabled():
+            self.queue_preview_icon_loads(self.state.get("order", []), max_size=self.preview_icon_size())
 
     def apply_view_mode(self):
         list_font = self.list_font()
@@ -3228,6 +3342,16 @@ class ModManager:
             if index % 25 == 0:
                 self.root.update_idletasks()
         self.record_startup_timing("preload_preview_icons", time.perf_counter() - start)
+
+    def queue_preview_icon_loads(self, mods=None, max_size=None):
+        if mods is None:
+            mods = self.state.get("order", [])
+        if max_size is None:
+            max_size = self.preview_icon_size()
+
+        for mod in mods:
+            self.preview_icon_path_for_mod(mod)
+            self.queue_icon_load(mod, max_size=max_size)
 
     def queue_icon_load(self, mod, max_size=None):
         if max_size is None:
