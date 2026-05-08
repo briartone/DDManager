@@ -71,19 +71,4 @@ If setup detection fails, use `Browse` for the mods folder and `Patch Chosen Sav
 
 To publish a GitHub Release automatically:
 
-```powershell
-git add .
-git commit -m "Prepare v0.1.0"
-git push
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-This repo includes a GitHub Actions workflow at `.github/workflows/release.yml` that builds the portable zip on tag pushes matching `v*` and uploads:
-
-- `DD Manager Portable.zip`
-- `DD Manager Portable.sha256`
-
-If you want to draft release notes first, create the tag after your final code push, then edit the generated GitHub Release page.
-
 See [`CHANGELOG.md`](CHANGELOG.md) for patch and release notes.
