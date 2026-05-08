@@ -2,6 +2,16 @@
 
 Small Windows Tkinter tool for sorting Darkest Dungeon mods and writing the enabled mod list into `persist.game.json`.
 
+## Repository Status
+
+This repository is not open source.
+
+Code is published here for visibility and release distribution, but all rights
+are reserved. You may not copy, modify, redistribute, or reuse this project
+without prior written permission.
+
+See [`LICENSE.md`](LICENSE.md) for the repository terms.
+
 ## Quick Start
 
 1. Run `dd2.py`.
