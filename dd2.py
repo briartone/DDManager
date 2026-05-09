@@ -2421,6 +2421,8 @@ class ModManager:
         self.drag_start_y = None
         self.drag_pressed_selected_index = None
         self.drag_pressed_selected_side = None
+        self.disabled_selection_anchor_index = None
+        self.enabled_selection_anchor_index = None
         self.drag_label = None
         self.profile_slots = []
         self.profile_label_to_path = {}
@@ -4893,6 +4895,41 @@ class ModManager:
     def get_visible_mods_for_side(self, side):
         return self.enabled_visible_mods if side == "enabled" else self.disabled_visible_mods
 
+    def set_selection_anchor_for_side(self, side, index):
+        listbox = self.get_listbox_for_side(side)
+        visible = self.get_visible_mods_for_side(side)
+
+        if not (0 <= index < len(visible)):
+            return
+
+        if side == "enabled":
+            self.enabled_selection_anchor_index = index
+        else:
+            self.disabled_selection_anchor_index = index
+
+        listbox.selection_anchor(index)
+
+    def get_selection_anchor_for_side(self, side, fallback_index):
+        visible = self.get_visible_mods_for_side(side)
+        listbox = self.get_listbox_for_side(side)
+        anchor = (
+            self.enabled_selection_anchor_index
+            if side == "enabled"
+            else self.disabled_selection_anchor_index
+        )
+
+        if anchor is not None and 0 <= anchor < len(visible):
+            return anchor
+
+        selection = listbox.curselection()
+        if selection:
+            anchor = selection[0]
+        else:
+            anchor = fallback_index
+
+        self.set_selection_anchor_for_side(side, anchor)
+        return anchor
+
     def begin_drag(self, side, index, event):
         listbox = self.get_listbox_for_side(side)
         current_selection = listbox.curselection()
@@ -4902,7 +4939,7 @@ class ModManager:
         else:
             listbox.selection_clear(0, tk.END)
             listbox.selection_set(index)
-            listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side(side, index)
             listbox.activate(index)
             selected_indices = [index]
 
@@ -5022,12 +5059,18 @@ class ModManager:
         target_listbox = self.get_listbox_for_side(to_side)
         target_listbox.selection_clear(0, tk.END)
         refreshed_visible = self.get_visible_mods_for_side(to_side)
+        first_selected_index = None
 
         for mod in moved_mods:
             if mod in refreshed_visible:
                 idx = refreshed_visible.index(mod)
+                if first_selected_index is None:
+                    first_selected_index = idx
                 target_listbox.selection_set(idx)
-                target_listbox.activate(idx) 
+                target_listbox.activate(idx)
+
+        if first_selected_index is not None:
+            self.set_selection_anchor_for_side(to_side, first_selected_index)
 
 
     # -----------------------------------------------------
@@ -5053,23 +5096,24 @@ class ModManager:
         shift_held = bool(event.state & 0x0001)
         ctrl_held = bool(event.state & 0x0004)
 
-        # SHIFT = extend from Tk's internal anchor
+        # SHIFT = grow the current highlighted span upward or downward
+        # without dropping the rows that were already selected.
         if shift_held:
-            try:
-                anchor = self.disabled_listbox.index("anchor")
-            except Exception:
-                anchor = index
+            anchor = self.get_selection_anchor_for_side("disabled", index)
+            current_selection = list(self.disabled_listbox.curselection())
 
-            if anchor is None or anchor < 0:
-                anchor = index
-
-            start = min(anchor, index)
-            end = max(anchor, index)
+            if current_selection:
+                start = min(current_selection[0], index)
+                end = max(current_selection[-1], index)
+            else:
+                start = min(anchor, index)
+                end = max(anchor, index)
 
             self.disabled_listbox.selection_clear(0, tk.END)
             for i in range(start, end + 1):
                 self.disabled_listbox.selection_set(i)
 
+            self.set_selection_anchor_for_side("disabled", anchor)
             self.disabled_listbox.activate(index)
             self.disabled_listbox.see(index)
             self.clear_drag_state()
@@ -5082,7 +5126,7 @@ class ModManager:
             else:
                 self.disabled_listbox.selection_set(index)
 
-            self.disabled_listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side("disabled", index)
             self.disabled_listbox.activate(index)
             self.clear_drag_state()
             return "break"
@@ -5093,11 +5137,11 @@ class ModManager:
         if index not in current_selection:
             self.disabled_listbox.selection_clear(0, tk.END)
             self.disabled_listbox.selection_set(index)
-            self.disabled_listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side("disabled", index)
             self.drag_pressed_selected_index = None
             self.drag_pressed_selected_side = None
         else:
-            self.disabled_listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side("disabled", index)
             self.drag_pressed_selected_index = index
             self.drag_pressed_selected_side = "disabled"
         self.disabled_listbox.activate(index)
@@ -5137,11 +5181,16 @@ class ModManager:
                 self.refresh()
 
                 self.disabled_listbox.selection_clear(0, tk.END)
+                first_selected_index = None
                 for mod in self.drag_selection:
                     if mod in self.disabled_visible_mods:
                         idx = self.disabled_visible_mods.index(mod)
+                        if first_selected_index is None:
+                            first_selected_index = idx
                         self.disabled_listbox.selection_set(idx)
                         self.disabled_listbox.activate(idx)
+                if first_selected_index is not None:
+                    self.set_selection_anchor_for_side("disabled", first_selected_index)
 
         return "break"
 
@@ -5164,7 +5213,7 @@ class ModManager:
             index = self.drag_pressed_selected_index
             self.disabled_listbox.selection_clear(0, tk.END)
             self.disabled_listbox.selection_set(index)
-            self.disabled_listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side("disabled", index)
             self.disabled_listbox.activate(index)
             self.disabled_listbox.see(index)
 
@@ -5189,23 +5238,24 @@ class ModManager:
         shift_held = bool(event.state & 0x0001)
         ctrl_held = bool(event.state & 0x0004)
 
-        # SHIFT = extend from Tk's internal anchor
+        # SHIFT = grow the current highlighted span upward or downward
+        # without dropping the rows that were already selected.
         if shift_held:
-            try:
-                anchor = self.enabled_listbox.index("anchor")
-            except Exception:
-                anchor = index
+            anchor = self.get_selection_anchor_for_side("enabled", index)
+            current_selection = list(self.enabled_listbox.curselection())
 
-            if anchor is None or anchor < 0:
-                anchor = index
-
-            start = min(anchor, index)
-            end = max(anchor, index)
+            if current_selection:
+                start = min(current_selection[0], index)
+                end = max(current_selection[-1], index)
+            else:
+                start = min(anchor, index)
+                end = max(anchor, index)
 
             self.enabled_listbox.selection_clear(0, tk.END)
             for i in range(start, end + 1):
                 self.enabled_listbox.selection_set(i)
 
+            self.set_selection_anchor_for_side("enabled", anchor)
             self.enabled_listbox.activate(index)
             self.enabled_listbox.see(index)
             self.clear_drag_state()
@@ -5218,7 +5268,7 @@ class ModManager:
             else:
                 self.enabled_listbox.selection_set(index)
 
-            self.enabled_listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side("enabled", index)
             self.enabled_listbox.activate(index)
             self.clear_drag_state()
             return "break"
@@ -5229,11 +5279,11 @@ class ModManager:
         if index not in current_selection:
             self.enabled_listbox.selection_clear(0, tk.END)
             self.enabled_listbox.selection_set(index)
-            self.enabled_listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side("enabled", index)
             self.drag_pressed_selected_index = None
             self.drag_pressed_selected_side = None
         else:
-            self.enabled_listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side("enabled", index)
             self.drag_pressed_selected_index = index
             self.drag_pressed_selected_side = "enabled"
         self.enabled_listbox.activate(index)
@@ -5273,11 +5323,16 @@ class ModManager:
                 self.refresh()
 
                 self.enabled_listbox.selection_clear(0, tk.END)
+                first_selected_index = None
                 for mod in self.drag_selection:
                     if mod in self.enabled_visible_mods:
                         idx = self.enabled_visible_mods.index(mod)
+                        if first_selected_index is None:
+                            first_selected_index = idx
                         self.enabled_listbox.selection_set(idx)
                         self.enabled_listbox.activate(idx)
+                if first_selected_index is not None:
+                    self.set_selection_anchor_for_side("enabled", first_selected_index)
 
         return "break"
 
@@ -5300,7 +5355,7 @@ class ModManager:
             index = self.drag_pressed_selected_index
             self.enabled_listbox.selection_clear(0, tk.END)
             self.enabled_listbox.selection_set(index)
-            self.enabled_listbox.selection_anchor(index)
+            self.set_selection_anchor_for_side("enabled", index)
             self.enabled_listbox.activate(index)
             self.enabled_listbox.see(index)
 

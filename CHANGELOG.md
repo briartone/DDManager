@@ -2,6 +2,11 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.2 - 2026-05-09
+
+- Fixed Shift-click multi-select in both mod panels so repeated range selections keep expanding the current highlight instead of collapsing it or jumping to an unexpected anchor.
+- Kept selection-anchor tracking stable across drag, reorder, and cross-panel moves so follow-up Shift selections behave consistently after list interactions.
+
 ## v0.1.1 - 2026-05-08
 
 - Added an explicit proprietary `LICENSE.md` and README notice clarifying that the repository is not open source.
