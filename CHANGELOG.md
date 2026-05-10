@@ -2,6 +2,12 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.3 - 2026-05-10
+
+- Added preliminary Linux-aware Steam detection for common install roots and library paths while keeping the current Windows auto-detect behavior unchanged.
+- Added a Linux fallback for launching Darkest Dungeon through Steam when `os.startfile(...)` is not available.
+- Added Linux font fallbacks for the main UI, splash screen, and code preview while preserving the existing Windows font choices.
+
 ## v0.1.2 - 2026-05-09
 
 - Fixed Shift-click multi-select in both mod panels so repeated range selections keep expanding the current highlight instead of collapsing it or jumping to an unexpected anchor.

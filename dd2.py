@@ -6,6 +6,7 @@ import re
 import shutil
 import struct
 import sys
+import subprocess
 import time
 import traceback
 import tkinter as tk
@@ -35,6 +36,8 @@ STARTUP_PROFILE_LOG = os.path.join(APP_DIR, "startup_profile.log")
 STARTUP_PROFILING_ENABLED = False
 STEAM_APP_ID = "262060"
 DD_GAME_NAME = "DarkestDungeon"
+IS_WINDOWS = sys.platform.startswith("win")
+IS_LINUX = sys.platform.startswith("linux")
 
 # Profile-based patching is now the default flow. Keep older save-patch and
 # loadout features behind secondary UI until they are needed again.
@@ -92,30 +95,39 @@ THEME = {
     "ink": "#050505",
 }
 
-FONT_TITLE = ("Georgia", 20, "bold")
-FONT_SUBTITLE = ("Georgia", 10, "italic")
-FONT_HEADING = ("Georgia", 12, "bold")
-FONT_BODY = ("Segoe UI", 10)
-FONT_BUTTON = ("Segoe UI", 9, "bold")
+def platform_font(preferred, linux_fallback):
+    if IS_WINDOWS:
+        return preferred
+    if IS_LINUX:
+        return linux_fallback
+    return preferred
+
+
+FONT_TITLE = (platform_font("Georgia", "DejaVu Serif"), 20, "bold")
+FONT_SUBTITLE = (platform_font("Georgia", "DejaVu Serif"), 10, "italic")
+FONT_HEADING = (platform_font("Georgia", "DejaVu Serif"), 12, "bold")
+FONT_BODY = (platform_font("Segoe UI", "DejaVu Sans"), 10)
+FONT_BUTTON = (platform_font("Segoe UI", "DejaVu Sans"), 9, "bold")
+FONT_MONO = (platform_font("Consolas", "DejaVu Sans Mono"), 10)
 
 VIEW_MODES = {
     "No Icons": {
-        "list_font": ("Segoe UI", 14),
+        "list_font": (platform_font("Segoe UI", "DejaVu Sans"), 14),
         "icon_size": 0,
         "icon_strip_width": 0,
     },
     "Compact": {
-        "list_font": ("Segoe UI", 12),
+        "list_font": (platform_font("Segoe UI", "DejaVu Sans"), 12),
         "icon_size": 28,
         "icon_strip_width": 32,
     },
     "Comfortable": {
-        "list_font": ("Segoe UI", 16),
+        "list_font": (platform_font("Segoe UI", "DejaVu Sans"), 16),
         "icon_size": 40,
         "icon_strip_width": 44,
     },
     "Visual": {
-        "list_font": ("Segoe UI", 24),
+        "list_font": (platform_font("Segoe UI", "DejaVu Sans"), 24),
         "icon_size": 52,
         "icon_strip_width": 56,
     },
@@ -163,7 +175,7 @@ def create_startup_splash(root):
         text="Darkest Dungeon Mod Manager",
         bg=THEME["panel"],
         fg=THEME["text_bright"],
-        font=("Georgia", 22, "bold"),
+        font=(platform_font("Georgia", "DejaVu Serif"), 22, "bold"),
     ).pack(pady=(26, 6))
 
     status_label = tk.Label(
@@ -181,7 +193,7 @@ def create_startup_splash(root):
         text="The hamlet is stirring...",
         bg=THEME["panel"],
         fg=THEME["gold"],
-        font=("Georgia", 11, "italic"),
+        font=(platform_font("Georgia", "DejaVu Serif"), 11, "italic"),
     ).pack(pady=(18, 0))
 
     bottom_rule = tk.Frame(panel, bg=THEME["gold"], height=2)
@@ -1262,16 +1274,29 @@ class ModManager:
 
     def steam_install_roots(self):
         roots = []
-        for env_name in ("PROGRAMFILES(X86)", "PROGRAMFILES"):
-            base = os.environ.get(env_name)
-            if base:
-                candidate = os.path.join(base, "Steam")
+        if IS_WINDOWS:
+            for env_name in ("PROGRAMFILES(X86)", "PROGRAMFILES"):
+                base = os.environ.get(env_name)
+                if base:
+                    candidate = os.path.join(base, "Steam")
+                    if os.path.isdir(candidate):
+                        roots.append(candidate)
+
+            default = r"C:\Program Files (x86)\Steam"
+            if os.path.isdir(default):
+                roots.append(default)
+        elif IS_LINUX:
+            home = os.path.expanduser("~")
+            linux_candidates = [
+                os.path.join(home, ".steam", "steam"),
+                os.path.join(home, ".steam", "root"),
+                os.path.join(home, ".local", "share", "Steam"),
+                os.path.join(home, ".var", "app", "com.valvesoftware.Steam", ".local", "share", "Steam"),
+                os.path.join(home, ".var", "app", "com.valvesoftware.Steam", "data", "Steam"),
+            ]
+            for candidate in linux_candidates:
                 if os.path.isdir(candidate):
                     roots.append(candidate)
-
-        default = r"C:\Program Files (x86)\Steam"
-        if os.path.isdir(default):
-            roots.append(default)
 
         seen = set()
         unique_roots = []
@@ -1295,7 +1320,7 @@ class ModManager:
             except Exception:
                 continue
             for match in re.finditer(r'"path"\s+"([^"]+)"', text):
-                library = match.group(1).replace("\\\\", "\\")
+                library = os.path.expanduser(match.group(1).replace("\\\\", "\\"))
                 if os.path.isdir(library):
                     libraries.append(library)
 
@@ -1461,6 +1486,26 @@ class ModManager:
                 if not os.path.isdir(remote):
                     continue
                 for root_dir, _, files in os.walk(remote):
+                    if "persist.game.json" in files:
+                        candidates.append(os.path.join(root_dir, "persist.game.json"))
+
+        if IS_LINUX:
+            for library in self.steam_library_roots():
+                compat_root = os.path.join(
+                    library,
+                    "steamapps",
+                    "compatdata",
+                    STEAM_APP_ID,
+                    "pfx",
+                    "drive_c",
+                    "users",
+                    "steamuser",
+                    "Documents",
+                    "Darkest",
+                )
+                if not os.path.isdir(compat_root):
+                    continue
+                for root_dir, _, files in os.walk(compat_root):
                     if "persist.game.json" in files:
                         candidates.append(os.path.join(root_dir, "persist.game.json"))
 
@@ -4302,8 +4347,27 @@ class ModManager:
 
     # Launches Darkest Dungeon through Steam's URI handler.
     def launch_darkest_dungeon(self):
+        steam_uri = "steam://rungameid/262060"
         try:
-            os.startfile("steam://rungameid/262060")
+            if IS_WINDOWS:
+                os.startfile(steam_uri)
+                return
+
+            launch_commands = []
+            if IS_LINUX:
+                launch_commands.extend((
+                    ["xdg-open", steam_uri],
+                    ["steam", steam_uri],
+                ))
+
+            for command in launch_commands:
+                try:
+                    subprocess.Popen(command)
+                    return
+                except FileNotFoundError:
+                    continue
+
+            raise RuntimeError("No supported Steam launcher was found on this platform.")
         except Exception as e:
             messagebox.showerror(
                 "Launch Failed",
@@ -5601,7 +5665,7 @@ class ModManager:
             bg=THEME["panel_deep"],
             fg=THEME["text_bright"],
             insertbackground=THEME["gold"],
-            font=("Consolas", 10)
+            font=FONT_MONO
         )
         text.pack(fill="both", expand=True, padx=12, pady=12)
         text.insert("1.0", output)
