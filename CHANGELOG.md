@@ -2,6 +2,11 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.4 - 2026-05-11
+
+- Improved Windows profile auto-detection by reading Steam install paths from the registry instead of relying only on default `Program Files` locations.
+- Added a Windows fallback scan for `Documents\\Darkest` profile saves so profiles can still be found when Steam Cloud paths are missing or not in use.
+
 ## v0.1.3 - 2026-05-10
 
 - Added preliminary Linux-aware Steam detection for common install roots and library paths while keeping the current Windows auto-detect behavior unchanged.

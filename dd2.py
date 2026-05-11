@@ -14,6 +14,11 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from tkinter import colorchooser, filedialog, messagebox, simpledialog
 
+try:
+    import winreg
+except ImportError:
+    winreg = None
+
 # =========================================================
 # Darkest Dungeon Mod Manager
 # =========================================================
@@ -1275,6 +1280,21 @@ class ModManager:
     def steam_install_roots(self):
         roots = []
         if IS_WINDOWS:
+            if winreg is not None:
+                for hive, subkey, value_name in (
+                    (winreg.HKEY_CURRENT_USER, r"Software\Valve\Steam", "SteamPath"),
+                    (winreg.HKEY_CURRENT_USER, r"Software\Valve\Steam", "InstallPath"),
+                    (winreg.HKEY_LOCAL_MACHINE, r"Software\Valve\Steam", "InstallPath"),
+                    (winreg.HKEY_LOCAL_MACHINE, r"Software\WOW6432Node\Valve\Steam", "InstallPath"),
+                ):
+                    try:
+                        with winreg.OpenKey(hive, subkey) as key:
+                            value, _ = winreg.QueryValueEx(key, value_name)
+                    except Exception:
+                        continue
+                    if value and os.path.isdir(value):
+                        roots.append(value)
+
             for env_name in ("PROGRAMFILES(X86)", "PROGRAMFILES"):
                 base = os.environ.get(env_name)
                 if base:
@@ -1297,6 +1317,34 @@ class ModManager:
             for candidate in linux_candidates:
                 if os.path.isdir(candidate):
                     roots.append(candidate)
+
+        seen = set()
+        unique_roots = []
+        for root in roots:
+            norm = os.path.normcase(os.path.abspath(root))
+            if norm not in seen:
+                unique_roots.append(root)
+                seen.add(norm)
+        return unique_roots
+
+    def windows_documents_roots(self):
+        roots = []
+        for env_name in (
+            "USERPROFILE",
+            "OneDrive",
+            "OneDriveConsumer",
+            "OneDriveCommercial",
+        ):
+            base = os.environ.get(env_name)
+            if not base:
+                continue
+            candidate = os.path.join(base, "Documents")
+            if os.path.isdir(candidate):
+                roots.append(candidate)
+
+        expanded = os.path.expanduser("~/Documents")
+        if os.path.isdir(expanded):
+            roots.append(expanded)
 
         seen = set()
         unique_roots = []
@@ -1506,6 +1554,15 @@ class ModManager:
                 if not os.path.isdir(compat_root):
                     continue
                 for root_dir, _, files in os.walk(compat_root):
+                    if "persist.game.json" in files:
+                        candidates.append(os.path.join(root_dir, "persist.game.json"))
+
+        if IS_WINDOWS:
+            for documents_root in self.windows_documents_roots():
+                darkest_root = os.path.join(documents_root, "Darkest")
+                if not os.path.isdir(darkest_root):
+                    continue
+                for root_dir, _, files in os.walk(darkest_root):
                     if "persist.game.json" in files:
                         candidates.append(os.path.join(root_dir, "persist.game.json"))
 
