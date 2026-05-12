@@ -2,6 +2,15 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.5 - 2026-05-11
+
+- Added GOG-aware game install detection on Windows, including common GOG Galaxy folders and registry-based install paths.
+- Added a Windows fallback scan for `Documents\\Darkest` saves and a Linux non-Steam fallback scan for `~/.local/share/Red Hook Studios/Darkest/`.
+- Added a new `File Paths` dialog so users can review, auto-fill, clear, or manually override the game install folder, active mods folder, local mods folder, Workshop mods folder, and profile save file.
+- `File Paths` now shows the live resolved paths the app is currently using, normalizes displayed paths, and lets users recover when auto-detect misses part of a non-Steam setup.
+- Renamed `Load Mods` to `Refresh Mods` so the button better reflects rescanning for new installs, updates, and subscriptions.
+- Windows launch now falls back to the local game executable when the Steam URI is unavailable.
+
 ## v0.1.4 - 2026-05-11
 
 - Improved Windows profile auto-detection by reading Steam install paths from the registry instead of relying only on default `Program Files` locations.

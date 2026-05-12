@@ -41,6 +41,7 @@ STARTUP_PROFILE_LOG = os.path.join(APP_DIR, "startup_profile.log")
 STARTUP_PROFILING_ENABLED = False
 STEAM_APP_ID = "262060"
 DD_GAME_NAME = "DarkestDungeon"
+DD_GAME_DIR_NAMES = ("DarkestDungeon", "Darkest Dungeon")
 IS_WINDOWS = sys.platform.startswith("win")
 IS_LINUX = sys.platform.startswith("linux")
 
@@ -1125,7 +1126,7 @@ class ModManager:
         enabled_mods = [m for m in order if enabled_map.get(m, True)]
 
         if not order:
-            raise ValueError("No mods are loaded. Load your mods folder before patching a save.")
+            raise ValueError("No mods are loaded. Set your mods folder and refresh mods before patching a save.")
         if not enabled_mods:
             raise ValueError("No mods are enabled. Enable at least one mod before patching a save.")
 
@@ -1381,11 +1382,70 @@ class ModManager:
                 seen.add(norm)
         return unique_libraries
 
-    # Finds installed Darkest Dungeon game roots across Steam libraries.
+    def gog_game_roots(self):
+        roots = []
+        if not IS_WINDOWS:
+            return roots
+
+        if winreg is not None:
+            registry_keys = (
+                (winreg.HKEY_LOCAL_MACHINE, r"Software\GOG.com\Games"),
+                (winreg.HKEY_LOCAL_MACHINE, r"Software\WOW6432Node\GOG.com\Games"),
+                (winreg.HKEY_CURRENT_USER, r"Software\GOG.com\Games"),
+            )
+            for hive, subkey in registry_keys:
+                try:
+                    with winreg.OpenKey(hive, subkey) as games_key:
+                        index = 0
+                        while True:
+                            try:
+                                child_name = winreg.EnumKey(games_key, index)
+                            except OSError:
+                                break
+                            index += 1
+
+                            try:
+                                with winreg.OpenKey(games_key, child_name) as child_key:
+                                    value, _ = winreg.QueryValueEx(child_key, "path")
+                            except Exception:
+                                continue
+
+                            if value and os.path.isdir(value):
+                                roots.append(value)
+                except Exception:
+                    continue
+
+        for base in (
+            r"C:\GOG Games",
+            r"C:\Program Files (x86)\GOG Galaxy\Games",
+            r"C:\Program Files\GOG Galaxy\Games",
+        ):
+            if not os.path.isdir(base):
+                continue
+            for folder_name in DD_GAME_DIR_NAMES:
+                candidate = os.path.join(base, folder_name)
+                if os.path.isdir(candidate):
+                    roots.append(candidate)
+
+        seen = set()
+        unique_roots = []
+        for root in roots:
+            norm = os.path.normcase(os.path.abspath(root))
+            if norm not in seen:
+                unique_roots.append(root)
+                seen.add(norm)
+        return unique_roots
+
+    # Finds installed Darkest Dungeon game roots across Steam libraries
+    # and common GOG install locations.
     def candidate_game_folders(self):
         candidates = []
         for library in self.steam_library_roots():
-            candidate = os.path.join(library, "steamapps", "common", DD_GAME_NAME)
+            for folder_name in DD_GAME_DIR_NAMES:
+                candidate = os.path.join(library, "steamapps", "common", folder_name)
+                if os.path.isdir(candidate):
+                    candidates.append(candidate)
+        for candidate in self.gog_game_roots():
             if os.path.isdir(candidate):
                 candidates.append(candidate)
 
@@ -1399,6 +1459,9 @@ class ModManager:
         return unique
 
     def detect_game_install_path(self):
+        manual = self.state.get("manual_game_root", "")
+        if manual and os.path.isdir(manual):
+            return manual
         candidates = self.candidate_game_folders()
         if not candidates:
             return ""
@@ -1421,6 +1484,9 @@ class ModManager:
         return unique
 
     def detect_local_mod_folder(self):
+        manual = self.state.get("manual_local_mods_path", "")
+        if manual and os.path.isdir(manual):
+            return manual
         candidates = self.candidate_local_mod_folders()
         if not candidates:
             return ""
@@ -1443,6 +1509,27 @@ class ModManager:
         return unique
 
     def detect_workshop_mod_folder(self):
+        manual = self.state.get("manual_workshop_mods_path", "")
+        if manual and os.path.isdir(manual):
+            return manual
+        candidates = self.candidate_workshop_mod_folders()
+        if not candidates:
+            return ""
+        return candidates[0]
+
+    def raw_detect_game_install_path(self):
+        candidates = self.candidate_game_folders()
+        if not candidates:
+            return ""
+        return candidates[0]
+
+    def raw_detect_local_mod_folder(self):
+        candidates = self.candidate_local_mod_folders()
+        if not candidates:
+            return ""
+        return candidates[0]
+
+    def raw_detect_workshop_mod_folder(self):
         candidates = self.candidate_workshop_mod_folders()
         if not candidates:
             return ""
@@ -1514,13 +1601,8 @@ class ModManager:
                 seen.add(norm)
         return unique
 
-    def detect_save_files(self):
+    def detected_save_files_from_disk(self):
         candidates = []
-
-        last_save = self.state.get("last_save_path", "")
-        if last_save:
-            candidates.append(last_save)
-
         for steam_root in self.steam_install_roots():
             userdata = os.path.join(steam_root, "userdata")
             if not os.path.isdir(userdata):
@@ -1557,6 +1639,18 @@ class ModManager:
                     if "persist.game.json" in files:
                         candidates.append(os.path.join(root_dir, "persist.game.json"))
 
+            linux_local_root = os.path.join(
+                os.path.expanduser("~"),
+                ".local",
+                "share",
+                "Red Hook Studios",
+                "Darkest",
+            )
+            if os.path.isdir(linux_local_root):
+                for root_dir, _, files in os.walk(linux_local_root):
+                    if "persist.game.json" in files:
+                        candidates.append(os.path.join(root_dir, "persist.game.json"))
+
         if IS_WINDOWS:
             for documents_root in self.windows_documents_roots():
                 darkest_root = os.path.join(documents_root, "Darkest")
@@ -1565,6 +1659,21 @@ class ModManager:
                 for root_dir, _, files in os.walk(darkest_root):
                     if "persist.game.json" in files:
                         candidates.append(os.path.join(root_dir, "persist.game.json"))
+
+        return candidates
+
+    def detect_save_files(self):
+        candidates = []
+
+        selected_save = self.state.get("selected_profile_path", "")
+        if selected_save:
+            candidates.append(selected_save)
+
+        last_save = self.state.get("last_save_path", "")
+        if last_save:
+            candidates.append(last_save)
+
+        candidates.extend(self.detected_save_files_from_disk())
 
         valid = []
         seen = set()
@@ -1798,12 +1907,12 @@ class ModManager:
                 messagebox.showwarning(
                     "Nothing Found",
                     "I could not auto-detect a Darkest Dungeon install, mods folder, or save file.\n\n"
-                    "Use Browse to select your mods folder manually."
+                    "Use File Paths to set the game, mods, or profile paths manually."
                 )
 
     # Startup path discovery always refreshes mods and profiles from disk
     # when Darkest Dungeon paths can be detected, so the app does not rely
-    # on a manual Load Mods click just to see new Workshop or local mods.
+    # on a manual Refresh Mods click just to see new Workshop or local mods.
     def run_first_start_setup(self, show_popup=True):
         setup_start = time.perf_counter()
         current_mods_path = self.mods_path.get().strip()
@@ -1858,7 +1967,7 @@ class ModManager:
         self.update_startup_splash("Scanning profile saves...")
         self.timed_startup_call("run_first_start_setup.refresh_profile_menu", self.refresh_profile_menu)
         self.status_label.config(
-            text="No Darkest Dungeon install was auto-detected. Choose your mods folder, then click Load Mods."
+            text="No Darkest Dungeon install was auto-detected. Open File Paths to set folders manually, then click Refresh Mods."
         )
         self.record_startup_timing("run_first_start_setup.total", time.perf_counter() - setup_start)
 
@@ -2084,7 +2193,7 @@ class ModManager:
             else:
                 messagebox.showwarning(
                     "No Mods Loaded",
-                    "Load your mods folder before importing a profile's mod list."
+                    "Set your mods folder and refresh mods before importing a profile's mod list."
                 )
                 return
 
@@ -2500,6 +2609,9 @@ class ModManager:
             "last_backup_path": "",
             "last_output_path": "",
             "selected_profile_path": "",
+            "manual_game_root": "",
+            "manual_local_mods_path": "",
+            "manual_workshop_mods_path": "",
             "view_mode": "Comfortable",
             "order": [],
             "categories": {},
@@ -3654,7 +3766,7 @@ class ModManager:
         )
         path_entry.pack(side="left", fill="x", expand=True, padx=(0, 8))
 
-        self.themed_button(top, text="Browse", command=self.browse).pack(side="left", padx=4)
+        self.themed_button(top, text="File Paths", command=self.browse).pack(side="left", padx=4)
         self.themed_button(top, text="Auto Detect", command=self.run_auto_detect).pack(side="left", padx=4)
 
         profile_frame = self.themed_frame(self.root)
@@ -3682,7 +3794,7 @@ class ModManager:
         action_frame = self.themed_frame(self.root)
         action_frame.pack(fill="x", padx=14, pady=(0, 10))
 
-        self.themed_button(action_frame, text="Load Mods", command=self.load_mods).pack(side="left", padx=(0, 4))
+        self.themed_button(action_frame, text="Refresh Mods", command=self.load_mods).pack(side="left", padx=(0, 4))
 
         # Loadouts are currently disabled in the UI because the app already
         # persists and restores the working mod state automatically. Keep the
@@ -4337,6 +4449,9 @@ class ModManager:
         self.state.setdefault("last_backup_path", "")
         self.state.setdefault("last_output_path", "")
         self.state.setdefault("selected_profile_path", "")
+        self.state.setdefault("manual_game_root", "")
+        self.state.setdefault("manual_local_mods_path", "")
+        self.state.setdefault("manual_workshop_mods_path", "")
         self.state.setdefault("first_run_summary_shown", False)
         self.state.setdefault("view_mode", "Comfortable")
         self.state.setdefault("order", [])
@@ -4399,16 +4514,186 @@ class ModManager:
             json.dump(self.state, f, indent=2)
 
     # -----------------------------------------------------
-    # STEAM LAUNCH / LOADOUT FILES
+    # PATH OVERRIDES / LAUNCH / LOADOUT FILES
     # -----------------------------------------------------
+
+    def manual_path_entries(self):
+        return [
+            {
+                "key": "manual_game_root",
+                "label": "Game install folder",
+                "kind": "dir",
+                "current": self.detect_game_install_path,
+                "detected": self.raw_detect_game_install_path,
+            },
+            {
+                "key": "mods_path",
+                "label": "Active mods folder",
+                "kind": "dir",
+                "current": lambda: self.mods_path.get().strip() or self.detect_best_mod_folder(),
+                "detected": self.detect_best_mod_folder,
+            },
+            {
+                "key": "manual_local_mods_path",
+                "label": "Local mods folder",
+                "kind": "dir",
+                "current": self.detect_local_mod_folder,
+                "detected": self.raw_detect_local_mod_folder,
+            },
+            {
+                "key": "manual_workshop_mods_path",
+                "label": "Workshop mods folder",
+                "kind": "dir",
+                "current": self.detect_workshop_mod_folder,
+                "detected": self.raw_detect_workshop_mod_folder,
+            },
+            {
+                "key": "selected_profile_path",
+                "label": "Profile save file",
+                "kind": "file",
+                "current": lambda: self.selected_profile_path() or self.detect_latest_save_file(),
+                "detected": lambda: max(
+                    self.detected_save_files_from_disk(),
+                    key=lambda path: os.path.getmtime(path),
+                    default="",
+                ),
+            },
+        ]
+
+    def normalize_display_path(self, path):
+        path = str(path or "").strip()
+        if not path:
+            return ""
+        return os.path.normpath(path)
+
+    def browse_path_value(self, var, kind):
+        current = self.normalize_display_path(var.get())
+        initialdir = current
+        if kind == "file" and current:
+            parent = os.path.dirname(current)
+            if os.path.isdir(parent):
+                initialdir = parent
+        if not os.path.isdir(initialdir):
+            initialdir = os.path.expanduser("~")
+
+        if kind == "file":
+            path = filedialog.askopenfilename(
+                title="Select persist.game.json",
+                initialdir=initialdir,
+                filetypes=[("Darkest Dungeon save", "*persist.game.json"), ("JSON files", "*.json"), ("All files", "*.*")]
+            )
+        else:
+            path = filedialog.askdirectory(initialdir=initialdir)
+
+        if path:
+            var.set(self.normalize_display_path(path))
+
+    def save_manual_paths(self, values, dialog):
+        self.state["manual_game_root"] = self.normalize_display_path(values["manual_game_root"].get())
+        self.state["manual_local_mods_path"] = self.normalize_display_path(values["manual_local_mods_path"].get())
+        self.state["manual_workshop_mods_path"] = self.normalize_display_path(values["manual_workshop_mods_path"].get())
+
+        mods_path = self.normalize_display_path(values["mods_path"].get())
+        self.mods_path.set(mods_path)
+
+        selected_profile_path = self.normalize_display_path(values["selected_profile_path"].get())
+        self.state["selected_profile_path"] = selected_profile_path
+        if selected_profile_path:
+            self.state["last_save_path"] = selected_profile_path
+
+        self.save_state()
+        self.refresh_profile_menu()
+
+        if os.path.isdir(mods_path):
+            self.load_mods()
+        else:
+            self.refresh()
+
+        if selected_profile_path and os.path.isfile(selected_profile_path):
+            self.status_label.config(text=f"Manual paths saved. Profile save: {selected_profile_path}")
+        elif mods_path:
+            self.status_label.config(text=f"Manual paths saved. Active mods folder: {mods_path}")
+        else:
+            self.status_label.config(text="Manual paths saved.")
+
+        dialog.destroy()
+
+    def open_paths_editor(self):
+        dialog = tk.Toplevel(self.root)
+        dialog.title("File Paths")
+        dialog.geometry("1020x380")
+        dialog.configure(bg=THEME["bg"])
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        self.themed_label(
+            dialog,
+            text="Edit the paths the app uses when auto-detect misses something.",
+            style="heading"
+        ).pack(anchor="w", padx=14, pady=(14, 4))
+        self.themed_label(
+            dialog,
+            text="Leave a field blank to keep using auto-detect for that path.",
+            style="muted"
+        ).pack(anchor="w", padx=14, pady=(0, 12))
+
+        values = {}
+        grid = self.themed_frame(dialog)
+        grid.pack(fill="both", expand=True, padx=14, pady=(0, 12))
+        grid.grid_columnconfigure(1, weight=1)
+
+        for row_index, entry in enumerate(self.manual_path_entries()):
+            self.themed_label(grid, text=entry["label"]).grid(row=row_index, column=0, sticky="w", padx=(0, 10), pady=6)
+            var = tk.StringVar(value=self.normalize_display_path(entry["current"]()))
+            values[entry["key"]] = var
+            self.themed_entry(grid, textvariable=var).grid(row=row_index, column=1, sticky="ew", pady=6)
+            self.themed_button(
+                grid,
+                text="Browse",
+                command=lambda current_var=var, current_kind=entry["kind"]: self.browse_path_value(current_var, current_kind)
+            ).grid(row=row_index, column=2, padx=6, pady=6)
+            self.themed_button(
+                grid,
+                text="Auto",
+                command=lambda current_var=var, detected=entry["detected"]: current_var.set(self.normalize_display_path(detected()))
+            ).grid(row=row_index, column=3, padx=6, pady=6)
+            self.themed_button(
+                grid,
+                text="Clear",
+                command=lambda current_var=var: current_var.set("")
+            ).grid(row=row_index, column=4, padx=(6, 0), pady=6)
+
+        button_row = self.themed_frame(dialog)
+        button_row.pack(fill="x", padx=14, pady=(0, 14))
+        self.themed_button(
+            button_row,
+            text="Save File Paths",
+            command=lambda: self.save_manual_paths(values, dialog),
+            style="primary"
+        ).pack(side="left", padx=(0, 6))
+        self.themed_button(button_row, text="Cancel", command=dialog.destroy).pack(side="left", padx=6)
 
     # Launches Darkest Dungeon through Steam's URI handler.
     def launch_darkest_dungeon(self):
         steam_uri = "steam://rungameid/262060"
         try:
             if IS_WINDOWS:
-                os.startfile(steam_uri)
-                return
+                try:
+                    os.startfile(steam_uri)
+                    return
+                except OSError:
+                    pass
+
+                game_root = self.detect_game_install_path()
+                for executable_name in ("Darkest.exe", "DarkestDungeon.exe"):
+                    candidate = os.path.join(game_root, executable_name)
+                    if os.path.isfile(candidate):
+                        os.startfile(candidate)
+                        return
+
+                raise RuntimeError(
+                    "No Steam launcher or local Darkest Dungeon executable was found."
+                )
 
             launch_commands = []
             if IS_LINUX:
@@ -4579,17 +4864,10 @@ class ModManager:
     # MOD FOLDER SELECTION
     # -----------------------------------------------------
 
-    # Lets the user select the folder that contains Darkest Dungeon mods.
+    # Opens the manual path editor so users can override auto-detected
+    # game, mods, Workshop, and profile-save paths when needed.
     def browse(self):
-        initialdir = self.mods_path.get().strip()
-        if not os.path.isdir(initialdir):
-            detected = self.detect_best_mod_folder()
-            initialdir = detected if detected else os.path.expanduser("~")
-        path = filedialog.askdirectory(initialdir=initialdir)
-        if path:
-            self.mods_path.set(path)
-            self.save_state()
-            self.load_mods()
+        self.open_paths_editor()
 
     def mod_folder_path(self, mod):
         mod_paths = self.state.get("mod_paths", {})
