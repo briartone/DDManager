@@ -2,6 +2,12 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.8 - 2026-05-25
+
+- Fixed custom category sorting so `Auto Sort` and `Apply Order to Local Mods` now respect the user-selected category order instead of pushing custom categories to the bottom.
+- Improved multiple Simplified Chinese UI labels to use more natural localized wording for buttons, profile/save language, category controls, and view-mode labels.
+- Fixed the `Edit Categories` dialog so the `Save` and `Cancel` buttons no longer collapse into tiny wedge-shaped controls.
+
 ## v0.1.7 - 2026-05-25
 
 - Fixed language switching so startup-derived status text now updates to the newly selected language instead of staying in the app's startup language.

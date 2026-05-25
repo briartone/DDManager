@@ -253,20 +253,20 @@ TRANSLATIONS = {
         "status_mod_summary": "{enabled} enabled | {disabled} disabled | {uncategorized} uncategorized/new",
     },
     "zh_CN": {
-        "app_title": "暗黑地牢 Mod 管理器",
-        "app_subtitle": "加载顺序总览",
+        "app_title": "暗黑地牢模组管理器",
+        "app_subtitle": "加载顺序概览",
         "startup_loading": "正在加载存档工具、档案和模组状态...",
         "startup_stirring": "村庄正在苏醒……",
-        "launch_game": "启动 Darkest Dungeon",
-        "open_local_mods": "打开本地模组",
-        "file_paths": "文件路径",
+        "launch_game": "启动《暗黑地牢》",
+        "open_local_mods": "打开本地模组文件夹",
+        "file_paths": "打开文件夹 / 选择路径",
         "auto_detect": "自动检测",
         "language": "语言：",
-        "profile": "档案：",
-        "profile_none": "未找到档案",
+        "profile": "当前存档：",
+        "profile_none": "未找到存档",
         "refresh": "刷新",
-        "load_profile_mods": "加载档案模组",
-        "patch_selected_profile": "修补所选档案",
+        "load_profile_mods": "加载已启用模组",
+        "patch_selected_profile": "修补所选存档",
         "refresh_mods": "刷新模组",
         "save_loadout": "保存配置",
         "load_loadout": "加载配置",
@@ -278,7 +278,7 @@ TRANSLATIONS = {
         "tool_restore_backup": "恢复上次备份",
         "tool_check_setup": "检查设置",
         "filter": "筛选：",
-        "edit_categories": "编辑分类",
+        "edit_categories": "设置分类",
         "search": "搜索：",
         "view": "视图：",
         "status_choose_mods": "请选择模组文件夹，或点击“自动检测”。",
@@ -290,27 +290,27 @@ TRANSLATIONS = {
         "enable_selected": "启用 >",
         "disable_selected": "< 备用",
         "load_order": "加载顺序",
-        "status_selected_profile_save": "已选择档案存档：{path}",
+        "status_selected_profile_save": "已选择存档：{path}",
         "auto_detect_complete": "自动检测完成",
         "nothing_found": "未找到内容",
         "not_found": "未找到",
         "no_mod_folder_found": "未找到模组文件夹",
         "no_save_file_found": "未找到存档文件",
-        "auto_detect_complete_body": "游戏安装目录：\n{game_root}\n\n本地模组：\n{local_mods}\n\n创意工坊模组：\n{workshop_mods}\n\n当前模组来源：\n{mod_text}\n\n最新存档：\n{save_text}\n\n找到的档案数：{profile_count}",
+        "auto_detect_complete_body": "游戏安装目录：\n{game_root}\n\n本地模组：\n{local_mods}\n\n创意工坊模组：\n{workshop_mods}\n\n当前模组来源：\n{mod_text}\n\n最新存档：\n{save_text}\n\n找到的存档数：{profile_count}",
         "auto_detect_nothing_found_body": "无法自动检测到 Darkest Dungeon 的安装目录、模组文件夹或存档文件。\n\n请使用“文件路径”手动设置游戏、模组或档案路径。",
         "startup_loading_mods_detected": "正在从检测到的文件夹加载模组...",
-        "startup_scanning_profiles": "正在扫描档案存档...",
-        "status_loaded_mods_profiles": "已从以下位置加载模组：{mods_path} | 档案数：{profile_count}",
+        "startup_scanning_profiles": "正在扫描存档...",
+        "status_loaded_mods_profiles": "已从以下位置加载模组：{mods_path} | 存档数：{profile_count}",
         "startup_detecting_mods": "正在检测模组并准备加载顺序...",
-        "status_detected_game": "已检测到游戏：{game_root} | 使用模组：{mods_path} | 档案数：{profile_count}",
+        "status_detected_game": "已检测到游戏：{game_root} | 使用模组：{mods_path} | 存档数：{profile_count}",
         "dd_detected": "已检测到 Darkest Dungeon",
-        "dd_detected_body": "游戏安装目录：\n{game_root}\n\n本地模组文件夹：\n{local_mods}\n\n创意工坊模组文件夹：\n{workshop_mods}\n\n当前使用模组：\n{mods_path}\n\n最新存档：\n{latest_save}\n\n找到的档案数：{profile_count}",
+        "dd_detected_body": "游戏安装目录：\n{game_root}\n\n本地模组文件夹：\n{local_mods}\n\n创意工坊模组文件夹：\n{workshop_mods}\n\n当前使用模组：\n{mods_path}\n\n最新存档：\n{latest_save}\n\n找到的存档数：{profile_count}",
         "status_no_dd_detected": "未自动检测到 Darkest Dungeon。请打开“文件路径”手动设置文件夹，然后点击“刷新模组”。",
         "select_persist_game": "选择 persist.game.json",
         "darkest_dungeon_save": "Darkest Dungeon 存档",
         "json_files": "JSON 文件",
         "all_files": "所有文件",
-        "status_manual_paths_profile": "已保存手动路径。档案存档：{path}",
+        "status_manual_paths_profile": "已保存手动路径。存档：{path}",
         "status_manual_paths_mods": "已保存手动路径。当前模组文件夹：{path}",
         "status_manual_paths": "已保存手动路径。",
         "dialog_file_paths": "文件路径",
@@ -344,8 +344,8 @@ TRANSLATIONS = {
         "view_mode_no_icons": "无图标",
         "view_mode_compact": "紧凑",
         "view_mode_comfortable": "舒适",
-        "view_mode_visual": "视觉",
-        "status_mod_summary": "{enabled} 已启用 | {disabled} 已禁用 | {uncategorized} 未分类/新增",
+        "view_mode_visual": "视觉模式",
+        "status_mod_summary": "{enabled} 已启用 | {disabled} 已禁用 | {uncategorized} 未分类 / 新增",
     },
     "pt_PT": {
         "app_title": "Gestor de Mods Darkest Dungeon",
@@ -4136,11 +4136,14 @@ class ModManager:
     # Builds numeric sort buckets for all categories, including
     # custom categories that were added after the original defaults.
     def get_category_priority(self, base_priority, fallback=700):
-        priority = dict(base_priority)
         categories = self.get_categories()
-        for index, cat in enumerate(categories):
-            if cat not in priority:
-                priority[cat] = 1000 + index * 100
+        priority = {
+            cat: index * 100
+            for index, cat in enumerate(categories)
+        }
+
+        for cat, value in base_priority.items():
+            priority.setdefault(cat, value)
 
         priority.setdefault("Unassigned", fallback)
         return priority
@@ -5352,8 +5355,19 @@ class ModManager:
         button_row = self.themed_frame(dialog)
         button_row.pack(fill="x", padx=12, pady=(0, 12))
 
-        self.themed_button(button_row, text="Save", command=save_changes, style="primary").pack(side="left", padx=(0, 6))
-        self.themed_button(button_row, text="Cancel", command=dialog.destroy).pack(side="left", padx=6)
+        self.themed_button(
+            button_row,
+            text="Save",
+            command=save_changes,
+            style="primary",
+            width=12,
+        ).pack(side="left", padx=(0, 6))
+        self.themed_button(
+            button_row,
+            text="Cancel",
+            command=dialog.destroy,
+            width=12,
+        ).pack(side="left", padx=6)
 
         category_list.bind("<<ListboxSelect>>", sync_selection)
         refresh_category_list()
