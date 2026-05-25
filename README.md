@@ -17,7 +17,7 @@ See [`LICENSE.md`](LICENSE.md) for the repository terms.
 ## Quick Start
 
 1. Run `dd2.py`.
-2. Click `Auto Detect`.
+2. It should auto detect on it's own all your mods and folders, if not Click `Auto Detect`.
 3. If Auto Detect finds your mods, click `Refresh Mods` if you want to rescan for new installs, updates, or subscriptions, then review the enabled/disabled lists.
 4. Choose a profile from the `Profile` menu.
 5. Click `Load Profile Mods` to mirror that profile's current active mod list and order in the manager.
