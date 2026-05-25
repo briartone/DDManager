@@ -1,6 +1,7 @@
 import os
 import html
 import json
+import locale
 import math
 import re
 import shutil
@@ -13,6 +14,11 @@ import tkinter as tk
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from tkinter import colorchooser, filedialog, messagebox, simpledialog
+
+try:
+    import ctypes
+except ImportError:
+    ctypes = None
 
 try:
     import winreg
@@ -139,6 +145,473 @@ VIEW_MODES = {
     },
 }
 
+NEW_MOD_HIGHLIGHT_MS = 15000
+
+LANGUAGE_CHOICES = [
+    ("en", "English"),
+    ("zh_CN", "简体中文"),
+    ("pt_PT", "Português"),
+    ("es_ES", "Español"),
+]
+LANGUAGE_CODE_TO_LABEL = dict(LANGUAGE_CHOICES)
+LANGUAGE_LABEL_TO_CODE = {label: code for code, label in LANGUAGE_CHOICES}
+
+TRANSLATIONS = {
+    "en": {
+        "app_title": "Darkest Dungeon Mod Manager",
+        "app_subtitle": "Load Order Ledger",
+        "startup_loading": "Loading save tools, profiles, and mod state...",
+        "startup_stirring": "The hamlet is stirring...",
+        "launch_game": "Launch Darkest Dungeon",
+        "open_local_mods": "Open Local Mods",
+        "file_paths": "File Paths",
+        "auto_detect": "Auto Detect",
+        "language": "Language:",
+        "profile": "Profile:",
+        "profile_none": "No profiles found",
+        "refresh": "Refresh",
+        "load_profile_mods": "Load Profile Mods",
+        "patch_selected_profile": "Patch Selected Profile",
+        "refresh_mods": "Refresh Mods",
+        "save_loadout": "Save Loadout",
+        "load_loadout": "Load Loadout",
+        "tools": "Tools",
+        "tool_patch_save": "Patch Chosen Save",
+        "tool_patch_autodetected_legacy": "Patch Auto-Detected Save (Legacy)",
+        "tool_generate_save_code": "Generate Save Code",
+        "tool_apply_order": "Apply Order to Local Mods",
+        "tool_restore_backup": "Restore Last Backup",
+        "tool_check_setup": "Check Setup",
+        "filter": "Filter:",
+        "edit_categories": "Edit Categories",
+        "search": "Search:",
+        "view": "View:",
+        "status_choose_mods": "Choose a mods folder or click Auto Detect.",
+        "list_actions": "List Actions:",
+        "auto_sort": "Auto Sort",
+        "auto_categorize": "Auto Categorize",
+        "nickname_mod": "Nickname Mod",
+        "reserve": "Reserve",
+        "enable_selected": "Enable >",
+        "disable_selected": "< Reserve",
+        "load_order": "Load Order",
+        "status_selected_profile_save": "Selected profile save: {path}",
+        "auto_detect_complete": "Auto Detect Complete",
+        "nothing_found": "Nothing Found",
+        "not_found": "Not found",
+        "no_mod_folder_found": "No mod folder found",
+        "no_save_file_found": "No save file found",
+        "auto_detect_complete_body": "Game install:\n{game_root}\n\nLocal mods:\n{local_mods}\n\nWorkshop mods:\n{workshop_mods}\n\nActive mods source:\n{mod_text}\n\nLatest save:\n{save_text}\n\nProfiles found: {profile_count}",
+        "auto_detect_nothing_found_body": "I could not auto-detect a Darkest Dungeon install, mods folder, or save file.\n\nUse File Paths to set the game, mods, or profile paths manually.",
+        "startup_loading_mods_detected": "Loading mods from the detected folder...",
+        "startup_scanning_profiles": "Scanning profile saves...",
+        "status_loaded_mods_profiles": "Loaded mods from: {mods_path} | Profiles: {profile_count}",
+        "startup_detecting_mods": "Detecting mods and preparing the load order...",
+        "status_detected_game": "Detected game: {game_root} | Using mods: {mods_path} | Profiles: {profile_count}",
+        "dd_detected": "Darkest Dungeon Detected",
+        "dd_detected_body": "Game install:\n{game_root}\n\nLocal mods folder:\n{local_mods}\n\nWorkshop mods folder:\n{workshop_mods}\n\nUsing mods from:\n{mods_path}\n\nLatest save:\n{latest_save}\n\nProfiles found: {profile_count}",
+        "status_no_dd_detected": "No Darkest Dungeon install was auto-detected. Open File Paths to set folders manually, then click Refresh Mods.",
+        "select_persist_game": "Select persist.game.json",
+        "darkest_dungeon_save": "Darkest Dungeon save",
+        "json_files": "JSON files",
+        "all_files": "All files",
+        "status_manual_paths_profile": "Manual paths saved. Profile save: {path}",
+        "status_manual_paths_mods": "Manual paths saved. Active mods folder: {path}",
+        "status_manual_paths": "Manual paths saved.",
+        "dialog_file_paths": "File Paths",
+        "paths_editor_heading": "Edit the paths the app uses when auto-detect misses something.",
+        "paths_editor_hint": "Leave a field blank to keep using auto-detect for that path.",
+        "browse": "Browse",
+        "auto": "Auto",
+        "clear": "Clear",
+        "save_file_paths": "Save File Paths",
+        "cancel": "Cancel",
+        "warning": "Warning",
+        "select_one_mod_to_nickname": "Select exactly one mod to nickname.",
+        "dialog_set_nickname": "Set Nickname",
+        "nickname": "Nickname:",
+        "save": "Save",
+        "status_nickname_set": "Nickname set: {nickname}",
+        "status_nickname_cleared": "Nickname cleared.",
+        "error": "Error",
+        "failed_save_nickname": "Failed to save nickname:\n\n{error}",
+        "category_all": "All",
+        "category_unassigned": "Unassigned",
+        "category_ui": "UI",
+        "category_districts": "Districts",
+        "category_dungeons": "Dungeons",
+        "category_quirks": "Quirks",
+        "category_trinkets": "Trinkets",
+        "category_enemies": "Enemies",
+        "category_class_patch": "Class Patch",
+        "category_class": "Class",
+        "category_skins": "Skins",
+        "view_mode_no_icons": "No Icons",
+        "view_mode_compact": "Compact",
+        "view_mode_comfortable": "Comfortable",
+        "view_mode_visual": "Visual",
+    },
+    "zh_CN": {
+        "app_title": "暗黑地牢 Mod 管理器",
+        "app_subtitle": "加载顺序总览",
+        "startup_loading": "正在加载存档工具、档案和模组状态...",
+        "startup_stirring": "村庄正在苏醒……",
+        "launch_game": "启动 Darkest Dungeon",
+        "open_local_mods": "打开本地模组",
+        "file_paths": "文件路径",
+        "auto_detect": "自动检测",
+        "language": "语言：",
+        "profile": "档案：",
+        "profile_none": "未找到档案",
+        "refresh": "刷新",
+        "load_profile_mods": "加载档案模组",
+        "patch_selected_profile": "修补所选档案",
+        "refresh_mods": "刷新模组",
+        "save_loadout": "保存配置",
+        "load_loadout": "加载配置",
+        "tools": "工具",
+        "tool_patch_save": "修补选定存档",
+        "tool_patch_autodetected_legacy": "修补自动检测存档（旧版）",
+        "tool_generate_save_code": "生成存档代码",
+        "tool_apply_order": "应用顺序到本地模组",
+        "tool_restore_backup": "恢复上次备份",
+        "tool_check_setup": "检查设置",
+        "filter": "筛选：",
+        "edit_categories": "编辑分类",
+        "search": "搜索：",
+        "view": "视图：",
+        "status_choose_mods": "请选择模组文件夹，或点击“自动检测”。",
+        "list_actions": "列表操作：",
+        "auto_sort": "自动排序",
+        "auto_categorize": "自动分类",
+        "nickname_mod": "设置昵称",
+        "reserve": "备用",
+        "enable_selected": "启用 >",
+        "disable_selected": "< 备用",
+        "load_order": "加载顺序",
+        "status_selected_profile_save": "已选择档案存档：{path}",
+        "auto_detect_complete": "自动检测完成",
+        "nothing_found": "未找到内容",
+        "not_found": "未找到",
+        "no_mod_folder_found": "未找到模组文件夹",
+        "no_save_file_found": "未找到存档文件",
+        "auto_detect_complete_body": "游戏安装目录：\n{game_root}\n\n本地模组：\n{local_mods}\n\n创意工坊模组：\n{workshop_mods}\n\n当前模组来源：\n{mod_text}\n\n最新存档：\n{save_text}\n\n找到的档案数：{profile_count}",
+        "auto_detect_nothing_found_body": "无法自动检测到 Darkest Dungeon 的安装目录、模组文件夹或存档文件。\n\n请使用“文件路径”手动设置游戏、模组或档案路径。",
+        "startup_loading_mods_detected": "正在从检测到的文件夹加载模组...",
+        "startup_scanning_profiles": "正在扫描档案存档...",
+        "status_loaded_mods_profiles": "已从以下位置加载模组：{mods_path} | 档案数：{profile_count}",
+        "startup_detecting_mods": "正在检测模组并准备加载顺序...",
+        "status_detected_game": "已检测到游戏：{game_root} | 使用模组：{mods_path} | 档案数：{profile_count}",
+        "dd_detected": "已检测到 Darkest Dungeon",
+        "dd_detected_body": "游戏安装目录：\n{game_root}\n\n本地模组文件夹：\n{local_mods}\n\n创意工坊模组文件夹：\n{workshop_mods}\n\n当前使用模组：\n{mods_path}\n\n最新存档：\n{latest_save}\n\n找到的档案数：{profile_count}",
+        "status_no_dd_detected": "未自动检测到 Darkest Dungeon。请打开“文件路径”手动设置文件夹，然后点击“刷新模组”。",
+        "select_persist_game": "选择 persist.game.json",
+        "darkest_dungeon_save": "Darkest Dungeon 存档",
+        "json_files": "JSON 文件",
+        "all_files": "所有文件",
+        "status_manual_paths_profile": "已保存手动路径。档案存档：{path}",
+        "status_manual_paths_mods": "已保存手动路径。当前模组文件夹：{path}",
+        "status_manual_paths": "已保存手动路径。",
+        "dialog_file_paths": "文件路径",
+        "paths_editor_heading": "当自动检测没有命中时，可在这里修改应用使用的路径。",
+        "paths_editor_hint": "将字段留空即可继续对此路径使用自动检测。",
+        "browse": "浏览",
+        "auto": "自动",
+        "clear": "清除",
+        "save_file_paths": "保存文件路径",
+        "cancel": "取消",
+        "warning": "警告",
+        "select_one_mod_to_nickname": "请选择且仅选择一个模组来设置昵称。",
+        "dialog_set_nickname": "设置昵称",
+        "nickname": "昵称：",
+        "save": "保存",
+        "status_nickname_set": "已设置昵称：{nickname}",
+        "status_nickname_cleared": "已清除昵称。",
+        "error": "错误",
+        "failed_save_nickname": "保存昵称失败：\n\n{error}",
+        "category_all": "全部",
+        "category_unassigned": "未分类",
+        "category_ui": "界面",
+        "category_districts": "城镇建筑",
+        "category_dungeons": "地牢",
+        "category_quirks": "怪癖",
+        "category_trinkets": "饰品",
+        "category_enemies": "敌人",
+        "category_class_patch": "职业补丁",
+        "category_class": "职业",
+        "category_skins": "皮肤",
+        "view_mode_no_icons": "无图标",
+        "view_mode_compact": "紧凑",
+        "view_mode_comfortable": "舒适",
+        "view_mode_visual": "视觉",
+    },
+    "pt_PT": {
+        "app_title": "Gestor de Mods Darkest Dungeon",
+        "app_subtitle": "Registo da Ordem de Carregamento",
+        "startup_loading": "A carregar ferramentas de gravação, perfis e estado dos mods...",
+        "startup_stirring": "A aldeia está a despertar...",
+        "launch_game": "Iniciar Darkest Dungeon",
+        "open_local_mods": "Abrir Mods Locais",
+        "file_paths": "Caminhos de Ficheiros",
+        "auto_detect": "Deteção Automática",
+        "language": "Idioma:",
+        "profile": "Perfil:",
+        "profile_none": "Nenhum perfil encontrado",
+        "refresh": "Atualizar",
+        "load_profile_mods": "Carregar Mods do Perfil",
+        "patch_selected_profile": "Aplicar ao Perfil Selecionado",
+        "refresh_mods": "Atualizar Mods",
+        "save_loadout": "Guardar Configuração",
+        "load_loadout": "Carregar Configuração",
+        "tools": "Ferramentas",
+        "tool_patch_save": "Aplicar à Gravação Escolhida",
+        "tool_patch_autodetected_legacy": "Aplicar à Gravação Detetada Automaticamente (Legado)",
+        "tool_generate_save_code": "Gerar Código de Gravação",
+        "tool_apply_order": "Aplicar Ordem aos Mods Locais",
+        "tool_restore_backup": "Restaurar Última Cópia de Segurança",
+        "tool_check_setup": "Verificar Configuração",
+        "filter": "Filtro:",
+        "edit_categories": "Editar Categorias",
+        "search": "Pesquisar:",
+        "view": "Vista:",
+        "status_choose_mods": "Escolha uma pasta de mods ou clique em Deteção Automática.",
+        "list_actions": "Ações da Lista:",
+        "auto_sort": "Ordenação Automática",
+        "auto_categorize": "Categorização Automática",
+        "nickname_mod": "Dar Alcunha ao Mod",
+        "reserve": "Reserva",
+        "enable_selected": "Ativar >",
+        "disable_selected": "< Reserva",
+        "load_order": "Ordem de Carregamento",
+        "status_selected_profile_save": "Gravação de perfil selecionada: {path}",
+        "auto_detect_complete": "Deteção Automática Concluída",
+        "nothing_found": "Nada Encontrado",
+        "not_found": "Não encontrado",
+        "no_mod_folder_found": "Nenhuma pasta de mods encontrada",
+        "no_save_file_found": "Nenhum ficheiro de gravação encontrado",
+        "auto_detect_complete_body": "Instalação do jogo:\n{game_root}\n\nMods locais:\n{local_mods}\n\nMods da Workshop:\n{workshop_mods}\n\nOrigem ativa dos mods:\n{mod_text}\n\nÚltima gravação:\n{save_text}\n\nPerfis encontrados: {profile_count}",
+        "auto_detect_nothing_found_body": "Não foi possível detetar automaticamente uma instalação de Darkest Dungeon, pasta de mods ou ficheiro de gravação.\n\nUse Caminhos de Ficheiros para definir manualmente os caminhos do jogo, dos mods ou dos perfis.",
+        "startup_loading_mods_detected": "A carregar mods da pasta detetada...",
+        "startup_scanning_profiles": "A procurar gravações de perfil...",
+        "status_loaded_mods_profiles": "Mods carregados de: {mods_path} | Perfis: {profile_count}",
+        "startup_detecting_mods": "A detetar mods e a preparar a ordem de carregamento...",
+        "status_detected_game": "Jogo detetado: {game_root} | A usar mods: {mods_path} | Perfis: {profile_count}",
+        "dd_detected": "Darkest Dungeon Detetado",
+        "dd_detected_body": "Instalação do jogo:\n{game_root}\n\nPasta de mods locais:\n{local_mods}\n\nPasta de mods da Workshop:\n{workshop_mods}\n\nA usar mods de:\n{mods_path}\n\nÚltima gravação:\n{latest_save}\n\nPerfis encontrados: {profile_count}",
+        "status_no_dd_detected": "Nenhuma instalação de Darkest Dungeon foi detetada automaticamente. Abra Caminhos de Ficheiros para definir as pastas manualmente e depois clique em Atualizar Mods.",
+        "select_persist_game": "Selecionar persist.game.json",
+        "darkest_dungeon_save": "Gravação de Darkest Dungeon",
+        "json_files": "Ficheiros JSON",
+        "all_files": "Todos os ficheiros",
+        "status_manual_paths_profile": "Caminhos manuais guardados. Gravação de perfil: {path}",
+        "status_manual_paths_mods": "Caminhos manuais guardados. Pasta ativa de mods: {path}",
+        "status_manual_paths": "Caminhos manuais guardados.",
+        "dialog_file_paths": "Caminhos de Ficheiros",
+        "paths_editor_heading": "Edite os caminhos que a aplicação usa quando a deteção automática falha.",
+        "paths_editor_hint": "Deixe um campo em branco para continuar a usar a deteção automática nesse caminho.",
+        "browse": "Procurar",
+        "auto": "Automático",
+        "clear": "Limpar",
+        "save_file_paths": "Guardar Caminhos de Ficheiros",
+        "cancel": "Cancelar",
+        "warning": "Aviso",
+        "select_one_mod_to_nickname": "Selecione exatamente um mod para lhe dar uma alcunha.",
+        "dialog_set_nickname": "Definir Alcunha",
+        "nickname": "Alcunha:",
+        "save": "Guardar",
+        "status_nickname_set": "Alcunha definida: {nickname}",
+        "status_nickname_cleared": "Alcunha removida.",
+        "error": "Erro",
+        "failed_save_nickname": "Falha ao guardar a alcunha:\n\n{error}",
+        "category_all": "Todos",
+        "category_unassigned": "Sem Categoria",
+        "category_ui": "Interface",
+        "category_districts": "Distritos",
+        "category_dungeons": "Masmorras",
+        "category_quirks": "Manias",
+        "category_trinkets": "Bugigangas",
+        "category_enemies": "Inimigos",
+        "category_class_patch": "Patch de Classe",
+        "category_class": "Classe",
+        "category_skins": "Visuais",
+        "view_mode_no_icons": "Sem Ícones",
+        "view_mode_compact": "Compacto",
+        "view_mode_comfortable": "Confortável",
+        "view_mode_visual": "Visual",
+    },
+    "es_ES": {
+        "app_title": "Administrador de Mods de Darkest Dungeon",
+        "app_subtitle": "Registro del Orden de Carga",
+        "startup_loading": "Cargando herramientas de guardado, perfiles y estado de mods...",
+        "startup_stirring": "La aldea está despertando...",
+        "launch_game": "Iniciar Darkest Dungeon",
+        "open_local_mods": "Abrir Mods Locales",
+        "file_paths": "Rutas de Archivos",
+        "auto_detect": "Detección Automática",
+        "language": "Idioma:",
+        "profile": "Perfil:",
+        "profile_none": "No se encontraron perfiles",
+        "refresh": "Actualizar",
+        "load_profile_mods": "Cargar Mods del Perfil",
+        "patch_selected_profile": "Aplicar al Perfil Seleccionado",
+        "refresh_mods": "Actualizar Mods",
+        "save_loadout": "Guardar Configuración",
+        "load_loadout": "Cargar Configuración",
+        "tools": "Herramientas",
+        "tool_patch_save": "Aplicar al Guardado Elegido",
+        "tool_patch_autodetected_legacy": "Aplicar al Guardado Detectado Automáticamente (Legado)",
+        "tool_generate_save_code": "Generar Código de Guardado",
+        "tool_apply_order": "Aplicar Orden a los Mods Locales",
+        "tool_restore_backup": "Restaurar la Última Copia de Seguridad",
+        "tool_check_setup": "Comprobar Configuración",
+        "filter": "Filtro:",
+        "edit_categories": "Editar Categorías",
+        "search": "Buscar:",
+        "view": "Vista:",
+        "status_choose_mods": "Elige una carpeta de mods o haz clic en Detección Automática.",
+        "list_actions": "Acciones de la Lista:",
+        "auto_sort": "Ordenación Automática",
+        "auto_categorize": "Categorización Automática",
+        "nickname_mod": "Poner Apodo al Mod",
+        "reserve": "Reserva",
+        "enable_selected": "Activar >",
+        "disable_selected": "< Reserva",
+        "load_order": "Orden de Carga",
+        "status_selected_profile_save": "Guardado de perfil seleccionado: {path}",
+        "auto_detect_complete": "Detección Automática Completada",
+        "nothing_found": "No se Encontró Nada",
+        "not_found": "No encontrado",
+        "no_mod_folder_found": "No se encontró ninguna carpeta de mods",
+        "no_save_file_found": "No se encontró ningún archivo de guardado",
+        "auto_detect_complete_body": "Instalación del juego:\n{game_root}\n\nMods locales:\n{local_mods}\n\nMods de Workshop:\n{workshop_mods}\n\nOrigen activo de mods:\n{mod_text}\n\nÚltimo guardado:\n{save_text}\n\nPerfiles encontrados: {profile_count}",
+        "auto_detect_nothing_found_body": "No se pudo detectar automáticamente una instalación de Darkest Dungeon, una carpeta de mods o un archivo de guardado.\n\nUsa Rutas de Archivos para establecer manualmente las rutas del juego, los mods o los perfiles.",
+        "startup_loading_mods_detected": "Cargando mods desde la carpeta detectada...",
+        "startup_scanning_profiles": "Buscando guardados de perfil...",
+        "status_loaded_mods_profiles": "Mods cargados desde: {mods_path} | Perfiles: {profile_count}",
+        "startup_detecting_mods": "Detectando mods y preparando el orden de carga...",
+        "status_detected_game": "Juego detectado: {game_root} | Usando mods: {mods_path} | Perfiles: {profile_count}",
+        "dd_detected": "Darkest Dungeon Detectado",
+        "dd_detected_body": "Instalación del juego:\n{game_root}\n\nCarpeta de mods locales:\n{local_mods}\n\nCarpeta de mods de Workshop:\n{workshop_mods}\n\nUsando mods desde:\n{mods_path}\n\nÚltimo guardado:\n{latest_save}\n\nPerfiles encontrados: {profile_count}",
+        "status_no_dd_detected": "No se detectó automáticamente ninguna instalación de Darkest Dungeon. Abre Rutas de Archivos para establecer las carpetas manualmente y luego haz clic en Actualizar Mods.",
+        "select_persist_game": "Seleccionar persist.game.json",
+        "darkest_dungeon_save": "Guardado de Darkest Dungeon",
+        "json_files": "Archivos JSON",
+        "all_files": "Todos los archivos",
+        "status_manual_paths_profile": "Rutas manuales guardadas. Guardado de perfil: {path}",
+        "status_manual_paths_mods": "Rutas manuales guardadas. Carpeta activa de mods: {path}",
+        "status_manual_paths": "Rutas manuales guardadas.",
+        "dialog_file_paths": "Rutas de Archivos",
+        "paths_editor_heading": "Edita las rutas que usa la aplicación cuando la detección automática no encuentra algo.",
+        "paths_editor_hint": "Deja un campo vacío para seguir usando la detección automática en esa ruta.",
+        "browse": "Examinar",
+        "auto": "Automático",
+        "clear": "Borrar",
+        "save_file_paths": "Guardar Rutas de Archivos",
+        "cancel": "Cancelar",
+        "warning": "Advertencia",
+        "select_one_mod_to_nickname": "Selecciona exactamente un mod para ponerle un apodo.",
+        "dialog_set_nickname": "Definir Apodo",
+        "nickname": "Apodo:",
+        "save": "Guardar",
+        "status_nickname_set": "Apodo definido: {nickname}",
+        "status_nickname_cleared": "Apodo eliminado.",
+        "error": "Error",
+        "failed_save_nickname": "No se pudo guardar el apodo:\n\n{error}",
+        "category_all": "Todos",
+        "category_unassigned": "Sin Clasificar",
+        "category_ui": "Interfaz",
+        "category_districts": "Distritos",
+        "category_dungeons": "Mazmorras",
+        "category_quirks": "Rarezas",
+        "category_trinkets": "Abalorios",
+        "category_enemies": "Enemigos",
+        "category_class_patch": "Parche de Clase",
+        "category_class": "Clase",
+        "category_skins": "Aspectos",
+        "view_mode_no_icons": "Sin Iconos",
+        "view_mode_compact": "Compacto",
+        "view_mode_comfortable": "Cómodo",
+        "view_mode_visual": "Visual",
+    },
+}
+
+CATEGORY_TRANSLATION_KEYS = {
+    "All": "category_all",
+    "Unassigned": "category_unassigned",
+    "UI": "category_ui",
+    "Districts": "category_districts",
+    "Dungeons": "category_dungeons",
+    "Quirks": "category_quirks",
+    "Trinkets": "category_trinkets",
+    "Enemies": "category_enemies",
+    "Class Patch": "category_class_patch",
+    "Class": "category_class",
+    "Skins": "category_skins",
+}
+
+VIEW_MODE_TRANSLATION_KEYS = {
+    "No Icons": "view_mode_no_icons",
+    "Compact": "view_mode_compact",
+    "Comfortable": "view_mode_comfortable",
+    "Visual": "view_mode_visual",
+}
+
+
+def translate_text(language, key, **kwargs):
+    template = TRANSLATIONS.get(language, {}).get(key)
+    if template is None:
+        template = TRANSLATIONS["en"].get(key, key)
+    try:
+        return template.format(**kwargs)
+    except Exception:
+        return template
+
+
+def map_locale_to_language(locale_name):
+    normalized = str(locale_name or "").strip().lower().replace("-", "_")
+    if normalized.startswith("zh"):
+        return "zh_CN"
+    if normalized.startswith("pt"):
+        return "pt_PT"
+    if normalized.startswith("es"):
+        return "es_ES"
+    return "en"
+
+
+def detect_default_language():
+    if IS_WINDOWS and ctypes is not None:
+        try:
+            language_id = ctypes.windll.kernel32.GetUserDefaultUILanguage()
+            windows_locale_name = locale.windows_locale.get(language_id, "")
+            detected = map_locale_to_language(windows_locale_name)
+            if detected != "en" or windows_locale_name:
+                return detected
+        except Exception:
+            pass
+
+    for locale_name in (
+        locale.getlocale()[0],
+        os.environ.get("LANG"),
+        os.environ.get("LC_ALL"),
+        os.environ.get("LC_MESSAGES"),
+    ):
+        if locale_name:
+            return map_locale_to_language(locale_name)
+
+    return "en"
+
+
+def read_saved_language():
+    default_language = detect_default_language()
+    if not os.path.exists(STATE_FILE):
+        return default_language
+    try:
+        with open(STATE_FILE, "r", encoding="utf-8") as f:
+            state = json.load(f)
+        return state.get("language", default_language)
+    except Exception:
+        return default_language
+
 
 # Centers transient windows like the startup splash so they appear
 # immediately in a predictable place instead of popping in later.
@@ -151,16 +624,27 @@ def center_window(window, width, height):
     window.geometry(f"{width}x{height}+{x}+{y}")
 
 
+def startup_splash_dimensions(language):
+    sizes = {
+        "en": (520, 220),
+        "zh_CN": (520, 220),
+        "pt_PT": (620, 220),
+        "es_ES": (720, 220),
+    }
+    return sizes.get(language, sizes["en"])
+
+
 # Shows a lightweight title card while the main app finishes startup.
 # This covers the several-second delay before the full Tk UI appears.
 # The splash is intentionally simple and text-only so startup stays
 # reliable without extra asset dependencies.
-def create_startup_splash(root):
+def create_startup_splash(root, language="en"):
     splash = tk.Toplevel(root)
     splash.overrideredirect(True)
     splash.configure(bg=THEME["bg"])
     splash.attributes("-topmost", True)
-    center_window(splash, 520, 220)
+    splash_width, splash_height = startup_splash_dimensions(language)
+    center_window(splash, splash_width, splash_height)
 
     outer = tk.Frame(
         splash,
@@ -171,14 +655,20 @@ def create_startup_splash(root):
     outer.pack(fill="both", expand=True, padx=2, pady=2)
 
     panel = tk.Frame(splash, bg=THEME["panel"])
-    panel.place(relx=0.5, rely=0.5, anchor="center", width=512, height=212)
+    panel.place(
+        relx=0.5,
+        rely=0.5,
+        anchor="center",
+        width=max(0, splash_width - 8),
+        height=max(0, splash_height - 8),
+    )
 
     top_rule = tk.Frame(panel, bg=THEME["crimson"], height=3)
     top_rule.pack(fill="x", padx=18, pady=(18, 0))
 
     tk.Label(
         panel,
-        text="Darkest Dungeon Mod Manager",
+        text=translate_text(language, "app_title"),
         bg=THEME["panel"],
         fg=THEME["text_bright"],
         font=(platform_font("Georgia", "DejaVu Serif"), 22, "bold"),
@@ -186,7 +676,7 @@ def create_startup_splash(root):
 
     status_label = tk.Label(
         panel,
-        text="Loading save tools, profiles, and mod state...",
+        text=translate_text(language, "startup_loading"),
         bg=THEME["panel"],
         fg=THEME["muted"],
         font=FONT_BODY,
@@ -196,7 +686,7 @@ def create_startup_splash(root):
 
     tk.Label(
         panel,
-        text="The hamlet is stirring...",
+        text=translate_text(language, "startup_stirring"),
         bg=THEME["panel"],
         fg=THEME["gold"],
         font=(platform_font("Georgia", "DejaVu Serif"), 11, "italic"),
@@ -837,6 +1327,154 @@ def dson_build_applied_ugcs_object(enabled_mods, mod_manager, applied_offset, fi
     return bytes(data), meta1_entries, meta2_entries
 
 
+def dson_insert_missing_applied_ugcs(raw, enabled_mods, mod_manager):
+    dson_validate_editor_compatible(raw)
+
+    header = dson_parse_header(raw)
+    if header["header_length"] != 64 or header["meta1_offset"] != 64:
+        raise ValueError("Unsupported DSON header layout.")
+
+    meta1_entries = dson_parse_meta1(raw, header)
+    meta2_entries = dson_parse_meta2(raw, header)
+    data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
+
+    root_meta1_index = dson_object_index_from_info(meta2_entries[0]["info"])
+    if root_meta1_index is None:
+        raise ValueError("Save root object is missing DSON metadata.")
+
+    persistent_meta2_index = dson_find_meta2_by_name(raw, header, meta2_entries, "persistent_ugcs")
+    persistent_meta2 = meta2_entries[persistent_meta2_index]
+    insertion_meta1_index = dson_object_index_from_info(persistent_meta2["info"])
+    if insertion_meta1_index is None:
+        raise ValueError("persistent_ugcs is not marked as an object in metadata.")
+
+    insertion_offset = persistent_meta2["offset"]
+    first_child_meta1_index = insertion_meta1_index + 1
+    new_applied_data, new_child_meta1, new_child_meta2 = dson_build_applied_ugcs_object(
+        enabled_mods,
+        mod_manager,
+        insertion_offset,
+        first_child_meta1_index,
+    )
+
+    applied_meta1 = {
+        "parent": root_meta1_index,
+        "meta2_index": persistent_meta2_index,
+        "direct_children": len(enabled_mods),
+        "all_children": len(enabled_mods) * 3,
+    }
+    applied_meta2 = {
+        "hash": dson_string_hash("applied_ugcs_1_0"),
+        "offset": insertion_offset,
+        "info": dson_field_info("applied_ugcs_1_0", insertion_meta1_index),
+    }
+
+    for offset, entry in enumerate(new_child_meta1):
+        entry["parent"] = insertion_meta1_index
+        entry["meta2_index"] = persistent_meta2_index + 1 + offset * 3
+
+    meta1_delta = 1 + len(new_child_meta1)
+    meta2_delta = 1 + len(new_child_meta2)
+
+    adjusted_meta1_entries = []
+    for entry in meta1_entries:
+        adjusted = dict(entry)
+        if adjusted["parent"] >= insertion_meta1_index:
+            adjusted["parent"] += meta1_delta
+        if adjusted["meta2_index"] >= persistent_meta2_index:
+            adjusted["meta2_index"] += meta2_delta
+        adjusted_meta1_entries.append(adjusted)
+
+    new_meta1_entries = (
+        adjusted_meta1_entries[:insertion_meta1_index]
+        + [applied_meta1]
+        + new_child_meta1
+        + adjusted_meta1_entries[insertion_meta1_index:]
+    )
+
+    new_meta1_entries[root_meta1_index]["direct_children"] += 1
+    new_meta1_entries[root_meta1_index]["all_children"] += meta2_delta
+
+    original_next_offsets = {}
+    sorted_original_offsets = sorted(entry["offset"] for entry in meta2_entries)
+    for index, offset in enumerate(sorted_original_offsets):
+        if index + 1 < len(sorted_original_offsets):
+            original_next_offsets[offset] = sorted_original_offsets[index + 1]
+        else:
+            original_next_offsets[offset] = len(data)
+
+    preserved_meta2_before = meta2_entries[:persistent_meta2_index]
+    preserved_meta2_after = meta2_entries[persistent_meta2_index:]
+
+    new_data_parts = [data[:insertion_offset], new_applied_data]
+    next_rebuilt_offset = insertion_offset + len(new_applied_data)
+
+    adjusted_meta2_after = []
+    for entry in preserved_meta2_after:
+        adjusted_entry = dict(entry)
+        object_index = dson_object_index_from_info(adjusted_entry["info"])
+        if object_index is not None and object_index >= insertion_meta1_index:
+            adjusted_entry["info"] = dson_set_object_index_in_info(
+                adjusted_entry["info"],
+                object_index + meta1_delta,
+            )
+
+        rebuilt_block = dson_rebuild_existing_field_block(
+            data,
+            entry,
+            original_next_offsets[entry["offset"]],
+            next_rebuilt_offset,
+        )
+        adjusted_entry["offset"] = next_rebuilt_offset
+        new_data_parts.append(rebuilt_block)
+        next_rebuilt_offset += len(rebuilt_block)
+        adjusted_meta2_after.append(adjusted_entry)
+
+    new_meta2_entries = preserved_meta2_before + [applied_meta2] + new_child_meta2 + adjusted_meta2_after
+    new_data = b"".join(new_data_parts)
+
+    new_header = bytearray(raw[:64])
+    new_meta1_count = len(new_meta1_entries)
+    new_meta2_count = len(new_meta2_entries)
+    new_meta1_size = new_meta1_count * 16
+    new_meta2_offset = 64 + new_meta1_size
+    new_data_offset = new_meta2_offset + new_meta2_count * 12
+
+    struct.pack_into("<i", new_header, 16, new_meta1_size)
+    struct.pack_into("<i", new_header, 20, new_meta1_count)
+    struct.pack_into("<i", new_header, 44, new_meta2_count)
+    struct.pack_into("<i", new_header, 48, new_meta2_offset)
+    struct.pack_into("<i", new_header, 56, len(new_data))
+    struct.pack_into("<i", new_header, 60, new_data_offset)
+
+    meta1_block = bytearray()
+    for entry in new_meta1_entries:
+        meta1_block.extend(dson_pack_i32_le(entry["parent"]))
+        meta1_block.extend(dson_pack_i32_le(entry["meta2_index"]))
+        meta1_block.extend(dson_pack_i32_le(entry["direct_children"]))
+        meta1_block.extend(dson_pack_i32_le(entry["all_children"]))
+
+    meta2_block = bytearray()
+    for entry in new_meta2_entries:
+        meta2_block.extend(dson_pack_i32_le(entry["hash"]))
+        meta2_block.extend(dson_pack_i32_le(entry["offset"]))
+        meta2_block.extend(dson_pack_i32_le(entry["info"]))
+
+    patched = bytes(new_header) + bytes(meta1_block) + bytes(meta2_block) + bytes(new_data)
+
+    check_header = dson_parse_header(patched)
+    if check_header["data_offset"] + check_header["data_length"] != len(patched):
+        raise ValueError("Patched save has inconsistent data offset/length metadata.")
+
+    _, _, check_entries = dson_parse_applied_ugcs_with_layout(patched)
+    if len(check_entries) != len(enabled_mods):
+        raise ValueError("Patched save did not roundtrip with the requested mod count.")
+
+    dson_validate_editor_compatible(patched)
+
+    return patched, len(check_entries)
+
+
 def dson_validate_editor_compatible(raw):
     header = dson_parse_header(raw)
     meta1_entries = dson_parse_meta1(raw, header)
@@ -958,7 +1596,10 @@ def dson_patch_mod_list_resize(raw, enabled_mods, mod_manager):
     meta2_entries = dson_parse_meta2(raw, header)
     data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
 
-    applied_meta2_index = dson_find_meta2_by_name(raw, header, meta2_entries, "applied_ugcs_1_0")
+    try:
+        applied_meta2_index = dson_find_meta2_by_name(raw, header, meta2_entries, "applied_ugcs_1_0")
+    except ValueError:
+        return dson_insert_missing_applied_ugcs(raw, enabled_mods, mod_manager)
     applied_meta2 = meta2_entries[applied_meta2_index]
     applied_meta1_index = dson_object_index_from_info(applied_meta2["info"])
     if applied_meta1_index is None:
@@ -1700,15 +2341,125 @@ class ModManager:
             return (9999, slot.get("path", "").lower())
         return (number, slot.get("path", "").lower())
 
-    def format_elapsed_hours(self, totalelapsed):
+    def read_scalar_dson_fields(self, path, wanted_names=None, name_predicate=None):
+        values = {}
         try:
-            hours = float(totalelapsed) / (1000 * 60 * 60)
-        except Exception:
-            return ""
+            with open(path, "rb") as f:
+                raw = f.read()
 
-        if hours < 0:
-            return ""
-        return f"{hours:.1f}h"
+            header = dson_parse_header(raw)
+            meta2_entries = dson_parse_meta2(raw, header)
+            data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
+            wanted = set(wanted_names or [])
+
+            for field_index, entry in enumerate(meta2_entries):
+                name = dson_meta2_name(raw, header, entry)
+                if wanted:
+                    if name not in wanted:
+                        continue
+                elif name_predicate is not None:
+                    if not name_predicate(name):
+                        continue
+                else:
+                    continue
+
+                if dson_object_index_from_info(entry["info"]) is not None:
+                    continue
+
+                next_offset = (
+                    meta2_entries[field_index + 1]["offset"]
+                    if field_index + 1 < len(meta2_entries)
+                    else header["data_length"]
+                )
+                values[name] = dson_decode_scalar_field(data, entry, next_offset)
+        except Exception:
+            return {}
+
+        return values
+
+    def read_profile_week(self, profile_save_path):
+        profile_dir = os.path.dirname(profile_save_path)
+        game_path = os.path.join(profile_dir, "persist.game.json")
+        game_values = {}
+        if os.path.isfile(game_path):
+            game_values = self.read_scalar_dson_fields(game_path, wanted_names={"inraid"})
+
+        if game_values.get("inraid") is True:
+            inraid_candidates = [
+                ("persist.campaign_log.json", "current_week", 0),
+                ("persist.campaign_log.json", "total_weeks", 0),
+                ("persist.estate.json", "week", 0),
+            ]
+            for filename, field_name, adjustment in inraid_candidates:
+                candidate_path = os.path.join(profile_dir, filename)
+                if not os.path.isfile(candidate_path):
+                    continue
+
+                values = self.read_scalar_dson_fields(candidate_path, wanted_names={field_name})
+                if field_name not in values:
+                    continue
+
+                try:
+                    week_number = int(values[field_name]) + adjustment
+                except Exception:
+                    continue
+
+                if week_number >= 0:
+                    return week_number
+
+        exact_candidates = [
+            ("persist.town_event.json", "last_town_event_week", 0),
+            ("persist.estate.json", "week", 0),
+            ("persist.campaign_log.json", "current_week", 0),
+            ("persist.campaign_log.json", "total_weeks", -1),
+        ]
+
+        for filename, field_name, adjustment in exact_candidates:
+            candidate_path = os.path.join(profile_dir, filename)
+            if not os.path.isfile(candidate_path):
+                continue
+
+            values = self.read_scalar_dson_fields(candidate_path, wanted_names={field_name})
+            if field_name not in values:
+                continue
+
+            try:
+                week_number = int(values[field_name]) + adjustment
+            except Exception:
+                continue
+
+            if week_number >= 0:
+                return week_number
+
+        try:
+            filenames = sorted(os.listdir(profile_dir))
+        except Exception:
+            return None
+
+        for filename in filenames:
+            lower = filename.lower()
+            if not lower.startswith("persist.") or not lower.endswith(".json"):
+                continue
+            if lower.endswith(".decoded.json"):
+                continue
+
+            candidate_path = os.path.join(profile_dir, filename)
+            values = self.read_scalar_dson_fields(
+                candidate_path,
+                name_predicate=lambda name: "week" in str(name).lower(),
+            )
+            for name, value in values.items():
+                lowered_name = str(name).lower()
+                if lowered_name.startswith("number_of_weeks_"):
+                    continue
+                try:
+                    week_number = int(value)
+                except Exception:
+                    continue
+                if week_number >= 0:
+                    return week_number
+
+        return None
 
     def read_save_profile_metadata(self, path):
         try:
@@ -1720,33 +2471,8 @@ class ModManager:
         if cached and cached.get("mtime") == mtime:
             return dict(cached["metadata"])
 
-        metadata = {}
-
-        try:
-            with open(path, "rb") as f:
-                raw = f.read()
-
-            header = dson_parse_header(raw)
-            meta2_entries = dson_parse_meta2(raw, header)
-            data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
-            for field_index, entry in enumerate(meta2_entries):
-                name = dson_meta2_name(raw, header, entry)
-                if name not in {"date_time", "totalelapsed"}:
-                    continue
-                if dson_object_index_from_info(entry["info"]) is not None:
-                    continue
-
-                next_offset = (
-                    meta2_entries[field_index + 1]["offset"]
-                    if field_index + 1 < len(meta2_entries)
-                    else header["data_length"]
-                )
-                metadata[name] = dson_decode_scalar_field(data, entry, next_offset)
-
-                if "date_time" in metadata and "totalelapsed" in metadata:
-                    break
-        except Exception:
-            metadata = {}
+        metadata = self.read_scalar_dson_fields(path, wanted_names={"date_time"})
+        metadata["week"] = self.read_profile_week(path)
 
         self.profile_metadata_cache[path] = {
             "mtime": mtime,
@@ -1765,15 +2491,15 @@ class ModManager:
             except Exception:
                 save_date = "unknown date"
 
-        hours_text = self.format_elapsed_hours(metadata.get("totalelapsed"))
+        week_number = metadata.get("week")
 
         if number is None:
             base = f"Unknown Profile - {save_date}"
         else:
             base = f"Profile {number} (slot {number + 1}) - {save_date}"
 
-        if hours_text:
-            base = f"{base} - {hours_text}"
+        if week_number is not None:
+            base = f"{base} - Week {week_number}"
 
         parent = os.path.basename(os.path.dirname(path))
         return f"{base} [{parent}]"
@@ -1812,7 +2538,7 @@ class ModManager:
             self.state["selected_profile_path"] = path
             self.state["last_save_path"] = path
             self.save_state()
-            self.status_label.config(text=f"Selected profile save: {path}")
+            self.status_label.config(text=self.tr("status_selected_profile_save", path=path))
 
     def refresh_profile_menu(self):
         start = time.perf_counter()
@@ -1832,7 +2558,7 @@ class ModManager:
 
         labels = [slot["label"] for slot in self.profile_slots]
         if not labels:
-            labels = ["No profiles found"]
+            labels = [self.empty_profile_label()]
 
         current_path = self.state.get("selected_profile_path") or self.state.get("last_save_path", "")
         selected_label = labels[0]
@@ -1893,21 +2619,25 @@ class ModManager:
         if show_messages:
             if found_anything:
                 mod_text = mod_folder if mod_folder else "No mod folder found"
-                save_text = latest_save if latest_save else "No save file found"
+                save_text = latest_save if latest_save else self.tr("no_save_file_found")
+                if mod_text == "No mod folder found":
+                    mod_text = self.tr("no_mod_folder_found")
                 messagebox.showinfo(
-                    "Auto Detect Complete",
-                    f"Game install:\n{summary['game_root'] or 'Not found'}\n\n"
-                    f"Local mods:\n{summary['local_mods'] or 'Not found'}\n\n"
-                    f"Workshop mods:\n{summary['workshop_mods'] or 'Not found'}\n\n"
-                    f"Active mods source:\n{mod_text}\n\n"
-                    f"Latest save:\n{save_text}\n\n"
-                    f"Profiles found: {summary['profile_count']}"
+                    self.tr("auto_detect_complete"),
+                    self.tr(
+                        "auto_detect_complete_body",
+                        game_root=summary["game_root"] or self.tr("not_found"),
+                        local_mods=summary["local_mods"] or self.tr("not_found"),
+                        workshop_mods=summary["workshop_mods"] or self.tr("not_found"),
+                        mod_text=mod_text,
+                        save_text=save_text,
+                        profile_count=summary["profile_count"],
+                    )
                 )
             else:
                 messagebox.showwarning(
-                    "Nothing Found",
-                    "I could not auto-detect a Darkest Dungeon install, mods folder, or save file.\n\n"
-                    "Use File Paths to set the game, mods, or profile paths manually."
+                    self.tr("nothing_found"),
+                    self.tr("auto_detect_nothing_found_body")
                 )
 
     # Startup path discovery always refreshes mods and profiles from disk
@@ -1917,18 +2647,19 @@ class ModManager:
         setup_start = time.perf_counter()
         current_mods_path = self.mods_path.get().strip()
         if current_mods_path and os.path.isdir(current_mods_path):
-            self.update_startup_splash("Loading mods from the detected folder...")
+            self.update_startup_splash(self.tr("startup_loading_mods_detected"))
             self.timed_startup_call("run_first_start_setup.load_mods", self.load_mods)
-            self.update_startup_splash("Scanning profile saves...")
+            self.update_startup_splash(self.tr("startup_scanning_profiles"))
             self.timed_startup_call("run_first_start_setup.refresh_profile_menu", self.refresh_profile_menu)
             latest_save = self.timed_startup_call("run_first_start_setup.detect_latest_save_file", self.detect_latest_save_file)
             if latest_save:
                 self.state["last_save_path"] = latest_save
                 self.save_state()
             self.status_label.config(
-                text=(
-                    f"Loaded mods from: {current_mods_path} | "
-                    f"Profiles: {len(self.profile_slots)}"
+                text=self.tr(
+                    "status_loaded_mods_profiles",
+                    mods_path=current_mods_path,
+                    profile_count=len(self.profile_slots),
                 )
             )
             self.record_startup_timing("run_first_start_setup.total", time.perf_counter() - setup_start)
@@ -1938,37 +2669,39 @@ class ModManager:
         mod_folder = summary["best_mods"]
         if mod_folder:
             self.mods_path.set(mod_folder)
-            self.update_startup_splash("Detecting mods and preparing the load order...")
+            self.update_startup_splash(self.tr("startup_detecting_mods"))
             self.timed_startup_call("run_first_start_setup.load_mods", self.load_mods)
-            self.update_startup_splash("Scanning profile saves...")
+            self.update_startup_splash(self.tr("startup_scanning_profiles"))
             self.timed_startup_call("run_first_start_setup.refresh_profile_menu", self.refresh_profile_menu)
             self.status_label.config(
-                text=(
-                    f"Detected game: {summary['game_root'] or 'unknown'} | "
-                    f"Using mods: {mod_folder} | "
-                    f"Profiles: {summary['profile_count']}"
+                text=self.tr(
+                    "status_detected_game",
+                    game_root=summary["game_root"] or "unknown",
+                    mods_path=mod_folder,
+                    profile_count=summary["profile_count"],
                 )
             )
             if show_popup and not self.state.get("first_run_summary_shown"):
                 messagebox.showinfo(
-                    "Darkest Dungeon Detected",
-                    f"Game install:\n{summary['game_root'] or 'Not found'}\n\n"
-                    f"Local mods folder:\n{summary['local_mods'] or 'Not found'}\n\n"
-                    f"Workshop mods folder:\n{summary['workshop_mods'] or 'Not found'}\n\n"
-                    f"Using mods from:\n{mod_folder}\n\n"
-                    f"Latest save:\n{summary['latest_save'] or 'Not found'}\n\n"
-                    f"Profiles found: {summary['profile_count']}"
+                    self.tr("dd_detected"),
+                    self.tr(
+                        "dd_detected_body",
+                        game_root=summary["game_root"] or self.tr("not_found"),
+                        local_mods=summary["local_mods"] or self.tr("not_found"),
+                        workshop_mods=summary["workshop_mods"] or self.tr("not_found"),
+                        mods_path=mod_folder,
+                        latest_save=summary["latest_save"] or self.tr("not_found"),
+                        profile_count=summary["profile_count"],
+                    )
                 )
                 self.state["first_run_summary_shown"] = True
                 self.save_state()
             self.record_startup_timing("run_first_start_setup.total", time.perf_counter() - setup_start)
             return
 
-        self.update_startup_splash("Scanning profile saves...")
+        self.update_startup_splash(self.tr("startup_scanning_profiles"))
         self.timed_startup_call("run_first_start_setup.refresh_profile_menu", self.refresh_profile_menu)
-        self.status_label.config(
-            text="No Darkest Dungeon install was auto-detected. Open File Paths to set folders manually, then click Refresh Mods."
-        )
+        self.status_label.config(text=self.tr("status_no_dd_detected"))
         self.record_startup_timing("run_first_start_setup.total", time.perf_counter() - setup_start)
 
     def show_setup_diagnostics(self):
@@ -2593,17 +3326,20 @@ class ModManager:
     # the main interface.
     def __init__(self, root):
         self.root = root
-        self.root.title("Darkest Dungeon Mod Manager")
+        detected_language = detect_default_language()
+        self.root.title(translate_text(detected_language, "app_title"))
         self.root.geometry("1400x780")
 
         ensure_app_storage()
 
         self.mods_path = tk.StringVar()
-        self.selected_profile = tk.StringVar(value="No profiles found")
-        self.filter_category = tk.StringVar(value="All")
+        self.language = tk.StringVar(value=LANGUAGE_CODE_TO_LABEL.get(detected_language, LANGUAGE_CODE_TO_LABEL["en"]))
+        self.selected_profile = tk.StringVar(value=translate_text(detected_language, "profile_none"))
+        self.filter_category = tk.StringVar(value=translate_text(detected_language, CATEGORY_TRANSLATION_KEYS["All"]))
         self.search_text = tk.StringVar(value="")
-        self.view_mode = tk.StringVar(value="Comfortable")
+        self.view_mode = tk.StringVar(value=translate_text(detected_language, VIEW_MODE_TRANSLATION_KEYS["Comfortable"]))
         self.state = {
+            "language": detected_language,
             "mods_path": "",
             "last_save_path": "",
             "last_backup_path": "",
@@ -2644,6 +3380,7 @@ class ModManager:
         self.startup_splash = None
         self.search_refresh_job = None
         self.view_mode_job = None
+        self.new_mod_highlight_job = None
         self.icon_redraw_job = None
         self.icon_load_job = None
         self.icon_load_queue = []
@@ -2654,6 +3391,7 @@ class ModManager:
         self.pending_duplicate_groups = []
         self.workshop_update_cache = None
         self.startup_profile = []
+        self.recent_new_mods = set()
 
         self.enabled_visible_mods = []
         self.disabled_visible_mods = []
@@ -2663,12 +3401,143 @@ class ModManager:
         if self.state.get("mods_path"):
             self.mods_path.set(self.state["mods_path"])
         if self.state.get("view_mode") in VIEW_MODES:
-            self.view_mode.set(self.state["view_mode"])
+            self.view_mode.set(self.view_mode_label(self.state["view_mode"]))
+        self.language.set(LANGUAGE_CODE_TO_LABEL.get(self.state.get("language", "en"), LANGUAGE_CODE_TO_LABEL["en"]))
+        self.selected_profile.set(self.empty_profile_label())
+        self.root.title(self.tr("app_title"))
 
         self.build_ui()
 
     def update_startup_splash(self, message):
         update_startup_splash(self.startup_splash, message)
+
+    def current_language(self):
+        return self.state.get("language", "en")
+
+    def tr(self, key, **kwargs):
+        return translate_text(self.current_language(), key, **kwargs)
+
+    def empty_profile_label(self):
+        return self.tr("profile_none")
+
+    def category_label(self, category):
+        key = CATEGORY_TRANSLATION_KEYS.get(category)
+        if key:
+            return self.tr(key)
+        return category
+
+    def category_from_label(self, label):
+        for category, key in CATEGORY_TRANSLATION_KEYS.items():
+            if label == category:
+                return category
+            for language_code in TRANSLATIONS.keys():
+                if label == translate_text(language_code, key):
+                    return category
+        return label
+
+    def current_filter_category(self):
+        return self.category_from_label(self.filter_category.get().strip())
+
+    def view_mode_label(self, mode):
+        key = VIEW_MODE_TRANSLATION_KEYS.get(mode)
+        if key:
+            return self.tr(key)
+        return mode
+
+    def view_mode_from_label(self, label):
+        for mode, key in VIEW_MODE_TRANSLATION_KEYS.items():
+            if label == mode:
+                return mode
+            for language_code in TRANSLATIONS.keys():
+                if label == translate_text(language_code, key):
+                    return mode
+        return label
+
+    def current_view_mode(self):
+        mode = self.view_mode_from_label(self.view_mode.get().strip())
+        return mode if mode in VIEW_MODES else "Comfortable"
+
+    def set_language(self, language_label):
+        language_code = LANGUAGE_LABEL_TO_CODE.get(language_label, "en")
+        self.language.set(LANGUAGE_CODE_TO_LABEL.get(language_code, LANGUAGE_CODE_TO_LABEL["en"]))
+        if self.state.get("language") == language_code:
+            return
+        self.state["language"] = language_code
+        self.save_state()
+        self.refresh_localized_texts()
+
+    def rebuild_tools_menu(self):
+        if not hasattr(self, "tools_menu"):
+            return
+        self.tools_menu.menu.delete(0, tk.END)
+        self.tools_menu.menu.add_command(label=self.tr("tool_patch_save"), command=self.patch_save_file)
+        self.tools_menu.menu.add_command(label=self.tr("tool_patch_autodetected_legacy"), command=self.patch_latest_save_file)
+        self.tools_menu.menu.add_command(label=self.tr("tool_generate_save_code"), command=self.generate_save_code)
+        self.tools_menu.menu.add_command(label=self.tr("tool_apply_order"), command=self.apply_order)
+        self.tools_menu.menu.add_command(label=self.tr("tool_restore_backup"), command=self.restore_last_backup)
+        self.tools_menu.menu.add_command(label=self.tr("tool_check_setup"), command=self.show_setup_diagnostics)
+
+    def refresh_localized_texts(self):
+        self.root.title(self.tr("app_title"))
+        for attr_name, key in (
+            ("title_label", "app_title"),
+            ("subtitle_label", "app_subtitle"),
+            ("launch_button", "launch_game"),
+            ("open_local_mods_button", "open_local_mods"),
+            ("file_paths_button", "file_paths"),
+            ("auto_detect_button", "auto_detect"),
+            ("language_label", "language"),
+            ("profile_heading_label", "profile"),
+            ("refresh_profile_button", "refresh"),
+            ("load_profile_button", "load_profile_mods"),
+            ("patch_profile_button", "patch_selected_profile"),
+            ("refresh_mods_button", "refresh_mods"),
+            ("save_loadout_button", "save_loadout"),
+            ("load_loadout_button", "load_loadout"),
+            ("filter_heading_label", "filter"),
+            ("edit_categories_button", "edit_categories"),
+            ("search_heading_label", "search"),
+            ("view_heading_label", "view"),
+            ("list_actions_heading_label", "list_actions"),
+            ("auto_sort_button", "auto_sort"),
+            ("auto_categorize_button", "auto_categorize"),
+            ("nickname_button", "nickname_mod"),
+            ("reserve_heading_label", "reserve"),
+            ("enable_button", "enable_selected"),
+            ("disable_button", "disable_selected"),
+            ("load_order_heading_label", "load_order"),
+        ):
+            widget = getattr(self, attr_name, None)
+            if widget is not None:
+                widget.config(text=self.tr(key))
+
+        if hasattr(self, "tools_menu"):
+            self.tools_menu.config(text=self.tr("tools"))
+            self.rebuild_tools_menu()
+
+        if hasattr(self, "filter_menu"):
+            self.filter_category.set(self.category_label(self.current_filter_category()))
+            self.rebuild_category_menus()
+
+        if hasattr(self, "view_mode_menu"):
+            self.view_mode.set(self.view_mode_label(self.current_view_mode()))
+            self.rebuild_view_mode_menu()
+
+        if hasattr(self, "status_label"):
+            current_text = self.status_label.cget("text")
+            default_texts = {
+                translate_text("en", "status_choose_mods"),
+                translate_text("zh_CN", "status_choose_mods"),
+            }
+            if current_text in default_texts:
+                self.status_label.config(text=self.tr("status_choose_mods"))
+
+        if hasattr(self, "profile_menu") and not self.profile_slots:
+            self.selected_profile.set(self.empty_profile_label())
+            menu = self.profile_menu["menu"]
+            menu.delete(0, tk.END)
+            label = self.empty_profile_label()
+            menu.add_command(label=label, command=lambda value=label: self.select_profile(value))
 
     # -----------------------------------------------------
     # STARTUP PROFILING (DEBUG TOGGLE)
@@ -3348,11 +4217,32 @@ class ModManager:
         )
 
     def current_view_config(self):
-        mode = self.view_mode.get().strip()
-        return VIEW_MODES.get(mode, VIEW_MODES["Comfortable"])
+        return VIEW_MODES.get(self.current_view_mode(), VIEW_MODES["Comfortable"])
 
     def list_font(self):
         return self.current_view_config()["list_font"]
+
+    def set_recent_new_mods(self, mods):
+        self.recent_new_mods = set(mods)
+        if self.new_mod_highlight_job is not None:
+            try:
+                self.root.after_cancel(self.new_mod_highlight_job)
+            except Exception:
+                pass
+            self.new_mod_highlight_job = None
+
+        if self.recent_new_mods:
+            self.new_mod_highlight_job = self.root.after(
+                NEW_MOD_HIGHLIGHT_MS,
+                self.clear_recent_new_mods,
+            )
+
+    def clear_recent_new_mods(self):
+        self.new_mod_highlight_job = None
+        if not self.recent_new_mods:
+            return
+        self.recent_new_mods.clear()
+        self.refresh()
 
     def preview_icon_size(self):
         return self.current_view_config()["icon_size"]
@@ -3366,7 +4256,7 @@ class ModManager:
     # Native Tk listbox text sits slightly low inside each row, so the
     # preview icon strip uses a small per-view offset to match it better.
     def preview_icon_vertical_offset(self):
-        mode = self.view_mode.get().strip()
+        mode = self.current_view_mode()
         offsets = {
             "No Icons": 0,
             "Compact": 2,
@@ -3376,9 +4266,10 @@ class ModManager:
         return offsets.get(mode, 2)
 
     def set_view_mode(self, mode):
+        mode = self.view_mode_from_label(mode)
         if mode not in VIEW_MODES:
             mode = "Comfortable"
-        self.view_mode.set(mode)
+        self.view_mode.set(self.view_mode_label(mode))
         if self.view_mode_job is not None:
             try:
                 self.root.after_cancel(self.view_mode_job)
@@ -3732,25 +4623,45 @@ class ModManager:
 
         title_block = self.themed_frame(title_frame)
         title_block.pack(side="left")
-        self.themed_label(
+        self.title_label = self.themed_label(
             title_block,
-            "Darkest Dungeon Mod Manager",
+            self.tr("app_title"),
             style="title",
             anchor="w"
-        ).pack(anchor="w")
-        self.themed_label(
+        )
+        self.title_label.pack(anchor="w")
+        self.subtitle_label = self.themed_label(
             title_block,
-            "Load Order Ledger",
+            self.tr("app_subtitle"),
             style="subtitle",
             anchor="w"
-        ).pack(anchor="w")
+        )
+        self.subtitle_label.pack(anchor="w")
 
-        self.themed_button(
+        self.launch_button = self.themed_button(
             title_frame,
-            text="Launch Darkest Dungeon",
+            text=self.tr("launch_game"),
             command=self.launch_darkest_dungeon,
             style="primary"
-        ).pack(side="right")
+        )
+        self.launch_button.pack(side="right")
+
+        language_frame = self.themed_frame(title_frame)
+        language_frame.pack(side="right", padx=(0, 12))
+        self.language_label = self.themed_label(
+            language_frame,
+            text=self.tr("language"),
+            style="heading"
+        )
+        self.language_label.pack(side="left", padx=(0, 6))
+        self.language_menu = tk.OptionMenu(
+            language_frame,
+            self.language,
+            *LANGUAGE_CODE_TO_LABEL.values(),
+            command=self.set_language
+        )
+        self.configure_option_menu(self.language_menu)
+        self.language_menu.pack(side="left")
 
         divider = tk.Frame(self.root, bg=THEME["crimson"], height=2)
         divider.pack(fill="x", padx=14, pady=(6, 10))
@@ -3766,55 +4677,66 @@ class ModManager:
         )
         path_entry.pack(side="left", fill="x", expand=True, padx=(0, 8))
 
-        self.themed_button(top, text="File Paths", command=self.browse).pack(side="left", padx=4)
-        self.themed_button(top, text="Auto Detect", command=self.run_auto_detect).pack(side="left", padx=4)
+        self.open_local_mods_button = self.themed_button(top, text=self.tr("open_local_mods"), command=self.open_assigned_local_mods_folder)
+        self.open_local_mods_button.pack(side="left", padx=4)
+        self.file_paths_button = self.themed_button(top, text=self.tr("file_paths"), command=self.browse)
+        self.file_paths_button.pack(side="left", padx=4)
+        self.auto_detect_button = self.themed_button(top, text=self.tr("auto_detect"), command=self.run_auto_detect)
+        self.auto_detect_button.pack(side="left", padx=4)
 
         profile_frame = self.themed_frame(self.root)
         profile_frame.pack(fill="x", padx=14, pady=(0, 10))
 
-        self.themed_label(
+        self.profile_heading_label = self.themed_label(
             profile_frame,
-            text="Profile:",
+            text=self.tr("profile"),
             style="heading"
-        ).pack(side="left", padx=(0, 8))
+        )
+        self.profile_heading_label.pack(side="left", padx=(0, 8))
 
         self.profile_menu = tk.OptionMenu(
             profile_frame,
             self.selected_profile,
-            "No profiles found",
+            self.empty_profile_label(),
             command=self.select_profile
         )
         self.configure_option_menu(self.profile_menu)
         self.profile_menu.pack(side="left", fill="x", expand=True, padx=(0, 8))
 
-        self.themed_button(profile_frame, text="Refresh", command=self.refresh_profile_menu).pack(side="left", padx=4)
-        self.themed_button(profile_frame, text="Load Profile Mods", command=self.load_selected_profile_mods, style="primary").pack(side="left", padx=4)
-        self.themed_button(profile_frame, text="Patch Selected Profile", command=self.patch_selected_profile_save, style="primary").pack(side="left", padx=4)
+        self.refresh_profile_button = self.themed_button(profile_frame, text=self.tr("refresh"), command=self.refresh_profile_menu)
+        self.refresh_profile_button.pack(side="left", padx=4)
+        self.load_profile_button = self.themed_button(profile_frame, text=self.tr("load_profile_mods"), command=self.load_selected_profile_mods, style="primary")
+        self.load_profile_button.pack(side="left", padx=4)
+        self.patch_profile_button = self.themed_button(profile_frame, text=self.tr("patch_selected_profile"), command=self.patch_selected_profile_save, style="primary")
+        self.patch_profile_button.pack(side="left", padx=4)
 
         action_frame = self.themed_frame(self.root)
         action_frame.pack(fill="x", padx=14, pady=(0, 10))
 
-        self.themed_button(action_frame, text="Refresh Mods", command=self.load_mods).pack(side="left", padx=(0, 4))
+        self.refresh_mods_button = self.themed_button(action_frame, text=self.tr("refresh_mods"), command=self.load_mods)
+        self.refresh_mods_button.pack(side="left", padx=(0, 4))
 
         # Loadouts are currently disabled in the UI because the app already
         # persists and restores the working mod state automatically. Keep the
         # underlying save/load methods intact in case this workflow is needed again.
-        self.themed_button(
+        self.save_loadout_button = self.themed_button(
             action_frame,
-            text="Save Loadout",
+            text=self.tr("save_loadout"),
             command=self.save_loadout,
             state=("normal" if ENABLE_LOADOUT_BUTTONS else "disabled"),
             disabledforeground=THEME["muted"],
             cursor=("hand2" if ENABLE_LOADOUT_BUTTONS else "arrow"),
-        ).pack(side="left", padx=4)
-        self.themed_button(
+        )
+        self.save_loadout_button.pack(side="left", padx=4)
+        self.load_loadout_button = self.themed_button(
             action_frame,
-            text="Load Loadout",
+            text=self.tr("load_loadout"),
             command=self.load_loadout,
             state=("normal" if ENABLE_LOADOUT_BUTTONS else "disabled"),
             disabledforeground=THEME["muted"],
             cursor=("hand2" if ENABLE_LOADOUT_BUTTONS else "arrow"),
-        ).pack(side="left", padx=4)
+        )
+        self.load_loadout_button.pack(side="left", padx=4)
 
         # Auto-detected save patching is now a legacy fallback because profile
         # patching covers the main workflow more reliably.
@@ -3828,7 +4750,7 @@ class ModManager:
 
         self.tools_menu = tk.Menubutton(
             action_frame,
-            text="Tools",
+            text=self.tr("tools"),
             bg=THEME["panel"],
             fg=THEME["text"],
             activebackground=THEME["border"],
@@ -3853,23 +4775,21 @@ class ModManager:
             font=FONT_BODY,
         )
         self.tools_menu["menu"] = self.tools_menu.menu
-        self.tools_menu.menu.add_command(label="Patch Chosen Save", command=self.patch_save_file)
-        self.tools_menu.menu.add_command(label="Patch Auto-Detected Save (Legacy)", command=self.patch_latest_save_file)
-        self.tools_menu.menu.add_command(label="Generate Save Code", command=self.generate_save_code)
-        self.tools_menu.menu.add_command(label="Apply Order to Local Mods", command=self.apply_order)
-        self.tools_menu.menu.add_command(label="Restore Last Backup", command=self.restore_last_backup)
-        self.tools_menu.menu.add_command(label="Check Setup", command=self.show_setup_diagnostics)
+        self.rebuild_tools_menu()
 
         filter_frame = self.themed_frame(self.root)
         filter_frame.pack(fill="x", padx=14, pady=(0, 8))
 
-        self.themed_label(
+        self.filter_heading_label = self.themed_label(
             filter_frame,
-            text="Filter:",
+            text=self.tr("filter"),
             style="heading"
-        ).pack(side="left", padx=(0, 8))
+        )
+        self.filter_heading_label.pack(side="left", padx=(0, 8))
 
-        filter_options = ["All", "Unassigned"] + self.get_categories()
+        filter_options = [self.category_label("All"), self.category_label("Unassigned")] + [
+            self.category_label(cat) for cat in self.get_categories()
+        ]
 
         self.filter_menu = tk.OptionMenu(
             filter_frame,
@@ -3880,13 +4800,15 @@ class ModManager:
         self.configure_option_menu(self.filter_menu)
         self.filter_menu.pack(side="left")
 
-        self.themed_button(filter_frame, text="Edit Categories", command=self.add_category).pack(side="left", padx=(8, 0))
+        self.edit_categories_button = self.themed_button(filter_frame, text=self.tr("edit_categories"), command=self.add_category)
+        self.edit_categories_button.pack(side="left", padx=(8, 0))
 
-        self.themed_label(
+        self.search_heading_label = self.themed_label(
             filter_frame,
-            text="Search:",
+            text=self.tr("search"),
             style="heading"
-        ).pack(side="left", padx=(16, 8))
+        )
+        self.search_heading_label.pack(side="left", padx=(16, 8))
 
         search_entry = self.themed_entry(
             filter_frame,
@@ -3897,16 +4819,17 @@ class ModManager:
         search_entry.pack(side="left")
         search_entry.bind("<KeyRelease>", self.schedule_search_refresh)
 
-        self.themed_label(
+        self.view_heading_label = self.themed_label(
             filter_frame,
-            text="View:",
+            text=self.tr("view"),
             style="heading"
-        ).pack(side="left", padx=(16, 8))
+        )
+        self.view_heading_label.pack(side="left", padx=(16, 8))
 
         self.view_mode_menu = tk.OptionMenu(
             filter_frame,
             self.view_mode,
-            *VIEW_MODES.keys(),
+            *(self.view_mode_label(mode) for mode in VIEW_MODES.keys()),
             command=self.set_view_mode
         )
         self.configure_option_menu(self.view_mode_menu)
@@ -3917,7 +4840,7 @@ class ModManager:
 
         self.status_label = self.themed_label(
             info_frame,
-            text="Choose a mods folder or click Auto Detect.",
+            text=self.tr("status_choose_mods"),
             style="muted",
             anchor="w",
         )
@@ -3926,15 +4849,19 @@ class ModManager:
         list_action_frame = self.themed_frame(self.root)
         list_action_frame.pack(fill="x", padx=14, pady=(0, 8))
 
-        self.themed_label(
+        self.list_actions_heading_label = self.themed_label(
             list_action_frame,
-            text="List Actions:",
+            text=self.tr("list_actions"),
             style="heading"
-        ).pack(side="left", padx=(0, 8))
+        )
+        self.list_actions_heading_label.pack(side="left", padx=(0, 8))
 
-        self.themed_button(list_action_frame, text="Auto Sort", command=self.auto_sort).pack(side="left", padx=4)
-        self.themed_button(list_action_frame, text="Auto Categorize", command=self.auto_categorize_mods).pack(side="left", padx=4)
-        self.themed_button(list_action_frame, text="Nickname Mod", command=self.rename_selected_mod).pack(side="left", padx=4)
+        self.auto_sort_button = self.themed_button(list_action_frame, text=self.tr("auto_sort"), command=self.auto_sort)
+        self.auto_sort_button.pack(side="left", padx=4)
+        self.auto_categorize_button = self.themed_button(list_action_frame, text=self.tr("auto_categorize"), command=self.auto_categorize_mods)
+        self.auto_categorize_button.pack(side="left", padx=4)
+        self.nickname_button = self.themed_button(list_action_frame, text=self.tr("nickname_mod"), command=self.rename_selected_mod)
+        self.nickname_button.pack(side="left", padx=4)
 
         panels_frame = self.themed_frame(self.root)
         panels_frame.pack(fill="both", expand=True, padx=10, pady=10)
@@ -3943,11 +4870,12 @@ class ModManager:
         left_frame = self.themed_frame(panels_frame)
         left_frame.pack(side="left", fill="both", expand=True, padx=(0, 8))
 
-        self.themed_label(
+        self.reserve_heading_label = self.themed_label(
             left_frame,
-            text="Reserve",
+            text=self.tr("reserve"),
             style="heading"
-        ).pack(anchor="w", pady=(0, 6))
+        )
+        self.reserve_heading_label.pack(anchor="w", pady=(0, 6))
 
         left_scroll = tk.Scrollbar(left_frame)
         left_scroll.pack(side="right", fill="y")
@@ -3988,18 +4916,21 @@ class ModManager:
         middle_frame = self.themed_frame(panels_frame)
         middle_frame.pack(side="left", fill="y", padx=8)
 
-        self.themed_button(middle_frame, text="Enable >", command=self.enable_selected_from_left).pack(pady=(120, 8))
-        self.themed_button(middle_frame, text="< Reserve", command=self.disable_selected_from_right).pack(pady=8)
+        self.enable_button = self.themed_button(middle_frame, text=self.tr("enable_selected"), command=self.enable_selected_from_left)
+        self.enable_button.pack(pady=(120, 8))
+        self.disable_button = self.themed_button(middle_frame, text=self.tr("disable_selected"), command=self.disable_selected_from_right)
+        self.disable_button.pack(pady=8)
 
         # RIGHT PANEL - ENABLED
         right_frame = self.themed_frame(panels_frame)
         right_frame.pack(side="left", fill="both", expand=True, padx=(8, 0))
 
-        self.themed_label(
+        self.load_order_heading_label = self.themed_label(
             right_frame,
-            text="Load Order",
+            text=self.tr("load_order"),
             style="heading"
-        ).pack(anchor="w", pady=(0, 6))
+        )
+        self.load_order_heading_label.pack(anchor="w", pady=(0, 6))
 
         right_scroll = tk.Scrollbar(right_frame)
         right_scroll.pack(side="right", fill="y")
@@ -4070,6 +5001,7 @@ class ModManager:
             font=FONT_BODY,
         )
         self.rebuild_category_menus()
+        self.rebuild_view_mode_menu()
         self.refresh_profile_menu()
         self.apply_view_mode()
 
@@ -4088,16 +5020,27 @@ class ModManager:
             filter_menu.delete(0, tk.END)
             for cat in ["All", "Unassigned"] + self.get_categories():
                 filter_menu.add_command(
-                    label=cat,
+                    label=self.category_label(cat),
                     command=lambda c=cat: self.set_filter_category(c)
                 )
 
         self.menu.delete(0, tk.END)
         for cat in self.get_categories():
-            self.menu.add_command(label=cat, command=lambda c=cat: self.set_category(c))
+            self.menu.add_command(label=self.category_label(cat), command=lambda c=cat: self.set_category(c))
+
+    def rebuild_view_mode_menu(self):
+        if not hasattr(self, "view_mode_menu"):
+            return
+        menu = self.view_mode_menu["menu"]
+        menu.delete(0, tk.END)
+        for mode in VIEW_MODES.keys():
+            menu.add_command(
+                label=self.view_mode_label(mode),
+                command=lambda value=mode: self.set_view_mode(value)
+            )
 
     def set_filter_category(self, cat):
-        self.filter_category.set(cat)
+        self.filter_category.set(self.category_label(cat))
         self.refresh()
 
     def add_category(self):
@@ -4376,10 +5319,10 @@ class ModManager:
                 if normalize_hex_color(category_colors.get(cat, ""))
             }
 
-            current_filter = self.filter_category.get()
+            current_filter = self.current_filter_category()
             valid_filters = {"All", "Unassigned"} | set(final_categories)
             if current_filter not in valid_filters:
-                self.filter_category.set("All")
+                self.filter_category.set(self.category_label("All"))
 
             self.save_state()
             self.rebuild_category_menus()
@@ -4445,6 +5388,7 @@ class ModManager:
                     )
 
         self.state.setdefault("mods_path", "")
+        self.state.setdefault("language", detect_default_language())
         self.state.setdefault("last_save_path", "")
         self.state.setdefault("last_backup_path", "")
         self.state.setdefault("last_output_path", "")
@@ -4504,7 +5448,7 @@ class ModManager:
 
     def save_state(self):
         self.state["mods_path"] = self.mods_path.get().strip()
-        self.state["view_mode"] = self.view_mode.get().strip() or "Comfortable"
+        self.state["view_mode"] = self.current_view_mode()
         if os.path.exists(STATE_FILE):
             try:
                 shutil.copy2(STATE_FILE, os.path.join(APP_DIR, "mod_state.backup.json"))
@@ -4578,9 +5522,13 @@ class ModManager:
 
         if kind == "file":
             path = filedialog.askopenfilename(
-                title="Select persist.game.json",
+                title=self.tr("select_persist_game"),
                 initialdir=initialdir,
-                filetypes=[("Darkest Dungeon save", "*persist.game.json"), ("JSON files", "*.json"), ("All files", "*.*")]
+                filetypes=[
+                    (self.tr("darkest_dungeon_save"), "*persist.game.json"),
+                    (self.tr("json_files"), "*.json"),
+                    (self.tr("all_files"), "*.*"),
+                ]
             )
         else:
             path = filedialog.askdirectory(initialdir=initialdir)
@@ -4610,17 +5558,17 @@ class ModManager:
             self.refresh()
 
         if selected_profile_path and os.path.isfile(selected_profile_path):
-            self.status_label.config(text=f"Manual paths saved. Profile save: {selected_profile_path}")
+            self.status_label.config(text=self.tr("status_manual_paths_profile", path=selected_profile_path))
         elif mods_path:
-            self.status_label.config(text=f"Manual paths saved. Active mods folder: {mods_path}")
+            self.status_label.config(text=self.tr("status_manual_paths_mods", path=mods_path))
         else:
-            self.status_label.config(text="Manual paths saved.")
+            self.status_label.config(text=self.tr("status_manual_paths"))
 
         dialog.destroy()
 
     def open_paths_editor(self):
         dialog = tk.Toplevel(self.root)
-        dialog.title("File Paths")
+        dialog.title(self.tr("dialog_file_paths"))
         dialog.geometry("1020x380")
         dialog.configure(bg=THEME["bg"])
         dialog.transient(self.root)
@@ -4628,12 +5576,12 @@ class ModManager:
 
         self.themed_label(
             dialog,
-            text="Edit the paths the app uses when auto-detect misses something.",
+            text=self.tr("paths_editor_heading"),
             style="heading"
         ).pack(anchor="w", padx=14, pady=(14, 4))
         self.themed_label(
             dialog,
-            text="Leave a field blank to keep using auto-detect for that path.",
+            text=self.tr("paths_editor_hint"),
             style="muted"
         ).pack(anchor="w", padx=14, pady=(0, 12))
 
@@ -4649,17 +5597,17 @@ class ModManager:
             self.themed_entry(grid, textvariable=var).grid(row=row_index, column=1, sticky="ew", pady=6)
             self.themed_button(
                 grid,
-                text="Browse",
+                text=self.tr("browse"),
                 command=lambda current_var=var, current_kind=entry["kind"]: self.browse_path_value(current_var, current_kind)
             ).grid(row=row_index, column=2, padx=6, pady=6)
             self.themed_button(
                 grid,
-                text="Auto",
+                text=self.tr("auto"),
                 command=lambda current_var=var, detected=entry["detected"]: current_var.set(self.normalize_display_path(detected()))
             ).grid(row=row_index, column=3, padx=6, pady=6)
             self.themed_button(
                 grid,
-                text="Clear",
+                text=self.tr("clear"),
                 command=lambda current_var=var: current_var.set("")
             ).grid(row=row_index, column=4, padx=(6, 0), pady=6)
 
@@ -4667,11 +5615,43 @@ class ModManager:
         button_row.pack(fill="x", padx=14, pady=(0, 14))
         self.themed_button(
             button_row,
-            text="Save File Paths",
+            text=self.tr("save_file_paths"),
             command=lambda: self.save_manual_paths(values, dialog),
             style="primary"
         ).pack(side="left", padx=(0, 6))
-        self.themed_button(button_row, text="Cancel", command=dialog.destroy).pack(side="left", padx=6)
+        self.themed_button(button_row, text=self.tr("cancel"), command=dialog.destroy).pack(side="left", padx=6)
+
+    def open_folder_in_file_manager(self, folder_path, title="Open Folder"):
+        normalized_path = self.normalize_display_path(folder_path)
+        if not normalized_path or not os.path.isdir(normalized_path):
+            messagebox.showwarning(title, "That folder is not set or no longer exists.")
+            return False
+
+        try:
+            if IS_WINDOWS:
+                os.startfile(normalized_path)
+                return True
+
+            commands = []
+            if IS_LINUX:
+                commands.append(["xdg-open", normalized_path])
+
+            for command in commands:
+                try:
+                    subprocess.Popen(command)
+                    return True
+                except FileNotFoundError:
+                    continue
+
+            raise RuntimeError("No supported file manager launcher was found on this platform.")
+        except Exception as e:
+            messagebox.showerror(title, f"Could not open this folder.\n\n{e}")
+            return False
+
+    def open_assigned_local_mods_folder(self):
+        local_mods_path = self.detect_local_mod_folder()
+        if self.open_folder_in_file_manager(local_mods_path, title="Open Local Mods"):
+            self.status_label.config(text=f"Opened local mods folder: {local_mods_path}")
 
     # Launches Darkest Dungeon through Steam's URI handler.
     def launch_darkest_dungeon(self):
@@ -5009,6 +5989,7 @@ class ModManager:
                 include_already_attempted=False,
                 show_summary=False,
             )
+        self.set_recent_new_mods(new_mods)
         self.timed_startup_call("load_mods.refresh", self.refresh)
 
         duplicate_groups = self.timed_startup_call("load_mods.detect_local_workshop_duplicates", self.detect_local_workshop_duplicates, current_mods)
@@ -5054,7 +6035,7 @@ class ModManager:
         order = self.state.get("order", [])
         categories = self.state.get("categories", {})
         enabled_map = self.state.get("enabled", {})
-        filter_value = self.filter_category.get()
+        filter_value = self.current_filter_category()
         search_value = self.search_text.get().strip().lower()
 
         self.enabled_visible_mods = []
@@ -5090,29 +6071,45 @@ class ModManager:
             else:
                 self.disabled_visible_mods.append(mod)
 
+        recent_new_mods = self.recent_new_mods
+        if recent_new_mods:
+            order_positions = {mod: index for index, mod in enumerate(order)}
+            self.disabled_visible_mods.sort(key=lambda mod: (mod not in recent_new_mods, order_positions.get(mod, len(order))))
+            self.enabled_visible_mods.sort(key=lambda mod: (mod not in recent_new_mods, order_positions.get(mod, len(order))))
+
         for i, mod in enumerate(self.disabled_visible_mods):
             cat = categories.get(mod, "Unassigned")
             is_new_or_uncategorized = mod not in categories
+            is_recent_new = mod in recent_new_mods
 
             display_text = self.display_name_with_suffix(mod)
-            label = f"[{cat}]  {self.truncate_name(display_text)}"
+            label = f"[{self.category_label(cat)}]  {self.truncate_name(display_text)}"
             if is_new_or_uncategorized:
                 label = f"+ {label}"
+            if is_recent_new:
+                label = f"NEW  {label}"
 
             self.disabled_listbox.insert(tk.END, label)
             self.disabled_listbox.itemconfig(i, fg=THEME["disabled"])
+            if is_recent_new:
+                self.disabled_listbox.itemconfig(i, bg=THEME["field"])
 
         for i, mod in enumerate(self.enabled_visible_mods):
             cat = categories.get(mod, "Unassigned")
             is_new_or_uncategorized = mod not in categories
+            is_recent_new = mod in recent_new_mods
 
             display_text = self.display_name_with_suffix(mod)
-            label = f"[{cat}]  {self.truncate_name(display_text)}"
+            label = f"[{self.category_label(cat)}]  {self.truncate_name(display_text)}"
             if is_new_or_uncategorized:
                 label = f"+ {label}"
+            if is_recent_new:
+                label = f"NEW  {label}"
 
             self.enabled_listbox.insert(tk.END, label)
             self.enabled_listbox.itemconfig(i, fg=self.category_color(cat))
+            if is_recent_new:
+                self.enabled_listbox.itemconfig(i, bg=THEME["field"])
 
         for i, mod in enumerate(self.disabled_visible_mods):
             if mod in selected_disabled_mods:
@@ -5844,7 +6841,7 @@ class ModManager:
         selected_disabled = self.disabled_listbox.curselection()
 
         if len(selected_enabled) + len(selected_disabled) != 1:
-            messagebox.showwarning("Warning", "Select exactly one mod to nickname.")
+            messagebox.showwarning(self.tr("warning"), self.tr("select_one_mod_to_nickname"))
             return
 
         if selected_enabled:
@@ -5860,7 +6857,7 @@ class ModManager:
         mod = source_list[visible_index]
 
         dialog = tk.Toplevel(self.root)
-        dialog.title("Set Nickname")
+        dialog.title(self.tr("dialog_set_nickname"))
         dialog.geometry("500x140")
         dialog.configure(bg=THEME["bg"])
         dialog.transient(self.root)
@@ -5868,7 +6865,7 @@ class ModManager:
 
         self.themed_label(
             dialog,
-            text="Nickname:",
+            text=self.tr("nickname"),
             style="heading"
         ).pack(pady=(15, 5))
 
@@ -5930,20 +6927,20 @@ class ModManager:
                         self.disabled_listbox.see(new_index)
 
                 if nickname:
-                    self.status_label.config(text=f'Nickname set: {nickname}')
+                    self.status_label.config(text=self.tr("status_nickname_set", nickname=nickname))
                 else:
-                    self.status_label.config(text="Nickname cleared.")
+                    self.status_label.config(text=self.tr("status_nickname_cleared"))
 
                 dialog.destroy()
 
             except Exception as e:
-                messagebox.showerror("Error", f"Failed to save nickname:\n\n{e}")
+                messagebox.showerror(self.tr("error"), self.tr("failed_save_nickname", error=e))
 
         button_row = self.themed_frame(dialog)
         button_row.pack(pady=12)
 
-        self.themed_button(button_row, text="Save", command=do_rename, style="primary").pack(side="left", padx=6)
-        self.themed_button(button_row, text="Cancel", command=dialog.destroy).pack(side="left", padx=6)
+        self.themed_button(button_row, text=self.tr("save"), command=do_rename, style="primary").pack(side="left", padx=6)
+        self.themed_button(button_row, text=self.tr("cancel"), command=dialog.destroy).pack(side="left", padx=6)
 
         entry.bind("<Return>", lambda event: do_rename())
 
@@ -6231,7 +7228,7 @@ def main():
     # interface so users see the splash card instead of a blank delay.
     root.withdraw()
     splash_start = time.perf_counter()
-    splash = create_startup_splash(root)
+    splash = create_startup_splash(root, read_saved_language())
     splash_time = time.perf_counter() - splash_start
     app_start = time.perf_counter()
     app = ModManager(root)

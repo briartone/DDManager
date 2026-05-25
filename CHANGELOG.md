@@ -2,6 +2,13 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.6 - 2026-05-25
+
+- Added app localization support with a language picker and saved language preference.
+- Added Simplified Chinese, Portuguese, and Spanish translations for the startup splash, main UI, file-path editor, nickname dialog, filter labels, view-mode labels, and built-in mod category tags.
+- Added first-run OS language detection so packaged builds default to Chinese, Portuguese, or Spanish automatically when the local system language matches.
+- Updated the startup splash sizing by language so longer localized titles and loading text fit cleanly without wrapping.
+
 ## v0.1.5 - 2026-05-11
 
 - Added GOG-aware game install detection on Windows, including common GOG Galaxy folders and registry-based install paths.
