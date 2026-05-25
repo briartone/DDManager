@@ -32,13 +32,17 @@ jobs:
       - name: Create SHA256 file
         shell: pwsh
         run: |
-          $hash = Get-FileHash "release/DD Manager Portable.zip" -Algorithm SHA256
-          "$($hash.Hash) *DD Manager Portable.zip" | Set-Content "release/DD Manager Portable.sha256"
+          $zip = Get-ChildItem "release/*.zip" | Select-Object -First 1
+          if (-not $zip) {
+            throw "Could not find a release zip in the release folder."
+          }
+          $hash = Get-FileHash $zip.FullName -Algorithm SHA256
+          "$($hash.Hash) *$($zip.Name)" | Set-Content ($zip.FullName -replace '\.zip$', '.sha256')
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
           files: |
-            release/DD Manager Portable.zip
-            release/DD Manager Portable.sha256
+            release/*.zip
+            release/*.sha256

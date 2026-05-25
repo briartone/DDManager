@@ -146,6 +146,7 @@ VIEW_MODES = {
 }
 
 NEW_MOD_HIGHLIGHT_MS = 15000
+APP_VERSION = "v0.1.9"
 
 LANGUAGE_CHOICES = [
     ("en", "English"),
@@ -615,6 +616,10 @@ def read_saved_language():
         return state.get("language", default_language)
     except Exception:
         return default_language
+
+
+def subtitle_with_version(text):
+    return f"{text} {APP_VERSION}"
 
 
 # Centers transient windows like the startup splash so they appear
@@ -3492,7 +3497,6 @@ class ModManager:
         self.root.title(self.tr("app_title"))
         for attr_name, key in (
             ("title_label", "app_title"),
-            ("subtitle_label", "app_subtitle"),
             ("launch_button", "launch_game"),
             ("open_local_mods_button", "open_local_mods"),
             ("file_paths_button", "file_paths"),
@@ -3521,6 +3525,9 @@ class ModManager:
             widget = getattr(self, attr_name, None)
             if widget is not None:
                 widget.config(text=self.tr(key))
+
+        if hasattr(self, "subtitle_label"):
+            self.subtitle_label.config(text=subtitle_with_version(self.tr("app_subtitle")))
 
         if hasattr(self, "tools_menu"):
             self.tools_menu.config(text=self.tr("tools"))
@@ -4653,7 +4660,7 @@ class ModManager:
         self.title_label.pack(anchor="w")
         self.subtitle_label = self.themed_label(
             title_block,
-            self.tr("app_subtitle"),
+            subtitle_with_version(self.tr("app_subtitle")),
             style="subtitle",
             anchor="w"
         )
@@ -5088,6 +5095,9 @@ class ModManager:
             style="heading"
         ).pack(anchor="w", padx=12, pady=(12, 8))
 
+        footer = self.themed_frame(dialog)
+        footer.pack(side="bottom", fill="x", padx=12, pady=(0, 12))
+
         body = self.themed_frame(dialog)
         body.pack(fill="both", expand=True, padx=12, pady=(0, 12))
 
@@ -5293,14 +5303,14 @@ class ModManager:
             self.themed_button(right, text=text, command=command, style=style).pack(fill="x", pady=4)
 
         hint = self.themed_label(
-            dialog,
+            footer,
             text="Built-in categories can be reordered. Custom categories can also be renamed or removed.",
             style="muted",
             anchor="w",
             justify="left",
             wraplength=480,
         )
-        hint.pack(fill="x", padx=12, pady=(0, 10))
+        hint.pack(fill="x", pady=(0, 10))
 
         def save_changes():
             final_categories = list(categories)
@@ -5352,8 +5362,8 @@ class ModManager:
             self.status_label.config(text="Categories updated.")
             dialog.destroy()
 
-        button_row = self.themed_frame(dialog)
-        button_row.pack(fill="x", padx=12, pady=(0, 12))
+        button_row = self.themed_frame(footer)
+        button_row.pack(fill="x")
 
         self.themed_button(
             button_row,

@@ -11,10 +11,23 @@ $distRoot = "dist"
 $distAppDir = Join-Path $distRoot $appName
 $releaseRoot = "release"
 $portableName = "$appName Portable"
+$releaseVersion = $env:GITHUB_REF_NAME
+if ([string]::IsNullOrWhiteSpace($releaseVersion)) {
+    try {
+        $releaseVersion = (git describe --tags --exact-match 2>$null).Trim()
+    }
+    catch {
+        $releaseVersion = ""
+    }
+}
+if ([string]::IsNullOrWhiteSpace($releaseVersion)) {
+    $releaseVersion = "dev-" + (Get-Date -Format "yyyyMMdd-HHmmss")
+}
+$versionedPortableName = "$portableName $releaseVersion"
 $portableDir = Join-Path $releaseRoot $portableName
 $portableDataDir = Join-Path $portableDir "$appName Data"
 $iconCacheDir = Join-Path $portableDataDir "icon_cache"
-$portableZip = Join-Path $releaseRoot "$portableName.zip"
+$portableZip = Join-Path $releaseRoot "$versionedPortableName.zip"
 $portableReadme = Join-Path $portableDir "README.md"
 $dataReadme = Join-Path $portableDataDir "README.txt"
 $iconKeep = Join-Path $iconCacheDir ".keep"

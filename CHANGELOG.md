@@ -2,6 +2,12 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.9 - 2026-05-25
+
+- Fixed the stubborn `Save` and `Cancel` buttons in the `Edit Categories` dialog by reserving a dedicated footer area so they no longer get vertically squeezed in the packaged app.
+- Added the current app version beside `Load Order Ledger` in the main window.
+- Updated release packaging so published zip and SHA256 asset filenames now include the version number automatically.
+
 ## v0.1.8 - 2026-05-25
 
 - Fixed custom category sorting so `Auto Sort` and `Apply Order to Local Mods` now respect the user-selected category order instead of pushing custom categories to the bottom.
