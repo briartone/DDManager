@@ -15,6 +15,7 @@ without prior written permission.
 See [`LICENSE.md`](LICENSE.md) for the repository terms.
 
 ## Quick Start
+NOTE You will need to have a save ready that you've already entered the game once. For startup or skip intro dungon mods, you'll need to do those manually if you want that experience. 
 
 1. Run `dd2.py`.
 2. It should auto detect on it's own all your mods and folders, if not Click `Auto Detect`.
