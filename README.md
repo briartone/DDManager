@@ -80,13 +80,5 @@ Non-Steam note:
 - The app remembers your working mod state automatically, so the older loadout import/export buttons are currently disabled in the UI.
 - Legacy patch helpers are still available under `Tools` if you need them later.
 
-## Releases
-
-`.\build.ps1` now does two things:
-
-1. Builds the Windows app into `dist/DD Manager/`
-2. Creates a portable release zip at `release/DD Manager Portable.zip`
-
-To publish a GitHub Release automatically:
 
 See [`CHANGELOG.md`](CHANGELOG.md) for patch and release notes.
