@@ -250,6 +250,7 @@ TRANSLATIONS = {
         "view_mode_compact": "Compact",
         "view_mode_comfortable": "Comfortable",
         "view_mode_visual": "Visual",
+        "status_mod_summary": "{enabled} enabled | {disabled} disabled | {uncategorized} uncategorized/new",
     },
     "zh_CN": {
         "app_title": "暗黑地牢 Mod 管理器",
@@ -344,6 +345,7 @@ TRANSLATIONS = {
         "view_mode_compact": "紧凑",
         "view_mode_comfortable": "舒适",
         "view_mode_visual": "视觉",
+        "status_mod_summary": "{enabled} 已启用 | {disabled} 已禁用 | {uncategorized} 未分类/新增",
     },
     "pt_PT": {
         "app_title": "Gestor de Mods Darkest Dungeon",
@@ -438,6 +440,7 @@ TRANSLATIONS = {
         "view_mode_compact": "Compacto",
         "view_mode_comfortable": "Confortável",
         "view_mode_visual": "Visual",
+        "status_mod_summary": "{enabled} ativados | {disabled} desativados | {uncategorized} sem categoria/novos",
     },
     "es_ES": {
         "app_title": "Administrador de Mods de Darkest Dungeon",
@@ -532,6 +535,7 @@ TRANSLATIONS = {
         "view_mode_compact": "Compacto",
         "view_mode_comfortable": "Cómodo",
         "view_mode_visual": "Visual",
+        "status_mod_summary": "{enabled} activados | {disabled} desactivados | {uncategorized} sin clasificar/nuevos",
     },
 }
 
@@ -2538,7 +2542,7 @@ class ModManager:
             self.state["selected_profile_path"] = path
             self.state["last_save_path"] = path
             self.save_state()
-            self.status_label.config(text=self.tr("status_selected_profile_save", path=path))
+            self.set_status_translation("status_selected_profile_save", path=path)
 
     def refresh_profile_menu(self):
         start = time.perf_counter()
@@ -2655,12 +2659,10 @@ class ModManager:
             if latest_save:
                 self.state["last_save_path"] = latest_save
                 self.save_state()
-            self.status_label.config(
-                text=self.tr(
-                    "status_loaded_mods_profiles",
-                    mods_path=current_mods_path,
-                    profile_count=len(self.profile_slots),
-                )
+            self.set_status_translation(
+                "status_loaded_mods_profiles",
+                mods_path=current_mods_path,
+                profile_count=len(self.profile_slots),
             )
             self.record_startup_timing("run_first_start_setup.total", time.perf_counter() - setup_start)
             return
@@ -2673,13 +2675,11 @@ class ModManager:
             self.timed_startup_call("run_first_start_setup.load_mods", self.load_mods)
             self.update_startup_splash(self.tr("startup_scanning_profiles"))
             self.timed_startup_call("run_first_start_setup.refresh_profile_menu", self.refresh_profile_menu)
-            self.status_label.config(
-                text=self.tr(
-                    "status_detected_game",
-                    game_root=summary["game_root"] or "unknown",
-                    mods_path=mod_folder,
-                    profile_count=summary["profile_count"],
-                )
+            self.set_status_translation(
+                "status_detected_game",
+                game_root=summary["game_root"] or "unknown",
+                mods_path=mod_folder,
+                profile_count=summary["profile_count"],
             )
             if show_popup and not self.state.get("first_run_summary_shown"):
                 messagebox.showinfo(
@@ -2701,7 +2701,7 @@ class ModManager:
 
         self.update_startup_splash(self.tr("startup_scanning_profiles"))
         self.timed_startup_call("run_first_start_setup.refresh_profile_menu", self.refresh_profile_menu)
-        self.status_label.config(text=self.tr("status_no_dd_detected"))
+        self.set_status_translation("status_no_dd_detected")
         self.record_startup_timing("run_first_start_setup.total", time.perf_counter() - setup_start)
 
     def show_setup_diagnostics(self):
@@ -3388,6 +3388,7 @@ class ModManager:
         self.preview_icon_path_cache = {}
         self.preview_icon_image_cache = {}
         self.preview_icon_refs = {"disabled": [], "enabled": []}
+        self.status_translation = None
         self.pending_duplicate_groups = []
         self.workshop_update_cache = None
         self.startup_profile = []
@@ -3466,6 +3467,16 @@ class ModManager:
         self.save_state()
         self.refresh_localized_texts()
 
+    def set_status_text(self, text):
+        self.status_translation = None
+        if hasattr(self, "status_label"):
+            self.status_label.config(text=text)
+
+    def set_status_translation(self, key, **kwargs):
+        self.status_translation = (key, dict(kwargs))
+        if hasattr(self, "status_label"):
+            self.status_label.config(text=self.tr(key, **kwargs))
+
     def rebuild_tools_menu(self):
         if not hasattr(self, "tools_menu"):
             return
@@ -3524,13 +3535,17 @@ class ModManager:
             self.rebuild_view_mode_menu()
 
         if hasattr(self, "status_label"):
-            current_text = self.status_label.cget("text")
-            default_texts = {
-                translate_text("en", "status_choose_mods"),
-                translate_text("zh_CN", "status_choose_mods"),
-            }
-            if current_text in default_texts:
-                self.status_label.config(text=self.tr("status_choose_mods"))
+            if self.status_translation is not None:
+                key, kwargs = self.status_translation
+                self.status_label.config(text=self.tr(key, **kwargs))
+            else:
+                current_text = self.status_label.cget("text")
+                default_texts = {
+                    translate_text(language_code, "status_choose_mods")
+                    for language_code in TRANSLATIONS.keys()
+                }
+                if current_text in default_texts:
+                    self.status_label.config(text=self.tr("status_choose_mods"))
 
         if hasattr(self, "profile_menu") and not self.profile_slots:
             self.selected_profile.set(self.empty_profile_label())
@@ -3538,6 +3553,9 @@ class ModManager:
             menu.delete(0, tk.END)
             label = self.empty_profile_label()
             menu.add_command(label=label, command=lambda value=label: self.select_profile(value))
+
+        if hasattr(self, "disabled_listbox") and hasattr(self, "enabled_listbox"):
+            self.refresh()
 
     # -----------------------------------------------------
     # STARTUP PROFILING (DEBUG TOGGLE)
@@ -4845,6 +4863,7 @@ class ModManager:
             anchor="w",
         )
         self.status_label.pack(fill="x")
+        self.status_translation = ("status_choose_mods", {})
 
         list_action_frame = self.themed_frame(self.root)
         list_action_frame.pack(fill="x", padx=14, pady=(0, 8))
@@ -5558,11 +5577,11 @@ class ModManager:
             self.refresh()
 
         if selected_profile_path and os.path.isfile(selected_profile_path):
-            self.status_label.config(text=self.tr("status_manual_paths_profile", path=selected_profile_path))
+            self.set_status_translation("status_manual_paths_profile", path=selected_profile_path)
         elif mods_path:
-            self.status_label.config(text=self.tr("status_manual_paths_mods", path=mods_path))
+            self.set_status_translation("status_manual_paths_mods", path=mods_path)
         else:
-            self.status_label.config(text=self.tr("status_manual_paths"))
+            self.set_status_translation("status_manual_paths")
 
         dialog.destroy()
 
@@ -6127,12 +6146,11 @@ class ModManager:
 
         uncategorized_count = sum(1 for mod in order if mod not in categories)
 
-        self.status_label.config(
-            text=(
-                f"{len(self.enabled_visible_mods)} enabled | "
-                f"{len(self.disabled_visible_mods)} disabled | "
-                f"{uncategorized_count} uncategorized/new"
-            )
+        self.set_status_translation(
+            "status_mod_summary",
+            enabled=len(self.enabled_visible_mods),
+            disabled=len(self.disabled_visible_mods),
+            uncategorized=uncategorized_count,
         )
         self.schedule_icon_redraw()
 
@@ -6927,9 +6945,9 @@ class ModManager:
                         self.disabled_listbox.see(new_index)
 
                 if nickname:
-                    self.status_label.config(text=self.tr("status_nickname_set", nickname=nickname))
+                    self.set_status_translation("status_nickname_set", nickname=nickname)
                 else:
-                    self.status_label.config(text=self.tr("status_nickname_cleared"))
+                    self.set_status_translation("status_nickname_cleared")
 
                 dialog.destroy()
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.7 - 2026-05-25
+
+- Fixed language switching so startup-derived status text now updates to the newly selected language instead of staying in the app's startup language.
+- Fixed built-in mod category tags in the enabled and reserve lists so they refresh immediately when the language is changed from the menu.
+- Fixed the enabled/disabled/uncategorized summary line so it now translates correctly after changing languages at runtime.
+- Adjusted the startup splash card width again for Spanish so localized splash text is less likely to clip at launch.
+
 ## v0.1.6 - 2026-05-25
 
 - Added app localization support with a language picker and saved language preference.
