@@ -2,7 +2,7 @@
 
 All notable changes to this project should be listed here.
 
-## v0.1.10 - 2026-05-25
+## v0.2.0 - 2026-05-25
 
 - Fixed Workshop metadata handling so mods with real titles in `project.xml` no longer get stuck showing only the numeric Workshop ID in the UI.
 - Improved startup and refresh performance by removing an extra full UI refresh/save cycle from the silent auto-categorize path used during mod loading.
