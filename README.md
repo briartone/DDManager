@@ -15,11 +15,11 @@ without prior written permission.
 See [`LICENSE.md`](LICENSE.md) for the repository terms.
 
 ## Quick Start
-NOTE You will need to have a save ready that you've already entered the game once. For startup or skip intro dungon mods, you'll need to do those manually if you want that experience. 
+You need at least one save that has already been opened in-game once. Startup / intro-skip dungeon mods still need to be handled manually if you want that setup.
 
 1. Run `dd2.py`.
-2. It should auto detect on it's own all your mods and folders, if not Click `Auto Detect`.
-3. If Auto Detect finds your mods, click `Refresh Mods` if you want to rescan for new installs, updates, or subscriptions, then review the enabled/disabled lists.
+2. In most cases it should find your folders on its own. If not, click `Auto Detect`.
+3. Once it finds your mods, click `Refresh Mods` anytime you want to rescan for new installs, updates, or subscriptions.
 4. Choose a profile from the `Profile` menu.
 5. Click `Load Profile Mods` to mirror that profile's current active mod list and order in the manager.
 6. Click `Patch Selected Profile` to update that profile's `persist.game.json`.
@@ -29,11 +29,11 @@ If Auto Detect misses part of your setup, open `File Paths`, confirm or fill in 
 
 ## Save Patching
 
-`Patch Selected Profile` is the main workflow and should cover normal use.
+`Patch Selected Profile` is the normal workflow.
 
 `Patch Chosen Save` lets you manually pick a `persist.game.json`.
 
-`Patch Auto-Detected Save (Legacy)` is still available from the `Tools` menu as a fallback if profile detection is not the right fit for a specific case.
+`Patch Auto-Detected Save (Legacy)` is still in the `Tools` menu if you need the older fallback flow.
 
 Patch actions:
 
@@ -41,7 +41,7 @@ Patch actions:
 - validate the patched save metadata
 - write the patched data back to the default `persist.game.json` filename
 
-That means the game can load the patched save without manually renaming or moving files.
+So after patching, the game can load the save without you having to rename or move anything.
 
 ## Restore
 
@@ -74,12 +74,12 @@ Non-Steam note:
 
 - Steam installs are the primary auto-detect target.
 - GOG and other non-Steam installs may need `File Paths` even when saves are found correctly.
-- Linux non-Steam saves are now checked under `~/.local/share/Red Hook Studios/Darkest/`, but manual path overrides are still the safest fallback when a layout is unusual.
+- Linux non-Steam saves are also checked under `~/.local/share/Red Hook Studios/Darkest/`, but unusual setups may still need manual path overrides.
 
 ## Notes
 
-- The app remembers your working mod state automatically, so the older loadout import/export buttons are currently disabled in the UI.
-- Legacy patch helpers are still available under `Tools` if you need them later.
+- The app remembers your working mod state automatically, so the old loadout import/export workflow is tucked away for now instead of being on the main UI.
+- The older patch helpers are still under `Tools` if you ever need them.
 
 
 See [`CHANGELOG.md`](CHANGELOG.md) for patch and release notes.

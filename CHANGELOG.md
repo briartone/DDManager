@@ -2,16 +2,23 @@
 
 All notable changes to this project should be listed here.
 
+## v0.1.10 - 2026-05-25
+
+- Fixed Workshop metadata handling so mods with real titles in `project.xml` no longer get stuck showing only the numeric Workshop ID in the UI.
+- Improved startup and refresh performance by removing an extra full UI refresh/save cycle from the silent auto-categorize path used during mod loading.
+- Removed the dormant `Save Loadout` and `Load Loadout` buttons from the main UI while keeping the legacy loadout code quarantined for possible future reuse.
+- Continued the internal cleanup work by splitting category, localization, state, path/discovery, and legacy loadout logic out of the main file without changing the app's overall workflow.
+
 ## v0.1.9 - 2026-05-25
 
-- Fixed the stubborn `Save` and `Cancel` buttons in the `Edit Categories` dialog by reserving a dedicated footer area so they no longer get vertically squeezed in the packaged app.
+- Fixed the stubborn `Save` and `Cancel` buttons in the `Edit Categories` dialog so they stop collapsing in the packaged app.
 - Added the current app version beside `Load Order Ledger` in the main window.
 - Updated release packaging so published zip and SHA256 asset filenames now include the version number automatically.
 
 ## v0.1.8 - 2026-05-25
 
 - Fixed custom category sorting so `Auto Sort` and `Apply Order to Local Mods` now respect the user-selected category order instead of pushing custom categories to the bottom.
-- Improved multiple Simplified Chinese UI labels to use more natural localized wording for buttons, profile/save language, category controls, and view-mode labels.
+- Cleaned up multiple Simplified Chinese UI labels so the wording feels more natural in buttons, profile/save language, category controls, and view-mode labels.
 - Fixed the `Edit Categories` dialog so the `Save` and `Cancel` buttons no longer collapse into tiny wedge-shaped controls.
 
 ## v0.1.7 - 2026-05-25
@@ -25,7 +32,7 @@ All notable changes to this project should be listed here.
 
 - Added app localization support with a language picker and saved language preference.
 - Added Simplified Chinese, Portuguese, and Spanish translations for the startup splash, main UI, file-path editor, nickname dialog, filter labels, view-mode labels, and built-in mod category tags.
-- Added first-run OS language detection so packaged builds default to Chinese, Portuguese, or Spanish automatically when the local system language matches.
+- Added first-run OS language detection so packaged builds can start in Chinese, Portuguese, or Spanish when the local system language matches.
 - Updated the startup splash sizing by language so longer localized titles and loading text fit cleanly without wrapping.
 
 ## v0.1.5 - 2026-05-11
@@ -58,7 +65,7 @@ All notable changes to this project should be listed here.
 - Added an explicit proprietary `LICENSE.md` and README notice clarifying that the repository is not open source.
 - Simplified the main UI around a profile-first patching flow.
 - Removed `Patch Auto-Detected Save` from the main action row and kept it as `Tools > Patch Auto-Detected Save (Legacy)`.
-- Disabled the `Save Loadout` and `Load Loadout` buttons in the UI while preserving the underlying functionality in code for possible future reuse.
+- Hid the old `Save Loadout` / `Load Loadout` flow from the main UI while keeping the underlying code around for now.
 - Updated the build script to retry portable zip creation so Windows file locks are less likely to break release packaging.
 - Profile picker now shows save date and hours played from save metadata when available.
 - Rapid repeated view-mode clicks are debounced, and icon loading after a view switch is backgrounded to prevent freezing.
