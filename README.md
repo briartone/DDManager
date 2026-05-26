@@ -22,8 +22,9 @@ You need at least one save that has already been opened in-game once. Startup / 
 3. Once it finds your mods, click `Refresh Mods` anytime you want to rescan for new installs, updates, or subscriptions.
 4. Choose a profile from the `Profile` menu.
 5. Click `Load Profile Mods` to mirror that profile's current active mod list and order in the manager.
-6. Click `Patch Selected Profile` to update that profile's `persist.game.json`.
-7. Launch Darkest Dungeon.
+6. Select your active mods
+7. Click `Patch Selected Profile` to update that profile's `persist.game.json`.
+8. Launch Darkest Dungeon.
 
 If Auto Detect misses part of your setup, open `File Paths`, confirm or fill in the detected folders, save them, then click `Refresh Mods`.
 
