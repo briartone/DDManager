@@ -1,0 +1,469 @@
+{
+    "trees": [
+        {
+            "id": "stage_coach.numrecruits",
+            "is_instanced": false,
+            "tags": [
+                "building",
+                "stage_coach"
+            ],
+            "requirements": [
+                {
+                    "code": "a",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 3
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 4
+                        }
+                    ],
+                    "prerequisite_requirements": []
+                },
+                {
+                    "code": "b",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 8
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 10
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.numrecruits",
+                            "requirement_code": "a"
+                        }
+                    ]
+                },
+                {
+                    "code": "c",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 16
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 15
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.numrecruits",
+                            "requirement_code": "b"
+                        }
+                    ]
+                },
+                {
+                    "code": "d",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 20
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 20
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.numrecruits",
+                            "requirement_code": "c"
+                        }
+                    ]
+                },
+                {
+                    "code": "e",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 25
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 26
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.numrecruits",
+                            "requirement_code": "d"
+                        }
+                    ]
+                },
+                {
+                    "code": "f",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 30
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 32
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.numrecruits",
+                            "requirement_code": "e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "stage_coach.rostersize",
+            "is_instanced": false,
+            "tags": [
+                "building",
+                "stage_coach"
+            ],
+            "requirements": [
+                {
+                    "code": "a",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 3
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 4
+                        }
+                    ],
+                    "prerequisite_requirements": []
+                },
+                {
+                    "code": "b",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 8
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 10
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.rostersize",
+                            "requirement_code": "a"
+                        }
+                    ]
+                },
+                {
+                    "code": "c",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 16
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 15
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.rostersize",
+                            "requirement_code": "b"
+                        }
+                    ]
+                },
+                {
+                    "code": "d",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 20
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 20
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.rostersize",
+                            "requirement_code": "c"
+                        }
+                    ]
+                },
+                {
+                    "code": "e",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 25
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 26
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.rostersize",
+                            "requirement_code": "d"
+                        }
+                    ]
+                },
+                {
+                    "code": "f",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "deed",
+                            "amount": 30
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 32
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.rostersize",
+                            "requirement_code": "e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "stage_coach.upgraded_recruits",
+            "is_instanced": false,
+            "tags": [
+                "building",
+                "stage_coach"
+            ],
+            "requirements": [
+                {
+                    "code": "a",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "bust",
+                            "amount": 9
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 12
+                        }
+                    ],
+                    "prerequisite_requirements":
+                    [
+                        {
+                            "tree_id": "guild.skill_levels",
+                            "requirement_code": "a"
+                        },
+                        {
+                            "tree_id": "blacksmith.weapon",
+                            "requirement_code": "a"
+                        },
+                        {
+                            "tree_id": "blacksmith.armour",
+                            "requirement_code": "a"
+                        }
+                    ]
+                },
+                {
+                    "code": "b",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "bust",
+                            "amount": 12
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 16
+                        }
+                    ],
+                    "prerequisite_requirements":
+                    [
+                        {
+                            "tree_id": "stage_coach.upgraded_recruits",
+                            "requirement_code": "a"
+                        },
+                        {
+                            "tree_id": "guild.skill_levels",
+                            "requirement_code": "b"
+                        },
+                        {
+                            "tree_id": "blacksmith.weapon",
+                            "requirement_code": "b"
+                        },
+                        {
+                            "tree_id": "blacksmith.armour",
+                            "requirement_code": "b"
+                        }
+                    ]
+                },
+                {
+                    "code": "c",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "bust",
+                            "amount": 15
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 20
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.upgraded_recruits",
+                            "requirement_code": "b"
+                        },
+                        {
+                            "tree_id": "guild.skill_levels",
+                            "requirement_code": "c"
+                        },
+                        {
+                            "tree_id": "blacksmith.weapon",
+                            "requirement_code": "c"
+                        },
+                        {
+                            "tree_id": "blacksmith.armour",
+                            "requirement_code": "c"
+                        }
+                    ]
+                },
+                {
+                    "code": "d",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "bust",
+                            "amount": 18
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 24
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.upgraded_recruits",
+                            "requirement_code": "c"
+                        },
+                        {
+                            "tree_id": "guild.skill_levels",
+                            "requirement_code": "d"
+                        },
+                        {
+                            "tree_id": "blacksmith.weapon",
+                            "requirement_code": "d"
+                        },
+                        {
+                            "tree_id": "blacksmith.armour",
+                            "requirement_code": "d"
+                        }
+                    ]
+                },
+                {
+                    "code": "e",
+                    "currency_cost": [
+                        {
+                            "type": "gold",
+                            "amount": 0
+                        },
+                        {
+                            "type": "bust",
+                            "amount": 21
+                        },
+                        {
+                            "type": "crest",
+                            "amount": 28
+                        }
+                    ],
+                    "prerequisite_requirements": [
+                        {
+                            "tree_id": "stage_coach.upgraded_recruits",
+                            "requirement_code": "d"
+                        },
+                        {
+                            "tree_id": "guild.cost",
+                            "requirement_code": "e"
+                        },
+                        {
+                            "tree_id": "blacksmith.cost",
+                            "requirement_code": "e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+   "rarities":
+   [
+        {
+            "id": "comet",
+            "award_category": "trophy",
+            "insert_before": "crow"
+        },
+        {
+            "id": "mildred",
+            "award_category": "trophy",
+            "insert_before": "crow"
+        },
+        {
+            "id": "thing",
+            "award_category": "trophy",
+            "insert_before": "crow"
+        }        
+   ]
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <language id="english">
+        <entry id="hero_class_name_chorus"><![CDATA[The Chorus]]></entry>
+
+        <entry id="combat_skill_name_chorus_sting_order"><![CDATA[Sting Order]]></entry>
+        <entry id="combat_skill_name_chorus_host_designation"><![CDATA[Host Designation]]></entry>
+        <entry id="combat_skill_name_chorus_shared_vitality"><![CDATA[Shared Vitality]]></entry>
+        <entry id="combat_skill_name_chorus_chorus_hymn"><![CDATA[Chorus Hymn]]></entry>
+        <entry id="combat_skill_name_chorus_relay_impulse"><![CDATA[Relay Impulse]]></entry>
+        <entry id="combat_skill_name_chorus_neural_static"><![CDATA[Neural Static]]></entry>
+        <entry id="combat_skill_name_chorus_swarm_surge"><![CDATA[Swarm Surge]]></entry>
+        <entry id="combat_skill_name_chorus_move"><![CDATA[Move]]></entry>
+
+        <entry id="upgrade_tree_name_chorus.sting_order"><![CDATA[Sting Order]]></entry>
+        <entry id="upgrade_tree_name_chorus.host_designation"><![CDATA[Host Designation]]></entry>
+        <entry id="upgrade_tree_name_chorus.shared_vitality"><![CDATA[Shared Vitality]]></entry>
+        <entry id="upgrade_tree_name_chorus.chorus_hymn"><![CDATA[Chorus Hymn]]></entry>
+        <entry id="upgrade_tree_name_chorus.relay_impulse"><![CDATA[Relay Impulse]]></entry>
+        <entry id="upgrade_tree_name_chorus.neural_static"><![CDATA[Neural Static]]></entry>
+        <entry id="upgrade_tree_name_chorus.swarm_surge"><![CDATA[Swarm Surge]]></entry>
+
+        <entry id="buff_rule_data_tooltip_chorus_sting_order"><![CDATA[Frontline fallback]]></entry>
+        <entry id="buff_rule_data_tooltip_chorus_host_designation"><![CDATA[Designated host]]></entry>
+        <entry id="buff_rule_data_tooltip_chorus_shared_vitality"><![CDATA[Shared healing]]></entry>
+        <entry id="buff_rule_data_tooltip_chorus_chorus_hymn"><![CDATA[Backline support]]></entry>
+        <entry id="buff_rule_data_tooltip_chorus_relay_impulse"><![CDATA[Emergency retreat]]></entry>
+        <entry id="buff_rule_data_tooltip_chorus_neural_static"><![CDATA[Disruption signal]]></entry>
+        <entry id="buff_rule_data_tooltip_chorus_swarm_surge"><![CDATA[Self-preservation]]></entry>
+
+        <entry id="chorus_weapon_0"><![CDATA[Whispered Mandibles]]></entry>
+        <entry id="chorus_weapon_1"><![CDATA[Threaded Mandibles]]></entry>
+        <entry id="chorus_weapon_2"><![CDATA[Conductive Mandibles]]></entry>
+        <entry id="chorus_weapon_3"><![CDATA[Resonant Mandibles]]></entry>
+        <entry id="chorus_weapon_4"><![CDATA[Crown of the Swarm]]></entry>
+        <entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Mandibles]]></entry>
+
+        <entry id="chorus_armour_0"><![CDATA[Thin Carapace]]></entry>
+        <entry id="chorus_armour_1"><![CDATA[Layered Carapace]]></entry>
+        <entry id="chorus_armour_2"><![CDATA[Threadbound Husk]]></entry>
+        <entry id="chorus_armour_3"><![CDATA[Singing Husk]]></entry>
+        <entry id="chorus_armour_4"><![CDATA[Choirmother Shell]]></entry>
+        <entry id="upgrade_tree_name_chorus.armour"><![CDATA[Carapace]]></entry>
+
+        <entry id="action_verbose_body_guild_chorus"><![CDATA[The Chorus is strongest when the swarm speaks from the rear, feeding will, flesh, and purpose forward through the line.]]></entry>
+        <entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Their body is less armor than instrument: grown to resonate, not to endure a direct beating.]]></entry>
+        <entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[At camp, the Chorus settles into a low communal murmur, weaving calm, attentiveness, and recovery through the group while preserving the one who carries the signal.]]></entry>
+
+        <entry id="str_incompatible_party_chorus_limit"><![CDATA[The network frays.]]></entry>
+        <entry id="str_incompatible_party_member_chorus_limit"><![CDATA[The network frays.]]></entry>
+
+        <entry id="camping_skill_name_first_aid"><![CDATA[Wound Care]]></entry>
+        <entry id="camping_skill_name_encourage"><![CDATA[Encourage]]></entry>
+        <entry id="camping_skill_name_pep_talk"><![CDATA[Pep Talk]]></entry>
+        <entry id="camping_skill_name_chorus_host_nest"><![CDATA[Host Nest]]></entry>
+        <entry id="camping_skill_name_chorus_thread_the_watch"><![CDATA[Thread the Watch]]></entry>
+        <entry id="camping_skill_name_chorus_shared_dream"><![CDATA[Shared Dream]]></entry>
+        <entry id="camping_skill_name_chorus_signal_clarity"><![CDATA[Signal Clarity]]></entry>
+
+        <entry id="chorus+str_bark_critbyhero"><![CDATA[The many speak as one.]]></entry>
+        <entry id="chorus+str_bark_critbyhero"><![CDATA[The host is preserved.]]></entry>
+        <entry id="chorus+str_bark_critbyhero"><![CDATA[Forward. The thread holds.]]></entry>
+
+        <entry id="chorus+str_bark_host_designation"><![CDATA[You carry the signal now.]]></entry>
+        <entry id="chorus+str_bark_host_designation"><![CDATA[Our will converges through you.]]></entry>
+        <entry id="chorus+str_bark_shared_vitality"><![CDATA[Take of our strength.]]></entry>
+        <entry id="chorus+str_bark_shared_vitality"><![CDATA[The thread restores you.]]></entry>
+        <entry id="chorus+str_bark_chorus_hymn"><![CDATA[Listen. Align. Advance.]]></entry>
+        <entry id="chorus+str_bark_neural_static"><![CDATA[Let their thoughts scatter.]]></entry>
+        <entry id="chorus+str_bark_swarm_surge"><![CDATA[Protect the mind at the center.]]></entry>
+        <entry id="chorus+str_bark_chorus_host_nest"><![CDATA[The center must endure the night.]]></entry>
+        <entry id="chorus+str_bark_chorus_host_nest"><![CDATA[The nest closes around the host.]]></entry>
+        <entry id="chorus+str_bark_chorus_thread_the_watch"><![CDATA[We will hear them before they arrive.]]></entry>
+        <entry id="chorus+str_bark_chorus_thread_the_watch"><![CDATA[No approach escapes the web.]]></entry>
+        <entry id="chorus+str_bark_chorus_shared_dream"><![CDATA[Rest within the signal.]]></entry>
+        <entry id="chorus+str_bark_chorus_signal_clarity"><![CDATA[Still your fear. Sharpen your thought.]]></entry>
+    </language>
+</root>

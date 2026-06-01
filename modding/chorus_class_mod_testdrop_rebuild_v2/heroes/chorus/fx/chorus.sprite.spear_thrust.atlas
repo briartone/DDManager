@@ -1,0 +1,13 @@
+
+chorus.sprite.spear_thrust.png
+size: 838,134
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Trail
+  rotate: false
+  xy: 16, 16
+  size: 806, 102
+  orig: 806, 102
+  offset: 0, 0
+  index: -1

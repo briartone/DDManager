@@ -1,0 +1,11 @@
+inventory_system_config:	.type "raid"						.max_slots 24				.use_stack_limits true
+inventory_system_config:	.type "quest_rewards"				.max_slots 18				.use_stack_limits false
+inventory_system_config:	.type "provision"					.max_slots 24				.use_stack_limits false
+inventory_system_config:	.type "trinket_store"				.max_slots 24				.use_stack_limits true
+inventory_system_config:	.type "trinket_storage"				.max_slots 999				.use_stack_limits true
+inventory_system_config:	.type "arena_trinket_storage"		.max_slots 999				.use_stack_limits true
+inventory_system_config:	.type "loot"						.max_slots 99				.use_stack_limits true
+inventory_system_config:	.type "hero_equipped_trinkets"		.max_slots 8				.use_stack_limits true
+inventory_system_config:	.type "goal_starting_items"			.max_slots 99				.use_stack_limits true
+inventory_system_config:	.type "raid_results"				.max_slots 99				.use_stack_limits true
+inventory_system_config:    .type "effect_use_items"            .max_slots 99               .use_stack_limits true

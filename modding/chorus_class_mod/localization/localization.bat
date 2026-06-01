@@ -1,0 +1,1 @@
+START ../_windows/localization.exe -prefix CC

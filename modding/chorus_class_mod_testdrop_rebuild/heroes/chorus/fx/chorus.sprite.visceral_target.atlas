@@ -1,0 +1,27 @@
+
+keg_hunter.sprite.visceral_target.png
+size: 805,270
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Blood_Mist
+  rotate: false
+  xy: 16, 16
+  size: 301, 238
+  orig: 301, 238
+  offset: 0, 0
+  index: -1
+Blood_Spatter
+  rotate: false
+  xy: 604, 81
+  size: 185, 173
+  orig: 185, 173
+  offset: 0, 0
+  index: -1
+Blood_Spray
+  rotate: false
+  xy: 333, 33
+  size: 255, 221
+  orig: 255, 221
+  offset: 0, 0
+  index: -1

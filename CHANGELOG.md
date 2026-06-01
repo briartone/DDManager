@@ -2,6 +2,31 @@
 
 All notable changes to this project should be listed here.
 
+## v0.2.1 - 2026-06-01
+
+### Added
+- Added an `Open Workshop Page` action to the mod right-click menu for those times when a mod's icon and title are both being completely unhelpful.
+- Added a `Copy Debug Info` tool so bug reports can include the app version, detected paths, selected profile, and save-patching basics without a whole screenshot scavenger hunt.
+- Added a reviewer-oriented `BUILD.md` with source layout and reproducible Windows build steps for the packaged app.
+
+### Changed
+- Added drag-and-drop category reordering inside the `Edit Categories` dialog, while keeping the old move buttons around as backup.
+- Trimmed the profile dropdown so it stops hogging half the row just to show one profile.
+- Cleaned up the top file-controls row by removing the always-visible active mods path, renaming `Auto Detect` to `Auto Detect File Paths`, and moving `Refresh Mods` plus `Tools` up beside the other path controls.
+- Split the top toolbar into left and right action groups so it feels less like every button got dumped into the same corner.
+- Took a serious run at `Start New Campaign`, then hid it from the live UI again because it is still not actually shippable.
+- Archived the current findings on campaign creation. At the moment it looks less like a normal app feature and more like picking a fight with Darkest Dungeon's save encoding.
+- Added a divider between the category/tag actions and the new Workshop-page action in the mod right-click menu so the menu is easier to scan at a glance.
+- Tidied the `Tools` menu into clearer groups and gave the profile action row a little breathing room so the buttons stop feeling glued together.
+- Linked the main README to the new build instructions so reviewers can find the packaging steps without digging through the repo.
+
+### Fixed
+- Gave the `Edit Categories` dialog more vertical space so the `Remove` button stops collapsing into a sad little sliver.
+- Fixed the startup splash/loading cycle so the rotating loading messages actually follow the selected app language instead of snapping back to English.
+- Reduced view-switch freezing by stopping `Compact` and other icon views from trying to queue preview work for the entire mod list all at once, and by skipping a redundant full list rebuild when only the view mode changes.
+- `Open Workshop Page` now disables itself when the selection is not a single Workshop-backed mod instead of pretending it can do something useful.
+- Disabled UPX in the release packaging path to reduce antivirus false positives on the distributed Windows build.
+
 ## v0.2.0 - 2026-05-25
 
 - Fixed Workshop metadata handling so mods with real titles in `project.xml` no longer get stuck showing only the numeric Workshop ID in the UI.

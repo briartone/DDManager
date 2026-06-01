@@ -1,0 +1,5 @@
+preview_icon.png
+project.xml
+effects/crusader_hu_swf_compat.effects.darkest
+heroes/crusader/crusader.info.darkest
+heroes/crusader/crusader.art.darkest

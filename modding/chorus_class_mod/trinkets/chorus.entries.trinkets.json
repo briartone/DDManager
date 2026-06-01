@@ -1,0 +1,167 @@
+{
+
+	"entries": [
+
+		{
+
+			"id": "chorus_cold_blood_ashes",
+			"buffs": [
+
+				"KHtrinketBleedChanceDebuff10",
+				"KHtrinketBleedDamageBuffLow20",
+				"KHtrinketBleedDamageBuffHigh20",
+				"KHtrinketRangedDamageDebuffLow20",
+				"KHtrinketRangedDamageDebuffHigh20"
+			],
+			"hero_class_requirements": [
+
+				"chorus"
+			],
+			"rarity": "common",
+			"price": 7500,
+			"limit": 0,
+			"origin_dungeon": ""
+		},
+		{
+
+			"id": "chorus_powdered_shrapnel",
+			"buffs": [
+
+				"KHtrinketBleedChance25",
+				"KHtrinketSpeedDebuff1"
+			],
+			"hero_class_requirements": [
+
+				"chorus"
+			],
+			"rarity": "common",
+			"price": 7500,
+			"limit": 0,
+			"origin_dungeon": ""
+		},
+		{
+
+			"id": "chorus_bloodied_eye_bandages",
+			"buffs": [
+
+				"KHtrinketStressBuff15",
+				"KHtrinketEldritchStressBuff15",
+				"KHtrinketAccDebuff5",
+				"KHtrinketDodgeDebuff5"
+			],
+			"hero_class_requirements": [
+
+				"chorus"
+			],
+			"rarity": "uncommon",
+			"price": 10000,
+			"limit": 0,
+			"origin_dungeon": ""
+		},
+		{
+
+			"id": "chorus_bone_marrow_ash",
+			"buffs": [
+
+				"KHtrinketBMAdamageBuffLow40",
+				"KHtrinketBMAdamageBuffHigh40",
+				"KHtrinketAccDebuff5",
+				"kh_bma_tool_tip"
+			],
+			"ranged_attack_skill_additional_effects": [
+				"KHbma Debuff"
+			],
+			"hero_class_requirements": [
+
+				"chorus"
+			],
+			"rarity": "rare",
+			"price": 15000,
+			"limit": 0,
+			"origin_dungeon": ""
+		},
+		{
+
+			"id": "chorus_powder_keg_badge",
+			"buffs": [
+
+				"KHtrinketRangedDamageBuffLow15",
+				"KHtrinketRangedDamageBuffHigh15",
+				"KHtrinketBeastDamageBuffLow15",
+				"KHtrinketBeastDamageBuffHigh15",
+				"KHtrinketRangedCritBuff5",
+				"KHtrinketMeleeCritDebuff5"
+			],
+			"hero_class_requirements": [
+
+				"chorus"
+			],
+			"rarity": "very_rare",
+			"price": 25000,
+			"limit": 1,
+			"origin_dungeon": ""
+		},
+		{
+
+			"id": "chorus_fire_paper",
+			"buffs": [
+
+				"KHtrinketMeleeDamageBuffLow15",
+				"KHtrinketMeleeDamageBuffHigh15",
+				"KHtrinketMeleeAccBuff5",
+				"KHtrinketMeleeCritBuff5"
+			],
+			"hero_class_requirements": [
+
+				"chorus"
+			],
+			"rarity": "crimson_court",
+			"set_id": "cc_chorus",
+			"price": 50000,
+			"limit": 1,
+			"origin_dungeon": "courtyard"
+		},
+		{
+
+			"id": "chorus_blood_charred_scarf",
+			"buffs": [
+
+				"KHtrinketSpeedBuff2",
+				"KHtrinketDodgeBuff10",
+				"KHtrinketMoveResist20"
+			],
+			"hero_class_requirements": [
+
+				"chorus"
+			],
+			"rarity": "crimson_court",
+			"set_id": "cc_chorus",
+			"price": 50000,
+			"limit": 1,
+			"origin_dungeon": "courtyard"
+		},
+		{
+
+			"id": "chorus_crystal_bullet_case",
+			"buffs": [
+
+				"KHtrinketRangedDamageDebuffLow25",
+				"KHtrinketRangedDamageDebuffHigh25",
+				"KHtrinketBleedChanceDebuff10"
+
+			],
+			"friendly_skill_additional_effects": [
+			
+				"KHcbc Stress Heal"
+			],
+			"hero_class_requirements": [
+
+				"chorus"
+			],
+			"rarity": "comet",
+			"shard": 75,
+			"limit": 1,
+			"origin_dungeon": ""
+		}
+	]
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<PreviewIconFile>preview_icon.png</PreviewIconFile>
+	<ItemDescriptionShort/>
+	<ModDataPath>C:/Users/areas/OneDrive/Documents/DD Manager/modding/crusader_hu_swf_compat/</ModDataPath>
+	<Title>Crusader HU + SWF Compatibility Patch</Title>
+	<Language>english</Language>
+	<UpdateDetails/>
+	<Visibility>private</Visibility>
+	<UploadMode>dont_upload</UploadMode>
+	<VersionMajor>1</VersionMajor>
+	<VersionMinor>0</VersionMinor>
+	<TargetBuild>0</TargetBuild>
+	<Tags>
+		<Tags>Character Mod</Tags>
+		<Tags>Class Mod</Tags>
+		<Tags>Patch</Tags>
+		<Tags>Compatibility</Tags>
+		<Tags>Crusader</Tags>
+	</Tags>
+	<ItemDescription>
+		Restores Heroes Unchained Crusader's Bulwark of Faith and Crusader riposte support
+		while keeping SWF's broader Crusader rework intact.
+
+		Load this after:
+		- SWF (V0.25) - 2goals, QOL, mermaids, sandwiches...
+		- Heroes Unchained: Crusader
+		- Fire Attacks: Crusader Patch (if used)
+	</ItemDescription>
+</project>

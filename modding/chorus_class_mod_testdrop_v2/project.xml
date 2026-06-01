@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <PreviewIconFile/>
+    <ItemDescriptionShort/>
+    <ModDataPath>C:/DDModding/chorus_class_mod/</ModDataPath>
+    <Title>The Chorus</Title>
+    <Language>english</Language>
+    <UpdateDetails/>
+    <Visibility>private</Visibility>
+    <UploadMode>dont_upload</UploadMode>
+    <VersionMajor>0</VersionMajor>
+    <VersionMinor>1</VersionMinor>
+    <TargetBuild>0</TargetBuild>
+    <Tags>
+        <Tags>New Class</Tags>
+        <Tags>Support</Tags>
+        <Tags>Positioning</Tags>
+        <Tags>Hive Mind</Tags>
+    </Tags>
+    <ItemDescription>
+        Starter scaffold for a hive-mind support class mod. Front ranks are intentionally awkward; back ranks unlock the class's best healing, buffs, and control tools.
+    </ItemDescription>
+    <PublishedFileId/>
+</project>

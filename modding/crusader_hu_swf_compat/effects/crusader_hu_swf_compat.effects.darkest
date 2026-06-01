@@ -1,0 +1,16 @@
+// Crusader HU + SWF Compatibility Patch
+// Restores HU Bulwark of Faith behavior and Crusader riposte support.
+
+effect: .name "UcdCruRiposte 1"  .target "performer" .curio_result_type "positive" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 2 .on_hit true .on_miss true
+effect: .name "UcdCruRiposte 2"  .target "performer" .curio_result_type "positive" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 2 .on_hit true .on_miss true
+effect: .name "UcdCruRiposte 3"  .target "performer" .curio_result_type "positive" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 2 .on_hit true .on_miss true
+effect: .name "UcdCruRiposte 4"  .target "performer" .curio_result_type "positive" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 2 .on_hit true .on_miss true
+effect: .name "UcdCruRiposte 5"  .target "performer" .curio_result_type "positive" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 2 .on_hit true .on_miss true
+
+effect: .name "UcdCrusaderBulwark1" .target "performer" .curio_result_type "positive" .chance 100% .duration 2 .combat_stat_buff 1 .protection_rating_add 10% .on_hit true .on_miss true .queue true
+effect: .name "UcdCrusaderBulwark2" .target "performer" .curio_result_type "positive" .chance 100% .duration 2 .combat_stat_buff 1 .protection_rating_add 12% .on_hit true .on_miss true .queue true
+effect: .name "UcdCrusaderBulwark3" .target "performer" .curio_result_type "positive" .chance 100% .duration 2 .combat_stat_buff 1 .protection_rating_add 15% .on_hit true .on_miss true .queue true
+effect: .name "UcdCrusaderBulwark4" .target "performer" .curio_result_type "positive" .chance 100% .duration 2 .combat_stat_buff 1 .protection_rating_add 17% .on_hit true .on_miss true .queue true
+effect: .name "UcdCrusaderBulwark5" .target "performer" .curio_result_type "positive" .chance 100% .duration 2 .combat_stat_buff 1 .protection_rating_add 20% .on_hit true .on_miss true .queue true
+
+effect: .name "UcdCrusaderBulwark1Mark" .target "performer" .curio_result_type "positive" .chance 100% .tag 1 .duration 3 .on_hit true .on_miss true .queue true

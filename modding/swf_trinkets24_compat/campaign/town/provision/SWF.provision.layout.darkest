@@ -1,0 +1,21 @@
+provision_layout:
+	.provision_sell_back_info_pos 1645 765
+    .quest_info_pos 1100 84
+    .quest_specs_offset 20 -5
+	.scouting_stat_pos 1200 84
+
+provision_store_background_layout:
+	.pos 644 144
+	
+provision_store_grid_layout:
+	.number_of_columns 7	
+	.start_pos 120 20		.offset 80 170
+	.is_centred 0
+	
+provision_party_background_layout:
+	.pos 1395 255
+
+provision_party_grid_layout:
+	.number_of_columns 8
+	.start_pos 13 15	    .offset 80 72
+	.is_centred 0

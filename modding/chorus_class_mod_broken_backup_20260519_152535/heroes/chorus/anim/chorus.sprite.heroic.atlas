@@ -1,0 +1,27 @@
+
+chorus.sprite.heroic.png
+size: 1911,1373
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+background
+  rotate: true
+  xy: 16, 16
+  size: 1341, 1127
+  orig: 1341, 1127
+  offset: 0, 0
+  index: -1
+halo
+  rotate: true
+  xy: 1159, 51
+  size: 309, 298
+  orig: 309, 298
+  offset: 0, 0
+  index: -1
+heroic
+  rotate: false
+  xy: 1159, 376
+  size: 736, 981
+  orig: 736, 981
+  offset: 0, 0
+  index: -1

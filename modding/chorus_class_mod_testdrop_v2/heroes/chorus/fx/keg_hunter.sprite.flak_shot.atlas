@@ -1,0 +1,97 @@
+
+keg_hunter.sprite.flak_shot.png
+size: 1308,620
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+attack_pistol
+  rotate: false
+  xy: 16, 16
+  size: 723, 588
+  orig: 723, 588
+  offset: 0, 0
+  index: -1
+muzzle_flash
+  rotate: false
+  xy: 1155, 188
+  size: 95, 63
+  orig: 95, 63
+  offset: 0, 0
+  index: -1
+rim_light
+  rotate: false
+  xy: 755, 267
+  size: 527, 337
+  orig: 527, 337
+  offset: 0, 0
+  index: -1
+shot
+  rotate: false
+  xy: 755, 17
+  size: 151, 37
+  orig: 151, 37
+  offset: 0, 0
+  index: -1
+smoke
+  rotate: false
+  xy: 755, 70
+  size: 184, 181
+  orig: 184, 181
+  offset: 0, 0
+  index: -1
+smoke_orange
+  rotate: false
+  xy: 955, 70
+  size: 184, 181
+  orig: 184, 181
+  offset: 0, 0
+  index: -1
+sparks01
+  rotate: false
+  xy: 1155, 145
+  size: 37, 27
+  orig: 37, 27
+  offset: 0, 0
+  index: -1
+sparks02
+  rotate: false
+  xy: 975, 31
+  size: 27, 23
+  orig: 27, 23
+  offset: 0, 0
+  index: -1
+sparks03
+  rotate: false
+  xy: 922, 24
+  size: 37, 30
+  orig: 37, 30
+  offset: 0, 0
+  index: -1
+sparks04
+  rotate: false
+  xy: 1208, 153
+  size: 25, 19
+  orig: 25, 19
+  offset: 0, 0
+  index: -1
+sparks05
+  rotate: true
+  xy: 1266, 218
+  size: 33, 26
+  orig: 33, 26
+  offset: 0, 0
+  index: -1
+sparks06
+  rotate: false
+  xy: 1155, 107
+  size: 25, 22
+  orig: 25, 22
+  offset: 0, 0
+  index: -1
+sparks07
+  rotate: true
+  xy: 1266, 181
+  size: 21, 26
+  orig: 21, 26
+  offset: 0, 0
+  index: -1

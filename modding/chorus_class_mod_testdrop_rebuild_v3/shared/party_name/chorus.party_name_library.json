@@ -1,0 +1,24 @@
+{
+	"party_names": [{
+			"id": "kh_party_00",
+			"required_hero_class": [
+				"chorus",
+				"chorus",
+				"chorus",
+				"chorus"
+			]
+		},
+		{
+			"id": "kh_party_01",
+			"required_hero_class": [
+				"crusader",
+				"man_at_arms",
+				"chorus",
+				"vestal"
+			]
+		}
+
+
+	]
+
+}

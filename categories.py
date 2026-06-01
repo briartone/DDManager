@@ -300,6 +300,20 @@ def move_category(categories, index, delta):
     return new_index
 
 
+def move_category_to_index(categories, index, target_index):
+    """Move a category directly to a target index and return its new position."""
+    if index is None or target_index is None:
+        return None
+    if not (0 <= index < len(categories)) or not (0 <= target_index < len(categories)):
+        return None
+    if index == target_index:
+        return index
+
+    category = categories.pop(index)
+    categories.insert(target_index, category)
+    return target_index
+
+
 def add_custom_category(categories, custom_categories, category_colors, name, chosen_color):
     """Append a new custom category and assign its chosen/default color."""
     categories.append(name)

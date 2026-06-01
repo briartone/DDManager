@@ -1,0 +1,180 @@
+{
+	"buffs": [{
+			"id": "KH Bleed VS Stun Buff 100",
+			"stat_type": "bleed_chance",
+			"stat_sub_type": "",
+			"amount": 1,
+			"has_description": false,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "stunned"
+			}
+		},
+		{
+			"id": "KH Bleed VS Stun Buff 110",
+			"stat_type": "bleed_chance",
+			"stat_sub_type": "",
+			"amount": 1.1,
+			"has_description": false,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "stunned"
+			}
+		},
+		{
+			"id": "KH Bleed VS Stun Buff 120",
+			"stat_type": "bleed_chance",
+			"stat_sub_type": "",
+			"amount": 1.2,
+			"has_description": false,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "stunned"
+			}
+		},
+		{
+			"id": "KH Bleed VS Stun Buff 130",
+			"stat_type": "bleed_chance",
+			"stat_sub_type": "",
+			"amount": 1.3,
+			"has_description": false,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "stunned"
+			}
+		},
+		{
+			"id": "KH Bleed VS Stun Buff 140",
+			"stat_type": "bleed_chance",
+			"stat_sub_type": "",
+			"amount": 1.4,
+			"has_description": false,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "stunned"
+			}
+		},
+		{
+			"id": "KH Damage VS Stun Buff Low",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 3,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "stunned"
+			}
+		},
+		{
+			"id": "KH Damage VS Stun Buff High",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 3,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "stunned"
+			}
+		}, {
+			"id": "VisceralStunBuff",
+			"stat_type": "resistance",
+			"stat_sub_type": "stun",
+			"amount": 0.5,
+			"duration": 2,
+			"has_description": false,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "stunned"
+			}
+		},
+		{
+			"id": "visceral_bleed_100_tooltip",
+			"stat_type": "upgrade_discount",
+			"stat_sub_type": "visceral_bleed_100_tooltip",
+			"amount": 0,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "visceral_bleed_110_tooltip",
+			"stat_type": "upgrade_discount",
+			"stat_sub_type": "visceral_bleed_110_tooltip",
+			"amount": 0,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "visceral_bleed_120_tooltip",
+			"stat_type": "upgrade_discount",
+			"stat_sub_type": "visceral_bleed_120_tooltip",
+			"amount": 0,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "visceral_bleed_130_tooltip",
+			"stat_type": "upgrade_discount",
+			"stat_sub_type": "visceral_bleed_130_tooltip",
+			"amount": 0,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "visceral_bleed_140_tooltip",
+			"stat_type": "upgrade_discount",
+			"stat_sub_type": "visceral_bleed_140_tooltip",
+			"amount": 0,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		}
+
+	]
+
+}

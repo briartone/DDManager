@@ -11,6 +11,7 @@ import subprocess
 import time
 import traceback
 import tkinter as tk
+import webbrowser
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from tkinter import colorchooser, filedialog, messagebox, simpledialog
@@ -28,6 +29,7 @@ from categories import (
     get_categories as build_categories,
     get_category_priority as build_category_priority,
     move_category as reposition_category,
+    move_category_to_index as reposition_category_to_index,
     project_tag_values as read_project_tag_values,
     remove_custom_category as delete_custom_category,
     rename_custom_category as rename_custom_category_data,
@@ -106,6 +108,7 @@ IS_LINUX = sys.platform.startswith("linux")
 # Profile-based patching is now the default flow. Keep older save-patch and
 # loadout features quarantined in legacy modules until they are needed again.
 SHOW_PRIMARY_AUTO_PATCH_BUTTON = False
+SHOW_START_NEW_CAMPAIGN_TOOL = False
 
 PAYLOAD_START = 0x580
 
@@ -169,6 +172,22 @@ VIEW_MODES = {
 }
 
 NEW_MOD_HIGHLIGHT_MS = 15000
+
+CAMPAIGN_DLC_CHOICES = [
+    ("arena_mp", "Butcher's Circus"),
+    ("musketeer", "Musketeer"),
+    ("crimson_court", "Crimson Court"),
+    ("districts", "Districts"),
+    ("flagellant", "Flagellant"),
+    ("shieldbreaker", "Shieldbreaker"),
+    ("color_of_madness", "Color of Madness"),
+]
+
+CAMPAIGN_READY_MAP_STATIC_OFFSETS = [
+    879, 1443, 1455, 1467, 1479, 1491, 1503, 1515, 1527, 1539,
+    1551, 1563, 1575, 1587, 1671, 1683, 1695, 1707, 1719, 1731,
+]
+CAMPAIGN_READY_ROSTER_RAW_OFFSETS = [319, 535, 571, 883, 919, 1219, 1255, 1688]
 
 
 # Centers transient windows like the startup splash so they appear
@@ -545,6 +564,7 @@ def mod_metadata_is_complete(metadata):
         "save_source",
         "version_label",
         "updated_label",
+        "black_reliquary",
         "metadata_path",
         "project_mtime",
         "localization_signature",
@@ -798,6 +818,95 @@ def dson_build_string_field(field_name, value, relative_offset):
     return bytes(out), meta2_entry
 
 
+def dson_parse_named_name_source_object(raw, object_name):
+    header = dson_parse_header(raw)
+    meta1_entries = dson_parse_meta1(raw, header)
+    meta2_entries = dson_parse_meta2(raw, header)
+    data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
+
+    object_meta2_index = dson_find_meta2_by_name(raw, header, meta2_entries, object_name)
+    object_meta2 = meta2_entries[object_meta2_index]
+    object_meta1_index = dson_object_index_from_info(object_meta2["info"])
+    if object_meta1_index is None:
+        raise ValueError(f"{object_name!r} is not marked as an object in metadata.")
+
+    child_meta1_indices = [
+        index for index, entry in enumerate(meta1_entries)
+        if entry["parent"] == object_meta1_index
+    ]
+    child_meta1_indices.sort(key=lambda index: meta1_entries[index]["meta2_index"])
+
+    entries = []
+    for child_meta1_index in child_meta1_indices:
+        child_meta1 = meta1_entries[child_meta1_index]
+        child_meta2_index = child_meta1["meta2_index"]
+        child_name = dson_meta2_name(raw, header, meta2_entries[child_meta2_index]) or ""
+        child_end = child_meta2_index + child_meta1["all_children"] + 1
+
+        fields = []
+        for field_index in range(child_meta2_index + 1, child_end):
+            field_entry = meta2_entries[field_index]
+            field_name = dson_meta2_name(raw, header, field_entry)
+            next_offset = (
+                meta2_entries[field_index + 1]["offset"]
+                if field_index + 1 < len(meta2_entries)
+                else header["data_length"]
+            )
+            if field_name not in ("name", "source"):
+                continue
+            value = dson_decode_scalar_field(data, field_entry, next_offset)
+            if isinstance(value, str):
+                fields.append({"field_name": field_name, "value": value})
+
+        entries.append({"index": child_name, "fields": fields})
+
+    return entries
+
+
+def dson_build_named_name_source_object(object_name, entries, object_offset, first_meta1_index):
+    data = bytearray()
+    meta1_entries = []
+    meta2_entries = []
+
+    data.extend(object_name.encode("utf-8"))
+    data.append(0)
+
+    for index, entry in enumerate(entries):
+        object_index_name = str(index)
+        object_meta1_index = first_meta1_index + index
+        object_name_offset = object_offset + len(data)
+
+        data.extend(object_index_name.encode("utf-8"))
+        data.append(0)
+        meta2_entries.append({
+            "hash": dson_string_hash(object_index_name),
+            "offset": object_name_offset,
+            "info": dson_field_info(object_index_name, object_meta1_index),
+        })
+
+        entry_name = str(entry.get("name", ""))
+        entry_source = str(entry.get("source", ""))
+
+        name_offset = object_offset + len(data)
+        name_data, name_meta2 = dson_build_string_field("name", entry_name, name_offset)
+        data.extend(name_data)
+        meta2_entries.append(name_meta2)
+
+        source_offset = object_offset + len(data)
+        source_data, source_meta2 = dson_build_string_field("source", entry_source, source_offset)
+        data.extend(source_data)
+        meta2_entries.append(source_meta2)
+
+        meta1_entries.append({
+            "parent": None,
+            "meta2_index": None,
+            "direct_children": 2,
+            "all_children": 2,
+        })
+
+    return bytes(data), meta1_entries, meta2_entries
+
+
 def dson_rebuild_existing_field_block(data, entry, next_offset, new_offset):
     info = entry["info"] & 0x7FFFFFFF
     name_length = (info >> 2) & 0x1FF
@@ -823,6 +932,81 @@ def dson_rebuild_existing_field_block(data, entry, next_offset, new_offset):
     new_align = (-new_data_start) % 4
 
     return bytes(field_name_bytes) + (b"\x00" * new_align) + bytes(payload)
+
+
+def dson_patch_scalar_string_field(raw, field_name, new_value):
+    dson_validate_editor_compatible(raw)
+
+    header = dson_parse_header(raw)
+    meta1_entries = dson_parse_meta1(raw, header)
+    meta2_entries = dson_parse_meta2(raw, header)
+    data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
+
+    field_index = dson_find_meta2_by_name(raw, header, meta2_entries, field_name)
+    field_entry = meta2_entries[field_index]
+    if dson_object_index_from_info(field_entry["info"]) is not None:
+        raise ValueError(f"{field_name!r} is an object field, not a scalar string field.")
+
+    next_offset = (
+        meta2_entries[field_index + 1]["offset"]
+        if field_index + 1 < len(meta2_entries)
+        else header["data_length"]
+    )
+    old_block_size = next_offset - field_entry["offset"]
+    new_block, replacement_entry = dson_build_string_field(field_name, str(new_value), field_entry["offset"])
+    data_delta = len(new_block) - old_block_size
+
+    original_next_offsets = {}
+    sorted_original_offsets = sorted(entry["offset"] for entry in meta2_entries)
+    for index, offset in enumerate(sorted_original_offsets):
+        if index + 1 < len(sorted_original_offsets):
+            original_next_offsets[offset] = sorted_original_offsets[index + 1]
+        else:
+            original_next_offsets[offset] = len(data)
+
+    preserved_meta2_before = [dict(entry) for entry in meta2_entries[:field_index]]
+    preserved_meta2_after = [dict(entry) for entry in meta2_entries[field_index + 1:]]
+
+    new_data_parts = [data[:field_entry["offset"]], new_block]
+    next_rebuilt_offset = field_entry["offset"] + len(new_block)
+
+    for entry in preserved_meta2_after:
+        rebuilt_block = dson_rebuild_existing_field_block(
+            data,
+            entry,
+            original_next_offsets[entry["offset"]],
+            next_rebuilt_offset,
+        )
+        entry["offset"] = next_rebuilt_offset
+        new_data_parts.append(rebuilt_block)
+        next_rebuilt_offset += len(rebuilt_block)
+
+    new_meta2_entries = preserved_meta2_before + [replacement_entry] + preserved_meta2_after
+    new_data = b"".join(new_data_parts)
+
+    new_header = bytearray(raw[:64])
+    struct.pack_into("<i", new_header, 56, len(new_data))
+
+    meta1_block = bytearray()
+    for entry in meta1_entries:
+        meta1_block.extend(dson_pack_i32_le(entry["parent"]))
+        meta1_block.extend(dson_pack_i32_le(entry["meta2_index"]))
+        meta1_block.extend(dson_pack_i32_le(entry["direct_children"]))
+        meta1_block.extend(dson_pack_i32_le(entry["all_children"]))
+
+    meta2_block = bytearray()
+    for entry in new_meta2_entries:
+        meta2_block.extend(dson_pack_i32_le(entry["hash"]))
+        meta2_block.extend(dson_pack_i32_le(entry["offset"]))
+        meta2_block.extend(dson_pack_i32_le(entry["info"]))
+
+    patched = bytes(new_header) + bytes(meta1_block) + bytes(meta2_block) + bytes(new_data)
+    check_header = dson_parse_header(patched)
+    if check_header["data_offset"] + check_header["data_length"] != len(patched):
+        raise ValueError("Patched save has inconsistent data offset/length metadata.")
+
+    dson_validate_editor_compatible(patched)
+    return patched
 
 
 def dson_build_applied_ugcs_object(enabled_mods, mod_manager, applied_offset, first_meta1_index):
@@ -1293,6 +1477,269 @@ def dson_patch_mod_list_resize(raw, enabled_mods, mod_manager):
 
     return patched, len(check_entries)
 
+
+def dson_patch_named_name_source_object(raw, object_name, entries):
+    dson_validate_editor_compatible(raw)
+
+    header = dson_parse_header(raw)
+    if header["header_length"] != 64 or header["meta1_offset"] != 64:
+        raise ValueError("Unsupported DSON header layout.")
+
+    meta1_entries = dson_parse_meta1(raw, header)
+    meta2_entries = dson_parse_meta2(raw, header)
+    data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
+
+    object_meta2_index = dson_find_meta2_by_name(raw, header, meta2_entries, object_name)
+    object_meta2 = meta2_entries[object_meta2_index]
+    object_meta1_index = dson_object_index_from_info(object_meta2["info"])
+    if object_meta1_index is None:
+        raise ValueError(f"{object_name!r} is not marked as an object in metadata.")
+
+    object_meta1 = meta1_entries[object_meta1_index]
+    object_start_rel = object_meta2["offset"]
+    object_end_meta2_index = object_meta2_index + object_meta1["all_children"] + 1
+    object_end_rel = (
+        meta2_entries[object_end_meta2_index]["offset"]
+        if object_end_meta2_index < len(meta2_entries)
+        else header["data_length"]
+    )
+    old_data_size = object_end_rel - object_start_rel
+
+    child_meta1_indices = [
+        index for index, entry in enumerate(meta1_entries)
+        if entry["parent"] == object_meta1_index
+    ]
+    child_meta1_indices.sort()
+    child_meta1_start = min(child_meta1_indices) if child_meta1_indices else object_meta1_index + 1
+    child_meta1_end = max(child_meta1_indices) + 1 if child_meta1_indices else child_meta1_start
+
+    child_meta2_ranges = []
+    for child_index in child_meta1_indices:
+        child = meta1_entries[child_index]
+        start = child["meta2_index"]
+        end = start + child["all_children"] + 1
+        child_meta2_ranges.append((start, end))
+
+    if child_meta2_ranges:
+        child_meta2_start = min(start for start, _ in child_meta2_ranges)
+        child_meta2_end = max(end for _, end in child_meta2_ranges)
+    else:
+        child_meta2_start = object_meta2_index + 1
+        child_meta2_end = child_meta2_start
+
+    new_object_data, new_child_meta1, new_child_meta2 = dson_build_named_name_source_object(
+        object_name,
+        entries,
+        object_start_rel,
+        child_meta1_start,
+    )
+
+    removed_meta1_count = child_meta1_end - child_meta1_start
+    inserted_meta1_count = len(new_child_meta1)
+    meta1_delta = inserted_meta1_count - removed_meta1_count
+
+    removed_meta2_count = child_meta2_end - child_meta2_start
+    inserted_meta2_count = len(new_child_meta2)
+    meta2_delta = inserted_meta2_count - removed_meta2_count
+
+    for offset, entry in enumerate(new_child_meta1):
+        entry["parent"] = object_meta1_index
+        entry["meta2_index"] = child_meta2_start + offset * 3
+
+    preserved_meta1_entries = meta1_entries[:child_meta1_start] + meta1_entries[child_meta1_end:]
+    for entry in preserved_meta1_entries:
+        if entry["parent"] >= child_meta1_end:
+            entry["parent"] += meta1_delta
+        if entry["meta2_index"] >= child_meta2_end:
+            entry["meta2_index"] += meta2_delta
+
+    new_meta1_entries = (
+        preserved_meta1_entries[:child_meta1_start]
+        + new_child_meta1
+        + preserved_meta1_entries[child_meta1_start:]
+    )
+
+    new_meta1_entries[object_meta1_index]["direct_children"] = len(entries)
+    new_meta1_entries[object_meta1_index]["all_children"] = len(entries) * 3
+
+    parent_index = new_meta1_entries[object_meta1_index]["parent"]
+    while parent_index >= 0:
+        new_meta1_entries[parent_index]["all_children"] += meta2_delta
+        parent_index = new_meta1_entries[parent_index]["parent"]
+
+    preserved_meta2_before = meta2_entries[:child_meta2_start]
+    preserved_meta2_after = meta2_entries[child_meta2_end:]
+
+    original_next_offsets = {}
+    sorted_original_offsets = sorted(entry["offset"] for entry in meta2_entries)
+    for index, offset in enumerate(sorted_original_offsets):
+        if index + 1 < len(sorted_original_offsets):
+            original_next_offsets[offset] = sorted_original_offsets[index + 1]
+        else:
+            original_next_offsets[offset] = len(data)
+
+    new_data_parts = [data[:object_start_rel], new_object_data]
+    next_rebuilt_offset = object_start_rel + len(new_object_data)
+
+    for entry in preserved_meta2_after:
+        object_index = dson_object_index_from_info(entry["info"])
+        if object_index is not None and object_index >= child_meta1_end:
+            entry["info"] = dson_set_object_index_in_info(entry["info"], object_index + meta1_delta)
+
+        old_offset = entry["offset"]
+        rebuilt_block = dson_rebuild_existing_field_block(
+            data,
+            entry,
+            original_next_offsets[old_offset],
+            next_rebuilt_offset,
+        )
+        entry["offset"] = next_rebuilt_offset
+        new_data_parts.append(rebuilt_block)
+        next_rebuilt_offset += len(rebuilt_block)
+
+    new_meta2_entries = preserved_meta2_before + new_child_meta2 + preserved_meta2_after
+    new_data = b"".join(new_data_parts)
+
+    new_header = bytearray(raw[:64])
+    new_meta1_count = len(new_meta1_entries)
+    new_meta2_count = len(new_meta2_entries)
+    new_meta1_size = new_meta1_count * 16
+    new_meta2_offset = 64 + new_meta1_size
+    new_data_offset = new_meta2_offset + new_meta2_count * 12
+
+    struct.pack_into("<i", new_header, 16, new_meta1_size)
+    struct.pack_into("<i", new_header, 20, new_meta1_count)
+    struct.pack_into("<i", new_header, 44, new_meta2_count)
+    struct.pack_into("<i", new_header, 48, new_meta2_offset)
+    struct.pack_into("<i", new_header, 56, len(new_data))
+    struct.pack_into("<i", new_header, 60, new_data_offset)
+
+    meta1_block = bytearray()
+    for entry in new_meta1_entries:
+        meta1_block.extend(dson_pack_i32_le(entry["parent"]))
+        meta1_block.extend(dson_pack_i32_le(entry["meta2_index"]))
+        meta1_block.extend(dson_pack_i32_le(entry["direct_children"]))
+        meta1_block.extend(dson_pack_i32_le(entry["all_children"]))
+
+    meta2_block = bytearray()
+    for entry in new_meta2_entries:
+        meta2_block.extend(dson_pack_i32_le(entry["hash"]))
+        meta2_block.extend(dson_pack_i32_le(entry["offset"]))
+        meta2_block.extend(dson_pack_i32_le(entry["info"]))
+
+    patched = bytes(new_header) + bytes(meta1_block) + bytes(meta2_block) + bytes(new_data)
+
+    check_header = dson_parse_header(patched)
+    if check_header["data_offset"] + check_header["data_length"] != len(patched):
+        raise ValueError("Patched save has inconsistent data offset/length metadata.")
+
+    check_entries = dson_parse_named_name_source_object(patched, object_name)
+    if len(check_entries) != len(entries):
+        raise ValueError(f"Patched save did not roundtrip with the requested {object_name!r} count.")
+
+    dson_validate_editor_compatible(patched)
+    return patched
+
+
+def dson_file_has_field_name(file_path, field_name):
+    with open(file_path, "rb") as f:
+        raw = f.read()
+
+    header = dson_parse_header(raw)
+    meta2_entries = dson_parse_meta2(raw, header)
+    try:
+        dson_find_meta2_by_name(raw, header, meta2_entries, field_name)
+        return True
+    except Exception:
+        return False
+
+
+def dson_file_contains_scalar_value(file_path, wanted_value):
+    with open(file_path, "rb") as f:
+        raw = f.read()
+
+    header = dson_parse_header(raw)
+    meta2_entries = dson_parse_meta2(raw, header)
+    data = raw[header["data_offset"]:header["data_offset"] + header["data_length"]]
+    wanted_text = str(wanted_value).strip()
+
+    for index, entry in enumerate(meta2_entries):
+        next_offset = (
+            meta2_entries[index + 1]["offset"]
+            if index + 1 < len(meta2_entries)
+            else header["data_length"]
+        )
+        value = dson_decode_scalar_field(data, entry, next_offset)
+        if isinstance(value, str) and value.strip() == wanted_text:
+            return True
+    return False
+
+
+def dson_replace_scalar_payloads_from_template(target_raw, template_raw, field_name):
+    target_header = dson_parse_header(target_raw)
+    target_meta2 = dson_parse_meta2(target_raw, target_header)
+    target_data = bytearray(target_raw[target_header["data_offset"]:target_header["data_offset"] + target_header["data_length"]])
+
+    template_header = dson_parse_header(template_raw)
+    template_meta2 = dson_parse_meta2(template_raw, template_header)
+    template_data = template_raw[template_header["data_offset"]:template_header["data_offset"] + template_header["data_length"]]
+
+    target_indices = [i for i, entry in enumerate(target_meta2) if dson_meta2_name(target_raw, target_header, entry) == field_name]
+    template_indices = [i for i, entry in enumerate(template_meta2) if dson_meta2_name(template_raw, template_header, entry) == field_name]
+    if len(target_indices) != len(template_indices):
+        raise ValueError(f"Template field count mismatch for {field_name!r}.")
+
+    for target_index, template_index in zip(target_indices, template_indices):
+        target_entry = target_meta2[target_index]
+        template_entry = template_meta2[template_index]
+
+        target_next = target_meta2[target_index + 1]["offset"] if target_index + 1 < len(target_meta2) else target_header["data_length"]
+        template_next = template_meta2[template_index + 1]["offset"] if template_index + 1 < len(template_meta2) else template_header["data_length"]
+
+        target_payload, target_start, target_end = dson_field_payload_layout(target_data, target_entry, target_next)
+        template_payload, _, _ = dson_field_payload_layout(template_data, template_entry, template_next)
+        if len(target_payload) != len(template_payload):
+            raise ValueError(f"Template payload size mismatch for {field_name!r}.")
+        target_data[target_start:target_end] = template_payload
+
+    return bytes(target_raw[:target_header["data_offset"]]) + bytes(target_data)
+
+
+def dson_replace_scalar_payload_offsets_from_template(target_raw, template_raw, field_name, offsets):
+    target_header = dson_parse_header(target_raw)
+    target_meta2 = dson_parse_meta2(target_raw, target_header)
+    target_data = bytearray(target_raw[target_header["data_offset"]:target_header["data_offset"] + target_header["data_length"]])
+
+    template_header = dson_parse_header(template_raw)
+    template_meta2 = dson_parse_meta2(template_raw, template_header)
+    template_data = template_raw[template_header["data_offset"]:template_header["data_offset"] + template_header["data_length"]]
+
+    target_indices = [i for i, entry in enumerate(target_meta2) if dson_meta2_name(target_raw, target_header, entry) == field_name]
+    template_indices = [i for i, entry in enumerate(template_meta2) if dson_meta2_name(template_raw, template_header, entry) == field_name]
+    if len(target_indices) != len(template_indices):
+        raise ValueError(f"Template field count mismatch for {field_name!r}.")
+
+    for target_index, template_index in zip(target_indices, template_indices):
+        target_entry = target_meta2[target_index]
+        template_entry = template_meta2[template_index]
+
+        target_next = target_meta2[target_index + 1]["offset"] if target_index + 1 < len(target_meta2) else target_header["data_length"]
+        template_next = template_meta2[template_index + 1]["offset"] if template_index + 1 < len(template_meta2) else template_header["data_length"]
+
+        target_payload, target_start, target_end = dson_field_payload_layout(target_data, target_entry, target_next)
+        template_payload, _, _ = dson_field_payload_layout(template_data, template_entry, template_next)
+        if len(target_payload) != len(template_payload):
+            raise ValueError(f"Template payload size mismatch for {field_name!r}.")
+
+        mutable_payload = bytearray(target_payload)
+        for offset in offsets:
+            if offset < 0 or offset >= len(mutable_payload) or offset >= len(template_payload):
+                raise ValueError(f"Offset {offset} is outside {field_name!r} payload.")
+            mutable_payload[offset] = template_payload[offset]
+        target_data[target_start:target_end] = mutable_payload
+
+    return bytes(target_raw[:target_header["data_offset"]]) + bytes(target_data)
+
 class ModManager:
 
     # Rebuilds the top-level applied_ugcs_1_0 block in a save while
@@ -1415,6 +1862,733 @@ class ModManager:
         )
         if proceed:
             self.patch_save_file_with_metadata(save_path)
+
+    def profile_root_dir(self):
+        candidates = []
+        for save_path in self.detect_save_files():
+            profile_dir = os.path.dirname(save_path)
+            root_dir = os.path.dirname(profile_dir)
+            if profile_dir and root_dir and os.path.isdir(root_dir):
+                candidates.append(root_dir)
+
+        seen = set()
+        for path in candidates:
+            norm = os.path.normcase(os.path.abspath(path))
+            if norm in seen:
+                continue
+            seen.add(norm)
+            return path
+        return ""
+
+    def difficulty_label_from_game_mode(self, game_mode):
+        labels = {
+            "radiant": "Radiant",
+            "bloodmoon": "Bloodmoon",
+            "base": "Darkest",
+            "darkest": "Darkest",
+            "stygian": "Stygian",
+        }
+        normalized = str(game_mode or "").strip().lower()
+        if normalized in labels:
+            return labels[normalized]
+        if not normalized:
+            return "Unknown"
+        return normalized.replace("_", " ").title()
+
+    def template_kind_for_profile(self, save_path):
+        profile_dir = os.path.dirname(save_path)
+        estate_path = os.path.join(profile_dir, "persist.estate.json")
+
+        has_memory_wallet = False
+        if os.path.isfile(estate_path):
+            try:
+                has_memory_wallet = dson_file_contains_scalar_value(estate_path, "memory")
+            except Exception:
+                has_memory_wallet = False
+
+        if has_memory_wallet:
+            return "campaign_ready"
+        return "tutorial_seed"
+
+    def starter_template_candidates(self):
+        candidates = []
+        for slot in self.detect_profile_slots():
+            save_path = slot["path"]
+            fields = self.read_scalar_dson_fields(
+                save_path,
+                wanted_names={"inraid", "raiddungeon", "game_mode", "estatename"},
+            )
+            if not fields.get("inraid"):
+                continue
+            if str(fields.get("raiddungeon", "")).strip().lower() != "tutorial":
+                continue
+
+            applied_mod_count = 0
+            try:
+                applied_mod_count = len(self.save_applied_mod_names(save_path))
+            except Exception:
+                applied_mod_count = 0
+
+            difficulty = self.difficulty_label_from_game_mode(fields.get("game_mode", ""))
+            template_kind = self.template_kind_for_profile(save_path)
+            label = f"{difficulty} starter - {slot['label']}"
+            if template_kind == "campaign_ready":
+                label = f"{difficulty} ready template - {slot['label']}"
+            if applied_mod_count:
+                plural = "mod" if applied_mod_count == 1 else "mods"
+                label = f"{label} | template has {applied_mod_count} saved {plural}"
+
+            candidates.append({
+                "path": save_path,
+                "label": label,
+                "difficulty": difficulty,
+                "game_mode": str(fields.get("game_mode", "")),
+                "estatename": str(fields.get("estatename", "")),
+                "applied_mod_count": applied_mod_count,
+                "template_kind": template_kind,
+            })
+
+        return candidates
+
+    def preferred_starter_template(self, preferred_difficulty=None):
+        templates = self.starter_template_candidates()
+        if not templates:
+            return None
+
+        difficulty_rank = {
+            "Darkest": 0,
+            "Radiant": 1,
+            "Bloodmoon": 2,
+            "Stygian": 3,
+            "Unknown": 4,
+        }
+
+        normalized_preferred = str(preferred_difficulty or "").strip()
+        matching = [item for item in templates if item.get("difficulty") == normalized_preferred]
+        if matching:
+            templates = matching
+
+        return sorted(
+            templates,
+            key=lambda item: (
+                0 if item.get("template_kind") == "campaign_ready" else 1,
+                0 if item.get("applied_mod_count", 0) == 0 else 1,
+                difficulty_rank.get(item.get("difficulty", "Unknown"), 5),
+                item.get("label", ""),
+            ),
+        )[0]
+
+    def campaign_target_slot_choices(self):
+        root_dir = self.profile_root_dir()
+        if not root_dir:
+            return []
+
+        choices = []
+        for index in range(0, 9):
+            folder_name = f"profile_{index}"
+            folder_path = os.path.join(root_dir, folder_name)
+            label = f"Slot {index + 1} [{folder_name}]"
+            save_path = os.path.join(folder_path, "persist.game.json")
+            if os.path.isfile(save_path):
+                label = f"{label} - occupied"
+            else:
+                label = f"{label} - empty"
+            choices.append({
+                "index": index,
+                "folder_name": folder_name,
+                "folder_path": folder_path,
+                "label": label,
+                "occupied": os.path.isdir(folder_path),
+            })
+        return choices
+
+    def available_campaign_difficulties(self):
+        seen = set()
+        for template in self.starter_template_candidates():
+            seen.add(template.get("difficulty", "Unknown"))
+
+        preferred_order = ["Radiant", "Darkest", "Bloodmoon", "Stygian", "Unknown"]
+        ordered = [difficulty for difficulty in preferred_order if difficulty in seen]
+        extras = sorted(difficulty for difficulty in seen if difficulty not in preferred_order)
+        return ordered + extras or ["Darkest"]
+
+    def enabled_mods_for_save_patch(self):
+        order = self.state.get("order", [])
+        enabled_map = self.state.get("enabled", {})
+        return [mod for mod in order if enabled_map.get(mod, True)]
+
+    def campaign_dlc_ids(self):
+        return [dlc_id for dlc_id, _label in CAMPAIGN_DLC_CHOICES]
+
+    def campaign_dlc_label(self, dlc_id):
+        for current_id, label in CAMPAIGN_DLC_CHOICES:
+            if current_id == dlc_id:
+                return label
+        return str(dlc_id).replace("_", " ").title()
+
+    def active_dlc_names_from_save(self, file_path):
+        with open(file_path, "rb") as f:
+            raw = f.read()
+
+        active = []
+        for entry in dson_parse_named_name_source_object(raw, "dlc"):
+            for field in entry.get("fields", []):
+                if field.get("field_name") == "name":
+                    value = str(field.get("value", "")).strip()
+                    if value:
+                        active.append(value)
+                    break
+        return active
+
+    def default_campaign_dlc_names(self, preferred_difficulty=None):
+        template = self.preferred_starter_template(preferred_difficulty)
+        if template is None:
+            return []
+        try:
+            return self.active_dlc_names_from_save(template["path"])
+        except Exception:
+            return []
+
+    def build_campaign_dlc_entries(self, active_dlc_names):
+        active_set = {str(name).strip() for name in active_dlc_names if str(name).strip()}
+        entries = []
+        ordered_ids = self.campaign_dlc_ids()
+        for dlc_id in ordered_ids:
+            if dlc_id in active_set:
+                entries.append({"name": dlc_id, "source": "dlc"})
+        extras = sorted(dlc_id for dlc_id in active_set if dlc_id not in ordered_ids)
+        for dlc_id in extras:
+            entries.append({"name": dlc_id, "source": "dlc"})
+        return entries
+
+    def synchronize_campaign_identity_from_template(self, target_profile_dir, template_profile_dir):
+        manual_template_dir = os.path.join(APP_DIR, "profile_8_manual_full")
+        if not os.path.isdir(manual_template_dir):
+            return
+
+        template_game_path = os.path.join(template_profile_dir, "persist.game.json")
+        with open(template_game_path, "rb") as f:
+            template_game_raw = f.read()
+        template_values = self.read_scalar_dson_fields(
+            template_game_path,
+            wanted_names={"game_mode", "inraid", "raiddungeon"},
+        )
+
+        manual_game_path = os.path.join(manual_template_dir, "persist.game.json")
+        manual_values = self.read_scalar_dson_fields(
+            manual_game_path,
+            wanted_names={"game_mode", "inraid", "raiddungeon"},
+        )
+        if (
+            template_values.get("game_mode") != manual_values.get("game_mode")
+            or template_values.get("inraid") != manual_values.get("inraid")
+            or str(template_values.get("raiddungeon", "")).strip().lower()
+                != str(manual_values.get("raiddungeon", "")).strip().lower()
+        ):
+            return
+        for filename in (
+            "persist.game.json",
+            "persist.estate.json",
+            "persist.raid.json",
+            "persist.map.json",
+            "persist.roster.json",
+        ):
+            source_path = os.path.join(manual_template_dir, filename)
+            target_path = os.path.join(target_profile_dir, filename)
+            if os.path.isfile(source_path):
+                shutil.copy2(source_path, target_path)
+
+        tutorial_path = os.path.join(target_profile_dir, "persist.tutorial.json")
+        if os.path.isfile(tutorial_path):
+            os.remove(tutorial_path)
+
+    def write_new_campaign_persist_game(self, file_path, campaign_name, apply_current_mods=True, active_dlc_names=None):
+        with open(file_path, "rb") as f:
+            raw = f.read()
+
+        if campaign_name:
+            raw = dson_patch_scalar_string_field(raw, "estatename", campaign_name)
+
+        if active_dlc_names is not None:
+            raw = dson_patch_named_name_source_object(
+                raw,
+                "dlc",
+                self.build_campaign_dlc_entries(active_dlc_names),
+            )
+
+        enabled_mods = self.enabled_mods_for_save_patch() if apply_current_mods else []
+        raw, patched_count = dson_patch_mod_list_resize(raw, enabled_mods, self)
+
+        with open(file_path, "wb") as f:
+            f.write(raw)
+        return patched_count
+
+    def create_campaign_from_template(
+        self,
+        template_save_path,
+        target_slot_index,
+        campaign_name,
+        apply_current_mods=True,
+        active_dlc_names=None,
+    ):
+        profile_root = self.profile_root_dir()
+        if not profile_root:
+            raise ValueError("Could not determine the Darkest Dungeon profile folder.")
+
+        template_dir = os.path.dirname(template_save_path)
+        if not os.path.isdir(template_dir):
+            raise ValueError("The chosen starter template profile could not be found.")
+
+        target_dir = os.path.join(profile_root, f"profile_{target_slot_index}")
+        existing_save_path = os.path.join(target_dir, "persist.game.json")
+        if os.path.isfile(existing_save_path):
+            raise ValueError("The chosen target slot is already in use. Pick an empty slot instead.")
+        staging_dir = unique_path(os.path.join(APP_DIR, f"profile_{target_slot_index}_staging"))
+
+        try:
+            shutil.copytree(template_dir, staging_dir)
+            if os.path.isdir(target_dir):
+                shutil.rmtree(target_dir)
+
+            persist_game_path = os.path.join(staging_dir, "persist.game.json")
+            if not os.path.isfile(persist_game_path):
+                raise ValueError("The starter template is missing persist.game.json.")
+
+            self.synchronize_campaign_identity_from_template(staging_dir, template_dir)
+            patched_count = self.write_new_campaign_persist_game(
+                persist_game_path,
+                campaign_name,
+                apply_current_mods=apply_current_mods,
+                active_dlc_names=active_dlc_names,
+            )
+            shutil.move(staging_dir, target_dir)
+        except Exception:
+            if os.path.isdir(staging_dir):
+                shutil.rmtree(staging_dir, ignore_errors=True)
+            raise
+
+        target_save_path = os.path.join(target_dir, "persist.game.json")
+        self.state["selected_profile_path"] = target_save_path
+        self.state["last_save_path"] = target_save_path
+        self.save_state()
+        return target_save_path, patched_count
+
+    def start_new_campaign(self):
+        templates = self.starter_template_candidates()
+        if not templates:
+            self.show_warning(
+                "No Starter Templates Found",
+                "I could not find any tutorial-state starter profiles to clone.\n\n"
+                "Create a new campaign, enter the first dungeon, then exit to desktop so the app has a starter template to work from."
+            )
+            return
+
+        ready_templates = [item for item in templates if item.get("template_kind") == "campaign_ready"]
+        if not ready_templates:
+            self.show_warning(
+                "Need a Fresh Campaign Template",
+                "Start New Campaign now needs one clean in-game campaign template to clone from.\n\n"
+                "Create a brand-new campaign in Darkest Dungeon, make sure it appears in the save list, then exit the game and try again.\n\n"
+                "Once that template exists, the wizard can clone it into new slots and patch in the chosen DLC and mod list."
+            )
+            return
+
+        slot_choices = self.campaign_target_slot_choices()
+        if not slot_choices:
+            self.show_warning(
+                "No Profile Folder Found",
+                "I could not find the Darkest Dungeon profile folder."
+            )
+            return
+
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Start New Campaign")
+        dialog.geometry("700x520")
+        dialog.configure(bg=THEME["bg"])
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        empty_slot_choices = [item for item in slot_choices if not item["occupied"]]
+        if not empty_slot_choices:
+            self.show_warning(
+                "No Empty Profile Slots",
+                "All detected profile slots are already in use.\n\n"
+                "Delete an unused profile in-game first, then try Start New Campaign again."
+            )
+            return
+
+        first_empty = empty_slot_choices[0]
+        slot_map = {item["label"]: item for item in empty_slot_choices}
+        starter_reference = self.preferred_starter_template()
+        default_name = "Darkest"
+        template_name = (starter_reference or {}).get("estatename", "").strip()
+        if template_name:
+            default_name = template_name
+        difficulty_choices = self.available_campaign_difficulties()
+        default_difficulty = "Darkest" if "Darkest" in difficulty_choices else difficulty_choices[0]
+        default_dlc_names = self.default_campaign_dlc_names(default_difficulty)
+
+        wizard_state = {
+            "slot_label": first_empty["label"],
+            "campaign_name": default_name,
+            "difficulty": default_difficulty,
+            "active_dlc_names": list(default_dlc_names),
+            "apply_mods": True,
+        }
+        step_index = {"value": 0}
+        step_frames = []
+
+        body = self.themed_frame(dialog)
+        body.pack(fill="both", expand=True, padx=14, pady=14)
+
+        self.themed_label(body, text="Start New Campaign", style="heading").pack(anchor="w", pady=(0, 10))
+        intro_label = self.themed_label(
+            body,
+            text=(
+                "This version creates a new campaign by cloning a clean game-created campaign template, "
+                "then patching in the chosen DLC state and optionally the current enabled mods."
+            ),
+            style="muted",
+            justify="left",
+            wraplength=650,
+        )
+        intro_label.pack(anchor="w", pady=(0, 14))
+
+        step_container = self.themed_frame(body)
+        step_container.pack(fill="both", expand=True)
+
+        footer = self.themed_frame(body)
+        footer.pack(fill="x", pady=(14, 0))
+        nav_left = self.themed_frame(footer)
+        nav_left.pack(side="left")
+        nav_right = self.themed_frame(footer)
+        nav_right.pack(side="right")
+
+        back_button = self.themed_button(nav_left, text="Back", command=lambda: None)
+        next_button = self.themed_button(nav_right, text="Next", command=lambda: None, style="primary")
+        cancel_button = self.themed_button(nav_right, text=self.tr("cancel"), command=dialog.destroy)
+        back_button.pack(side="left", padx=(0, 6))
+        cancel_button.pack(side="right", padx=(6, 0))
+        next_button.pack(side="right")
+
+        def add_step(title, description):
+            frame = self.themed_frame(step_container)
+            self.themed_label(frame, text=title, style="heading").pack(anchor="w", pady=(0, 8))
+            if description:
+                self.themed_label(
+                    frame,
+                    text=description,
+                    style="muted",
+                    justify="left",
+                    wraplength=650,
+                ).pack(anchor="w", pady=(0, 12))
+            step_frames.append(frame)
+            return frame
+
+        slot_step = add_step(
+            "Step 1: Choose Slot and Name",
+            "Pick an empty save slot and name the new campaign.",
+        )
+        slot_var = tk.StringVar(value=wizard_state["slot_label"])
+        campaign_name_var = tk.StringVar(value=wizard_state["campaign_name"])
+
+        slot_row = self.themed_frame(slot_step)
+        slot_row.pack(fill="x", pady=4)
+        self.themed_label(slot_row, text="Target Empty Slot:", style="heading").pack(side="left", padx=(0, 8))
+        slot_menu = tk.OptionMenu(slot_row, slot_var, *list(slot_map.keys()))
+        self.configure_option_menu(slot_menu)
+        slot_menu.config(width=28)
+        slot_menu.pack(side="left", fill="x", expand=True)
+
+        name_row = self.themed_frame(slot_step)
+        name_row.pack(fill="x", pady=8)
+        self.themed_label(name_row, text="Campaign Name:", style="heading").pack(side="left", padx=(0, 8))
+        campaign_name_entry = self.themed_entry(name_row, textvariable=campaign_name_var, width=34)
+        campaign_name_entry.pack(side="left", fill="x", expand=True)
+
+        dlc_step = add_step(
+            "Step 2: Choose DLC",
+            "Choose which DLC entries should be active in the new campaign save.",
+        )
+        dlc_help = self.themed_label(
+            dlc_step,
+            text="Toggle any of the seven campaign DLC entries on or off.",
+            style="muted",
+            justify="left",
+            wraplength=650,
+        )
+        dlc_help.pack(anchor="w", pady=(0, 8))
+        dlc_grid = self.themed_frame(dlc_step)
+        dlc_grid.pack(fill="x", pady=(0, 8))
+        for column in range(2):
+            dlc_grid.grid_columnconfigure(column, weight=1)
+        dlc_vars = {}
+        for index, (dlc_id, label) in enumerate(CAMPAIGN_DLC_CHOICES):
+            var = tk.BooleanVar(value=(dlc_id in default_dlc_names))
+            dlc_vars[dlc_id] = var
+            checkbox = tk.Checkbutton(
+                dlc_grid,
+                text=label,
+                variable=var,
+                bg=THEME["bg"],
+                fg=THEME["text"],
+                activebackground=THEME["bg"],
+                activeforeground=THEME["text_bright"],
+                selectcolor=THEME["panel"],
+                font=FONT_BODY,
+                anchor="w",
+                justify="left",
+            )
+            row = index // 2
+            column = index % 2
+            checkbox.grid(row=row, column=column, sticky="w", padx=(0, 20), pady=4)
+
+        difficulty_step = add_step(
+            "Step 3: Choose Difficulty",
+            "This chooses the closest matching built-in starter template we have available.",
+        )
+        difficulty_var = tk.StringVar(value=wizard_state["difficulty"])
+        difficulty_buttons = {}
+
+        def refresh_difficulty_buttons():
+            selected = difficulty_var.get()
+            for difficulty, button in difficulty_buttons.items():
+                if difficulty == selected:
+                    button.config(
+                        bg=THEME["crimson"],
+                        fg=THEME["text_bright"],
+                        activebackground=THEME["crimson_hover"],
+                        activeforeground=THEME["text_bright"],
+                        relief="sunken",
+                        bd=2,
+                    )
+                else:
+                    button.config(
+                        bg=THEME["panel"],
+                        fg=THEME["text"],
+                        activebackground=THEME["border"],
+                        activeforeground=THEME["text_bright"],
+                        relief="solid",
+                        bd=1,
+                    )
+
+        for difficulty in difficulty_choices:
+            button = self.themed_button(
+                difficulty_step,
+                text=difficulty,
+                command=lambda value=difficulty: (difficulty_var.set(value), refresh_difficulty_buttons()),
+                style="secondary",
+                width=18,
+            )
+            button.pack(anchor="w", pady=4)
+            difficulty_buttons[difficulty] = button
+        refresh_difficulty_buttons()
+
+        current_mod_count = len(self.enabled_mods_for_save_patch())
+        mods_step = add_step(
+            "Step 4: Apply Current Mod List",
+            "Choose whether the new campaign should immediately use the current enabled mod list.",
+        )
+        apply_mods_var = tk.StringVar(value="yes")
+        mods_summary = self.themed_label(
+            mods_step,
+            text=f"Currently enabled mods: {current_mod_count}",
+            style="heading",
+            anchor="w",
+        )
+        mods_summary.pack(anchor="w", pady=(0, 10))
+        mods_choice_row = self.themed_frame(mods_step)
+        mods_choice_row.pack(anchor="w", pady=4)
+        tk.Radiobutton(
+            mods_choice_row,
+            text="Yes, patch in the current enabled mods",
+            variable=apply_mods_var,
+            value="yes",
+            bg=THEME["bg"],
+            fg=THEME["text"],
+            activebackground=THEME["bg"],
+            activeforeground=THEME["text_bright"],
+            selectcolor=THEME["panel"],
+            font=FONT_BODY,
+        ).pack(anchor="w", pady=2)
+        tk.Radiobutton(
+            mods_choice_row,
+            text="No, leave the new campaign with no saved mod list",
+            variable=apply_mods_var,
+            value="no",
+            bg=THEME["bg"],
+            fg=THEME["text"],
+            activebackground=THEME["bg"],
+            activeforeground=THEME["text_bright"],
+            selectcolor=THEME["panel"],
+            font=FONT_BODY,
+        ).pack(anchor="w", pady=2)
+
+        review_step = add_step(
+            "Step 5: Create Campaign",
+            "Review the choices below, then create the new campaign.",
+        )
+        review_summary = self.themed_label(review_step, text="", style="body", justify="left", wraplength=650, anchor="w")
+        review_summary.pack(anchor="w")
+
+        def sync_wizard_state():
+            wizard_state["slot_label"] = slot_var.get()
+            wizard_state["campaign_name"] = " ".join(campaign_name_var.get().strip().split())
+            wizard_state["difficulty"] = difficulty_var.get()
+            wizard_state["active_dlc_names"] = [
+                dlc_id for dlc_id in self.campaign_dlc_ids()
+                if dlc_vars[dlc_id].get()
+            ]
+            wizard_state["apply_mods"] = apply_mods_var.get() == "yes"
+
+        def selected_template_for_current_state():
+            sync_wizard_state()
+            return self.preferred_starter_template(wizard_state["difficulty"])
+
+        def require_campaign_ready_template():
+            template = selected_template_for_current_state()
+            if template is None:
+                self.show_warning(
+                    "No Matching Starter Template",
+                    "I could not find a starter template for that difficulty yet.",
+                    parent=dialog,
+                )
+                return None
+            if template.get("template_kind") != "campaign_ready":
+                self.show_warning(
+                    "Need a Fresh Campaign Template",
+                    "The best template for that difficulty is still only a raw tutorial seed.\n\n"
+                    "Create one clean in-game campaign for that difficulty first, make sure it appears in the save list, then try again.",
+                    parent=dialog,
+                )
+                return None
+            return template
+
+        def refresh_review():
+            sync_wizard_state()
+            mod_text = "Yes" if wizard_state["apply_mods"] else "No"
+            dlc_labels = [
+                self.campaign_dlc_label(dlc_id)
+                for dlc_id in wizard_state["active_dlc_names"]
+            ]
+            dlc_text = ", ".join(dlc_labels) if dlc_labels else "None"
+            template = selected_template_for_current_state()
+            template_text = "ready template" if template and template.get("template_kind") == "campaign_ready" else "tutorial seed"
+            review_summary.config(
+                text=(
+                    f"Target slot: {wizard_state['slot_label']}\n"
+                    f"Campaign name: {wizard_state['campaign_name'] or '(missing)'}\n"
+                    f"Active DLC: {dlc_text}\n"
+                    f"Difficulty: {wizard_state['difficulty']}\n"
+                    f"Apply current mod list: {mod_text}\n"
+                    f"Template type: {template_text}"
+                )
+            )
+
+        def validate_step(index):
+            sync_wizard_state()
+            if index == 0 and not wizard_state["campaign_name"]:
+                self.show_warning("Missing Campaign Name", "Enter a campaign name first.", parent=dialog)
+                return False
+            if index == 2 and selected_template_for_current_state() is None:
+                self.show_warning(
+                    "No Matching Starter Template",
+                    "I could not find a starter template for that difficulty yet.",
+                    parent=dialog,
+                )
+                return False
+            if index >= 2 and require_campaign_ready_template() is None:
+                return False
+            return True
+
+        def show_step(index):
+            step_index["value"] = index
+            for current, frame in enumerate(step_frames):
+                if current == index:
+                    frame.pack(fill="both", expand=True)
+                else:
+                    frame.pack_forget()
+
+            back_button.config(state=("normal" if index > 0 else "disabled"))
+            if index == len(step_frames) - 1:
+                refresh_review()
+                next_button.config(text="Create Campaign")
+            else:
+                next_button.config(text="Next")
+
+            if index == 0:
+                campaign_name_entry.focus_set()
+
+        def go_back():
+            if step_index["value"] > 0:
+                show_step(step_index["value"] - 1)
+
+        def finish_campaign_creation():
+            sync_wizard_state()
+            slot_choice = slot_map.get(wizard_state["slot_label"])
+            template = require_campaign_ready_template()
+            if slot_choice is None or template is None:
+                return
+
+            try:
+                target_save_path, patched_count = self.create_campaign_from_template(
+                    template["path"],
+                    slot_choice["index"],
+                    wizard_state["campaign_name"],
+                    apply_current_mods=wizard_state["apply_mods"],
+                    active_dlc_names=wizard_state["active_dlc_names"],
+                )
+            except Exception as error:
+                self.show_error(
+                    "Could Not Create Campaign",
+                    f"Failed to create the new campaign template:\n\n{error}",
+                    parent=dialog,
+                )
+                return
+
+            dialog.destroy()
+            self.refresh_profile_menu()
+            target_label = ""
+            for label, path in self.profile_label_to_path.items():
+                if os.path.normcase(os.path.abspath(path)) == os.path.normcase(os.path.abspath(target_save_path)):
+                    target_label = label
+                    break
+            if target_label:
+                self.select_profile(target_label)
+
+            status = f"New campaign created in {slot_choice['folder_name']}"
+            if wizard_state["apply_mods"]:
+                status += f" | {patched_count} mods patched"
+            self.set_status_text(status)
+
+            lines = [
+                f"Created new campaign profile:\n{target_save_path}",
+                "",
+                f"Campaign name:\n{wizard_state['campaign_name']}",
+                "",
+                "Active DLC:",
+                ", ".join(self.campaign_dlc_label(dlc_id) for dlc_id in wizard_state["active_dlc_names"]) or "None",
+                "",
+                f"Difficulty: {wizard_state['difficulty']}",
+                "",
+                f"Applied current mod list: {'Yes' if wizard_state['apply_mods'] else 'No'}",
+            ]
+            if wizard_state["apply_mods"]:
+                lines.extend(["", f"Patched enabled mods into the new save: {patched_count}"])
+            self.show_info("New Campaign Ready", "\n".join(lines))
+
+        def go_next():
+            current = step_index["value"]
+            if not validate_step(current):
+                return
+            if current == len(step_frames) - 1:
+                finish_campaign_creation()
+                return
+            show_step(current + 1)
+
+        back_button.config(command=go_back)
+        next_button.config(command=go_next)
+        show_step(0)
 
     def restore_last_backup(self):
         backup_path = self.state.get("last_backup_path", "")
@@ -1801,14 +2975,17 @@ class ModManager:
         self.set_status_translation("status_no_dd_detected")
         self.record_startup_timing("run_first_start_setup.total", time.perf_counter() - setup_start)
 
-    def show_setup_diagnostics(self):
+    def setup_diagnostics_lines(self):
         summary = self.autodetect_summary()
         mods_path = self.mods_path.get().strip()
         order = self.state.get("order", [])
         enabled_map = self.state.get("enabled", {})
         enabled_count = sum(1 for mod in order if enabled_map.get(mod, True))
+        disabled_count = len(order) - enabled_count
         metadata = self.state.get("metadata", {})
         metadata_count = sum(1 for mod in order if metadata.get(mod))
+        workshop_count = sum(1 for mod in order if self.mod_is_workshop(mod))
+        local_count = len(order) - workshop_count
         latest_save = summary["latest_save"]
 
         state_ok = os.path.isdir(APP_DIR)
@@ -1825,7 +3002,13 @@ class ModManager:
             except Exception:
                 save_has_mod_block = "No"
 
-        lines = [
+        return [
+            f"DD Manager version: {APP_VERSION}",
+            f"Platform: {sys.platform}",
+            f"Captured: {datetime.now().isoformat(timespec='seconds')}",
+            f"Language: {self.state.get('language', 'en')}",
+            f"View mode: {self.current_view_mode()}",
+            f"Filter: {self.current_filter_category()}",
             f"App data folder writable: {'Yes' if state_ok else 'No'}",
             f"Game install: {summary['game_root'] or '(not found)'}",
             f"Local mods folder: {summary['local_mods'] or '(not found)'}",
@@ -1834,7 +3017,12 @@ class ModManager:
             f"Mods folder: {mods_path or '(not set)'}",
             f"Mods loaded: {len(order)}",
             f"Enabled mods: {enabled_count}",
+            f"Disabled mods: {disabled_count}",
+            f"Workshop-backed mods: {workshop_count}",
+            f"Local/manual mods: {local_count}",
             f"Metadata entries: {metadata_count}",
+            f"Visible reserve rows: {len(self.disabled_visible_mods)}",
+            f"Visible load-order rows: {len(self.enabled_visible_mods)}",
             f"Selected profile: {self.selected_profile.get()}",
             f"Selected profile path: {selected_profile_path or '(not selected)'}",
             f"Latest detected save: {latest_save or '(not found)'}",
@@ -1842,7 +3030,27 @@ class ModManager:
             f"Save has applied_ugcs_1_0: {save_has_mod_block}",
             f"Last backup: {self.state.get('last_backup_path') or '(none)'}",
         ]
-        self.show_info("Setup Check", "\n".join(lines))
+
+    def build_debug_info_text(self):
+        return "\n".join(self.setup_diagnostics_lines())
+
+    def show_setup_diagnostics(self):
+        self.show_info("Setup Check", self.build_debug_info_text())
+
+    def copy_debug_info(self):
+        text = self.build_debug_info_text()
+        try:
+            self.root.clipboard_clear()
+            self.root.clipboard_append(text)
+            self.root.update_idletasks()
+        except Exception as e:
+            self.show_error("Clipboard Error", f"Failed to copy debug info.\n\n{e}")
+            return
+
+        self.show_info(
+            self.tr("debug_info_copied_title"),
+            self.tr("debug_info_copied_body"),
+        )
 
     # Reads the active applied_ugcs_1_0 names from a save so the app
     # can match that save's live mod list back to local folders.
@@ -2212,6 +3420,15 @@ class ModManager:
         parts = [part for part in (major, minor) if str(part).strip()]
         return ".".join(parts)
 
+    def is_black_reliquary_tagged(self, tags):
+        for tag in tags:
+            normalized = re.sub(r"[_\\/\-:;,.()[\]{}'\"!+]+", " ", html.unescape(str(tag)).lower())
+            normalized = re.sub(r"\s+", " ", normalized).strip()
+            compact = normalized.replace(" ", "")
+            if normalized == "black reliquary" or compact == "blackreliquary":
+                return True
+        return False
+
     def newest_mod_file_timestamp(self, mod_folder):
         mod_path = self.mod_folder_path(mod_folder)
         newest = None
@@ -2272,6 +3489,7 @@ class ModManager:
             "save_source": "Steam" if is_workshop and workshop_id else "mod_local_source",
             "version_label": "",
             "updated_label": "",
+            "black_reliquary": False,
             "metadata_path": signature["metadata_path"],
             "project_mtime": signature["project_mtime"],
             "localization_signature": signature["localization_signature"],
@@ -2279,6 +3497,7 @@ class ModManager:
         }
 
         root = parse_xml_file_forgiving(project_path) if os.path.exists(project_path) else None
+        metadata["black_reliquary"] = self.is_black_reliquary_tagged(self.project_tag_values(mod_folder))
         metadata["version_label"] = self.version_label_from_project(root)
         if root is None:
             title = self.localization_title_for_mod(mod_folder)
@@ -2450,6 +3669,7 @@ class ModManager:
         self.disabled_selection_anchor_index = None
         self.enabled_selection_anchor_index = None
         self.drag_label = None
+        self.drag_indicator = None
         self.profile_slots = []
         self.profile_label_to_path = {}
         self.profile_metadata_cache = {}
@@ -2467,6 +3687,8 @@ class ModManager:
         self.status_translation = None
         self.pending_duplicate_groups = []
         self.workshop_update_cache = None
+        self.context_menu_workshop_index = None
+        self.deferred_save_job = None
         self.startup_profile = []
         self.recent_new_mods = set()
 
@@ -2569,12 +3791,17 @@ class ModManager:
         if not hasattr(self, "tools_menu"):
             return
         self.tools_menu.menu.delete(0, tk.END)
+        if SHOW_START_NEW_CAMPAIGN_TOOL:
+            self.tools_menu.menu.add_command(label=self.tr("tool_start_new_campaign"), command=self.start_new_campaign)
         self.tools_menu.menu.add_command(label=self.tr("tool_patch_save"), command=self.patch_save_file)
         self.tools_menu.menu.add_command(label=self.tr("tool_patch_autodetected_legacy"), command=self.patch_latest_save_file)
         self.tools_menu.menu.add_command(label=self.tr("tool_generate_save_code"), command=self.generate_save_code)
+        self.tools_menu.menu.add_separator()
         self.tools_menu.menu.add_command(label=self.tr("tool_apply_order"), command=self.apply_order)
         self.tools_menu.menu.add_command(label=self.tr("tool_restore_backup"), command=self.restore_last_backup)
+        self.tools_menu.menu.add_separator()
         self.tools_menu.menu.add_command(label=self.tr("tool_check_setup"), command=self.show_setup_diagnostics)
+        self.tools_menu.menu.add_command(label=self.tr("tool_copy_debug_info"), command=self.copy_debug_info)
 
     def refresh_localized_texts(self):
         self.root.title(self.tr("app_title"))
@@ -2762,27 +3989,37 @@ class ModManager:
     def mod_is_workshop(self, mod):
         return is_workshop_content_path(self.mod_folder_path(mod), STEAM_APP_ID)
 
-    def display_name(self, mod):
+    def apply_name_prefixes(self, mod, text):
+        value = html.unescape(str(text or "")).strip()
+        if not value:
+            return value
+
+        meta = self.current_metadata_for_mod(mod)
+        if meta.get("black_reliquary") and not value.startswith("[BR] "):
+            value = f"[BR] {value}"
+        return value
+
+    def display_name(self, mod, force_title_refresh=False):
         nickname = self.nickname_for_mod(mod)
         if nickname:
-            return html.unescape(nickname)
+            return self.apply_name_prefixes(mod, nickname)
 
-        meta = self.current_metadata_for_mod(mod, force_title_refresh=True)
+        meta = self.current_metadata_for_mod(mod, force_title_refresh=force_title_refresh)
         title = meta.get("title", "")
         published_id = meta.get("published_file_id", "")
 
         if title and title != mod:
             if mod.isdigit():
-                return f"{title} [{mod}]"
+                return self.apply_name_prefixes(mod, f"{title} [{mod}]")
             if published_id and published_id not in mod:
-                return f"{title} [{published_id}]"
-            return html.unescape(title)
+                return self.apply_name_prefixes(mod, f"{title} [{published_id}]")
+            return self.apply_name_prefixes(mod, title)
 
         if "_" in mod[:5]:
             prefix, remainder = mod.split("_", 1)
             if prefix.isdigit():
-                return html.unescape(remainder)
-        return html.unescape(mod)
+                return self.apply_name_prefixes(mod, remainder)
+        return self.apply_name_prefixes(mod, mod)
 
     def display_suffix(self, mod):
         meta = self.current_metadata_for_mod(mod)
@@ -2792,8 +4029,8 @@ class ModManager:
             return version_label
         return updated_label
 
-    def display_name_with_suffix(self, mod):
-        base = self.display_name(mod)
+    def display_name_with_suffix(self, mod, force_title_refresh=False):
+        base = self.display_name(mod, force_title_refresh=force_title_refresh)
         suffix = self.display_suffix(mod)
         if suffix:
             return f"{base} ({suffix})"
@@ -3253,6 +4490,62 @@ class ModManager:
         }
         return offsets.get(mode, 2)
 
+    def visible_mods_in_display_order(self):
+        return list(self.disabled_visible_mods) + list(self.enabled_visible_mods)
+
+    def visible_mods_for_side_from_state(self, side, order=None):
+        if order is None:
+            order = self.state.get("order", [])
+
+        categories = self.state.get("categories", {})
+        enabled_map = self.state.get("enabled", {})
+        filter_value = self.current_filter_category()
+        search_value = self.search_text.get().strip().lower()
+
+        visible_mods = []
+        for mod in order:
+            is_enabled = enabled_map.get(mod, True)
+            if side == "enabled" and not is_enabled:
+                continue
+            if side == "disabled" and is_enabled:
+                continue
+
+            cat = categories.get(mod, "Unassigned")
+            if filter_value != "All" and cat != filter_value:
+                continue
+
+            if search_value:
+                display_text = self.display_name_with_suffix(mod)
+                display = display_text.lower()
+                save_display = self.save_name(mod).lower()
+                raw_name = mod.lower()
+                meta = self.state.get("metadata", {}).get(mod, {})
+                meta_title = str(meta.get("title", "")).lower()
+                meta_id = str(meta.get("published_file_id", "")).lower()
+
+                if (
+                    search_value not in display
+                    and search_value not in save_display
+                    and search_value not in raw_name
+                    and search_value not in meta_title
+                    and search_value not in meta_id
+                ):
+                    continue
+
+            visible_mods.append(mod)
+
+        recent_new_mods = self.recent_new_mods
+        if recent_new_mods:
+            order_positions = {mod: index for index, mod in enumerate(order)}
+            visible_mods.sort(
+                key=lambda mod: (
+                    mod not in recent_new_mods,
+                    order_positions.get(mod, len(order)),
+                )
+            )
+
+        return visible_mods
+
     def set_view_mode(self, mode):
         mode = self.view_mode_from_label(mode)
         if mode not in VIEW_MODES:
@@ -3277,9 +4570,9 @@ class ModManager:
             self.icon_load_job = None
         self.apply_view_mode()
         self.save_state()
-        self.refresh()
+        self.root.update_idletasks()
         if self.icons_enabled():
-            self.queue_preview_icon_loads(self.state.get("order", []), max_size=self.preview_icon_size())
+            self.queue_preview_icon_loads(self.visible_mods_in_display_order(), max_size=self.preview_icon_size())
 
     def apply_view_mode(self):
         list_font = self.list_font()
@@ -3657,20 +4950,50 @@ class ModManager:
         top = self.themed_frame(self.root)
         top.pack(fill="x", padx=14, pady=(8, 10))
 
-        path_entry = self.themed_entry(
-            top,
-            textvariable=self.mods_path,
-            width=100,
-            bd=6
-        )
-        path_entry.pack(side="left", fill="x", expand=True, padx=(0, 8))
+        top_left_actions = self.themed_frame(top)
+        top_left_actions.pack(side="left")
 
-        self.open_local_mods_button = self.themed_button(top, text=self.tr("open_local_mods"), command=self.open_assigned_local_mods_folder)
-        self.open_local_mods_button.pack(side="left", padx=4)
-        self.file_paths_button = self.themed_button(top, text=self.tr("file_paths"), command=self.browse)
+        top_right_actions = self.themed_frame(top)
+        top_right_actions.pack(side="right")
+
+        self.open_local_mods_button = self.themed_button(top_left_actions, text=self.tr("open_local_mods"), command=self.open_assigned_local_mods_folder)
+        self.open_local_mods_button.pack(side="left", padx=(0, 4))
+        self.file_paths_button = self.themed_button(top_left_actions, text=self.tr("file_paths"), command=self.browse)
         self.file_paths_button.pack(side="left", padx=4)
-        self.auto_detect_button = self.themed_button(top, text=self.tr("auto_detect"), command=self.run_auto_detect)
-        self.auto_detect_button.pack(side="left", padx=4)
+        self.auto_detect_button = self.themed_button(top_left_actions, text=self.tr("auto_detect"), command=self.run_auto_detect)
+        self.auto_detect_button.pack(side="left", padx=(4, 0))
+
+        self.refresh_mods_button = self.themed_button(top_right_actions, text=self.tr("refresh_mods"), command=self.load_mods)
+        self.refresh_mods_button.pack(side="left", padx=(0, 4))
+        self.tools_menu = tk.Menubutton(
+            top_right_actions,
+            text=self.tr("tools"),
+            bg=THEME["panel"],
+            fg=THEME["text"],
+            activebackground=THEME["border"],
+            activeforeground=THEME["text_bright"],
+            highlightthickness=1,
+            highlightbackground=THEME["border"],
+            relief="solid",
+            bd=1,
+            font=FONT_BUTTON,
+            padx=8,
+            pady=4,
+            anchor="w",
+            cursor="hand2",
+        )
+        self.tools_menu.pack(side="left", padx=(4, 0))
+        self.tools_menu.menu = tk.Menu(
+            self.tools_menu,
+            tearoff=0,
+            bg=THEME["panel"],
+            fg=THEME["text"],
+            activebackground=THEME["crimson"],
+            activeforeground=THEME["text_bright"],
+            font=FONT_BODY,
+        )
+        self.tools_menu["menu"] = self.tools_menu.menu
+        self.rebuild_tools_menu()
 
         profile_frame = self.themed_frame(self.root)
         profile_frame.pack(fill="x", padx=14, pady=(0, 10))
@@ -3689,59 +5012,27 @@ class ModManager:
             command=self.select_profile
         )
         self.configure_option_menu(self.profile_menu)
-        self.profile_menu.pack(side="left", fill="x", expand=True, padx=(0, 8))
+        self.profile_menu.config(width=42)
+        self.profile_menu.pack(side="left", padx=(0, 8))
 
         self.refresh_profile_button = self.themed_button(profile_frame, text=self.tr("refresh"), command=self.refresh_profile_menu)
-        self.refresh_profile_button.pack(side="left", padx=4)
+        self.refresh_profile_button.pack(side="left", padx=(0, 8))
         self.load_profile_button = self.themed_button(profile_frame, text=self.tr("load_profile_mods"), command=self.load_selected_profile_mods, style="primary")
-        self.load_profile_button.pack(side="left", padx=4)
+        self.load_profile_button.pack(side="left", padx=(0, 4))
         self.patch_profile_button = self.themed_button(profile_frame, text=self.tr("patch_selected_profile"), command=self.patch_selected_profile_save, style="primary")
-        self.patch_profile_button.pack(side="left", padx=4)
-
-        action_frame = self.themed_frame(self.root)
-        action_frame.pack(fill="x", padx=14, pady=(0, 10))
-
-        self.refresh_mods_button = self.themed_button(action_frame, text=self.tr("refresh_mods"), command=self.load_mods)
-        self.refresh_mods_button.pack(side="left", padx=(0, 4))
+        self.patch_profile_button.pack(side="left", padx=(4, 0))
 
         # Auto-detected save patching is now a legacy fallback because profile
         # patching covers the main workflow more reliably.
         if SHOW_PRIMARY_AUTO_PATCH_BUTTON:
+            action_frame = self.themed_frame(self.root)
+            action_frame.pack(fill="x", padx=14, pady=(0, 10))
             self.themed_button(
                 action_frame,
                 text="Patch Auto-Detected Save",
                 command=self.patch_latest_save_file,
                 style="primary"
             ).pack(side="left", padx=4)
-
-        self.tools_menu = tk.Menubutton(
-            action_frame,
-            text=self.tr("tools"),
-            bg=THEME["panel"],
-            fg=THEME["text"],
-            activebackground=THEME["border"],
-            activeforeground=THEME["text_bright"],
-            highlightthickness=1,
-            highlightbackground=THEME["border"],
-            relief="solid",
-            bd=1,
-            font=FONT_BUTTON,
-            padx=8,
-            pady=4,
-            cursor="hand2",
-        )
-        self.tools_menu.pack(side="left", padx=4)
-        self.tools_menu.menu = tk.Menu(
-            self.tools_menu,
-            tearoff=0,
-            bg=THEME["panel"],
-            fg=THEME["text"],
-            activebackground=THEME["crimson"],
-            activeforeground=THEME["text_bright"],
-            font=FONT_BODY,
-        )
-        self.tools_menu["menu"] = self.tools_menu.menu
-        self.rebuild_tools_menu()
 
         filter_frame = self.themed_frame(self.root)
         filter_frame.pack(fill="x", padx=14, pady=(0, 8))
@@ -3994,6 +5285,9 @@ class ModManager:
         self.menu.delete(0, tk.END)
         for cat in self.get_categories():
             self.menu.add_command(label=self.category_label(cat), command=lambda c=cat: self.set_category(c))
+        self.menu.add_separator()
+        self.menu.add_command(label=self.tr("open_workshop_page"), command=self.open_workshop_page_for_menu_selection)
+        self.context_menu_workshop_index = self.menu.index(tk.END)
 
     def rebuild_view_mode_menu(self):
         if not hasattr(self, "view_mode_menu"):
@@ -4022,7 +5316,7 @@ class ModManager:
 
         dialog = tk.Toplevel(self.root)
         dialog.title("Edit Categories")
-        dialog.geometry("620x430")
+        dialog.geometry("620x470")
         dialog.configure(bg=THEME["bg"])
         dialog.transient(self.root)
         dialog.grab_set()
@@ -4067,6 +5361,9 @@ class ModManager:
         right.pack(side="left", fill="y", padx=(10, 0))
 
         selected_index = {"value": None}
+        drag_category_index = {"value": None}
+        drag_category_y = {"value": None}
+        drag_category_active = {"value": False}
         color_preview = tk.Label(
             right,
             text="",
@@ -4120,6 +5417,48 @@ class ModManager:
             if selection:
                 selected_index["value"] = selection[0]
             update_color_preview()
+
+        def begin_category_drag(event):
+            if not categories:
+                return "break"
+            index = category_list.nearest(event.y)
+            if not (0 <= index < len(categories)):
+                return "break"
+            selected_index["value"] = index
+            drag_category_index["value"] = index
+            drag_category_y["value"] = event.y_root
+            drag_category_active["value"] = False
+            refresh_category_list()
+            return "break"
+
+        def drag_category(event):
+            if drag_category_index["value"] is None or not categories:
+                return "break"
+
+            if drag_category_y["value"] is not None and not drag_category_active["value"]:
+                if abs(event.y_root - drag_category_y["value"]) < 4:
+                    return "break"
+                drag_category_active["value"] = True
+
+            target_index = category_list.nearest(event.y)
+            target_index = max(0, min(target_index, len(categories) - 1))
+            current_index = drag_category_index["value"]
+            if target_index == current_index:
+                return "break"
+
+            new_index = reposition_category_to_index(categories, current_index, target_index)
+            if new_index is None:
+                return "break"
+            drag_category_index["value"] = new_index
+            selected_index["value"] = new_index
+            refresh_category_list()
+            return "break"
+
+        def end_category_drag(event=None):
+            drag_category_index["value"] = None
+            drag_category_y["value"] = None
+            drag_category_active["value"] = False
+            return "break"
 
         def update_color_preview():
             _, cat = current_category()
@@ -4251,8 +5590,8 @@ class ModManager:
         ]
         editor_buttons = []
         for key, command, style in button_specs:
-            button = self.themed_button(right, text=self.tr(key), command=command, style=style)
-            button.pack(fill="x", pady=4)
+            button = self.themed_button(right, text=self.tr(key), command=command, style=style, width=16)
+            button.pack(fill="x", pady=3, ipady=2)
             editor_buttons.append((button, key))
 
         hint = self.themed_label(
@@ -4314,6 +5653,9 @@ class ModManager:
             refresh_category_list()
 
         category_list.bind("<<ListboxSelect>>", sync_selection)
+        category_list.bind("<ButtonPress-1>", begin_category_drag)
+        category_list.bind("<B1-Motion>", drag_category)
+        category_list.bind("<ButtonRelease-1>", end_category_drag)
         dialog.protocol("WM_DELETE_WINDOW", close_dialog)
         self.category_editor_refresh = refresh_category_editor_texts
         refresh_category_editor_texts()
@@ -4330,8 +5672,8 @@ class ModManager:
             self.set_status_text("Disable cancelled for a mod active in the selected save.")
             return
         self.state["enabled"][mod] = not current
-        self.save_state()
         self.refresh()
+        self.schedule_save_state()
 
     def point_in_widget(self, widget, x_root, y_root):
         x1 = widget.winfo_rootx()
@@ -4360,6 +5702,32 @@ class ModManager:
         self.state["mods_path"] = self.mods_path.get().strip()
         self.state["view_mode"] = self.current_view_mode()
         save_state_file(self.state, STATE_FILE, APP_DIR)
+
+    def schedule_save_state(self):
+        if self.deferred_save_job is not None:
+            return
+        self.deferred_save_job = self.root.after_idle(self.flush_scheduled_save_state)
+
+    def flush_scheduled_save_state(self):
+        self.deferred_save_job = None
+        self.save_state()
+
+    def restore_drag_selection(self, side, mods):
+        listbox = self.get_listbox_for_side(side)
+        visible_mods = self.get_visible_mods_for_side(side)
+        listbox.selection_clear(0, tk.END)
+        first_selected_index = None
+
+        for mod in mods:
+            if mod in visible_mods:
+                idx = visible_mods.index(mod)
+                if first_selected_index is None:
+                    first_selected_index = idx
+                listbox.selection_set(idx)
+                listbox.activate(idx)
+
+        if first_selected_index is not None:
+            self.set_selection_anchor_for_side(side, first_selected_index)
 
     # -----------------------------------------------------
     # PATH OVERRIDES / LAUNCH / LOADOUT FILES
@@ -4660,7 +6028,7 @@ class ModManager:
     # their order/settings and brand-new ones get appended.
     def load_mods(self):
         load_start = time.perf_counter()
-        self.update_startup_splash("Gathering local and Workshop mods...")
+        self.update_startup_splash(self.tr("startup_gathering_mods"))
         stage_start = time.perf_counter()
         current_mods = self.get_current_mod_folders()
         self.record_startup_timing("load_mods.get_current_mod_folders", time.perf_counter() - stage_start)
@@ -4739,8 +6107,8 @@ class ModManager:
         stage_start = time.perf_counter()
         self.save_state()
         self.record_startup_timing("load_mods.save_state", time.perf_counter() - stage_start)
-        self.update_startup_splash(f"Loading {len(current_mods)} mods and preview icons...")
-        self.set_status_text(f"Loading {len(current_mods)} mods and preview icons...")
+        self.update_startup_splash(self.tr("startup_loading_mod_icons", count=len(current_mods)))
+        self.set_status_translation("startup_loading_mod_icons", count=len(current_mods))
         self.root.update_idletasks()
         if self.icons_enabled():
             self.timed_startup_call("load_mods.preload_preview_icons", self.preload_preview_icons, merged_order, max_size=self.preview_icon_size())
@@ -4922,8 +6290,8 @@ class ModManager:
         for mod in selected_mods:
             self.state["enabled"][mod] = True
 
-        self.save_state()
         self.refresh()
+        self.schedule_save_state()
 
         for mod in selected_mods:
             if mod in self.enabled_visible_mods:
@@ -4946,8 +6314,8 @@ class ModManager:
         for mod in selected_mods:
             self.state["enabled"][mod] = False
 
-        self.save_state()
         self.refresh()
+        self.schedule_save_state()
 
         for mod in selected_mods:
             if mod in self.disabled_visible_mods:
@@ -4981,6 +6349,7 @@ class ModManager:
             self.disabled_listbox.selection_set(index)
             self.disabled_listbox.activate(index)
 
+        self.prepare_mod_context_menu()
         try:
             self.menu.tk_popup(event.x_root, event.y_root)
         finally:
@@ -5002,17 +6371,29 @@ class ModManager:
             self.enabled_listbox.selection_set(index)
             self.enabled_listbox.activate(index)
 
+        self.prepare_mod_context_menu()
         try:
             self.menu.tk_popup(event.x_root, event.y_root)
         finally:
             self.menu.grab_release()
 
-    def set_category(self, cat):
-        if self.right_index is None:
+    def prepare_mod_context_menu(self):
+        if not hasattr(self, "menu"):
             return
 
-        side, index = self.right_index
+        selected_mods = self.selected_mods_for_right_click_menu()
+        can_open_workshop_page = (
+            len(selected_mods) == 1
+            and bool(self.workshop_id_for_mod(selected_mods[0]))
+        )
+        state = tk.NORMAL if can_open_workshop_page else tk.DISABLED
+        self.menu.entryconfig(self.context_menu_workshop_index, state=state)
 
+    def selected_mods_for_right_click_menu(self):
+        if self.right_index is None:
+            return []
+
+        side, index = self.right_index
         if side == "enabled":
             selected_indices = self.enabled_listbox.curselection()
             source_list = self.enabled_visible_mods
@@ -5024,9 +6405,38 @@ class ModManager:
             selected_indices = (index,)
 
         selected_mods = []
-        for i in selected_indices:
-            if 0 <= i < len(source_list):
-                selected_mods.append(source_list[i])
+        for current_index in selected_indices:
+            if 0 <= current_index < len(source_list):
+                selected_mods.append(source_list[current_index])
+        return selected_mods
+
+    def open_workshop_page_for_menu_selection(self):
+        selected_mods = self.selected_mods_for_right_click_menu()
+        if not selected_mods:
+            return
+
+        mod = selected_mods[0]
+        workshop_id = self.workshop_id_for_mod(mod)
+        if not workshop_id:
+            self.show_warning(
+                self.tr("no_workshop_page_title"),
+                self.tr("no_workshop_page_body"),
+            )
+            return
+
+        url = f"https://steamcommunity.com/sharedfiles/filedetails/?id={workshop_id}"
+        try:
+            opened = webbrowser.open(url)
+            if not opened and IS_WINDOWS and hasattr(os, "startfile"):
+                os.startfile(url)
+        except Exception as e:
+            self.show_error(
+                self.tr("open_workshop_page_error_title"),
+                self.tr("open_workshop_page_error_body", error=e),
+            )
+
+    def set_category(self, cat):
+        selected_mods = self.selected_mods_for_right_click_menu()
 
         if not selected_mods:
             return
@@ -5035,8 +6445,8 @@ class ModManager:
             self.state["categories"][mod] = cat
             self.remember_mod_category(mod, cat)
 
-        self.save_state()
         self.refresh()
+        self.schedule_save_state()
 
     # -----------------------------------------------------
     # DRAG STATE HELPERS
@@ -5145,22 +6555,135 @@ class ModManager:
                 y=event.y_root - self.root.winfo_rooty() + 12
             )
 
+    def ensure_drag_indicator(self):
+        if self.drag_indicator is not None:
+            return
+        self.drag_indicator = tk.Frame(
+            self.root,
+            bg=THEME["gold"],
+            height=3,
+            bd=0,
+            highlightthickness=0,
+        )
+
+    def hide_drag_indicator(self):
+        self.drag_target_side = None
+        self.drag_target_index = None
+        if self.drag_indicator is not None:
+            self.drag_indicator.place_forget()
+
+    def clear_drag_visuals(self):
+        self.hide_drag_indicator()
+        if self.drag_label is not None:
+            self.drag_label.destroy()
+            self.drag_label = None
+        try:
+            self.root.update_idletasks()
+        except Exception:
+            pass
+
+    def drag_target_index_for_pointer(self, side, event):
+        listbox = self.get_listbox_for_side(side)
+        visible = self.get_visible_mods_for_side(side)
+
+        if not self.point_in_widget(listbox, event.x_root, event.y_root):
+            return None
+        if not visible:
+            return 0
+
+        target_index = listbox.nearest(event.y)
+        if not (0 <= target_index < len(visible)):
+            return len(visible)
+
+        bbox = listbox.bbox(target_index)
+        if bbox:
+            _, row_y, _, row_height = bbox
+            if event.y >= row_y + row_height:
+                return min(len(visible), target_index + 1)
+
+        return target_index
+
+    def show_drag_indicator_for_target(self, side, target_index):
+        listbox = self.get_listbox_for_side(side)
+        visible = self.get_visible_mods_for_side(side)
+
+        self.ensure_drag_indicator()
+
+        if not visible:
+            indicator_y = 2
+        elif target_index >= len(visible):
+            bbox = listbox.bbox(len(visible) - 1)
+            if not bbox:
+                self.hide_drag_indicator()
+                return
+            _, row_y, _, row_height = bbox
+            indicator_y = row_y + row_height - 1
+        else:
+            bbox = listbox.bbox(target_index)
+            if not bbox:
+                self.hide_drag_indicator()
+                return
+            _, row_y, _, _ = bbox
+            indicator_y = row_y - 1
+
+        self.drag_target_side = side
+        self.drag_target_index = target_index
+        self.drag_indicator.place(
+            in_=listbox,
+            x=2,
+            y=max(1, indicator_y),
+            width=max(10, listbox.winfo_width() - 4),
+            height=3,
+        )
+
+    def update_drag_feedback(self, event):
+        target_side = None
+        if self.point_in_widget(self.disabled_listbox, event.x_root, event.y_root):
+            target_side = "disabled"
+        elif self.point_in_widget(self.enabled_listbox, event.x_root, event.y_root):
+            target_side = "enabled"
+
+        if target_side is None:
+            self.hide_drag_indicator()
+            return
+
+        target_index = self.drag_target_index_for_pointer(target_side, event)
+        if target_index is None:
+            self.hide_drag_indicator()
+            return
+
+        if target_side == self.drag_source:
+            visible = self.get_visible_mods_for_side(target_side)
+            current_positions = [visible.index(m) for m in self.drag_selection if m in visible]
+            if current_positions:
+                low = min(current_positions)
+                high = max(current_positions)
+                if low <= target_index <= high:
+                    self.hide_drag_indicator()
+                    return
+
+        self.show_drag_indicator_for_target(target_side, target_index)
+
     def clear_drag_state(self):
         self.drag_source = None
         self.drag_index = None
         self.drag_mod = None
         self.drag_active = False
         self.drag_selection = []
+        self.drag_target_side = None
+        self.drag_target_index = None
         self.drag_selection_side = None
         self.drag_pressed_selected_index = None
         self.drag_pressed_selected_side = None
 
-        if self.drag_label is not None:
-            self.drag_label.destroy()
-            self.drag_label = None
+        self.clear_drag_visuals()
+        if self.drag_indicator is not None:
+            self.drag_indicator.destroy()
+            self.drag_indicator = None
 
-    def reorder_visible_group(self, side, moved_mods, target_index):
-        visible_mods = self.get_visible_mods_for_side(side)
+    def reorder_visible_group(self, side, moved_mods, target_index, visible_mods=None):
+        if visible_mods is None:
+            visible_mods = self.get_visible_mods_for_side(side)
         side_set = set(visible_mods)
 
         remaining_visible = [m for m in visible_mods if m not in moved_mods]
@@ -5188,6 +6711,32 @@ class ModManager:
 
         self.state["order"] = new_full
 
+    def finish_same_side_drag(self, side, event):
+        visible = self.get_visible_mods_for_side(side)
+        if self.drag_target_side == side and self.drag_target_index is not None:
+            new_index = self.drag_target_index
+        else:
+            listbox = self.get_listbox_for_side(side)
+            if not self.point_in_widget(listbox, event.x_root, event.y_root):
+                return False
+            new_index = self.drag_target_index_for_pointer(side, event)
+
+        if new_index is None:
+            return False
+
+        current_positions = [visible.index(m) for m in self.drag_selection if m in visible]
+        if current_positions:
+            low = min(current_positions)
+            high = max(current_positions)
+            if low <= new_index <= high:
+                return False
+
+        self.reorder_visible_group(side, self.drag_selection, new_index)
+        self.refresh()
+        self.schedule_save_state()
+        self.restore_drag_selection(side, self.drag_selection)
+        return True
+
     # Shared move helper for buttons and drag/drop. Enabled -> disabled
     # moves respect the active-save warning before changing state.
     def move_selection_between_sides(self, from_side, to_side, moved_mods, target_index=None):
@@ -5201,10 +6750,7 @@ class ModManager:
 
         for mod in moved_mods:
             self.state["enabled"][mod] = (to_side == "enabled")
-
-        self.refresh()
-
-        visible_target = self.get_visible_mods_for_side(to_side)
+        visible_target = self.visible_mods_for_side_from_state(to_side)
 
         if target_index is None:
             target_index = len(visible_target)
@@ -5214,25 +6760,11 @@ class ModManager:
             if target_index > len(visible_target):
                 target_index = len(visible_target)
 
-        self.reorder_visible_group(to_side, moved_mods, target_index)
-        self.save_state()
+        self.reorder_visible_group(to_side, moved_mods, target_index, visible_mods=visible_target)
         self.refresh()
+        self.schedule_save_state()
 
-        target_listbox = self.get_listbox_for_side(to_side)
-        target_listbox.selection_clear(0, tk.END)
-        refreshed_visible = self.get_visible_mods_for_side(to_side)
-        first_selected_index = None
-
-        for mod in moved_mods:
-            if mod in refreshed_visible:
-                idx = refreshed_visible.index(mod)
-                if first_selected_index is None:
-                    first_selected_index = idx
-                target_listbox.selection_set(idx)
-                target_listbox.activate(idx)
-
-        if first_selected_index is not None:
-            self.set_selection_anchor_for_side(to_side, first_selected_index)
+        self.restore_drag_selection(to_side, moved_mods)
 
 
     # -----------------------------------------------------
@@ -5325,34 +6857,7 @@ class ModManager:
             self.ensure_drag_label(event)
 
         self.move_drag_label(event)
-
-        if self.point_in_widget(self.disabled_listbox, event.x_root, event.y_root):
-            new_index = self.disabled_listbox.nearest(event.y)
-            visible = self.disabled_visible_mods
-
-            if 0 <= new_index < len(visible):
-                current_positions = [visible.index(m) for m in self.drag_selection if m in visible]
-                if current_positions:
-                    low = min(current_positions)
-                    high = max(current_positions)
-                    if low <= new_index <= high:
-                        return "break"
-
-                self.reorder_visible_group("disabled", self.drag_selection, new_index)
-                self.save_state()
-                self.refresh()
-
-                self.disabled_listbox.selection_clear(0, tk.END)
-                first_selected_index = None
-                for mod in self.drag_selection:
-                    if mod in self.disabled_visible_mods:
-                        idx = self.disabled_visible_mods.index(mod)
-                        if first_selected_index is None:
-                            first_selected_index = idx
-                        self.disabled_listbox.selection_set(idx)
-                        self.disabled_listbox.activate(idx)
-                if first_selected_index is not None:
-                    self.set_selection_anchor_for_side("disabled", first_selected_index)
+        self.update_drag_feedback(event)
 
         return "break"
 
@@ -5361,12 +6866,12 @@ class ModManager:
             self.clear_drag_state()
             return "break"
 
-        if self.drag_active and self.point_in_widget(self.enabled_listbox, event.x_root, event.y_root):
-            target_index = self.enabled_listbox.nearest(event.y)
-            if not (0 <= target_index <= len(self.enabled_visible_mods)):
-                target_index = len(self.enabled_visible_mods)
-
-            self.move_selection_between_sides("disabled", "enabled", self.drag_selection, target_index)
+        self.clear_drag_visuals()
+        if self.drag_active:
+            if self.drag_target_side == "enabled" and self.drag_target_index is not None:
+                self.move_selection_between_sides("disabled", "enabled", self.drag_selection, self.drag_target_index)
+            else:
+                self.finish_same_side_drag("disabled", event)
         elif (
             not self.drag_active
             and self.drag_pressed_selected_side == "disabled"
@@ -5467,34 +6972,7 @@ class ModManager:
             self.ensure_drag_label(event)
 
         self.move_drag_label(event)
-
-        if self.point_in_widget(self.enabled_listbox, event.x_root, event.y_root):
-            new_index = self.enabled_listbox.nearest(event.y)
-            visible = self.enabled_visible_mods
-
-            if 0 <= new_index < len(visible):
-                current_positions = [visible.index(m) for m in self.drag_selection if m in visible]
-                if current_positions:
-                    low = min(current_positions)
-                    high = max(current_positions)
-                    if low <= new_index <= high:
-                        return "break"
-
-                self.reorder_visible_group("enabled", self.drag_selection, new_index)
-                self.save_state()
-                self.refresh()
-
-                self.enabled_listbox.selection_clear(0, tk.END)
-                first_selected_index = None
-                for mod in self.drag_selection:
-                    if mod in self.enabled_visible_mods:
-                        idx = self.enabled_visible_mods.index(mod)
-                        if first_selected_index is None:
-                            first_selected_index = idx
-                        self.enabled_listbox.selection_set(idx)
-                        self.enabled_listbox.activate(idx)
-                if first_selected_index is not None:
-                    self.set_selection_anchor_for_side("enabled", first_selected_index)
+        self.update_drag_feedback(event)
 
         return "break"
 
@@ -5503,12 +6981,12 @@ class ModManager:
             self.clear_drag_state()
             return "break"
 
-        if self.drag_active and self.point_in_widget(self.disabled_listbox, event.x_root, event.y_root):
-            target_index = self.disabled_listbox.nearest(event.y)
-            if not (0 <= target_index <= len(self.disabled_visible_mods)):
-                target_index = len(self.disabled_visible_mods)
-
-            self.move_selection_between_sides("enabled", "disabled", self.drag_selection, target_index)
+        self.clear_drag_visuals()
+        if self.drag_active:
+            if self.drag_target_side == "disabled" and self.drag_target_index is not None:
+                self.move_selection_between_sides("enabled", "disabled", self.drag_selection, self.drag_target_index)
+            else:
+                self.finish_same_side_drag("enabled", event)
         elif (
             not self.drag_active
             and self.drag_pressed_selected_side == "enabled"
@@ -5632,8 +7110,8 @@ class ModManager:
                 else:
                     nicknames.pop(mod, None)
 
-                self.save_state()
                 self.refresh()
+                self.schedule_save_state()
 
                 if self.state["enabled"].get(mod, True):
                     if mod in self.enabled_visible_mods:

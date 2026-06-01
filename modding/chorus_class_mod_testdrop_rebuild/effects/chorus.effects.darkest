@@ -1,0 +1,94 @@
+//Crit Effect
+effect: .name "Crit Bleed" .target "target" .chance 180% .dotBleed 1 .duration 3 .on_hit true .on_miss false .can_apply_on_death true
+
+//Spear Thrust Effects
+effect: .name "KH Bleed Hit Buff" .target "performer" .chance 100% .buff_ids "KH Damage VS Bleed Buff Low" "KH Damage VS Bleed Buff High" .on_hit true .on_miss false .skill_instant true
+
+//Flak Shot Effects
+effect: .name "KHflak Debuff 1" .target "target" .chance 100% .buff_ids "KHflakStunDebuff" .on_hit true .on_miss false
+effect: .name "KHflak Debuff 2" .target "target" .chance 110% .buff_ids "KHflakStunDebuff" .on_hit true .on_miss false
+effect: .name "KHflak Debuff 3" .target "target" .chance 120% .buff_ids "KHflakStunDebuff" .on_hit true .on_miss false
+effect: .name "KHflak Debuff 4" .target "target" .chance 130% .buff_ids "KHflakStunDebuff" .on_hit true .on_miss false
+effect: .name "KHflak Debuff 5" .target "target" .chance 140% .buff_ids "KHflakStunDebuff" .on_hit true .on_miss false
+
+//Staggering Shot Effects
+effect: .name "KHrifle Stun 1" .target "target" .chance 100% .stun 1 .on_hit true .on_miss false .queue true
+effect: .name "KHrifle Stun 2" .target "target" .chance 110% .stun 1 .on_hit true .on_miss false .queue true
+effect: .name "KHrifle Stun 3" .target "target" .chance 120% .stun 1 .on_hit true .on_miss false .queue true
+effect: .name "KHrifle Stun 4" .target "target" .chance 130% .stun 1 .on_hit true .on_miss false .queue true
+effect: .name "KHrifle Stun 5" .target "target" .chance 140% .stun 1 .on_hit true .on_miss false .queue true
+
+effect: .name "KHrifle Slow 1" .target "target" .chance 100% .combat_stat_buff 1 .duration 2 .speed_rating_add -3 .on_hit true .on_miss false
+effect: .name "KHrifle Slow 2" .target "target" .chance 110% .combat_stat_buff 1 .duration 2 .speed_rating_add -3 .on_hit true .on_miss false
+effect: .name "KHrifle Slow 3" .target "target" .chance 120% .combat_stat_buff 1 .duration 2 .speed_rating_add -4 .on_hit true .on_miss false
+effect: .name "KHrifle Slow 4" .target "target" .chance 130% .combat_stat_buff 1 .duration 2 .speed_rating_add -4 .on_hit true .on_miss false
+effect: .name "KHrifle Slow 5" .target "target" .chance 140% .combat_stat_buff 1 .duration 2 .speed_rating_add -5 .on_hit true .on_miss false
+
+//Nail Bomb Bleed Effects
+effect: .name "KHbomb Bleed 1" .target "target" .chance 90% .dotBleed 1 .duration 4 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbomb Bleed 2" .target "target" .chance 100% .dotBleed 1 .duration 4 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbomb Bleed 3" .target "target" .chance 110% .dotBleed 2 .duration 4 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbomb Bleed 4" .target "target" .chance 120% .dotBleed 2 .duration 4 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbomb Bleed 5" .target "target" .chance 130% .dotBleed 4 .duration 4 .on_hit true .on_miss false .can_apply_on_death true
+
+//Visceral Effects
+effect: .name "KHvisceral VS Stun1" .target "performer" .chance 100% .buff_ids "KH Bleed VS Stun Buff 100" "visceral_bleed_100_tooltip" "KH Damage VS Stun Buff Low" "KH Damage VS Stun Buff High" "VisceralStunBuff" .on_hit true .on_miss false .skill_instant true
+effect: .name "KHvisceral VS Stun2" .target "performer" .chance 100% .buff_ids "KH Bleed VS Stun Buff 110" "visceral_bleed_100_tooltip" "KH Damage VS Stun Buff Low" "KH Damage VS Stun Buff High" "VisceralStunBuff" .on_hit true .on_miss false .skill_instant true
+effect: .name "KHvisceral VS Stun3" .target "performer" .chance 100% .buff_ids "KH Bleed VS Stun Buff 120" "visceral_bleed_100_tooltip" "KH Damage VS Stun Buff Low" "KH Damage VS Stun Buff High" "VisceralStunBuff" .on_hit true .on_miss false .skill_instant true
+effect: .name "KHvisceral VS Stun4" .target "performer" .chance 100% .buff_ids "KH Bleed VS Stun Buff 130" "visceral_bleed_100_tooltip" "KH Damage VS Stun Buff Low" "KH Damage VS Stun Buff High" "VisceralStunBuff" .on_hit true .on_miss false .skill_instant true
+effect: .name "KHvisceral VS Stun5" .target "performer" .chance 100% .buff_ids "KH Bleed VS Stun Buff 140" "visceral_bleed_100_tooltip" "KH Damage VS Stun Buff Low" "KH Damage VS Stun Buff High" "VisceralStunBuff" .on_hit true .on_miss false .skill_instant true
+
+effect: .name "KHvisceral Bleed 1" .target "target" .chance 0% .dotBleed 1 .duration 3 .on_hit true .on_miss false .can_apply_on_death true .has_description false
+effect: .name "KHvisceral Bleed 2" .target "target" .chance 0% .dotBleed 2 .duration 3 .on_hit true .on_miss false .can_apply_on_death true .has_description false
+effect: .name "KHvisceral Bleed 3" .target "target" .chance 0% .dotBleed 3 .duration 3 .on_hit true .on_miss false .can_apply_on_death true .has_description false
+
+effect: .name "KHVisceral Stun Remove" .target "target" .chance 999% .unstun 1 .on_hit true .on_miss false
+effect: .name "KHvisceral Stun Buff" .target "performer" .chance 100% .buff_ids "VisceralStunBuff" .on_hit true .on_miss false .skill_instant true .has_description false
+
+//Rally Effects
+effect: .name "KHrally Heal1" .target "performer" .chance 100% .heal 2 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "KHrally Heal2" .target "performer" .chance 100% .heal 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "KHrally Heal3" .target "performer" .chance 100% .heal 4 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+
+effect: .name "KHrally Riposte 1"  .target "performer" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 3 .on_hit true .on_miss true .damage_low_multiply -40%  .damage_high_multiply -40%  .crit_chance_add 0%
+effect: .name "KHrally Riposte 2"  .target "performer" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 3 .on_hit true .on_miss true .damage_low_multiply -33%  .damage_high_multiply -33%  .crit_chance_add 2%
+effect: .name "KHrally Riposte 3"  .target "performer" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 3 .on_hit true .on_miss true .damage_low_multiply -25% .damage_high_multiply -25% .crit_chance_add 3%
+effect: .name "KHrally Riposte 4"  .target "performer" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 3 .on_hit true .on_miss true .damage_low_multiply -20% .damage_high_multiply -20% .crit_chance_add 4%
+effect: .name "KHrally Riposte 5"  .target "performer" .chance 100% .riposte 1 .riposte_on_hit_chance_add 100% .riposte_on_miss_chance_add 100% .duration 3 .on_hit true .on_miss true .damage_low_multiply -15% .damage_high_multiply -15% .crit_chance_add 5%
+
+effect: .name "KHriposte Heal1" .target "performer" .chance 100% .heal 2 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "KHriposte Heal2" .target "performer" .chance 100% .heal 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "KHriposte Heal3" .target "performer" .chance 100% .heal 4 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+
+effect: .name "KHrally Heal Buff 1" .target "performer" .chance 100% .buff_ids "KHriposteHealBuff1" .on_hit true .on_miss true .duration 3 .buff_source_type bsrc_riposte
+effect: .name "KHrally Heal Buff 2" .target "performer" .chance 100% .buff_ids "KHriposteHealBuff2" .on_hit true .on_miss true .duration 3 .buff_source_type bsrc_riposte
+effect: .name "KHrally Heal Buff 3" .target "performer" .chance 100% .buff_ids "KHriposteHealBuff3" .on_hit true .on_miss true .duration 3 .buff_source_type bsrc_riposte
+
+//Blood Bullets Effects
+effect: .name "KHbb Self Damage1" .target "performer" .chance 100% .health_damage 3 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbb Self Damage2" .target "performer" .chance 100% .health_damage 4 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbb Self Damage3" .target "performer" .chance 100% .health_damage 5 .on_hit true .on_miss false .can_apply_on_death true
+
+effect: .name "KHbb Self Bleed1" .target "performer" .chance 80% .dotBleed 1 .duration 2 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbb Self Bleed2" .target "performer" .chance 90% .dotBleed 1 .duration 2 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbb Self Bleed3" .target "performer" .chance 100% .dotBleed 2 .duration 2 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbb Self Bleed4" .target "performer" .chance 110% .dotBleed 2 .duration 2 .on_hit true .on_miss false .can_apply_on_death true
+effect: .name "KHbb Self Bleed5" .target "performer" .chance 120% .dotBleed 3 .duration 2 .on_hit true .on_miss false .can_apply_on_death true
+
+effect: .name "KHbb D Buff" .target "performer" .chance 100% .buff_ids "BloodBulletDamLowBuff" "BloodBulletDamHighBuff" .on_hit true .on_miss false
+
+effect: .name "KHbb Acc Buff1" .target "performer" .chance 100% .buff_ids "BloodBulletAccBuff1" .on_hit true .on_miss false
+effect: .name "KHbb Acc Buff2" .target "performer" .chance 100% .buff_ids "BloodBulletAccBuff2" .on_hit true .on_miss false
+effect: .name "KHbb Acc Buff3" .target "performer" .chance 100% .buff_ids "BloodBulletAccBuff3" .on_hit true .on_miss false
+effect: .name "KHbb Acc Buff4" .target "performer" .chance 100% .buff_ids "BloodBulletAccBuff4" .on_hit true .on_miss false
+effect: .name "KHbb Acc Buff5" .target "performer" .chance 100% .buff_ids "BloodBulletAccBuff5" .on_hit true .on_miss false
+
+effect: .name "KHbb Crt Buff1" .target "performer" .chance 100% .buff_ids "BloodBulletCritBuff1" .on_hit true .on_miss false
+effect: .name "KHbb Crt Buff2" .target "performer" .chance 100% .buff_ids "BloodBulletCritBuff2" .on_hit true .on_miss false
+effect: .name "KHbb Crt Buff3" .target "performer" .chance 100% .buff_ids "BloodBulletCritBuff3" .on_hit true .on_miss false
+effect: .name "KHbb Crt Buff4" .target "performer" .chance 100% .buff_ids "BloodBulletCritBuff4" .on_hit true .on_miss false
+effect: .name "KHbb Crt Buff5" .target "performer" .chance 100% .buff_ids "BloodBulletCritBuff5" .on_hit true .on_miss false
+
+//Trinket Effects
+effect: .name "KHbma Debuff" .target "performer" .chance 300% .on_hit true .on_miss_true .has_description_false .steal_buff_source_type bsrc_companion .buff_ids "KHtrinketBMAdamageDebuffLow30" "KHtrinketBMAdamageDebuffHigh30" .buff_source_type bsrc_companion .buff_duration_type combat_end .duration 1 .buff_is_clear_debuff_valid false
+effect: .name "KHcbc Stress Heal" .target "performer" .chance 100% .on_hit true .on_miss_true .healstress 4

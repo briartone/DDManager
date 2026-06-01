@@ -1,0 +1,15 @@
+campaign/town/provision/inventory_grid_background_party.png
+campaign/town/provision/inventory_grid_background_store.png
+campaign/town/provision/provision.background.png
+campaign/town/provision/provision.character.png
+campaign/town/provision/provision.character_background.png
+campaign/town/provision/provision.dd.character.png
+campaign/town/provision/provision.icon.png
+campaign/town/provision/SWF.provision.layout.darkest
+dlc/735730_color_of_madness/panels/panel_inventory_wave.png
+inventory/SWF.inventory.system_configs.darkest
+panels/panel_inventory.png
+project.xml
+preview_icon.png
+scripts/layout/SWF.pannel.inventory.darkest
+shared/inventory/inventory.layout.darkest

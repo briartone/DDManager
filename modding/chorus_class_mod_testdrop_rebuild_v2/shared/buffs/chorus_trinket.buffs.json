@@ -1,0 +1,498 @@
+{
+	"buffs": [{
+			"id": "KHtrinketBleedChanceDebuff10",
+			"stat_type": "resistance",
+			"stat_sub_type": "bleed",
+			"amount": -0.1,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBleedDamageBuffLow20",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "is_actor_status",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "bleeding"
+			}
+		},
+		{
+			"id": "KHtrinketBleedDamageBuffHigh20",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "is_actor_status",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "bleeding"
+			}
+		},
+		{
+			"id": "KHtrinketRangedDamageDebuffLow20",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": -0.2,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketRangedDamageDebuffHigh20",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": -0.2,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBleedChance25",
+			"stat_type": "bleed_chance",
+			"stat_sub_type": "",
+			"amount": 0.25,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketSpeedDebuff1",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "speed_rating",
+			"amount": -1,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketStressBuff15",
+			"stat_type": "stress_dmg_received_percent",
+			"stat_sub_type": "",
+			"amount": -0.15,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketEldritchStressBuff15",
+			"stat_type": "stress_dmg_received_percent",
+			"stat_sub_type": "",
+			"amount": -0.15,
+			"remove_if_not_active": false,
+			"rule_type": "monster_type_count_min",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 1,
+				"string": "eldritch"
+			}
+		},
+		{
+			"id": "KHtrinketAccDebuff5",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "attack_rating",
+			"amount": -0.05,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketDodgeDebuff5",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "defense_rating",
+			"amount": -0.05,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBMAdamageBuffLow40",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.4,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBMAdamageBuffHigh40",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.4,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBMAdamageDebuffLow30",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": -0.3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBMAdamageDebuffHigh30",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": -0.3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "kh_bma_tool_tip",
+			"stat_type": "upgrade_discount",
+			"stat_sub_type": "kh_bma_tool_tip",
+			"amount": 0,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketRangedDamageBuffLow15",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.15,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketRangedDamageBuffHigh15",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.15,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBeastDamageBuffLow15",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.15,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "beast"
+			}
+		},
+		{
+			"id": "KHtrinketBeastDamageBuffHigh15",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.15,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "beast"
+			}
+		},
+		{
+			"id": "KHtrinketRangedCritBuff5",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": 0.05,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketMeleeCritDebuff5",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": -0.05,
+			"remove_if_not_active": false,
+			"rule_type": "meleeonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		}, {
+			"id": "KHtrinketMeleeDamageBuffLow15",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.15,
+			"remove_if_not_active": false,
+			"rule_type": "meleeonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketMeleeDamageBuffHigh15",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.15,
+			"remove_if_not_active": false,
+			"rule_type": "meleeonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketMeleeAccBuff5",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "attack_rating",
+			"amount": 0.05,
+			"remove_if_not_active": false,
+			"rule_type": "meleeonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketMeleeCritBuff5",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": 0.05,
+			"remove_if_not_active": false,
+			"rule_type": "meleeonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketSpeedBuff2",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "speed_rating",
+			"amount": 2,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketDodgeBuff10",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "defense_rating",
+			"amount": 0.1,
+			"remove_if_not_active": false,
+			"rule_type": "in_rank",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketMoveResist20",
+			"stat_type": "resistance",
+			"stat_sub_type": "move",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBeastDamageBuffLow20",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "beast"
+			}
+		},
+		{
+			"id": "KHtrinketBeastDamageBuffHigh20",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "beast"
+			}
+		},
+		{
+			"id": "KHtrinketVampireDamageBuffLow20",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "vampire"
+			}
+		},
+		{
+			"id": "KHtrinketVampireDamageBuffHigh20",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "vampire"
+			}
+		},
+		{
+			"id": "KHtrinketBeastStressDebuff20",
+			"stat_type": "stress_dmg_percent",
+			"stat_sub_type": "",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "beast"
+			}
+		},
+		{
+			"id": "KHtrinketStressHealBuff20",
+			"stat_type": "stress_heal_received_percent",
+			"stat_sub_type": "",
+			"amount": 0.2,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketRangedDamageDebuffLow25",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": -0.25,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketRangedDamageDebuffHigh25",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": -0.25,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHtrinketBleedChanceDebuff10",
+			"stat_type": "bleed_chance",
+			"stat_sub_type": "",
+			"amount": -0.1,
+			"duration": 2,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		}
+	]
+
+}

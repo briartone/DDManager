@@ -1,0 +1,20 @@
+
+keg_hunter.sprite.attack_spear_thrust.png
+size: 952,598
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shadow
+  rotate: true
+  xy: 873, 225
+  size: 357, 63
+  orig: 357, 63
+  offset: 0, 0
+  index: -1
+spear_thrust
+  rotate: false
+  xy: 16, 16
+  size: 841, 566
+  orig: 841, 566
+  offset: 0, 0
+  index: -1

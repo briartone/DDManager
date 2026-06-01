@@ -1,0 +1,11 @@
+{
+    "party_names": [{
+        "id": "chorus_party_00",
+        "required_hero_class": [
+            "chorus",
+            "chorus",
+            "chorus",
+            "chorus"
+        ]
+    }]
+}

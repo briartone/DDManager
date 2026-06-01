@@ -1,0 +1,25 @@
+commonfx: .deathfx death_medium
+
+weapon: .name "crusader_weapon_0" .icon "eqp_weapon_0.png"
+weapon: .name "crusader_weapon_1" .icon "eqp_weapon_1.png"
+weapon: .name "crusader_weapon_2" .icon "eqp_weapon_2.png"
+weapon: .name "crusader_weapon_3" .icon "eqp_weapon_3.png"
+weapon: .name "crusader_weapon_4" .icon "eqp_weapon_4.png"
+
+armour: .name "crusader_armour_0" .icon "eqp_armour_0.png"
+armour: .name "crusader_armour_1" .icon "eqp_armour_1.png"
+armour: .name "crusader_armour_2" .icon "eqp_armour_2.png"
+armour: .name "crusader_armour_3" .icon "eqp_armour_3.png"
+armour: .name "crusader_armour_4" .icon "eqp_armour_4.png"
+
+combat_skill: .id "smite" .icon "one" .anim "attack_sword" .fx "smite" .targchestfx "blood_splatter"
+combat_skill: .id "zealous_accusation" .icon "two" .anim "attack_scroll" .fx "zealous_accusation"
+combat_skill: .id "stunning_blow" .icon "three" .anim "attack_stun" .fx "stunning_blow" .targheadfx "stunning_blow_target"
+combat_skill: .id "bulwark_of_faith" .icon "four" .anim "attack_scroll" .fx "bulwark_of_faith" .can_display_performer_selection_after_turn false
+combat_skill: .id "battle_heal" .icon "five" .anim "attack_heal" .fx "battle_heal" .targfx "battle_heal_target" .can_display_performer_selection_after_turn false
+combat_skill: .id "holy_lance" .icon "six" .anim "attack_charge" .fx "holy_lance" .targchestfx "blood_splatter" .area_pos_offset 0 30
+combat_skill: .id "inspiring_cry" .icon "seven" .anim "attack_banner" .fx "inspiring_cry" .can_display_performer_selection_after_turn false
+
+combat_move_skill: .id "move" .icon "generic_move" .anim "idle"
+riposte_skill: .id "riposte1" .anim "attack_sword" .fx "riposte" .targchestfx "blood_splatter"
+act_out_display: .attack_friendly_anim "attack_sword" .attack_friendly_fx "smite" .attack_friendly_targchestfx "blood_splatter" .attack_friendly_sfx "/char/ally/crusader_smite"

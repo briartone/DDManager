@@ -1,0 +1,1 @@
+inventory_system_config:	.type "provision"					.max_slots 24				.use_stack_limits false

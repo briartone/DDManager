@@ -1,0 +1,20 @@
+
+chorus.sprite.attack_flak_shot.png
+size: 834,620
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+attack_pistol
+  rotate: false
+  xy: 16, 16
+  size: 723, 588
+  orig: 723, 588
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 755, 247
+  size: 357, 63
+  orig: 357, 63
+  offset: 0, 0
+  index: -1

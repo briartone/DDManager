@@ -1,0 +1,20 @@
+
+chorus.sprite.blood_bullets.png
+size: 888,402
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+rim_light
+  rotate: false
+  xy: 698, 127
+  size: 174, 259
+  orig: 174, 259
+  offset: 0, 0
+  index: -1
+shading
+  rotate: true
+  xy: 16, 16
+  size: 370, 666
+  orig: 370, 666
+  offset: 0, 0
+  index: -1

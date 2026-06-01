@@ -1,0 +1,109 @@
+{
+	"buffs": [{
+			"id": "KHhobDamHighBuff",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.2,
+			"duration_type": "combat_end",
+			"duration": 4,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "beast"
+			}
+		},
+		{
+			"id": "KHhobDamLowBuff",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.2,
+			"duration_type": "combat_end",
+			"duration": 4,
+			"remove_if_not_active": false,
+			"rule_type": "monsterType",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "beast"
+			}
+		},
+		{
+			"id": "KHhobStressDamBuff",
+			"stat_type": "stress_dmg_received_percent",
+			"stat_sub_type": "",
+			"amount": -0.2,
+			"duration_type": "combat_end",
+			"duration": 4,
+			"remove_if_not_active": false,
+			"rule_type": "lightbelow",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 26,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHhobScoutingBuff",
+			"stat_type": "scouting_chance",
+			"stat_sub_type": "",
+			"amount": 0.2,
+			"duration_type": "combat_end",
+			"duration": 4,
+			"remove_if_not_active": false,
+			"rule_type": "lightbelow",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 26,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHwstCritBuff",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": 0.08,
+			"duration_type": "combat_end",
+			"duration": 4,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHwstStunBuff",
+			"stat_type": "stun_chance",
+			"stat_sub_type": "",
+			"amount": 0.2,
+			"duration_type": "combat_end",
+			"duration": 4,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHwstMoveBuff",
+			"stat_type": "move_chance",
+			"stat_sub_type": "",
+			"amount": 0.2,
+			"duration_type": "combat_end",
+			"duration": 4,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		}
+	]
+
+}

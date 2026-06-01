@@ -1,0 +1,72 @@
+{
+	"events": [{
+			"id": "first_chorus",
+			"base_chance": 100.0,
+			"per_not_rolled_additional_chance": 0.0,
+			"cooldown": 0,
+			"is_unique": true,
+			"priority": "higher",
+			"requirements": {
+				"minimum_week": 0,
+				"dead_heroes": 0,
+				"hero_level_counts": [],
+				"upgrades_purchased": [],
+				"trinket_storage_count": 0
+			},
+			"town_ambience_paramater_ids": [],
+			"tone": "neutral",
+			"sprite": "",
+			"sprite_attachment": "",
+			"data": [{
+				"type": "bonus_recruit",
+				"string_data": "chorus",
+				"number_data": 1.0
+			}]
+		},
+		{
+			"id": "idle_resolve_level_chorus",
+			"base_chance": 0.0,
+			"per_not_rolled_additional_chance": 0.0,
+			"cooldown": 2,
+			"requirements": {
+				"minimum_week": 99,
+				"dead_heroes": 0,
+				"hero_level_counts": [],
+				"upgrades_purchased": [],
+				"trinket_storage_count": 0
+			},
+			"town_ambience_paramater_ids": [],
+			"tone": "neutral",
+			"sprite": "",
+			"sprite_attachment": "",
+			"data": [{
+				"type": "idle_resolve_level",
+				"string_data": "chorus",
+				"number_data": 1.0
+			}]
+		},
+		{
+			"id": "bonus_recruit_chorus",
+			"base_chance": 100.0,
+			"per_not_rolled_additional_chance": 0.0,
+			"cooldown": 0,
+			"priority": "higher",
+			"requirements": {
+				"minimum_week": 1,
+				"dead_heroes": 0,
+				"hero_level_counts": [],
+				"upgrades_purchased": [],
+				"trinket_storage_count": 0
+			},
+			"town_ambience_paramater_ids": [],
+			"tone": "neutral",
+			"sprite": "",
+			"sprite_attachment": "",
+			"data": [{
+				"type": "bonus_recruit",
+				"string_data": "chorus",
+				"number_data": 4.0
+			}]
+		}
+	]
+}

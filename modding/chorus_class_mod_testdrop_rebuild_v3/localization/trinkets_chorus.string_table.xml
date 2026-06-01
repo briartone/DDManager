@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<language id="english">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["Blood burned onto my garb by the cleansing flames." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[Cold Blood Ashes]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Powdered Shrapnel]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Bloodied Eye Bandages]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[Bone Marrow Ash]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Chorus Badge]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[Fire Paper]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[Blood Charred Scarf]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Crystal Bullet Case]]></entry>
+	</language>
+	
+	<language id="brazilian">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["Blood burned onto my garb by the cleansing flames." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[Cold Blood Ashes]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Powdered Shrapnel]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Bloodied Eye Bandages]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[Bone Marrow Ash]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Chorus Badge]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[Fire Paper]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[Blood Charred Scarf]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Crystal Bullet Case]]></entry>
+	</language>
+	
+	<language id="czech">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["Blood burned onto my garb by the cleansing flames." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[Cold Blood Ashes]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Powdered Shrapnel]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Bloodied Eye Bandages]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[Bone Marrow Ash]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Chorus Badge]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[Fire Paper]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[Blood Charred Scarf]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Crystal Bullet Case]]></entry>
+	</language>
+	
+	<language id="french">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["Du sang sur mon manteau, brÃ»lÃ© par les flammes purificatrices." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[RosÃ©e de nÃ©crosang]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Poudre de Shrapnel]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Bandages ensanglantÃ©s]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[Cendres de moelle osseuse]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Badge de Chasseur des Barils de Poudre]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[Papier de feu]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[Ã‰charpe maculÃ©e de sang]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Ã‰tui de balles en cristal]]></entry>
+	</language>
+	
+	<language id="german">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["Blood burned onto my garb by the cleansing flames." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[Cold Blood Ashes]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Powdered Shrapnel]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Bloodied Eye Bandages]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[Bone Marrow Ash]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Chorus Badge]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[Fire Paper]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[Blood Charred Scarf]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Crystal Bullet Case]]></entry>
+	</language>
+	
+	<language id="italian">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["Blood burned onto my garb by the cleansing flames." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[Cold Blood Ashes]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Powdered Shrapnel]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Bloodied Eye Bandages]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[Bone Marrow Ash]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Chorus Badge]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[Fire Paper]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[Blood Charred Scarf]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Crystal Bullet Case]]></entry>
+	</language>
+	
+	<language id="polish">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["Blood burned onto my garb by the cleansing flames." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[Cold Blood Ashes]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Powdered Shrapnel]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Bloodied Eye Bandages]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[Bone Marrow Ash]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Chorus Badge]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[Fire Paper]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[Blood Charred Scarf]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Crystal Bullet Case]]></entry>
+	</language>
+	
+	<language id="russian">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA[ÐžÑ‡Ð¸Ñ‰Ð°ÑŽÑ‰ÐµÐµ Ð¿Ð»Ð°Ð¼Ñ Ð¿Ñ€Ð¸Ð¶Ð¸Ð³Ð°Ð»Ð¾ Ð¼Ð¾ÑŽ Ð¾Ð´ÐµÐ¶Ð´Ñƒ ÐºÑ€Ð¾Ð²ÑŒÑŽ ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[ÐŸÐµÐ¿ÐµÐ» Ñ…Ð¾Ð»Ð¾Ð´Ð½Ð¾Ð¹ ÐºÑ€Ð¾Ð²Ð¸]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Ð¨Ñ€Ð°Ð¿Ð½ÐµÐ»ÑŒ Ð² Ð¿Ð¾Ñ€Ð¾ÑˆÐºÐµ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Ð‘Ð¸Ð½Ñ‚Ñ‹ Ð´Ð»Ñ Ð¾ÐºÑ€Ð¾Ð²Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ñ… Ð³Ð»Ð°Ð·]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[ÐŸÐµÐ¿ÐµÐ» ÐºÐ¾ÑÑ‚Ð½Ð¾Ð³Ð¾ Ð¼Ð¾Ð·Ð³Ð°]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Ð—Ð½Ð°Ñ‡Ð¾Ðº ÐŸÐ¾Ñ€Ð¾Ñ…Ð¾Ð²Ð½Ð¸ÐºÐ°]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[ÐžÐ³Ð½ÐµÐ½Ð½Ð°Ñ Ð±ÑƒÐ¼Ð°Ð³Ð°]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[ÐžÐ±ÑƒÐ³Ð»ÐµÐ½Ð½Ñ‹Ð¹ ÐºÑ€Ð¾Ð²ÑŒÑŽ ÑˆÐ°Ñ€Ñ„]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Ð¤ÑƒÑ‚Ð»ÑÑ€ Ð´Ð»Ñ Ñ…Ñ€ÑƒÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ñ… Ð¿ÑƒÐ»ÑŒ]]></entry>
+	</language>
+	
+	<language id="spanish">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["Blood burned onto my garb by the cleansing flames." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[Cold Blood Ashes]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[Powdered Shrapnel]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[Bloodied Eye Bandages]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[Bone Marrow Ash]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[Chorus Badge]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[Fire Paper]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[Blood Charred Scarf]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[Crystal Bullet Case]]></entry>
+	</language>
+	
+	<language id="koreana">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["ì •í™”ì˜ ë¶ˆê½ƒì´ ì´ ì‚¬ëƒ¥ë³µì— í•ìžêµ­ì„ ìƒˆê²¼ë„ë‹¤." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[ì°¨ê°€ì›Œì§„ í•ë¹› ìž¿ë”ë¯¸]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[í™”ì•½ì„ ì„žì€ ìœ ì‚°íƒ„]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[í”¼ë¡œ ë¬¼ë“  ëˆˆë¶•ëŒ€]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[ê³¨ìˆ˜ ìž¿ë”ë¯¸]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[í™”ì•½ ì‚¬ëƒ¥ê¾¼ ë°°ì§€]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[ë¶€ì‹¯ê¹ƒ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[í•ë¹›ìœ¼ë¡œ íƒ„ ìŠ¤ì¹´í”„]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[ìˆ˜ì • íƒ„ì•½ì°½]]></entry>
+	</language>
+	
+	<language id="koreanb">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA["ì •í™”ì˜ ë¶ˆê½ƒì´ ì´ ì‚¬ëƒ¥ë³µì— í•ìžêµ­ì„ ìƒˆê²¼ë„ë‹¤." ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[ì°¨ê°€ì›Œì§„ í•ë¹› ìž¿ë”ë¯¸]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[í™”ì•½ì„ ì„žì€ ìœ ì‚°íƒ„]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[í”¼ë¡œ ë¬¼ë“  ëˆˆë¶•ëŒ€]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[ê³¨ìˆ˜ ìž¿ë”ë¯¸]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[í™”ì•½ ì‚¬ëƒ¥ê¾¼ ë°°ì§€]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[ë¶€ì‹¯ê¹ƒ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[í•ë¹›ìœ¼ë¡œ íƒ„ ìŠ¤ì¹´í”„]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[ìˆ˜ì • íƒ„ì•½ì°½]]></entry>
+	</language>
+	
+	<language id="schinese">
+		<entry id="str_inventory_set_title_cc_chorus"><![CDATA[â€œå‡€åŒ–çƒˆç„°å°†é²œè¡€çƒ§è‡³æˆ‘çš„è¡£è£³ä¸Šâ€]]></entry>
+		<entry id="str_inventory_title_trinketchorus_cold_blood_ashes"><![CDATA[å†·è¡€ä¹‹çƒ¬]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powdered_shrapnel"><![CDATA[ç²‰æœ«å¼¹ç‰‡]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bloodied_eye_bandages"><![CDATA[è¡€æ·‹æ·‹çš„çœ¼ç»·å¸¦]]></entry>
+		<entry id="str_inventory_title_trinketchorus_bone_marrow_ash"><![CDATA[éª¨é«“ç°]]></entry>
+		<entry id="str_inventory_title_trinketchorus_powder_keg_badge"><![CDATA[ç‚¸è¯æ¡¶çŒŽäººå¾½ç« ]]></entry>
+		<entry id="str_inventory_title_trinketchorus_fire_paper"><![CDATA[ç«ç¬¦]]></entry>
+		<entry id="str_inventory_title_trinketchorus_blood_charred_scarf"><![CDATA[è¡€æŸ“å›´å·¾]]></entry>
+		<entry id="str_inventory_title_trinketchorus_crystal_bullet_case"><![CDATA[æ°´æ™¶å­å¼¹ç›’]]></entry>
+	</language>
+</root>

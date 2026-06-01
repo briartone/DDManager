@@ -1,0 +1,27 @@
+
+chorus.sprite.afflicted.png
+size: 1817,1373
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+afflicted
+  rotate: false
+  xy: 1159, 375
+  size: 642, 982
+  orig: 642, 982
+  offset: 0, 0
+  index: -1
+background
+  rotate: true
+  xy: 16, 16
+  size: 1341, 1127
+  orig: 1341, 1127
+  offset: 0, 0
+  index: -1
+crown
+  rotate: false
+  xy: 1159, 66
+  size: 369, 293
+  orig: 369, 293
+  offset: 0, 0
+  index: -1

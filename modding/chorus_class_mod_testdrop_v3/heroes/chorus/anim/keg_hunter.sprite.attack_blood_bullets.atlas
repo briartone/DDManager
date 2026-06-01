@@ -1,0 +1,20 @@
+
+keg_hunter.sprite.attack_blood_bullets.png
+size: 786,407
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+attack_blood_bullets
+  rotate: true
+  xy: 16, 16
+  size: 375, 675
+  orig: 375, 675
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 707, 34
+  size: 357, 63
+  orig: 357, 63
+  offset: 0, 0
+  index: -1
