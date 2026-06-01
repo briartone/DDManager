@@ -1,0 +1,25 @@
+commonfx: .deathfx death_medium
+
+weapon: .name "chorus_weapon_0" .icon "eqp_weapon_0.png"
+weapon: .name "chorus_weapon_1" .icon "eqp_weapon_1.png"
+weapon: .name "chorus_weapon_2" .icon "eqp_weapon_2.png"
+weapon: .name "chorus_weapon_3" .icon "eqp_weapon_3.png"
+weapon: .name "chorus_weapon_4" .icon "eqp_weapon_4.png"
+
+armour: .name "chorus_armour_0" .icon "eqp_armour_0.png"
+armour: .name "chorus_armour_1" .icon "eqp_armour_1.png"
+armour: .name "chorus_armour_2" .icon "eqp_armour_2.png"
+armour: .name "chorus_armour_3" .icon "eqp_armour_3.png"
+armour: .name "chorus_armour_4" .icon "eqp_armour_4.png"
+
+combat_skill: .id "sting_order" .icon "one" .anim "attack_spear_thrust" .fx "spear_thrust" .targchestfx "visceral_target"
+combat_skill: .id "host_designation" .icon "two" .anim "attack_rally" .fx "rally" .targchestfx "visceral_target"
+combat_skill: .id "shared_vitality" .icon "three" .anim "attack_rally" .fx "rally" .targchestfx "visceral_target"
+combat_skill: .id "chorus_hymn" .icon "four" .anim "attack_rally" .fx "rally" .targchestfx "visceral_target"
+combat_skill: .id "relay_impulse" .icon "five" .anim "idle"
+combat_skill: .id "neural_static" .icon "six" .anim "attack_staggering_shot" .fx "staggering_shot" .targchestfx "staggering_shot_target"
+combat_skill: .id "swarm_surge" .icon "seven" .anim "attack_blood_bullets" .fx "blood_bullets"
+
+combat_move_skill: .id "move" .icon "generic_move" .anim "idle"
+
+act_out_display: .attack_friendly_anim "attack_rally" .attack_friendly_fx "rally" .attack_friendly_targchestfx "visceral_target"

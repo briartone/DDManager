@@ -1,0 +1,2108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<language id="english">
+		<entry id="effect_health_damage_format"><![CDATA[-%d DMG]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (100%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (110%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (120%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (130%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (140%% base)
+		3 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[-30%% DMG Ranged 
+		Skill after First 
+		Ranged Skill until 
+		end of Combat]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[Chorus]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Like many hunters of Yharnam, the Chorus Hunter wears light weight leather armor to allow for great mobility, offsetting this with his heavy duty weaponry. Having armed himself with a spear that doubles as a fire arm, as well as explosives. The Choruss have a saying; "if a weapon ain't got kick, it just ain't worth it."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[The Choruss were some of the best at cleansing the beasts from the streets of Yharnam, their speed and heavy weaponry unmatched by other hunters as they left nothing but charred blood and ashes in their wake each night of the hunt.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[The nights of the hunt can be long, and the Choruss have become skilled in not just slaying beasts, but also tuning their equipment or preparing themselves for next target. A powderkeg can always tune equipment, find the best places to hide from ambushes, and even tend to their wounds when it's time to recuperate.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[Damage Taken:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}Hollowing{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Works in the Farmstead{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[Farmstead]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[Farmstead]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[Blood Bullets]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[Move]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[Blood Bullets]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Rusted Rifle Spear]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Sharpened Rifle Spear]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Well Tuned Rifle Spear]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[Blood Charred Rifle Spear]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["Beast Cleanser"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Rifle Spear]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[Tattered Leather Coat]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[Initiate's Garb]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[Ash Covered Garb]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[Blood Charred Garb]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["Djura's Garb"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[Keg Hunter's Garb]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[Others:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[Will the hunt finally be over for me?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[Wound Care]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[Encourage]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Pep Talk]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[Blood Vial]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Warding Incense]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[Lead the Hunt]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Workshop Tools]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Free Action {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ or ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[Workshop Heretics]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Yharnam Hunters]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[The scent of blood draws beasts.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Let me dress that for you.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[It's no Old Blood, but it will do.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[The Hunt is almost over.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[These beasts are simple, lowly creatures.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[We will best this scourge that plagues our people.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[The light of our toches keeps us safe.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[We will not falter to the whispers of madness.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Resist the call of blood.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[The Old Blood treats all wounds.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Thank the nuns of the Healing Church.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[May the Healing Church guide us.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[These incense will keep the beasts at bay.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[People of Yharnam burned these during the Hunt.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[The smell will repel most beasts.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The light promises safety in the darkest of hunts.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The Hunter will not become the hunted.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[I will not stop until every beast is slain.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Here, allow me to give that some kick.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[I can modify that for you.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Best not to fight these creatures head on.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[What?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop it.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another beast slain.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[You'll plague this world no longer!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[These beasts don't deserve Djura's mercy.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another step to ending this hunt.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[A man wielding a firearm like none had ever seen had stumbled into the town recently. He kept muttering something about escaping "the dream.]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[The Workshop Heretic]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Late survivors of a deceased covenant, the arsenal they bring may be enough firepower to level our adversaries."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[Hunters of Old Yharnam]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[As monstrous threats stalk hamlet during the darkest of nights, the Choruss begin cleansing the beasts that run rampant in our town.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[A Night of the Hunter]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Vigilant]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[I will survive this hunt!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[These beasts will fall before me!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Come at me beasts!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[I've slain more powerful beasts than you!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Drive them back from whence they came!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[These foul beasts are nothing before us!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[I will not join your doom!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[Frenzied]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[WE'LL ALL BE BEASTS SOONER OR LATER!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Beasts... Beasts all over the shop!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[The smell of the hunt... Blood!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[You're infected aren't you? Get away from me!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[The taste! The smell! Blood!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Let me at them!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Get out of my way!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[The smell of the hunt. It drives me mad!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[I can't see straight! All I see is red!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[They're mine to kill! Blood! Mine!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Return me to the dream!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[Don't tell me what to do!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[I'm not done here!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Don't touch me!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[You're after my blood!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[There's still beasts to slay!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Don't run, cowards!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ha... HA... HAHAHAHA!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[You think that'll put me down!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Get back, beast!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[No! They'll infect me!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[You'll be one of them soon!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Better you than me.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[You're one of them aren't you!]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Cornered so easlily?]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[I don't need your help.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Stay away from me!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[The scent... It's too much!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Wonderful!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Hrm... Like this?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Almost got it...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[No... I don't want to go back to the dream...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[Why are we resting? The hunt isn't over!]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(snarling) Must... stay... awake...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[We can't stay here!]]></entry>
+	</language>
+
+	<language id="brazilian">
+		<entry id="effect_health_damage_format"><![CDATA[-%d de DANO]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (100%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (110%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (120%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (130%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (140%% base)
+		3 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[-30%% DMG Ranged 
+		Skill after First 
+		Ranged Skill until 
+		end of Combat]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[Chorus]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Like many hunters of Yharnam, the Chorus Hunter wears light weight leather armor to allow for great mobility, offsetting this with his heavy duty weaponry. Having armed himself with a spear that doubles as a fire arm, as well as explosives. The Choruss have a saying; "if a weapon ain't got kick, it just ain't worth it."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[The Choruss were some of the best at cleansing the beasts from the streets of Yharnam, their speed and heavy weaponry unmatched by other hunters as they left nothing but charred blood and ashes in their wake each night of the hunt.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[The nights of the hunt can be long, and the Choruss have become skilled in not just slaying beasts, but also tuning their equipment or preparing themselves for next target. A powderkeg can always tune equipment, find the best places to hide from ambushes, and even tend to their wounds when it's time to recuperate.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[Damage Taken:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}Hollowing{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Works in the Farmstead{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[Farmstead]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[Farmstead]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[Blood Bullets]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[Move]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[Blood Bullets]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Rusted Rifle Spear]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Sharpened Rifle Spear]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Well Tuned Rifle Spear]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[Blood Charred Rifle Spear]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["Beast Cleanser"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Rifle Spear]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[Tattered Leather Coat]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[Initiate's Garb]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[Ash Covered Garb]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[Blood Charred Garb]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["Djura's Garb"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[Keg Hunter's Garb]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[Others:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[Will the hunt finally be over for me?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[Wound Care]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[Encourage]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Pep Talk]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[Blood Vial]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Warding Incense]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[Lead the Hunt]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Workshop Tools]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Free Action {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ or ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[Workshop Heretics]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Yharnam Hunters]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[The scent of blood draws beasts.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Let me dress that for you.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[It's no Old Blood, but it will do.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[The Hunt is almost over.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[These beasts are simple, lowly creatures.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[We will best this scourge that plagues our people.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[The light of our toches keeps us safe.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[We will not falter to the whispers of madness.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Resist the call of blood.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[The Old Blood treats all wounds.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Thank the nuns of the Healing Church.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[May the Healing Church guide us.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[These incense will keep the beasts at bay.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[People of Yharnam burned these during the Hunt.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[The smell will repel most beasts.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The light promises safety in the darkest of hunts.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The Hunter will not become the hunted.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[I will not stop until every beast is slain.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Here, allow me to give that some kick.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[I can modify that for you.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Best not to fight these creatures head on.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[What?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop it.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another beast slain.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[You'll plague this world no longer!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[These beasts don't deserve Djura's mercy.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another step to ending this hunt.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[A man wielding a firearm like none had ever seen had stumbled into the town recently. He kept muttering something about escaping "the dream.]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[The Workshop Heretic]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Late survivors of a deceased covenant, the arsenal they bring may be enough firepower to level our adversaries."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[Hunters of Old Yharnam]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[As monstrous threats stalk hamlet during the darkest of nights, the Choruss begin cleansing the beasts that run rampant in our town.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[A Night of the Hunter]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Vigilant]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[I will survive this hunt!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[These beasts will fall before me!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Come at me beasts!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[I've slain more powerful beasts than you!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Drive them back from whence they came!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[These foul beasts are nothing before us!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[I will not join your doom!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[Frenzied]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[WE'LL ALL BE BEASTS SOONER OR LATER!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Beasts... Beasts all over the shop!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[The smell of the hunt... Blood!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[You're infected aren't you? Get away from me!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[The taste! The smell! Blood!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Let me at them!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Get out of my way!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[The smell of the hunt. It drives me mad!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[I can't see straight! All I see is red!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[They're mine to kill! Blood! Mine!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Return me to the dream!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[Don't tell me what to do!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[I'm not done here!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Don't touch me!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[You're after my blood!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[There's still beasts to slay!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Don't run, cowards!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ha... HA... HAHAHAHA!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[You think that'll put me down!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Get back, beast!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[No! They'll infect me!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[You'll be one of them soon!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Better you than me.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[You're one of them aren't you!]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Cornered so easlily?]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[I don't need your help.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Stay away from me!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[The scent... It's too much!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Wonderful!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Hrm... Like this?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Almost got it...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[No... I don't want to go back to the dream...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[Why are we resting? The hunt isn't over!]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(snarling) Must... stay... awake...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[We can't stay here!]]></entry>
+	</language>
+
+	<language id="czech">
+		<entry id="effect_health_damage_format"><![CDATA[-%d k POÅ ]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (100%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (110%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (120%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (130%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (140%% base)
+		3 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[-30%% DMG Ranged 
+		Skill after First 
+		Ranged Skill until 
+		end of Combat]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[Chorus]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Like many hunters of Yharnam, the Chorus Hunter wears light weight leather armor to allow for great mobility, offsetting this with his heavy duty weaponry. Having armed himself with a spear that doubles as a fire arm, as well as explosives. The Choruss have a saying; "if a weapon ain't got kick, it just ain't worth it."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[The Choruss were some of the best at cleansing the beasts from the streets of Yharnam, their speed and heavy weaponry unmatched by other hunters as they left nothing but charred blood and ashes in their wake each night of the hunt.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[The nights of the hunt can be long, and the Choruss have become skilled in not just slaying beasts, but also tuning their equipment or preparing themselves for next target. A powderkeg can always tune equipment, find the best places to hide from ambushes, and even tend to their wounds when it's time to recuperate.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[Damage Taken:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}Hollowing{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Works in the Farmstead{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[Farmstead]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[Farmstead]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[Blood Bullets]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[Move]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[Blood Bullets]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Rusted Rifle Spear]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Sharpened Rifle Spear]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Well Tuned Rifle Spear]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[Blood Charred Rifle Spear]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["Beast Cleanser"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Rifle Spear]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[Tattered Leather Coat]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[Initiate's Garb]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[Ash Covered Garb]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[Blood Charred Garb]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["Djura's Garb"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[Keg Hunter's Garb]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[Others:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[Will the hunt finally be over for me?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[Wound Care]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[Encourage]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Pep Talk]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[Blood Vial]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Warding Incense]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[Lead the Hunt]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Workshop Tools]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Free Action {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ or ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[Workshop Heretics]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Yharnam Hunters]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[The scent of blood draws beasts.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Let me dress that for you.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[It's no Old Blood, but it will do.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[The Hunt is almost over.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[These beasts are simple, lowly creatures.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[We will best this scourge that plagues our people.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[The light of our toches keeps us safe.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[We will not falter to the whispers of madness.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Resist the call of blood.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[The Old Blood treats all wounds.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Thank the nuns of the Healing Church.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[May the Healing Church guide us.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[These incense will keep the beasts at bay.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[People of Yharnam burned these during the Hunt.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[The smell will repel most beasts.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The light promises safety in the darkest of hunts.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The Hunter will not become the hunted.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[I will not stop until every beast is slain.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Here, allow me to give that some kick.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[I can modify that for you.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Best not to fight these creatures head on.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[What?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop it.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another beast slain.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[You'll plague this world no longer!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[These beasts don't deserve Djura's mercy.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another step to ending this hunt.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[A man wielding a firearm like none had ever seen had stumbled into the town recently. He kept muttering something about escaping "the dream.]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[The Workshop Heretic]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Late survivors of a deceased covenant, the arsenal they bring may be enough firepower to level our adversaries."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[Hunters of Old Yharnam]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[As monstrous threats stalk hamlet during the darkest of nights, the Choruss begin cleansing the beasts that run rampant in our town.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[A Night of the Hunter]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Vigilant]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[I will survive this hunt!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[These beasts will fall before me!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Come at me beasts!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[I've slain more powerful beasts than you!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Drive them back from whence they came!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[These foul beasts are nothing before us!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[I will not join your doom!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[Frenzied]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[WE'LL ALL BE BEASTS SOONER OR LATER!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Beasts... Beasts all over the shop!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[The smell of the hunt... Blood!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[You're infected aren't you? Get away from me!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[The taste! The smell! Blood!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Let me at them!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Get out of my way!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[The smell of the hunt. It drives me mad!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[I can't see straight! All I see is red!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[They're mine to kill! Blood! Mine!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Return me to the dream!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[Don't tell me what to do!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[I'm not done here!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Don't touch me!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[You're after my blood!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[There's still beasts to slay!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Don't run, cowards!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ha... HA... HAHAHAHA!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[You think that'll put me down!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Get back, beast!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[No! They'll infect me!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[You'll be one of them soon!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Better you than me.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[You're one of them aren't you!]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Cornered so easlily?]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[I don't need your help.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Stay away from me!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[The scent... It's too much!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Wonderful!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Hrm... Like this?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Almost got it...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[No... I don't want to go back to the dream...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[Why are we resting? The hunt isn't over!]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(snarling) Must... stay... awake...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[We can't stay here!]]></entry>
+	</language>
+
+	<language id="french">
+		<entry id="effect_health_damage_format"><![CDATA[-%d DGT]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}Saignement{colour_end} contre {colour_start|stun}Ã‰tourdi{colour_end} (base 100%%)
+		1 pts/tour pour 3 tours]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}Saignement{colour_end} contre {colour_start|stun}Ã‰tourdi{colour_end} (base 110%%)
+		1 pts/tour pour 3 tours]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}Saignement{colour_end} contre {colour_start|stun}Ã‰tourdi{colour_end} (base 120%%)
+		2 pts/tour pour 3 tours]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}Saignement{colour_end} contre {colour_start|stun}Ã‰tourdi{colour_end} (base 130%%)
+		2 pts/tour pour 3 tours]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}Saignement{colour_end} contre {colour_start|stun}Ã‰tourdi{colour_end} (base 140%%)
+		3 pts/tour pour 3 tours]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[DÃ©gÃ¢ts de distance -30%% aprÃ¨s la premiÃ¨re attaque Ã  distance, jusqu'Ã  la fin du combat.]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[Chorus]]></entry>
+		<entry id="hero_class_name_chorus"><![CDATA[Baril de Poudre]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[Je ne peux pas y aller comme Ã§a.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[Je ne peux pas y aller comme Ã§a.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Comme beaucoup de chasseurs Ã  Yharnam, ce chasseur des Barils de Poudre porte une tenue en cuir lÃ©gÃ¨re permettant une grande mobilitÃ©, ceci contrebalanÃ§ant son armement encombrant. ArmÃ© d'une lance doublÃ©e d'un canon et d'explosifs. Selon l'adage des Barils de Poudre; "Une arme sans force de frappe, Ã§a passe Ã  la trappe."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[Les Barils de Poudre sont parmis les meilleurs purificateurs de monstres dans Yharnam, leur rapiditÃ© et leur puissant armement est inÃ©galÃ© par les autres chasseurs, ne laissant que cendres et sang brÃ»lÃ© sur leur passage chaque nuit de chasse.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[Les nuits de chasse peuvent Ãªtre longues, et les Barils de Poudre sont devenus experts non seulement dans l'Ã©limination des monstres, dans l'affinage de leur Ã©quipement et dans la prÃ©paration avant d'abattre leur prochaine cible. Mais aussi dans la prÃ©vention des embuscades et dans les soins sur le terrain.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[DÃ©gÃ¢ts reÃ§us :]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}DÃ©perdition{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Fonctionne dans la ferme{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[Ferme]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[Ferme]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Frappe d'estoc]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Coup de feu]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[Tir Ã©tourdissant]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Grenade Ã  clous]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Attaque viscÃ©rale]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Taillade vengeresse]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[Balles de sang]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[DÃ©placement]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Frappe d'estoc]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[Coup de feu]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[Tir Ã©tourdissant]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Grenade Ã  clous]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Attaque viscÃ©rale]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Taillade vengeresse]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[Balles de sang]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Lance-canon rouillÃ©e]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Lance-canon aiguisÃ©e]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Lance-canon de fine-lame]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[Lance-canon au sang calcinÃ©]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["Purificatrice de monstres"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Lance-canon]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[Manteau de cuir en lambeaux]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[Manteau d'initiÃ©]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[Manteau couvert de cendres]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[Manteau au sang calcinÃ©]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["Manteau de Djura"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[Manteau des Barils de Poudre]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[Autres :]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[La chasse est-elle enfin terminÃ©e pour moi ?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[Traitement des blessures]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[Encourager]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Remonter le moral]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[Fiole de sang]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Encens protecteur]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[En chasse !]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Outils artisanaux]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Action gratuite {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ ou ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[HÃ©rÃ©tiques de l'atelier]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Chasseurs de Yharnam]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[L'odeur du sang attire les monstres.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Laisse moi faire Ã§a pour toi.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Ce n'est pas du Vieux Sang, mais Ã§a fera l'affaire.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[La chasse est bientÃ´t terminÃ©e.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[Ces monstres ne sont que de simples crÃ©atures.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[Nous allons combattre ce mal qui infecte nos pairs.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[La lumiÃ¨re de nos torches nous protÃ¨gera.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Nous ne faillirons pas face aux murmures de la folie.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[RÃ©siste Ã  l'appel du sang.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Le Vieux Sang soigne tous les maux.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[LouÃ©es soient les nonnes de l'Eglise du RemÃ¨de.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Puisse l'Eglise du RemÃ¨de nous guider.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[Cet encens maintiendra les monstres Ã  distance.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[Les gens de Yharnam brÃ»lent ceci pendant la chasse.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[L'odeur repoussera la plupart des monstres.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[La lumiÃ¨re apporte la sÃ©curitÃ© dans la plus sombre des chasses.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[Le chasseur ne deviendra pas la proie.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[Je ne m'arrÃªterai pas avant que tous les monstres soient Ã©liminÃ©s.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[VoilÃ , permet moi d'ajuster ceci.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Je peux modifier Ã§a pour toi.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[On ferait mieux de ne pas foncer tÃªte baissÃ©e contre ces crÃ©atures.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Comment ?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ArrÃªte Ã§a.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[En voilÃ  un de moins.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Vous n'empesterez plus ce monde !]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Ces monstruositÃ©s ne mÃ©ritent pas la pitiÃ© de Djura.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Un pas de plus vers la fin de la chasse.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[Un homme maniant une arme Ã  feu comme personne est arrivÃ© en ville rÃ©cemment. Il marmonne quelque-chose encore et encore, s'enfuir "du rÃªve".]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[L'hÃ©rÃ©tique de l'atelier]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Derniers survivants d'un serment dÃ©chu, leur arsenal sera peut-Ãªtre suffisant pour surpasser nos adversaires."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[Chasseurs du Vieux Yharnam]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[Depuis que des monstruositÃ©s pullulent dans le noir de la nuit, les Barils de Poudre ont commencÃ© leur purification.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[La nuit du chasseur]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Vigilant]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[Je survivrai Ã  cette chasse !]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[Ces monstres tomberont devant moi !]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Venez, je vous attend !]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[J'en ai tuÃ© des bien plus puissants que vous !]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Renvoyez-les d'oÃ¹ ils viennent !]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Ils ne sont rien face Ã  nous !]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[Je ne me joindrai pas Ã  ta perte !]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[FrÃ©nÃ©tique]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[NOUS SERONT TOUS DES MONSTRES TÃ”T OU TARD !]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Des monstres... des monstres partout !]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[L'odeur de la chasse... SANG !]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[Tu es infectÃ© n'est-ce pas ? Ne t'approches pas !]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[Ce goÃ»t ! Cette odeur ! Le sang !]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Laissez les moi !]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Hors de mon chemin !]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[L'odeur de la chasse. Elle me rend fou!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[Ma vision se trouble ! Tout n'est que rouge !]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[C'est Ã  moi de les tuer ! Le sang ! Ã€ MOI !]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Retourne dans le rÃªve !]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[Ne me dis pas ce que je dois faire !]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[J'en ai pas fini !]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Ne me touche pas!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Ils veulent mon sang !]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Il reste des monstres Ã  tuer !]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Comment osez vous fuir, pleutres !]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ha... HA... HAHAHAHA !]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Vous pensez vraiment que s'en est fini de moi !?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Reviens, monstre !]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Non ! Ils vont m'infecter !]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Tu seras bientÃ´t l'un des leurs !]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Mieux vaut toi que moi.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Tu es l'un des leurs !]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[AcculÃ© si facilement ?]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Je n'ai pas besoin de ton aide.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Ne t'approches pas de moi !]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[Cette odeur... C'est trop !]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Magnifique !]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Hrm... Comme Ã§a ?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[J'y Ã©tais presque...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[Non... Je ne veux pas retourner dans le rÃªve...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[Pourquoi se reposer ? La chasse n'est pas terminÃ©e !]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(grogne) Dois... rester... Ã©veillÃ©...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[On ne peut pas rester ici !]]></entry>
+	</language>
+	
+	<language id="german">
+		<entry id="effect_health_damage_format"><![CDATA[-%d SCH]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (100%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (110%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (120%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (130%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (140%% base)
+		3 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[-30%% DMG Ranged 
+		Skill after First 
+		Ranged Skill until 
+		end of Combat]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[Chorus]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Like many hunters of Yharnam, the Chorus Hunter wears light weight leather armor to allow for great mobility, offsetting this with his heavy duty weaponry. Having armed himself with a spear that doubles as a fire arm, as well as explosives. The Choruss have a saying; "if a weapon ain't got kick, it just ain't worth it."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[The Choruss were some of the best at cleansing the beasts from the streets of Yharnam, their speed and heavy weaponry unmatched by other hunters as they left nothing but charred blood and ashes in their wake each night of the hunt.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[The nights of the hunt can be long, and the Choruss have become skilled in not just slaying beasts, but also tuning their equipment or preparing themselves for next target. A powderkeg can always tune equipment, find the best places to hide from ambushes, and even tend to their wounds when it's time to recuperate.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[Damage Taken:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}Hollowing{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Works in the Farmstead{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[Farmstead]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[Farmstead]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[Blood Bullets]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[Move]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[Blood Bullets]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Rusted Rifle Spear]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Sharpened Rifle Spear]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Well Tuned Rifle Spear]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[Blood Charred Rifle Spear]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["Beast Cleanser"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Rifle Spear]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[Tattered Leather Coat]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[Initiate's Garb]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[Ash Covered Garb]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[Blood Charred Garb]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["Djura's Garb"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[Keg Hunter's Garb]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[Others:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[Will the hunt finally be over for me?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[Wound Care]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[Encourage]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Pep Talk]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[Blood Vial]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Warding Incense]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[Lead the Hunt]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Workshop Tools]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Free Action {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ or ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[Workshop Heretics]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Yharnam Hunters]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[The scent of blood draws beasts.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Let me dress that for you.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[It's no Old Blood, but it will do.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[The Hunt is almost over.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[These beasts are simple, lowly creatures.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[We will best this scourge that plagues our people.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[The light of our toches keeps us safe.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[We will not falter to the whispers of madness.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Resist the call of blood.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[The Old Blood treats all wounds.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Thank the nuns of the Healing Church.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[May the Healing Church guide us.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[These incense will keep the beasts at bay.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[People of Yharnam burned these during the Hunt.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[The smell will repel most beasts.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The light promises safety in the darkest of hunts.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The Hunter will not become the hunted.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[I will not stop until every beast is slain.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Here, allow me to give that some kick.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[I can modify that for you.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Best not to fight these creatures head on.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[What?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop it.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another beast slain.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[You'll plague this world no longer!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[These beasts don't deserve Djura's mercy.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another step to ending this hunt.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[A man wielding a firearm like none had ever seen had stumbled into the town recently. He kept muttering something about escaping "the dream.]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[The Workshop Heretic]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Late survivors of a deceased covenant, the arsenal they bring may be enough firepower to level our adversaries."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[Hunters of Old Yharnam]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[As monstrous threats stalk hamlet during the darkest of nights, the Choruss begin cleansing the beasts that run rampant in our town.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[A Night of the Hunter]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Vigilant]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[I will survive this hunt!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[These beasts will fall before me!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Come at me beasts!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[I've slain more powerful beasts than you!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Drive them back from whence they came!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[These foul beasts are nothing before us!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[I will not join your doom!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[Frenzied]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[WE'LL ALL BE BEASTS SOONER OR LATER!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Beasts... Beasts all over the shop!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[The smell of the hunt... Blood!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[You're infected aren't you? Get away from me!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[The taste! The smell! Blood!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Let me at them!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Get out of my way!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[The smell of the hunt. It drives me mad!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[I can't see straight! All I see is red!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[They're mine to kill! Blood! Mine!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Return me to the dream!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[Don't tell me what to do!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[I'm not done here!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Don't touch me!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[You're after my blood!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[There's still beasts to slay!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Don't run, cowards!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ha... HA... HAHAHAHA!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[You think that'll put me down!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Get back, beast!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[No! They'll infect me!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[You'll be one of them soon!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Better you than me.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[You're one of them aren't you!]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Cornered so easlily?]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[I don't need your help.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Stay away from me!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[The scent... It's too much!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Wonderful!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Hrm... Like this?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Almost got it...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[No... I don't want to go back to the dream...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[Why are we resting? The hunt isn't over!]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(snarling) Must... stay... awake...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[We can't stay here!]]></entry>
+	</language>
+	
+	<language id="italian">
+		<entry id="effect_health_damage_format"><![CDATA[-%d DANNO]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (100%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (110%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (120%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (130%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (140%% base)
+		3 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[-30%% DMG Ranged 
+		Skill after First 
+		Ranged Skill until 
+		end of Combat]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[Chorus]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Like many hunters of Yharnam, the Chorus Hunter wears light weight leather armor to allow for great mobility, offsetting this with his heavy duty weaponry. Having armed himself with a spear that doubles as a fire arm, as well as explosives. The Choruss have a saying; "if a weapon ain't got kick, it just ain't worth it."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[The Choruss were some of the best at cleansing the beasts from the streets of Yharnam, their speed and heavy weaponry unmatched by other hunters as they left nothing but charred blood and ashes in their wake each night of the hunt.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[The nights of the hunt can be long, and the Choruss have become skilled in not just slaying beasts, but also tuning their equipment or preparing themselves for next target. A powderkeg can always tune equipment, find the best places to hide from ambushes, and even tend to their wounds when it's time to recuperate.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[Damage Taken:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}Hollowing{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Works in the Farmstead{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[Farmstead]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[Farmstead]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[Blood Bullets]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[Move]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[Blood Bullets]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Rusted Rifle Spear]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Sharpened Rifle Spear]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Well Tuned Rifle Spear]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[Blood Charred Rifle Spear]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["Beast Cleanser"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Rifle Spear]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[Tattered Leather Coat]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[Initiate's Garb]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[Ash Covered Garb]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[Blood Charred Garb]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["Djura's Garb"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[Keg Hunter's Garb]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[Others:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[Will the hunt finally be over for me?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[Wound Care]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[Encourage]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Pep Talk]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[Blood Vial]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Warding Incense]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[Lead the Hunt]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Workshop Tools]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Free Action {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ or ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[Workshop Heretics]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Yharnam Hunters]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[The scent of blood draws beasts.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Let me dress that for you.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[It's no Old Blood, but it will do.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[The Hunt is almost over.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[These beasts are simple, lowly creatures.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[We will best this scourge that plagues our people.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[The light of our toches keeps us safe.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[We will not falter to the whispers of madness.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Resist the call of blood.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[The Old Blood treats all wounds.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Thank the nuns of the Healing Church.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[May the Healing Church guide us.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[These incense will keep the beasts at bay.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[People of Yharnam burned these during the Hunt.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[The smell will repel most beasts.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The light promises safety in the darkest of hunts.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The Hunter will not become the hunted.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[I will not stop until every beast is slain.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Here, allow me to give that some kick.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[I can modify that for you.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Best not to fight these creatures head on.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[What?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop it.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another beast slain.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[You'll plague this world no longer!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[These beasts don't deserve Djura's mercy.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another step to ending this hunt.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[A man wielding a firearm like none had ever seen had stumbled into the town recently. He kept muttering something about escaping "the dream.]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[The Workshop Heretic]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Late survivors of a deceased covenant, the arsenal they bring may be enough firepower to level our adversaries."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[Hunters of Old Yharnam]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[As monstrous threats stalk hamlet during the darkest of nights, the Choruss begin cleansing the beasts that run rampant in our town.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[A Night of the Hunter]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Vigilant]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[I will survive this hunt!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[These beasts will fall before me!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Come at me beasts!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[I've slain more powerful beasts than you!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Drive them back from whence they came!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[These foul beasts are nothing before us!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[I will not join your doom!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[Frenzied]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[WE'LL ALL BE BEASTS SOONER OR LATER!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Beasts... Beasts all over the shop!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[The smell of the hunt... Blood!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[You're infected aren't you? Get away from me!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[The taste! The smell! Blood!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Let me at them!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Get out of my way!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[The smell of the hunt. It drives me mad!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[I can't see straight! All I see is red!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[They're mine to kill! Blood! Mine!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Return me to the dream!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[Don't tell me what to do!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[I'm not done here!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Don't touch me!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[You're after my blood!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[There's still beasts to slay!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Don't run, cowards!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ha... HA... HAHAHAHA!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[You think that'll put me down!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Get back, beast!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[No! They'll infect me!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[You'll be one of them soon!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Better you than me.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[You're one of them aren't you!]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Cornered so easlily?]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[I don't need your help.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Stay away from me!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[The scent... It's too much!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Wonderful!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Hrm... Like this?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Almost got it...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[No... I don't want to go back to the dream...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[Why are we resting? The hunt isn't over!]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(snarling) Must... stay... awake...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[We can't stay here!]]></entry>
+	</language>
+	
+	<language id="polish">
+		<entry id="effect_health_damage_format"><![CDATA[-%d OBR]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (100%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (110%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (120%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (130%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (140%% base)
+		3 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[-30%% DMG Ranged 
+		Skill after First 
+		Ranged Skill until 
+		end of Combat]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[Chorus]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[I can't go like this.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Like many hunters of Yharnam, the Chorus Hunter wears light weight leather armor to allow for great mobility, offsetting this with his heavy duty weaponry. Having armed himself with a spear that doubles as a fire arm, as well as explosives. The Choruss have a saying; "if a weapon ain't got kick, it just ain't worth it."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[The Choruss were some of the best at cleansing the beasts from the streets of Yharnam, their speed and heavy weaponry unmatched by other hunters as they left nothing but charred blood and ashes in their wake each night of the hunt.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[The nights of the hunt can be long, and the Choruss have become skilled in not just slaying beasts, but also tuning their equipment or preparing themselves for next target. A powderkeg can always tune equipment, find the best places to hide from ambushes, and even tend to their wounds when it's time to recuperate.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[Damage Taken:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}Hollowing{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Works in the Farmstead{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[Farmstead]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[Farmstead]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[Blood Bullets]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[Move]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Spear Thrust]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[Flak Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[Staggering Shot]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Nail Bomb]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Visceral Attack]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Rallying Slash]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[Blood Bullets]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Rusted Rifle Spear]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Sharpened Rifle Spear]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Well Tuned Rifle Spear]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[Blood Charred Rifle Spear]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["Beast Cleanser"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Rifle Spear]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[Tattered Leather Coat]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[Initiate's Garb]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[Ash Covered Garb]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[Blood Charred Garb]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["Djura's Garb"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[Keg Hunter's Garb]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[Others:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[Will the hunt finally be over for me?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[Wound Care]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[Encourage]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Pep Talk]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[Blood Vial]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Warding Incense]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[Lead the Hunt]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Workshop Tools]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Free Action {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ or ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[Workshop Heretics]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Yharnam Hunters]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[The scent of blood draws beasts.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Let me dress that for you.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[It's no Old Blood, but it will do.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[The Hunt is almost over.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[These beasts are simple, lowly creatures.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[We will best this scourge that plagues our people.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[The light of our toches keeps us safe.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[We will not falter to the whispers of madness.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Resist the call of blood.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[The Old Blood treats all wounds.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Thank the nuns of the Healing Church.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[May the Healing Church guide us.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[These incense will keep the beasts at bay.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[People of Yharnam burned these during the Hunt.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[The smell will repel most beasts.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The light promises safety in the darkest of hunts.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[The Hunter will not become the hunted.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[I will not stop until every beast is slain.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Here, allow me to give that some kick.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[I can modify that for you.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Best not to fight these creatures head on.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[What?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Stop it.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another beast slain.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[You'll plague this world no longer!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[These beasts don't deserve Djura's mercy.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Another step to ending this hunt.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[A man wielding a firearm like none had ever seen had stumbled into the town recently. He kept muttering something about escaping "the dream.]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[The Workshop Heretic]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Late survivors of a deceased covenant, the arsenal they bring may be enough firepower to level our adversaries."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[Hunters of Old Yharnam]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[As monstrous threats stalk hamlet during the darkest of nights, the Choruss begin cleansing the beasts that run rampant in our town.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[A Night of the Hunter]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Vigilant]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[I will survive this hunt!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[These beasts will fall before me!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Come at me beasts!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[I've slain more powerful beasts than you!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Drive them back from whence they came!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[These foul beasts are nothing before us!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[I will not join your doom!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[Frenzied]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[WE'LL ALL BE BEASTS SOONER OR LATER!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Beasts... Beasts all over the shop!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[The smell of the hunt... Blood!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[You're infected aren't you? Get away from me!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[The taste! The smell! Blood!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Let me at them!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Get out of my way!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[The smell of the hunt. It drives me mad!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[I can't see straight! All I see is red!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[They're mine to kill! Blood! Mine!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Return me to the dream!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[Don't tell me what to do!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[I'm not done here!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Don't touch me!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[You're after my blood!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[There's still beasts to slay!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Don't run, cowards!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ha... HA... HAHAHAHA!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[You think that'll put me down!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Get back, beast!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[No! They'll infect me!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[You'll be one of them soon!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Better you than me.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[You're one of them aren't you!]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Cornered so easlily?]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[I don't need your help.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Stay away from me!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[The scent... It's too much!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Wonderful!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Hrm... Like this?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Almost got it...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[No... I don't want to go back to the dream...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[Why are we resting? The hunt isn't over!]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(snarling) Must... stay... awake...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[We can't stay here!]]></entry>
+	</language>
+	
+	<language id="russian">
+		<entry id="effect_health_damage_format"><![CDATA[-%d Ð£Ð Ð]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}ÐšÑ€Ð¾Ð²Ð¾Ñ‚ÐµÑ‡ÐµÐ½Ð¸Ðµ{colour_end} Ð¿Ð¾ {colour_start|stun}ÐžÐ³Ð»ÑƒÑˆÐµÐ½Ð½Ñ‹Ð¼{colour_end} (100%% Ð±Ð°Ð·Ð°)
+		1 ÐµÐ´/Ñ€Ð½Ð´ Ð½Ð° 3 Ñ€Ð°ÑƒÐ½Ð´Ð°]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}ÐšÑ€Ð¾Ð²Ð¾Ñ‚ÐµÑ‡ÐµÐ½Ð¸Ðµ{colour_end} Ð¿Ð¾ {colour_start|stun}ÐžÐ³Ð»ÑƒÑˆÐµÐ½Ð½Ñ‹Ð¼{colour_end} (110%% Ð±Ð°Ð·Ð°)
+		1 ÐµÐ´/Ñ€Ð½Ð´ Ð½Ð° 3 Ñ€Ð°ÑƒÐ½Ð´Ð°]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}ÐšÑ€Ð¾Ð²Ð¾Ñ‚ÐµÑ‡ÐµÐ½Ð¸Ðµ{colour_end} Ð¿Ð¾ {colour_start|stun}ÐžÐ³Ð»ÑƒÑˆÐµÐ½Ð½Ñ‹Ð¼{colour_end} (120%% Ð±Ð°Ð·Ð°)
+		2 ÐµÐ´/Ñ€Ð½Ð´ Ð½Ð° 3 Ñ€Ð°ÑƒÐ½Ð´Ð°]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}ÐšÑ€Ð¾Ð²Ð¾Ñ‚ÐµÑ‡ÐµÐ½Ð¸Ðµ{colour_end} Ð¿Ð¾ {colour_start|stun}ÐžÐ³Ð»ÑƒÑˆÐµÐ½Ð½Ñ‹Ð¼{colour_end} (130%% Ð±Ð°Ð·Ð°)
+		2 ÐµÐ´/Ñ€Ð½Ð´ Ð½Ð° 3 Ñ€Ð°ÑƒÐ½Ð´Ð°]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}ÐšÑ€Ð¾Ð²Ð¾Ñ‚ÐµÑ‡ÐµÐ½Ð¸Ðµ{colour_end} Ð¿Ð¾ {colour_start|stun}ÐžÐ³Ð»ÑƒÑˆÐµÐ½Ð½Ñ‹Ð¼{colour_end} (140%% Ð±Ð°Ð·Ð°)
+		3 ÐµÐ´/Ñ€Ð½Ð´ Ð½Ð° 3 Ñ€Ð°ÑƒÐ½Ð´Ð°]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[-30%% Ð£Ñ€Ð¾Ð½Ð° Ð¾Ñ‚ Ð½Ð°Ð²Ñ‹ÐºÐ¾Ð² Ð´Ð°Ð»ÑŒÐ½ÐµÐ³Ð¾ 
+		Ð±Ð¾Ñ Ð¿Ð¾ÑÐ»Ðµ Ð¿ÐµÑ€Ð²Ð¾Ð³Ð¾ Ñ€Ð°ÑƒÐ½Ð´Ð°]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[ÐŸÐ¾Ñ€Ð¾Ñ…Ð¾Ð²Ð½Ð¸Ðº]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[Ð¯ Ð½Ðµ Ð¼Ð¾Ð³Ñƒ Ñ‚Ð°Ðº Ð¸Ð´Ñ‚Ð¸.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[Ð¯ Ð½Ðµ Ð¼Ð¾Ð³Ñƒ Ñ‚Ð°Ðº Ð¸Ð´Ñ‚Ð¸.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[ÐšÐ°Ðº Ð¸ Ð¼Ð½Ð¾Ð³Ð¸Ðµ Ð¾Ñ…Ð¾Ñ‚Ð½Ð¸ÐºÐ¸ Ð¯Ñ€Ð½Ð°Ð¼Ð°, ÐžÑ…Ð¾Ñ‚Ð½Ð¸Ðº Ð½Ð¾ÑÐ¸Ñ‚ Ð»ÐµÐ³ÐºÑƒÑŽ ÐºÐ¾Ð¶Ð°Ð½ÑƒÑŽ Ð±Ñ€Ð¾Ð½ÑŽ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ð±ÐµÑÐ¿ÐµÑ‡Ð¸Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÑƒÑŽ Ð¼Ð¾Ð±Ð¸Ð»ÑŒÐ½Ð¾ÑÑ‚ÑŒ, ÐºÐ¾Ð¼Ð¿ÐµÐ½ÑÐ¸Ñ€ÑƒÑ ÑÑ‚Ð¾ ÑÐ²Ð¾Ð¸Ð¼ Ñ‚ÑÐ¶ÐµÐ»Ñ‹Ð¼ Ð²Ð¾Ð¾Ñ€ÑƒÐ¶ÐµÐ½Ð¸ÐµÐ¼. Ð’Ð¾Ð¾Ñ€ÑƒÐ¶Ð¸Ð²ÑˆÐ¸ÑÑŒ ÐºÐ¾Ð¿ÑŒÐµÐ¼, ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð¼Ð¾Ð¶Ð½Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÐºÐ°Ðº Ð¾Ð³Ð½ÐµÑÑ‚Ñ€ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð¾Ñ€ÑƒÐ¶Ð¸Ðµ, Ð° Ñ‚Ð°ÐºÐ¶Ðµ Ð²Ð·Ñ€Ñ‹Ð²Ñ‡Ð°Ñ‚ÐºÐ¾Ð¹. Ð£ Ð¿Ð¾Ñ€Ð¾Ñ…Ð¾Ð²Ð½Ð¸ÐºÐ¾Ð² ÐµÑÑ‚ÑŒ Ð¿Ð¾Ð³Ð¾Ð²Ð¾Ñ€ÐºÐ°; "ÐµÑÐ»Ð¸ Ñƒ Ð¾Ñ€ÑƒÐ¶Ð¸Ñ Ð½ÐµÑ‚ Ð¿Ð¸Ð½ÐºÐ°, Ð¾Ð½Ð¾ Ñ‚Ð¾Ð³Ð¾ Ð½Ðµ ÑÑ‚Ð¾Ð¸Ñ‚."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[ÐŸÐ¾Ñ€Ð¾Ñ…Ð¾Ð²Ð½Ð¸ÐºÐ¸ Ð±Ñ‹Ð»Ð¸ Ð¾Ð´Ð½Ð¸Ð¼Ð¸ Ð¸Ð· Ð»ÑƒÑ‡ÑˆÐ¸Ñ… Ð² Ð¾Ñ‡Ð¸Ñ‰ÐµÐ½Ð¸Ð¸ ÑƒÐ»Ð¸Ñ† Ð¯Ñ€Ð½Ð°Ð¼Ð° Ð¾Ñ‚ Ñ‚Ð²Ð°Ñ€ÐµÐ¹, Ð¸Ñ… ÑÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ Ð¸ Ñ‚ÑÐ¶ÐµÐ»Ð¾Ðµ Ð²Ð¾Ð¾Ñ€ÑƒÐ¶ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð¸Ð¼ÐµÐ»Ð¸ ÑÐµÐ±Ðµ Ñ€Ð°Ð²Ð½Ñ‹Ñ… ÑÑ€ÐµÐ´Ð¸ Ð´Ñ€ÑƒÐ³Ð¸Ñ… Ð¾Ñ…Ð¾Ñ‚Ð½Ð¸ÐºÐ¾Ð², Ð¿Ð¾ÑÐºÐ¾Ð»ÑŒÐºÑƒ Ð¾Ð½Ð¸ Ð½Ðµ Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐ»Ð¸ Ð¿Ð¾ÑÐ»Ðµ ÑÐµÐ±Ñ Ð½Ð¸Ñ‡ÐµÐ³Ð¾, ÐºÑ€Ð¾Ð¼Ðµ Ð¾Ð±ÑƒÐ³Ð»ÐµÐ½Ð½Ð¾Ð¹ ÐºÑ€Ð¾Ð²Ð¸ Ð¸ Ð¿ÐµÐ¿Ð»Ð°, ÐºÐ°Ð¶Ð´ÑƒÑŽ Ð½Ð¾Ñ‡ÑŒ Ð¾Ñ…Ð¾Ñ‚Ñ‹.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[ÐÐ¾Ñ‡Ð¸ Ð¾Ñ…Ð¾Ñ‚Ñ‹ Ð¼Ð¾Ð³ÑƒÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð´Ð¾Ð»Ð³Ð¸Ð¼Ð¸, Ð¸ Ð¿Ð¾Ñ€Ð¾Ñ…Ð¾Ð²Ð½Ð¸ÐºÐ¸ Ð½Ð°ÑƒÑ‡Ð¸Ð»Ð¸ÑÑŒ Ð½Ðµ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÑƒÐ±Ð¸Ð²Ð°Ñ‚ÑŒ Ð·Ð²ÐµÑ€ÐµÐ¹, Ð½Ð¾ Ð¸ Ð½Ð°ÑÑ‚Ñ€Ð°Ð¸Ð²Ð°Ñ‚ÑŒ ÑÐ²Ð¾Ðµ ÑÐ½Ð°Ñ€ÑÐ¶ÐµÐ½Ð¸Ðµ Ð¸Ð»Ð¸ Ð³Ð¾Ñ‚Ð¾Ð²Ð¸Ñ‚ÑŒÑÑ Ðº ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ¹ Ñ†ÐµÐ»Ð¸. ÐŸÐ¾Ñ€Ð¾Ñ…Ð¾Ð²Ð½Ð¸Ðº Ð²ÑÐµÐ³Ð´Ð° Ð¼Ð¾Ð¶ÐµÑ‚ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¸Ñ‚ÑŒ ÑÐ½Ð°Ñ€ÑÐ¶ÐµÐ½Ð¸Ðµ, Ð½Ð°Ð¹Ñ‚Ð¸ Ð»ÑƒÑ‡ÑˆÐ¸Ðµ Ð¼ÐµÑÑ‚Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÐ¿Ñ€ÑÑ‚Ð°Ñ‚ÑŒÑÑ Ð¾Ñ‚ Ð·Ð°ÑÐ°Ð´, Ð¸ Ð´Ð°Ð¶Ðµ Ð·Ð°Ð»ÐµÑ‡Ð¸Ñ‚ÑŒ ÑÐ²Ð¾Ð¸ Ñ€Ð°Ð½Ñ‹, ÐºÐ¾Ð³Ð´Ð° Ð¿Ñ€Ð¸ÑˆÐ»Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð²Ñ‹Ð»ÐµÑ‡Ð¸Ñ‚ÑŒÑÑ.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[Ð£Ñ€Ð¾Ð½ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}Ð”Ñ€Ð¾Ð±Ð»ÐµÐ½Ð¸Ðµ{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Ð Ð°Ð±Ð¾Ñ‚Ð° Ð² Ð¿Ð¾Ð¼ÐµÑÑ‚ÑŒÐµ{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[ÐŸÐ¾Ð¼ÐµÑÑ‚ÑŒÐµ]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[ÐŸÐ¾Ð¼ÐµÑÑ‚ÑŒÐµ]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Ð£Ð´Ð°Ñ€ ÐºÐ¾Ð¿ÑŒÐµÐ¼]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Ð—ÐµÐ½Ð¸Ñ‚Ð½Ñ‹Ð¹ Ð²Ñ‹ÑÑ‚Ñ€ÐµÐ»]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[ÐžÑˆÐµÐ»Ð¾Ð¼Ð»ÑÑŽÑ‰Ð¸Ð¹ Ð²Ñ‹ÑÑ‚Ñ€ÐµÐ»]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Ð“Ñ€Ð°Ð½Ð°Ñ‚Ð° Ñ Ð³Ð²Ð¾Ð·Ð´ÑÐ¼Ð¸]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Ð’Ð¸ÑÑ†ÐµÑ€Ð°Ð»ÑŒÐ½Ð°Ñ Ð°Ñ‚Ð°ÐºÐ°]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Ð¡Ð¿Ð»Ð¾Ñ‡Ð°ÑŽÑ‰Ð¸Ð¹ ÑƒÐ´Ð°Ñ€]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[ÐšÑ€Ð¾Ð²ÑŒ Ð² Ð¿ÑƒÐ»ÑÑ…]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[Ð”Ð²Ð¸Ð¶ÐµÐ½Ð¸Ðµ]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Ð£Ð´Ð°Ñ€ ÐºÐ¾Ð¿ÑŒÐµÐ¼]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[Ð—ÐµÐ½Ð¸Ñ‚Ð½Ñ‹Ð¹ Ð²Ñ‹ÑÑ‚Ñ€ÐµÐ»]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[ÐžÑˆÐµÐ»Ð¾Ð¼Ð»ÑÑŽÑ‰Ð¸Ð¹ Ð²Ñ‹ÑÑ‚Ñ€ÐµÐ»]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Ð“Ñ€Ð°Ð½Ð°Ñ‚Ð° Ñ Ð³Ð²Ð¾Ð·Ð´ÑÐ¼Ð¸]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Ð’Ð¸ÑÑ†ÐµÑ€Ð°Ð»ÑŒÐ½Ð°Ñ Ð°Ñ‚Ð°ÐºÐ°]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Ð¡Ð¿Ð»Ð¾Ñ‡Ð°ÑŽÑ‰Ð¸Ð¹ ÑƒÐ´Ð°Ñ€]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[ÐšÑ€Ð¾Ð²ÑŒ Ð² Ð¿ÑƒÐ»ÑÑ…]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Ð Ð¶Ð°Ð²Ð¾Ðµ Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ð¾Ðµ ÐºÐ¾Ð¿ÑŒÐµ]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Ð—Ð°Ð¾ÑÑ‚Ñ€ÐµÐ½Ð½Ð¾Ðµ Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ð¾Ðµ ÐºÐ¾Ð¿ÑŒÐµ]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Ð¥Ð¾Ñ€Ð¾ÑˆÐ¾ Ð½Ð°ÑÑ‚Ñ€Ð¾ÐµÐ½Ð½Ð¾Ðµ Ð²Ð¸Ð½Ñ‚Ð¾Ð²Ð¾Ñ‡Ð½Ð¾Ðµ ÐºÐ¾Ð¿ÑŒÐµ]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[ÐžÐ±ÑƒÐ³Ð»ÐµÐ½Ð½Ð¾Ðµ ÐºÑ€Ð¾Ð²ÑŒÑŽ Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ð¾Ðµ ÐºÐ¾Ð¿ÑŒÐµ]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA[ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÐµÐ»ÑŒ Ð·Ð²ÐµÑ€ÐµÐ¹]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ð¾Ðµ ÐºÐ¾Ð¿ÑŒÐµ]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[Ð Ð²Ð°Ð½Ð¾Ðµ ÐºÐ¾Ð¶Ð°Ð½Ð¾Ðµ Ð¿Ð°Ð»ÑŒÑ‚Ð¾]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[ÐžÐ´ÐµÑÐ½Ð¸Ðµ Ð¿Ð¾ÑÐ²ÑÑ‰ÐµÐ½Ð½Ð¾Ð³Ð¾]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[ÐŸÐ¾ÐºÑ€Ñ‹Ñ‚Ñ‹Ð¹ Ð¿ÐµÐ¿Ð»Ð¾Ð¼ Ð½Ð°Ñ€ÑÐ´]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[ÐžÐ±ÑƒÐ³Ð»ÐµÐ½Ð½Ð¾Ðµ ÐºÑ€Ð¾Ð²ÑŒÑŽ Ð¾Ð´ÐµÑÐ½Ð¸Ðµ]]></entry>
+		<entry id="chorus_armour_4"><![CDATA[ÐÐ°Ñ€ÑÐ´ Ð”Ð¶ÑƒÑ€Ñ‹]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[ÐžÐ´ÐµÑÐ½Ð¸Ðµ Ð¿Ð¾Ñ€Ð¾Ñ…Ð¾Ð²Ð½Ð¸ÐºÐ°]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[ÐžÑÑ‚Ð°Ð»ÑŒÐ½Ð¾Ðµ:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[ÐžÑ…Ð¾Ñ‚Ð°, Ð½Ð°ÐºÐ¾Ð½ÐµÑ†, Ð·Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ñ‚ÑÑ?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[ÐŸÐµÑ€Ð²Ð°Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒ]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[ÐžÐ±Ð¾Ð´Ñ€ÐµÐ½Ð¸Ðµ]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Ð”ÑƒÑˆÐµÐ²Ð½Ñ‹Ð¹ Ñ€Ð°Ð·Ð³Ð¾Ð²Ð¾Ñ€]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[ÐšÑ€Ð¾Ð²Ð°Ð²Ñ‹Ð¹ Ñ„Ð¸Ð°Ð»]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Ð‘Ð»Ð°Ð³Ð¾Ð²Ð¾Ð½Ð¸Ñ-Ð¾Ð±ÐµÑ€ÐµÐ³]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[Ð’Ð¾Ð·Ð³Ð»Ð°Ð²Ð¸Ñ‚ÑŒ Ð¾Ñ…Ð¾Ñ‚Ñƒ]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Ð˜Ð½ÑÑ‚Ñ€ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ Ð´Ð»Ñ Ð¼Ð°ÑÑ‚ÐµÑ€ÑÐºÐ¾Ð¹]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Ð‘ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ð¾Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ Ð¸Ð»Ð¸ ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[ÐœÐ°ÑÑ‚ÐµÑ€ÑÐºÐ°Ñ ÐµÑ€ÐµÑ‚Ð¸ÐºÐ¾Ð²]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Ð¯Ñ€Ð½Ð°Ð¼ÑÐºÐ¸Ðµ ÐžÑ…Ð¾Ñ‚Ð½Ð¸ÐºÐ¸]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Ð—Ð°Ð¿Ð°Ñ… ÐºÑ€Ð¾Ð²Ð¸ Ð¿Ñ€Ð¸Ð²Ð»ÐµÐºÐ°ÐµÑ‚ Ð·Ð²ÐµÑ€ÐµÐ¹.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[ÐŸÐ¾Ð·Ð²Ð¾Ð»ÑŒÑ‚Ðµ Ð¼Ð½Ðµ Ð¾Ð´ÐµÑ‚ÑŒ ÑÑ‚Ð¾ Ð´Ð»Ñ Ð²Ð°Ñ.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Ð­Ñ‚Ð¾ Ð½Ðµ ÑÑ‚Ð°Ñ€Ð°Ñ ÐºÑ€Ð¾Ð²ÑŒ, Ð½Ð¾ ÑÐ¾Ð¹Ð´ÐµÑ‚.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[ÐžÑ…Ð¾Ñ‚Ð° Ð¿Ð¾Ñ‡Ñ‚Ð¸ Ð·Ð°ÐºÐ¾Ð½Ñ‡ÐµÐ½Ð°.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[Ð­Ñ‚Ð¸ Ð·Ð²ÐµÑ€Ð¸ - Ð¿Ñ€Ð¾ÑÑ‚Ñ‹Ðµ, Ð½Ð¸Ð·ÑˆÐ¸Ðµ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[ÐœÑ‹ Ð¿Ð¾Ð±ÐµÐ´Ð¸Ð¼ ÑÑ‚Ð¾ Ð±ÐµÐ´ÑÑ‚Ð²Ð¸Ðµ, Ð¾Ñ‚ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ ÑÑ‚Ñ€Ð°Ð´Ð°ÐµÑ‚ Ð½Ð°Ñˆ Ð½Ð°Ñ€Ð¾Ð´.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Ð¡Ð²ÐµÑ‚ Ð½Ð°ÑˆÐ¸Ñ… Ð¿Ñ€Ð¸ÐºÐ¾ÑÐ½Ð¾Ð²ÐµÐ½Ð¸Ð¹ ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÐµÑ‚ Ð½Ð°Ñ Ð² Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑ‚Ð¸.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[ÐœÑ‹ Ð½Ðµ Ð¾Ñ‚ÑÑ‚ÑƒÐ¿Ð¸Ð¼ Ð¿Ñ€ÐµÐ´ ÑˆÐµÐ¿Ð¾Ñ‚Ð¾Ð¼ Ð±ÐµÐ·ÑƒÐ¼Ð¸Ñ.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Ð¡Ð¾Ð¿Ñ€Ð¾Ñ‚Ð¸Ð²Ð»ÑÐ¹Ñ‚ÐµÑÑŒ Ð·Ð¾Ð²Ñƒ ÐºÑ€Ð¾Ð²Ð¸.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Ð¡Ñ‚Ð°Ñ€Ð°Ñ ÐšÑ€Ð¾Ð²ÑŒ Ð»ÐµÑ‡Ð¸Ñ‚ Ð²ÑÐµ Ñ€Ð°Ð½Ñ‹.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Ð‘Ð»Ð°Ð³Ð¾Ð´Ð°Ñ€Ð¸Ñ‚Ðµ Ð¼Ð¾Ð½Ð°Ñ…Ð¸Ð½ÑŒ Ð˜ÑÑ†ÐµÐ»ÑÑŽÑ‰ÐµÐ¹ Ñ†ÐµÑ€ÐºÐ²Ð¸.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Ð”Ð° Ð½Ð°Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ Ð½Ð°Ñ Ð¦ÐµÑ€ÐºÐ¾Ð²ÑŒ Ð˜ÑÑ†ÐµÐ»ÐµÐ½Ð¸Ñ.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[Ð­Ñ‚Ð¸ Ð±Ð»Ð°Ð³Ð¾Ð²Ð¾Ð½Ð¸Ñ Ð¾Ñ‚Ð¿ÑƒÐ³Ð½ÑƒÑ‚ Ð·Ð²ÐµÑ€ÐµÐ¹.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[Ð›ÑŽÐ´Ð¸ Ð¯Ñ€Ð½Ð°Ð¼Ð° ÑÐ¾Ð¶Ð³Ð»Ð¸ Ð¸Ñ… Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ ÐžÑ…Ð¾Ñ‚Ñ‹.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[Ð—Ð°Ð¿Ð°Ñ… Ð¾Ñ‚Ð¿ÑƒÐ³Ð½ÐµÑ‚ Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð½ÑÑ‚Ð²Ð¾ Ð·Ð²ÐµÑ€ÐµÐ¹.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[Ð¡Ð²ÐµÑ‚ Ð¾Ð±ÐµÑ‰Ð°ÐµÑ‚ Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑ‚ÑŒ Ð² ÑÐ°Ð¼Ð¾Ð¹ Ñ‚ÐµÐ¼Ð½Ð¾Ð¹ Ð¾Ñ…Ð¾Ñ‚Ðµ.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[ÐžÑ…Ð¾Ñ‚Ð½Ð¸Ðº Ð½Ðµ ÑÑ‚Ð°Ð½ÐµÑ‚ Ð¶ÐµÑ€Ñ‚Ð²Ð¾Ð¹.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[Ð¯ Ð½Ðµ Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÑŽÑÑŒ, Ð¿Ð¾ÐºÐ° Ð²ÑÐµ Ð·Ð²ÐµÑ€Ð¸ Ð½Ðµ Ð±ÑƒÐ´ÑƒÑ‚ ÑƒÐ±Ð¸Ñ‚Ñ‹.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Ð’Ð¾Ñ‚, Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑŒÑ‚Ðµ Ð¼Ð½Ðµ Ð´Ð°Ñ‚ÑŒ ÑÑ‚Ð¾Ð¼Ñƒ Ð½ÐµÐ¼Ð½Ð¾Ð³Ð¾ Ñ‚Ð¾Ð»ÐºÑƒ.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Ð¯ Ð¼Ð¾Ð³Ñƒ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾ Ð´Ð»Ñ Ð²Ð°Ñ.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Ð›ÑƒÑ‡ÑˆÐµ Ð½Ðµ Ð´Ñ€Ð°Ñ‚ÑŒÑÑ Ñ ÑÑ‚Ð¸Ð¼Ð¸ ÑÑƒÑ‰ÐµÑÑ‚Ð²Ð°Ð¼Ð¸ Ð² Ð»Ð¾Ð±.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Ð¡Ñ‚Ð¾Ð¿.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Ð§Ñ‚Ð¾?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ÐžÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÐµÑÑŒ.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Ð¡Ð¾Ð¾Ð±Ñ‰Ð¸Ñ‚Ðµ ÑÑ‚Ð¾ Ð²ÑÐµÐ¼!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Ð•Ñ‰Ðµ Ð¾Ð´Ð¸Ð½ Ð·Ð²ÐµÑ€ÑŒ ÑƒÐ±Ð¸Ñ‚.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Ð’Ñ‹ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚Ðµ Ð¼ÑƒÑ‡Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ Ð¼Ð¸Ñ€!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Ð­Ñ‚Ð¸ Ð·Ð²ÐµÑ€Ð¸ Ð½Ðµ Ð·Ð°ÑÐ»ÑƒÐ¶Ð¸Ð²Ð°ÑŽÑ‚ Ð¿Ð¾Ñ‰Ð°Ð´Ñ‹ Ð”Ð¶ÑƒÑ€Ñ‹.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Ð•Ñ‰Ðµ Ð¾Ð´Ð¸Ð½ ÑˆÐ°Ð³ Ðº Ð¿Ñ€ÐµÐºÑ€Ð°Ñ‰ÐµÐ½Ð¸ÑŽ ÑÑ‚Ð¾Ð¹ Ð¾Ñ…Ð¾Ñ‚Ñ‹.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[ÐœÑƒÐ¶Ñ‡Ð¸Ð½Ð° Ñ Ð¾Ð³Ð½ÐµÑÑ‚Ñ€ÐµÐ»ÑŒÐ½Ñ‹Ð¼ Ð¾Ñ€ÑƒÐ¶Ð¸ÐµÐ¼, ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ Ð½Ð¸ÐºÑ‚Ð¾ Ð½Ð¸ÐºÐ¾Ð³Ð´Ð° Ð½Ðµ Ð²Ð¸Ð´ÐµÐ», Ð½ÐµÐ´Ð°Ð²Ð½Ð¾ Ð½Ð°Ñ‚ÐºÐ½ÑƒÐ»ÑÑ Ð½Ð° Ð³Ð¾Ñ€Ð¾Ð´. ÐžÐ½ Ð²ÑÐµ Ð±Ð¾Ñ€Ð¼Ð¾Ñ‚Ð°Ð» Ñ‡Ñ‚Ð¾-Ñ‚Ð¾ Ð¾ Ð¿Ð¾Ð±ÐµÐ³Ðµ Â«Ð¸Ð· ÑÐ½Ð°Â».]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[ÐœÐ°ÑÑ‚ÐµÑ€ÑÐºÐ°Ñ Ð•Ñ€ÐµÑ‚Ð¸ÐºÐ°]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Ð’Ñ‹Ð¶Ð¸Ð²ÑˆÐ¸Ðµ Ð¿Ð¾ÑÐ»Ðµ Ð¿Ð¾ÐºÐ¾Ð¹Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð²ÐµÐ½Ð°Ð½Ñ‚Ð°, Ð°Ñ€ÑÐµÐ½Ð°Ð», ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¾Ð½Ð¸ Ð¿Ñ€Ð¸Ð½Ð¾ÑÑÑ‚, Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð´Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ñ‡Ð½Ð¾Ð¹ Ð¾Ð³Ð½ÐµÐ²Ð¾Ð¹ Ð¼Ð¾Ñ‰ÑŒÑŽ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÑ€Ð¾Ð²Ð½ÑÑ‚ÑŒ Ñ Ð·ÐµÐ¼Ð»Ñ‘Ð¹ Ð½Ð°ÑˆÐ¸Ñ… Ð¿Ñ€Ð¾Ñ‚Ð¸Ð²Ð½Ð¸ÐºÐ¾Ð².]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[ÐžÑ…Ð¾Ñ‚Ð½Ð¸ÐºÐ¸ Ð¡Ñ‚Ð°Ñ€Ð¾Ð³Ð¾ Ð¯Ñ€Ð½Ð°Ð¼Ð°]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[ÐšÐ¾Ð³Ð´Ð° Ñ‡ÑƒÐ´Ð¾Ð²Ð¸Ñ‰Ð½Ñ‹Ðµ ÑƒÐ³Ñ€Ð¾Ð·Ñ‹ Ð¿Ñ€ÐµÑÐ»ÐµÐ´ÑƒÑŽÑ‚ Ð´ÐµÑ€ÐµÐ²Ð½ÑŽ Ð² ÑÐ°Ð¼Ñ‹Ðµ Ñ‚ÐµÐ¼Ð½Ñ‹Ðµ Ð½Ð¾Ñ‡Ð¸, ÐŸÐ¾Ñ€Ð¾Ñ…Ð¾Ð²Ð½Ð¸ÐºÐ¸ Ð½Ð°Ñ‡Ð¸Ð½Ð°ÑŽÑ‚ Ð¾Ñ‡Ð¸Ñ‰Ð°Ñ‚ÑŒ Ñ‡ÑƒÐ´Ð¾Ð²Ð¸Ñ‰, ÑÐ²Ð¸Ñ€ÐµÐ¿ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ñ… Ð² Ð½Ð°ÑˆÐµÐ¼ Ð³Ð¾Ñ€Ð¾Ð´Ðµ.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[ÐÐ¾Ñ‡ÑŒ Ð¾Ñ…Ð¾Ñ‚Ð½Ð¸ÐºÐ°]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Ð‘Ð´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[Ð¯ Ð¿ÐµÑ€ÐµÐ¶Ð¸Ð²Ñƒ ÑÑ‚Ñƒ Ð¾Ñ…Ð¾Ñ‚Ñƒ!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[Ð­Ñ‚Ð¸ Ð·Ð²ÐµÑ€Ð¸ Ð¿Ð°Ð´ÑƒÑ‚ Ð¿Ñ€ÐµÐ´Ð¾ Ð¼Ð½Ð¾Ð¹!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Ð˜Ð´Ð¸Ñ‚Ðµ ÐºÐ¾ Ð¼Ð½Ðµ Ð·Ð²ÐµÑ€Ð¸!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Ð¯ ÑƒÐ±Ð¸Ð» Ð±Ð¾Ð»ÐµÐµ Ð¼Ð¾Ð³ÑƒÑ‰ÐµÑÑ‚Ð²ÐµÐ½Ð½Ñ‹Ñ… Ð·Ð²ÐµÑ€ÐµÐ¹, Ñ‡ÐµÐ¼ Ñ‚Ñ‹!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Ð“Ð½Ð°Ñ‚ÑŒ Ð¸Ñ… Ñ‚ÑƒÐ´Ð°, Ð¾Ñ‚ÐºÑƒÐ´Ð° Ð¾Ð½Ð¸ Ð¿Ñ€Ð¸ÑˆÐ»Ð¸!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Ð­Ñ‚Ð¸ Ð¼ÐµÑ€Ð·ÐºÐ¸Ðµ Ð·Ð²ÐµÑ€Ð¸ - Ð½Ð¸Ñ‡Ñ‚Ð¾ Ð¿Ñ€ÐµÐ´ Ð½Ð°Ð¼Ð¸!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[Ð¯ Ð½Ðµ Ð¿Ñ€Ð¸ÑÐ¾ÐµÐ´Ð¸Ð½ÑŽÑÑŒ Ðº Ñ‚Ð²Ð¾ÐµÐ¹ Ð³Ð¸Ð±ÐµÐ»Ð¸!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[Ð‘ÐµÑˆÐµÐ½ÑÑ‚Ð²Ð¾]]></entry>
+		<entry id="str_roster_list_chorus_kh_frenzied_bark"><![CDATA[ÐœÐ« Ð’Ð¡Ð• Ð¡Ð¢ÐÐÐ•Ðœ Ð—Ð’Ð•Ð Ð¬ÐœÐ˜ Ð ÐÐÐž Ð˜Ð›Ð˜ ÐŸÐžÐ—Ð”ÐÐž!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Ð—Ð²ÐµÑ€Ð¸ ... Ð—Ð²ÐµÑ€Ð¸ Ð¿Ð¾Ð²ÑÑŽÐ´Ñƒ!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Ð—Ð°Ð¿Ð°Ñ… Ð¾Ñ…Ð¾Ñ‚Ñ‹ ... Ð˜ ÐšÑ€Ð¾Ð²Ð¸!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[Ð’Ñ‹ Ð·Ð°Ñ€Ð°Ð¶ÐµÐ½Ñ‹, Ð½Ðµ Ñ‚Ð°Ðº Ð»Ð¸? Ð”Ð° Ð¾Ñ‚Ð²Ð°Ð»Ð¸Ñ‚Ðµ Ð²Ñ‹ Ð¾Ñ‚ Ð¼ÐµÐ½Ñ!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[Ð’ÐºÑƒÑ! Ð—Ð°Ð¿Ð°Ñ…! ÐšÑ€Ð¾Ð²ÑŒ!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[ÐŸÐ¾Ð·Ð²Ð¾Ð»ÑŒ Ð¼Ð½Ðµ Ñ€Ð°Ð·Ð¾Ð±Ñ€Ð°Ñ‚ÑŒÑÑ Ñ Ð½Ð¸Ð¼Ð¸!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[ÐÐµ ÑÑ‚Ð¾Ð¹ Ñƒ Ð¼ÐµÐ½Ñ Ð½Ð° Ð¿ÑƒÑ‚Ð¸!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[Ð—Ð°Ð¿Ð°Ñ… Ð¾Ñ…Ð¾Ñ‚Ñ‹. Ð­Ñ‚Ð¾ ÑÐ²Ð¾Ð´Ð¸Ñ‚ Ð¼ÐµÐ½Ñ Ñ ÑƒÐ¼Ð°!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[Ð¯ Ð½Ðµ Ð²Ð¸Ð¶Ñƒ! Ð’ÑÐµ ÐºÑ€Ð°ÑÐ½Ð¾Ðµ!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[ÐžÐ½Ð¸ Ð¼Ð¾Ð¸! ÐšÑ€Ð¾Ð²ÑŒ! ÐœÐ¾Ñ!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Ð’ÐµÑ€Ð½Ð¸ Ð¼ÐµÐ½Ñ Ð² ÑÐ¾Ð½!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[ÐÐµ Ð³Ð¾Ð²Ð¾Ñ€Ð¸Ñ‚Ðµ Ð¼Ð½Ðµ Ñ‡Ñ‚Ð¾ Ð´ÐµÐ»Ð°Ñ‚ÑŒ!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[Ð¯ ÐµÑ‰Ðµ Ð½Ðµ Ð·Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ð»!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[ÐÐµ Ð¿Ñ€Ð¸ÐºÐ°ÑÐ°Ð¹Ñ‚ÐµÑÑŒ ÐºÐ¾ Ð¼Ð½Ðµ!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Ð’Ñ‹ Ð¿Ð¾ÑÐ»Ðµ Ð¼Ð¾ÐµÐ¹ ÐºÑ€Ð¾Ð²Ð¸!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Ð•Ñ‰Ðµ ÐµÑÑ‚ÑŒ Ð·Ð²ÐµÑ€Ð¸, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… Ð½ÑƒÐ¶Ð½Ð¾ ÑƒÐ±Ð¸Ñ‚ÑŒ!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Ð¢Ñ€ÑƒÑÑ‹!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ð¥Ð...Ð¥Ð...Ð¥ÐÐ¥ÐÐ¥ÐÐ¥Ð!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ð’Ñ‹ Ð´ÑƒÐ¼Ð°ÐµÑ‚Ðµ, ÑÑ‚Ð¾ Ð¼ÐµÐ½Ñ Ð¿Ð¾Ð´Ð°Ð²Ð¸Ñ‚!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Ð’ÐµÑ€Ð½Ð¸ÑÑŒ, Ð·Ð²ÐµÑ€ÑŒ!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[ÐÐµÑ‚! ÐžÐ½Ð¸ Ð·Ð°Ñ€Ð°Ð·ÑÑ‚ Ð¼ÐµÐ½Ñ!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Ð’Ñ‹ ÑÐºÐ¾Ñ€Ð¾ ÑÑ‚Ð°Ð½ÐµÑ‚Ðµ Ð¾Ð´Ð½Ð¸Ð¼ Ð¸Ð· Ð½Ð¸Ñ…!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Ð›ÑƒÑ‡ÑˆÐµ Ð²Ñ‹, Ñ‡ÐµÐ¼ Ñ.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Ð’Ñ‹ Ð¾Ð´Ð½Ð¸ Ð¸Ð· Ð½Ð¸Ñ…, Ð½Ðµ Ñ‚Ð°Ðº Ð»Ð¸!]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Ð—Ð°Ð³Ð½Ð°Ð½Ð½Ñ‹Ðµ Ð² ÑƒÐ³Ð¾Ð» Ñ‚Ð°Ðº Ð»ÐµÐ³ÐºÐ¾?]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[ÐœÐ½Ðµ Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð° Ð²Ð°ÑˆÐ° Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒ.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Ð”ÐµÑ€Ð¶Ð¸Ñ‚ÐµÑÑŒ Ð¾Ñ‚ Ð¼ÐµÐ½Ñ Ð¿Ð¾Ð´Ð°Ð»ÑŒÑˆÐµ!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[ÐÑ€Ð¾Ð¼Ð°Ñ‚ ... Ð­Ñ‚Ð¾ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð²Ð»ÐµÑ‡Ñ‘Ñ‚!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Ð—Ð°Ð¼ÐµÑ‡Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Ð¥Ð¼ ... Ð²Ð¾Ñ‚ Ñ‚Ð°Ðº?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Ð¯ Ð¿Ð¾Ñ‡Ñ‚Ð¸ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ð» ÑÑ‚Ð¾...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[ÐÐµÑ‚ ... Ñ Ð½Ðµ Ñ…Ð¾Ñ‡Ñƒ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°Ñ‚ÑŒÑÑ Ð² Ð¼ÐµÑ‡Ñ‚Ñƒ...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[ÐŸÐ¾Ñ‡ÐµÐ¼Ñƒ Ð¼Ñ‹ Ð¾Ñ‚Ð´Ñ‹Ñ…Ð°ÐµÐ¼? ÐžÑ…Ð¾Ñ‚Ð° ÐµÑ‰Ðµ Ð½Ðµ Ð¾ÐºÐ¾Ð½Ñ‡ÐµÐ½Ð°!]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(Ñ€Ñ‹Ñ‡Ð¸Ñ‚) Ð”Ð¾Ð»Ð¶ÐµÐ½ ...Ð±Ð¾Ð´Ñ€ÑÑ‚Ð²Ð¾Ð²Ð°Ñ‚ÑŒ...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[ÐœÑ‹ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÐ¼ Ð·Ð´ÐµÑÑŒ Ð¾ÑÑ‚Ð°Ð²Ð°Ñ‚ÑŒÑÑ!]]></entry>
+	</language>
+	
+	<language id="spanish">
+		<entry id="actor_mode_name_kh_default"><![CDATA[Default]]></entry>
+		<entry id="actor_mode_name_kh_rally1"><![CDATA[Rally 1]]></entry>
+		<entry id="actor_mode_name_kh_rally2"><![CDATA[Rally 2]]></entry>
+		<entry id="str_skill_mode_info_kh_default"><![CDATA[ â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹â€‹ ]]></entry>
+		<entry id="str_skill_mode_info_kh_rally1"><![CDATA[Rally 1]]></entry>
+		<entry id="str_skill_mode_info_kh_rally2"><![CDATA[Rally 2]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (100%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (110%% base)
+		1 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (120%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (130%% base)
+		2 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}Bleed{colour_end} vs {colour_start|stun}Stunned{colour_end} (140%% base)
+		3 pts/rd for 3 rds]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[DaÃ±o de habilidad a distancia 
+		despÃºes del primer ataque 
+		hasta final del Combate]]></entry>
+
+		<entry id="hero_class_name_chorus"><![CDATA[Polvorilla]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[No puedo ir asi.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[No puedo ir de esta manera.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[Como muchos cazadores de Yharnam, Los Polvorines utilizan armaduras ligeras de cuero que les proporcian gran mobilidad, contrarestando esto con su arsenal pesado. Estando armados con una lanza que tambien funciona como fÃºsil, asi tambien con los explosivos. Los polvorines tienen un dicho; "Si un arma no pega fuerte, no merece la pena."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[Los polvorines fueron los mejores en la tarea de limpiar a las bestias de las calles de Yharnam, su velocidad y arsenal pesado incomparable con el de los otros cazadores, asi solo dejando sangre y ceniza en el amanecer de una Noche de Caceria]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[Las noches de CacerÃ­a pueden ser largas , y los polvorines se han vuelto habilidosos en asesinar bestias, pero tambien en el arte de mejorar su equipamiento o preparase para su prÃ³ximo objetivo. Los polvorines siempre pueden mejorar su equipamiento, encontrar los mejores lugares para una emboscada, e incluso atender a sus heridas cuando es el tiempo de recuperarse.]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[Damage Taken:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}Hollowing{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}Works in the Farmstead{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[Farmstead]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[Farmstead]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[Estocada de Lanza]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[Disparo Penetrante]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[Disparo Tambaleante]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[Bomba de clavos]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[Ataque Visceral]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[Embestida Penetrante]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[Balas Sangrientas]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[Moverse]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[Estocada de Lanza]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[DIsparo Penetrante]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[Disparo Tambaleante]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[Bomba de clavos]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[Ataque Visceral]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[Embestida Penetrante]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[Balas Sangrientas]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[Lanza FÃºsil Oxidada]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[Lanza FÃºsil Afilada]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[Lanza FÃºsil Modificada]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[Lanza FÃºsil Carbonizada Sangrienta]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["Purificador de Bestias"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[Rifle Spear]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[TÃºnica de cuero andrajosa]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[TÃºnica de Iniciado]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[TÃºnica Cubierta en ceniza]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[Tunica Sangrienta Carbonizada]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["TÃºnica de Djura"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[Keg Hunter's Garb]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[Others:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[La caceria finalmente acabara para mi ?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[Primeros Auxilios]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[Levantar Animos]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[Charla]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[Vial de Sangre]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[Incienso Guardian]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[Liderar La Caza]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[Herramientas de Taller]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} Free Action {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ or ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[Hereticos del Taller]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[Cazadores de Yharnam]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[El aroma de la sangre atrae bestias.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[Dejame ayudarte con eso]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[No es sangre antigua, pero funcionara.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[La caceria ya casi termina.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[Estas bestias son predecibles, criaturas miserables.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[Venceremos a esta plaga que azota nuestro mundo.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[La luz de nuestra antorcha nos guia.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[No caeremos ante los susurros de locura.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[Resiste el llamado de la sangre.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[La sangre antigua cura todas las heridas.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Gracias a la iglesia de la sanaciÃ³n.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[Que la iglesia de la sanaciÃ³n nos guie.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[Este incienso mantendra a las bestias a raya.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[La gente de Yharnam solia quemar esto en las noches de caceria.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[El aroma repelera a las bestias.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[La luz nos promete seguridad en la noche mas oscura.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[El cazador no se convertira en el cazado.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[No descansare hasta que todas las bestias sean asesinadas.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Aqui, Permiteme darle unos retoques a eso.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Puedo mejorar eso por ti.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[Es mejor no luchar contra las bestias de frente.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Detente.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[QuÃ©?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[Detente ahora mismo.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Otra bestia masacrada.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Ya no plagarÃ¡s mas este mundo!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Estas bestias no merecen la misericordia de Djura]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[Otro paso mÃ¡s para acabar con la caceria.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[Un hombre empuÃ±ando un arma nunca antes vista se ha topado con el poblado recientemente . El seguia  murmurando de haber escapado de "Un sueÃ±o".]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[Un hereje en taller ]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[Sobrevivientes de un Juramento Extinto,El arsenal que poseen tiene la suficiente  potencia de fuego para enfrentar a sus adversarios."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[Cazadores de vieja Yharnam]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[Tan abominables como sean las amenazas que azotan al poblado durante las noches de caceria, los polvorines limpian a las bestias que andan libres en nuestro pueblo.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[Una Caceria en la Noche]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[Vigilante]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[Sobrevivire a esta caceria!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[Estas bestias caeran ante mi!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[Vengan a mi bestias!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[He asesinado bestias mas fuertes que tu!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Regresenlos de donde vinieron!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[Estas bestias inmundas no son nada ante nosotros!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[FrenÃ©tico]]></entry>
+		<entry id="str_roster_list_chorus_kh_frenzied_bark"><![CDATA[TODOS SEREMOS BESTIAS TARDE O TEMPRANO!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[Bestias...Bestias en todos lados!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[El aroma de un caceria... Sangre!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[Estas infectado no es asÃ­? Alejate de mÃ­!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[El sabor! El aroma! Sangre!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Dejenmelos a mÃ­!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[Fuera de mi camino!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[El aroma de la caceria. Me esta enloqueciendo!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[No puedo pensar ! Todo lo que veo es rojo!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Ellos son mis presas! Sangre! Mios!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[Regresadme al sueÃ±o!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[No me digas lo que tengo que hacer!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[No he terminado!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[No me toques!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[Estas tras mi sangre!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[AÃºn hay bestias que masacrar!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[No huyan, cobardes!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Ja... JA... JAJAJAJAJ!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[Enserio crees que eso me detendra!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[Alejate de mi, bestia!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[No! Me van a infectar!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Te volveras uno de ellos !]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[Mejor tu que yo.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Eres uno de ellos no es asi!]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[Arriconado tan fÃ¡cilmente]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[No necestio ru ayuda.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[Alejate de mi!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[El aroma... Es demasiado!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[Maravilloso!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Hmph... Algo como esto?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[Casi lo consigo...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[No... No quiero regresar al sueÃ±o...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[Porque estamos descansando? La caceria no ha terminado!]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(gruÃ±endo) Debo... mantenerme... despierto...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[No podemos quedarnos aqui!]]></entry>
+	</language>
+	
+	<language id="koreana">
+		<entry id="effect_health_damage_format"><![CDATA[í”¼í•´ -%d]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 100%%)
+		í„´ë‹¹ 1 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 110%%)
+		í„´ë‹¹ 1 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 120%%)
+		í„´ë‹¹ 2 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 130%%)
+		í„´ë‹¹ 2 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 140%%)
+		í„´ë‹¹ 3 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[ì›ê±°ë¦¬ ê¸°ìˆ ì„ ì‚¬ìš©í• ì‹œ ì „íˆ¬ê°€ ëë‚  ë•Œê¹Œì§€ ì›ê±°ë¦¬ ê¸°ìˆ  í”¼í•´ -30%% (ì¤‘ì²©ë˜ì§€ ì•ŠìŒ)]]></entry>
+		
+		<entry id="hero_class_name_chorus"><![CDATA[í™”ì•½ ì‚¬ëƒ¥ê¾¼]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[ì´ëŒ€ë¡  ì›ì •ì„ ë– ë‚  ìˆ˜ ì—†ê² ëŠ”ë°.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[ì´ëŒ€ë¡  ì›ì •ì„ ë– ë‚  ìˆ˜ ì—†ê² ëŠ”ë°.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[ì•¼ë‚¨ì˜ ë‹¤ë¥¸ ì‚¬ëƒ¥ê¾¼ë“¤ê³¼ ë§ˆì°¬ê°€ì§€ë¡œ, í™”ì•½ ì‚¬ëƒ¥ê¾¼ì€ í™”ê¸°ì˜ ë¬´ê²Œë¥¼ ë³´ì™„í•˜ê¸° ìœ„í•´ ê²½ìž¥ê°‘ ê°‘ì˜·ì„ ìž…ì–´ ë†’ì€ ê¸°ë™ë ¥ë„ í¬ìƒí•˜ì§€ ì•Šìœ¼ë ¤ í•©ë‹ˆë‹¤. ê·¸ëŠ” ìœ ì‚¬ì‹œì— í™”ê¸°ë¡œë„ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” ì°½ê³¼ í­ë°œë¬¼ë¡œ ë¬´ìž¥í•˜ê³  ìžˆìŠµë‹ˆë‹¤. í™”ì•½ ì‚¬ëƒ¥ê¾¼ë“¤ ì‚¬ì´ì—ì„œ ë„ëŠ” ì†ë‹´ì´ ìžˆì£ . "ë­” ë¬´ê¸°ë“  ë¹µ í„°ëœ¨ë¦¬ëŠ” ë§›ì´ ì—†ìœ¼ë©´ ë‚˜ë„ ë¹µ í„°ì§€ì§ˆ ì•ŠëŠ”ë‹¤ë‹ˆê¹Œ."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[í™”ì•½ ì‚¬ëƒ¥ê¾¼ë“¤ì€ ì•¼ë‚¨ ê¸¸ê±°ë¦¬ì˜ ì§ìŠ¹ë“¤ì„ ì •í™”í•˜ëŠ”ë° íƒì›”í•œ ì‹¤ë ¥ì„ ë°œíœ˜í•œ ì‚¬ëƒ¥ê¾¼ë“¤ ì¤‘ í•œ ë¶€ë¥˜ìž…ë‹ˆë‹¤. ê·¸ë“¤ì˜ ì†ë„ì™€ ì¤‘í™”ê¸°ëŠ” ì–´ë–¤ ì‚¬ëƒ¥ê¾¼ë“¤ë„ ë”°ë¼ìž¡ì„ ìˆ˜ ì—†ìœ¼ë©°, ì´ë“¤ì´ ë²Œì¸ ì‚¬ëƒ¥ ëì˜ ê²½ì•¼ì—ëŠ” ê¹Œë§£ê²Œ íƒ€ë²„ë¦° í”¼ì™€ ìž¿ë”ë¯¸ë°–ì— ë‚¨ì§€ ì•ŠìŠµë‹ˆë‹¤.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[ì‚¬ëƒ¥ì˜ ë°¤ì€ ê¸¸ ìˆ˜ë„ ìžˆìŠµë‹ˆë‹¤. ì´ ë•Œë¬¸ì—, í™”ì•½ ì‚¬ëƒ¥ê¾¼ë“¤ì€ ì§ìŠ¹ ì‚¬ëƒ¥ë¿ë§Œ ì•„ë‹ˆë¼ ë‹¤ìŒ ëª©í‘œë¥¼ ìœ„í•´ ìž¥ë¹„ì™€ ê·¸ë“¤ ìžì‹ ì„ ìž¬ì •ë¹„í•˜ëŠ” ëŠ¥ë ¥ë„ ê°–ì¶”ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤. í™”ì•½ ì‚¬ëƒ¥ê¾¼ì€ í•­ìƒ ë¬´ê¸°ë¥¼ ì •ë¹„í•˜ë©°, ê¸°ìŠµìœ¼ë¡œë¶€í„° ëŒ€í”¼í•˜ê¸°ì— ìµœì ì˜ ìž¥ì†Œë¥¼ ì°¾ìŠµë‹ˆë‹¤. ì‹¬ì§€ì–´ íœ´ì‹ì˜ ì‹œê°„ì´ ë˜ë©´ ìƒì²˜ë¥¼ ëŒë³´ê¸°ë„ í•˜ì£ .]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[ë°›ì€ í”¼í•´:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}ê³µë™{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}ë†ìž¥ì—ì„œë§Œ ì‚¬ìš© ê°€ëŠ¥{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[ë†ìž¥]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[ë†ìž¥]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[ì°½ ì°Œë¥´ê¸°]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[ì‚°íƒ„ ë°œì‚¬]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[ì•žìž¡ê¸°]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[ëª» í­íƒ„]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[ë‚´ìž¥ ë½‘ê¸°]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[ì „ì§„ ë² ê¸°]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[í˜ˆíƒ„]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[ì´ë™]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[ì°½ ì°Œë¥´ê¸°]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[ì‚°íƒ„ ë°œì‚¬]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[ì•žìž¡ê¸°]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[ëª» í­íƒ„]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[ë‚´ìž¥ ë½‘ê¸°]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[ì „ì§„ ë² ê¸°]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[í˜ˆíƒ„]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[ë…¹ìŠ¨ ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[ë‚ ì¹´ë¡­ê²Œ ë²¼ë¥¸ ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[ìž˜ ë‹¤ë“¬ì€ ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[í”¼ë¡œ ë¬¼ë“  ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["ê´´ìˆ˜ ì •í™”ìž"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[ë„ˆëœë„ˆëœí•´ì§„ ê°€ì£½ ì‚¬ëƒ¥ë³µ]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[ì´ˆì‹¬ìžì˜ ì‚¬ëƒ¥ë³µ]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[ìž¿ë¹› ì‚¬ëƒ¥ê¾¼ì˜ ì‚¬ëƒ¥ë³µ]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[í”¼ë¡œ ë¬¼ë“  ì‚¬ëƒ¥ë³µ]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["ë“€ë¼ì˜ ì‚¬ëƒ¥ë³µ"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[í™”ì•½ ì‚¬ëƒ¥ê¾¼ì˜ ì‚¬ëƒ¥ë³µ]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[ë‹¤ë¥¸ ì ì—ê²Œ:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[ì´ ì‚¬ëƒ¥ë„ ë§ˆì¹¨ë‚´ ëì´ ë‚˜ëŠ”ê°€?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[ìƒì²˜ ì¹˜ë£Œ]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[ê²©ë ¤]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[ìœ„ë¡œ]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[ìˆ˜í˜ˆì•¡]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[ë³´í˜¸ì˜ ì¦ê¸°]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[ì‚¬ëƒ¥ ì§€ë„]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[ìž¥ë¹„ ìž‘ì—…]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} ì¶”ê°€ í–‰ë™ {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ í˜¹ì€ ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[ê³µë°©ì˜ ì´ë‹¨ìžë“¤]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[ì•¼ë‚¨ì˜ ì‚¬ëƒ¥ê¾¼ë“¤]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[ì§ìŠ¹ë“¤ì€ í”¼ëƒ„ìƒˆë¥¼ ë§¡ê³  ì ‘ê·¼í•˜ì§€.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[ë¶•ëŒ€ ì¢€ ê°ì•„ì¤˜ì•¼ê² êµ°.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[ì˜¤ëž˜ëœ í”¼ëŠ” ì•„ë‹ˆì§€ë§Œ, ì´ ì •ë„ë©´ ë˜ê² êµ°.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[ì‚¬ëƒ¥ì€ ê±°ì˜ ëë‚¬ì–´.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[ì´ ì§ìŠ¹ë“¤ì€ ë‹¨ìˆœí•˜ë‹¤. í•˜ì°®ì€ ê²ƒë“¤ì´ì§€.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[ì—­ë³‘ì´ ì‚¬ëžŒë“¤ì„ ì§‘ì–´ì‚¼í‚¬ì§€ë¼ë„, ìš°ë¦¬ëŠ” ì´ê²¨ë‚¼ ê²ƒì´ë‹¤.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[íšƒë¶ˆì´ ë¹›ë‚˜ëŠ” í•œ ìš°ë¦¬ëŠ” ì•ˆì „í•´.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[ê´‘ê¸°ì˜ ì†ì‚­ìž„ì— ìš°ë¦¬ëŠ” ì“°ëŸ¬ì§€ì§€ ì•Šìœ¼ë¦¬ë¼.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[í”¼ì˜ ë¶€ë¦„ì— ì €í•­í•´ì•¼ í•´.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[ì˜¤ëž˜ëœ í”¼ê°€ ëª¨ë“  ìƒì²˜ë¥¼ ë‚«ê²Œ í•˜ë¦¬ë¼.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[ì¹˜ìœ  êµë‹¨ì˜ ìˆ˜ë…€ë“¤ì—ê²Œ ê°ì‚¬ë¥¼ ì „í•´ì•¼ê² êµ°.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[ì¹˜ìœ  êµë‹¨ì´ ìš°ë¦¬ë¥¼ ì´ëŒê¸°ë¥¼.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[ì´ ì¦ê¸°ê°€ ì•¼ìˆ˜ë“¤ì„ ë¬¼ëŸ¬ë‚˜ê²Œ í• ê±°ì•¼.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[ì•¼ë‚¨ì—ì„œëŠ” ì‚¬ëƒ¥í•  ë•Œ ì´ í–¥ë£Œë“¤ì„ íƒœìš°ê³¤ í–ˆì§€.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[ì´ ëƒ„ìƒˆê°€ ì§ìŠ¹ë“¤ì„ ë¬¼ëŸ¬ë‚˜ê²Œ í• ê±°ë‹¤.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[ê°€ìž¥ ì–´ë‘ìš´ ì‚¬ëƒ¥ ì¤‘ì—ë„, ë¹›ì´ ì•ˆì „ì„ ì•½ì†í•  ê²ƒì´ë‹¤.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[ì‚¬ëƒ¥ê¾¼ì€ ì‚¬ëƒ¥ë‹¹í•˜ì§€ ì•Šìœ¼ë¦¬ë¼.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[ëª¨ë“  ì§ìŠ¹ì„ ì²™ì‚´í•  ë•Œê¹Œì§€ ë©ˆì¶”ì§€ ì•Šì„ ê²ƒì´ë‹¤.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[ì¤˜ë´. í„°ëœ¨ë¦¬ëŠ” ë§›ì´ ìžˆë„ë¡ ë‚´ê°€ ì† ì¢€ ë´ì£¼ì§€.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[ë‚´ê°€ ì¡°ê¸ˆ ê³ ì³ì¤„ ìˆ˜ ìžˆì„ ê±° ê°™ì€ë°.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[ì´ ì§ìŠ¹ë“¤ì€ ì •ë©´ìœ¼ë¡œ ìƒëŒ€í•´ì„œëŠ” ì•ˆëœë‹¤.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ë©ˆì¶°.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ë­ë¼ê³ ?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ê·¸ë§Œë‘ë¼ë‹ˆê¹Œ.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[ì—„ë°”ì‚¬.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[í•œ ë†ˆ ë˜ ì“°ëŸ¬ì¡Œêµ°.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[ë„¤ë†ˆì€ ì´ ì„¸ê³„ë¥¼ ë‹¤ì‹œëŠ” ë”ëŸ½ížˆì§€ ëª»í•˜ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[ì´ ì§ìŠ¹ë“¤ì€ ë“€ë¼ì˜ ìžë¹„ë¥¼ ë°›ì„ ìžê²©ì´ ì—†ë‹¤!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[ì‚¬ëƒ¥ì˜ ëì´ í•œë°œì§ ë” ë‹¤ê°€ì™”ë‹¤.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[ì–´ë””ì„œë„ ë³¸ ì  ì—†ëŠ” í™”ê¸°ë¥¼ ë“  ì´ê°€ ì˜ì§€ë¡œ ê±¸ì–´ë“¤ì–´ì™”ìŠµë‹ˆë‹¤. 'ê¿ˆ'ì„ ë²—ì–´ë‚˜ì•¼ í•œë‹¤ëŠë‹ˆ ë­ë¼ë‹ˆ ì§€ê»„ì´ëŠ”êµ°ìš”.]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[ê³µë°©ì˜ ì´ë‹¨ìž]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[ìµœê·¼ í•´ì²´ëœ ë‹¨ì²´ì˜ ìƒì¡´ìžë“¤ì´ ê°€ì ¸ì˜¤ëŠ” ë¬´ê¸°ë“¤ì€ ìš°ë¦¬ì˜ ì ë“¤ì—ê²Œ ë§žì„œê¸°ì— ì¶©ë¶„í•œ í™”ë ¥ì„ ì œê³µí• ì§€ë„ ëª¨ë¦…ë‹ˆë‹¤."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[ì—£ ì•¼ë‚¨ì˜ ì‚¬ëƒ¥ê¾¼ë“¤]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[ê±°ëŒ€í•œ ìœ„í˜‘ë“¤ì´ ê°€ìž¥ ì–´ë‘ìš´ ë°¤ì¤‘ì— ì˜ì§€ë¥¼ íœ©ì‹¸ìž, í™”ì•½ ì‚¬ëƒ¥ê¾¼ë“¤ì´ ì˜ì§€ì— ë§Œì—°í•œ ì§ìŠ¹ë“¤ì„ ì†Œíƒ•í•˜ëŸ¬ ë‚˜ì„°ìŠµë‹ˆë‹¤.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[ì‚¬ëƒ¥ê¾¼ì˜ ë°¤]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[ê°ì„±]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[ì´ ì‚¬ëƒ¥ì—ì„œ ë‚˜ëŠ” ì‚´ì•„ë‚¨ìœ¼ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[ì´ ì§ìŠ¹ë“¤ì´ ëª¨ë‘ ì£½ê¸° ì „ì—ëŠ”, ë‚˜ëŠ” ì“°ëŸ¬ì§€ì§€ ì•Šìœ¼ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[ì§ìŠ¹ë“¤ì´ì—¬! ë‚´ê²Œë¡œ ì˜¤ë„ˆë¼!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[ë„¤ë†ˆë³´ë‹¤ ë” ê°•í•œ ì§ìŠ¹ë„ ë¬´ì°”ëŸ¬ë³¸ ëª¸ì´ë‹¤!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[ë†ˆë“¤ì´ ì™”ë˜ ê³³ìœ¼ë¡œ ë˜ëŒë ¤ ë³´ë‚´ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[ìš°ë¦¬ì˜ íž˜ ì•žì—ì„œëŠ”, ì € ì•…í•œ ì§ìŠ¹ë“¤ë„ ìƒëŒ€ê°€ ë˜ì§€ ì•ŠëŠ”ë‹¤!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[ë‚´ê°€ ë„¤ë†ˆì˜ ìš´ëª…ì„ ë°›ì•„ë“¤ì¼ ê²ƒ ê°™ìœ¼ëƒ!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[ê´‘ëž€]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[ìš°ë¦¬ë„ ì–¸ì  ê°€ëŠ” ì§ìŠ¹ì´ ë  ê²ƒì´ë‹¤!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[ì§ìŠ¹ë“¤... ì˜¨ ì²œì§€ì— ì§ìŠ¹ë“¤ ë¿ì´ë¡œêµ°!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[ì‚¬ëƒ¥ì˜ í–¥ê¸°... í”¼ë¡œë‹¤!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[ë„¤ë†ˆë„ ê°ì—¼ëêµ°? ë¬¼ëŸ¬ë‚˜!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[ì´ ë§›! ì´ í–¥ê¸°! í”¼ë¡œë‹¤!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[ë‚´ê°€ ìƒëŒ€í•˜ê³  ë§í…Œë‹¤!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[ë‚´ ì•žì—ì„œ ë¬¼ëŸ¬ë‚˜!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[ì‚¬ëƒ¥ì˜ í–¥ê¸°ë¼. ë¯¸ì³ë²„ë¦´ ì§€ê²½ì´êµ°!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[ì•žì„ ë³¼ ìˆ˜ê°€ ì—†ì–´... ë¶‰ì€ ë¹›ë°–ì— ë³´ì´ì§ˆ ì•Šì•„!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[ë‚´ê°€ ì£½ì—¬ë²„ë¦´ ê±°ì•¼! ì € í”¼ëŠ”! ë‚˜ì˜ ê²ƒì´ëž€ ë§ì´ë‹¤!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[ê·¸ ê¿ˆì†ìœ¼ë¡œ ë‚  ëŒë ¤ë³´ë‚´ì¤˜!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[ëª…ë ¹í•˜ì§€ ë§ˆë¼!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[ì—¬ê¸°ì„œ ì•„ì§ í•  ì¼ì´ ë‚¨ì•„ìžˆë‹¤.]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[ì† ëŒ€ì§€ë§ˆ!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[ë†ˆë“¤ì´ ë‚´ í”¼ë¥¼ ë”°ë¼ì˜¤ëŠ”êµ°!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[ì£½ì¼ ì§ìŠ¹ë“¤ì´ ë‚¨ì•„ìžˆì§€ ì•Šë‚˜!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[ë„ë§ì¹˜ì§€ ë§ˆë¼. ì´ ê²ìŸì´ë“¤ì•„!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[í•˜... í¬í•«... í¬í•˜í•˜í•˜í•˜í•˜í•˜!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[ê·¸ë”°ìœ„ ê±¸ë¡œ ë‚´ê°€ ì“°ëŸ¬ì§ˆ ê²ƒ ê°™ë‚˜!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[ë¬¼ëŸ¬ì„œë¼. ì§ìŠ¹ì•„!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[ì•ˆë¼! ë†ˆë“¤ì´ ë‚  ê°ì—¼ì‹œí‚¬ê±°ì•¼!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[ë„¤ë†ˆë„ ì¡°ë§Œê°„ ì € ê¼´ì´ ë‚˜ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[ë‚˜ëŒ€ì‹  ìž˜ í•´ì£¼ëŠ”êµ¬ë§Œ.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[ë„¤ë†ˆë„ í•œ íŒ¨ê±°ë¦¬êµ°. ê·¸ë ‡ì§€ ì•Šë‚˜?]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[ê¶ì§€ì— ì•„ì£¼ ì‰½ê²Œ ëª°ë ¤ì£¼ì‹œëŠ”êµ¬ë§Œ.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[ë„¤ë†ˆì˜ ë„ì›€ë”°ìœˆ í•„ìš”ì—†ì–´.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[ë¬¼ëŸ¬ë‚˜!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[ì´ ëƒ„ìƒˆ... ë„ˆë¬´ ê°•ë ¬í•´!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[ì•„ì£¼ ë©‹ì ¸!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[ìœ¼ìŒ... ì´ë ‡ê²Œ?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[ê±°ì˜ ë‹¤ ëì–´...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[ì•ˆë¼... ê·¸ ê¿ˆ ì†ìœ¼ë¡  ëŒì•„ê°€ê³  ì‹¶ì§€ ì•Šì•„...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[ì™œ ì‰¬ê³  ìžˆëŠ”ê±°ì§€? ì‚¬ëƒ¥ì€ ì•„ì§ ëë‚˜ì§€ ì•Šì•˜ë‹¤.]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(ìœ¼ë¥´ë ëŒ€ë©°) ê¹¨ì–´... ìžˆì–´ì•¼ë§Œ... í•´...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[ì—¬ê¸° ê³„ì† ìžˆì„ ìˆœ ì—†ì–´!]]></entry>
+	</language>
+	
+	<language id="koreanb">
+		<entry id="effect_health_damage_format"><![CDATA[í”¼í•´ -%d]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 100%%)
+		í„´ë‹¹ 1 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 110%%)
+		í„´ë‹¹ 1 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 120%%)
+		í„´ë‹¹ 2 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 130%%)
+		í„´ë‹¹ 2 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[ëŒ€ìƒ {colour_start|stun}ê¸°ì ˆ{colour_end} ìƒíƒœì¼ ë•Œ {colour_start|bleed}ì¶œí˜ˆ{colour_end} (ê¸°ë³¸ 140%%)
+		í„´ë‹¹ 3 í”¼í•´, 3í„´ê°„ ì§€ì†]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[ì›ê±°ë¦¬ ê¸°ìˆ ì„ ì‚¬ìš©í• ì‹œ ì „íˆ¬ê°€ ëë‚  ë•Œê¹Œì§€ ì›ê±°ë¦¬ ê¸°ìˆ  í”¼í•´ -30%% (ì¤‘ì²©ë˜ì§€ ì•ŠìŒ)]]></entry>
+		
+		<entry id="hero_class_name_chorus"><![CDATA[í™”ì•½ ì‚¬ëƒ¥ê¾¼]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[ì´ëŒ€ë¡  ì›ì •ì„ ë– ë‚  ìˆ˜ ì—†ê² ëŠ”ë°.]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[ì´ëŒ€ë¡  ì›ì •ì„ ë– ë‚  ìˆ˜ ì—†ê² ëŠ”ë°.]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[ì•¼ë‚¨ì˜ ë‹¤ë¥¸ ì‚¬ëƒ¥ê¾¼ë“¤ê³¼ ë§ˆì°¬ê°€ì§€ë¡œ, í™”ì•½ ì‚¬ëƒ¥ê¾¼ì€ í™”ê¸°ì˜ ë¬´ê²Œë¥¼ ë³´ì™„í•˜ê¸° ìœ„í•´ ê²½ìž¥ê°‘ ê°‘ì˜·ì„ ìž…ì–´ ë†’ì€ ê¸°ë™ë ¥ë„ í¬ìƒí•˜ì§€ ì•Šìœ¼ë ¤ í•©ë‹ˆë‹¤. ê·¸ëŠ” ìœ ì‚¬ì‹œì— í™”ê¸°ë¡œë„ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” ì°½ê³¼ í­ë°œë¬¼ë¡œ ë¬´ìž¥í•˜ê³  ìžˆìŠµë‹ˆë‹¤. í™”ì•½ ì‚¬ëƒ¥ê¾¼ë“¤ ì‚¬ì´ì—ì„œ ë„ëŠ” ì†ë‹´ì´ ìžˆì£ . "ë­” ë¬´ê¸°ë“  ë¹µ í„°ëœ¨ë¦¬ëŠ” ë§›ì´ ì—†ìœ¼ë©´ ë‚˜ë„ ë¹µ í„°ì§€ì§ˆ ì•ŠëŠ”ë‹¤ë‹ˆê¹Œ."]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[í™”ì•½ ì‚¬ëƒ¥ê¾¼ë“¤ì€ ì•¼ë‚¨ ê¸¸ê±°ë¦¬ì˜ ì§ìŠ¹ë“¤ì„ ì •í™”í•˜ëŠ”ë° íƒì›”í•œ ì‹¤ë ¥ì„ ë°œíœ˜í•œ ì‚¬ëƒ¥ê¾¼ë“¤ ì¤‘ í•œ ë¶€ë¥˜ìž…ë‹ˆë‹¤. ê·¸ë“¤ì˜ ì†ë„ì™€ ì¤‘í™”ê¸°ëŠ” ì–´ë–¤ ì‚¬ëƒ¥ê¾¼ë“¤ë„ ë”°ë¼ìž¡ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì´ë“¤ì´ ë²Œì¸ ì‚¬ëƒ¥ ëì˜ ê²½ì•¼ì—ëŠ” ê¹Œë§£ê²Œ íƒ€ë²„ë¦° í”¼ì™€ ìž¿ë”ë¯¸ë°–ì— ë‚¨ì§€ ì•ŠìŠµë‹ˆë‹¤.]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[ì‚¬ëƒ¥ì˜ ë°¤ì€ ê¸¸ ìˆ˜ë„ ìžˆìŠµë‹ˆë‹¤. ì´ ë•Œë¬¸ì— í™”ì•½ ì‚¬ëƒ¥ê¾¼ë“¤ì€ ì§ìŠ¹ ì‚¬ëƒ¥ë¿ë§Œ ì•„ë‹ˆë¼ ë‹¤ìŒ ëª©í‘œë¥¼ ìœ„í•´ ìž¥ë¹„ì™€ ê·¸ë“¤ ìžì‹ ì„ ìž¬ì •ë¹„í•˜ëŠ”ë°ë„ ìˆ˜ì™„ì´ ìžˆìŠµë‹ˆë‹¤. í™”ì•½ ì‚¬ëƒ¥ê¾¼ì€ í•­ìƒ ë¬´ê¸°ë¥¼ ì •ë¹„í•˜ë©°, ê¸°ìŠµìœ¼ë¡œë¶€í„° ëŒ€í”¼í•˜ê¸°ì— ìµœì ì˜ ìž¥ì†Œë¥¼ ì°¾ìŠµë‹ˆë‹¤. ì‹¬ì§€ì–´ íœ´ì‹ì˜ ì‹œê°„ì´ ë˜ë©´ ìƒì²˜ë¥¼ ëŒë³´ê¸°ë„ í•˜ì£ .]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[ë°›ì€ í”¼í•´:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}ê³µë™{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}ë†ìž¥ì—ì„œë§Œ ì‚¬ìš© ê°€ëŠ¥{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[ë†ìž¥]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[ë†ìž¥]]></entry>
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[ì°½ ì°Œë¥´ê¸°]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[ì‚°íƒ„ ë°œì‚¬]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[ê±´íŒ¨ë¦¬]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[ëª»í­íƒ„]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[ë‚´ìž¥ ê³µê²©]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[ë¦¬ê²Œì¸]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[í˜ˆíƒ„]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[ì´ë™]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[ì°½ ì°Œë¥´ê¸°]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[ì‚°íƒ„ ë°œì‚¬]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[ê±´íŒ¨ë¦¬]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[ëª»í­íƒ„]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[ë‚´ìž¥ ê³µê²©]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[ë¦¬ê²Œì¸]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[í˜ˆíƒ„]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[ë…¹ìŠ¨ ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[ë‚ ì¹´ë¡­ê²Œ ë²¼ë¥¸ ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[ìž˜ ë‹¤ë“¬ì€ ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[í”¼ë¡œ ë¬¼ë“  ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA["ê´´ìˆ˜ ì •í™”ìž"]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[ê±´ëžœìŠ¤]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[ë„ˆëœë„ˆëœí•´ì§„ ê°€ì£½ ì‚¬ëƒ¥ë³µ]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[ì´ˆì‹¬ìžì˜ ì‚¬ëƒ¥ë³µ]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[ìž¿ë¹› ì‚¬ëƒ¥ê¾¼ì˜ ì‚¬ëƒ¥ë³µ]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[í”¼ë¡œ ë¬¼ë“  ì‚¬ëƒ¥ë³µ]]></entry>
+		<entry id="chorus_armour_4"><![CDATA["ë“€ë¼ì˜ ì‚¬ëƒ¥ë³µ"]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[í™”ì•½ ì‚¬ëƒ¥ê¾¼ì˜ ì‚¬ëƒ¥ë³µ]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[ë‹¤ë¥¸ ì ì—ê²Œ:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[ì´ ì‚¬ëƒ¥ë„ ë§ˆì¹¨ë‚´ ëì´ ë‚˜ëŠ”ê°€?]]></entry>
+
+		<entry id="camping_skill_name_first_aid"><![CDATA[ìƒì²˜ ì¹˜ë£Œ]]></entry>
+		<entry id="camping_skill_name_encourage"><![CDATA[ê²©ë ¤]]></entry>
+		<entry id="camping_skill_name_pep_talk"><![CDATA[ìœ„ë¡œ]]></entry>
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[ìˆ˜í˜ˆì•¡]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[ë³´í˜¸ì˜ ì¦ê¸°]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[ì‚¬ëƒ¥ ì§€ë„]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[ìž¥ë¹„ ìž‘ì—…]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable} ì¶”ê°€ í–‰ë™ {colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[ í˜¹ì€ ]]></entry>
+
+		<entry id="party_name_kh_party_00"><![CDATA[ê³µë°©ì˜ ì´ë‹¨ìžë“¤]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[ì•¼ë‚¨ì˜ ì‚¬ëƒ¥ê¾¼ë“¤]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[ì§ìŠ¹ë“¤ì€ í”¼ëƒ„ìƒˆë¥¼ ë§¡ê³  ì ‘ê·¼í•˜ì§€.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[ë¶•ëŒ€ ì¢€ ê°ì•„ì¤˜ì•¼ê² êµ°.]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[ì˜¤ëž˜ëœ í”¼ëŠ” ì•„ë‹ˆì§€ë§Œ, ì´ ì •ë„ë©´ ë˜ê² êµ°.]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[ì‚¬ëƒ¥ì€ ê±°ì˜ ëë‚¬ì–´.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[ì´ ì§ìŠ¹ë“¤ì€ ë‹¨ìˆœí•˜ë‹¤. í•˜ì°®ì€ ê²ƒë“¤ì´ì§€.]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[ì—­ë³‘ì´ ì‚¬ëžŒë“¤ì„ ì§‘ì–´ì‚¼í‚¬ì§€ë¼ë„, ìš°ë¦¬ëŠ” ì´ê²¨ë‚¼ ê²ƒì´ë‹¤.]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[íšƒë¶ˆì´ ë¹›ë‚˜ëŠ” í•œ ìš°ë¦¬ëŠ” ì•ˆì „í•´.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[ê´‘ê¸°ì˜ ì†ì‚­ìž„ì— ìš°ë¦¬ëŠ” ì“°ëŸ¬ì§€ì§€ ì•Šìœ¼ë¦¬ë¼.]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[í”¼ì˜ ë¶€ë¦„ì— ì €í•­í•´ì•¼ í•´.]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[ì˜¤ëž˜ëœ í”¼ê°€ ëª¨ë“  ìƒì²˜ë¥¼ ë‚«ê²Œ í•˜ë¦¬ë¼.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[ì¹˜ìœ  êµë‹¨ì˜ ìˆ˜ë…€ë“¤ì—ê²Œ ê°ì‚¬ë¥¼ ì „í•´ì•¼ê² êµ°.]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[ì¹˜ìœ  êµë‹¨ì´ ìš°ë¦¬ë¥¼ ì´ëŒê¸°ë¥¼.]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[ì´ ì¦ê¸°ê°€ ì•¼ìˆ˜ë“¤ì„ ë¬¼ëŸ¬ë‚˜ê²Œ í• ê±°ì•¼.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[ì•¼ë‚¨ì—ì„œëŠ” ì‚¬ëƒ¥í•  ë•Œ ì´ í–¥ë£Œë“¤ì„ íƒœìš°ê³¤ í–ˆì§€.]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[ì´ ëƒ„ìƒˆê°€ ì§ìŠ¹ë“¤ì„ ë¬¼ëŸ¬ë‚˜ê²Œ í• ê±°ë‹¤.]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[ê°€ìž¥ ì–´ë‘ìš´ ì‚¬ëƒ¥ ì¤‘ì—ë„, ë¹›ì´ ì•ˆì „ì„ ì•½ì†í•  ê²ƒì´ë‹¤.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[ì‚¬ëƒ¥ê¾¼ì€ ì‚¬ëƒ¥ë‹¹í•˜ì§€ ì•Šìœ¼ë¦¬ë¼.]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[ëª¨ë“  ì§ìŠ¹ì„ ì²™ì‚´í•  ë•Œê¹Œì§€ ë©ˆì¶”ì§€ ì•Šì„ ê²ƒì´ë‹¤.]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[ì¤˜ë´. í„°ëœ¨ë¦¬ëŠ” ë§›ì´ ìžˆë„ë¡ ë‚´ê°€ ì† ì¢€ ë´ì£¼ì§€.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[ë‚´ê°€ ì¡°ê¸ˆ ê³ ì³ì¤„ ìˆ˜ ìžˆì„ ê±° ê°™ì€ë°.]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[ì´ ì§ìŠ¹ë“¤ì€ ì •ë©´ìœ¼ë¡œ ìƒëŒ€í•´ì„œëŠ” ì•ˆëœë‹¤.]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ë©ˆì¶°.]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ë­ë¼ê³ ?]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ê·¸ë§Œë‘ë¼ë‹ˆê¹Œ.]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[ì—„ë°”ì‚¬.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[í•œ ë†ˆ ë˜ ì“°ëŸ¬ì¡Œêµ°.]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[ë„¤ë†ˆì€ ì´ ì„¸ê³„ë¥¼ ë‹¤ì‹œëŠ” ë”ëŸ½ížˆì§€ ëª»í•˜ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[ì´ ì§ìŠ¹ë“¤ì€ ë“€ë¼ì˜ ìžë¹„ë¥¼ ë°›ì„ ìžê²©ì´ ì—†ë‹¤!]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[ì‚¬ëƒ¥ì˜ ëì´ í•œë°œì§ ë” ë‹¤ê°€ì™”ë‹¤.]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[ì–´ë””ì„œë„ ë³¸ ì  ì—†ëŠ” í™”ê¸°ë¥¼ ë“  ì´ê°€ ì˜ì§€ë¡œ ê±¸ì–´ë“¤ì–´ì™”ìŠµë‹ˆë‹¤. 'ê¿ˆ'ì„ ë²—ì–´ë‚˜ì•¼ í•œë‹¤ëŠë‹ˆ ë­ë¼ë‹ˆ ì§€ê»„ì´ëŠ”êµ°ìš”.]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[ê³µë°©ì˜ ì´ë‹¨ìž]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[ìµœê·¼ í•´ì²´ëœ ë‹¨ì²´ì˜ ìƒì¡´ìžë“¤ì´ ê°€ì ¸ì˜¤ëŠ” ë¬´ê¸°ë“¤ì€ ìš°ë¦¬ì˜ ì ë“¤ì—ê²Œ ë§žì„œê¸°ì— ì¶©ë¶„í•œ í™”ë ¥ì„ ì œê³µí• ì§€ë„ ëª¨ë¦…ë‹ˆë‹¤."]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[ì—£ ì•¼ë‚¨ì˜ ì‚¬ëƒ¥ê¾¼ë“¤]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[ê±°ëŒ€í•œ ìœ„í˜‘ë“¤ì´ ê°€ìž¥ ì–´ë‘ìš´ ë°¤ì¤‘ì— ì˜ì§€ë¥¼ íœ©ì‹¸ìž, í™”ì•½ ì‚¬ëƒ¥ê¾¼ë“¤ì´ ì˜ì§€ì— ë§Œì—°í•œ ì§ìŠ¹ë“¤ì„ ì†Œíƒ•í•˜ëŸ¬ ë‚˜ì„°ìŠµë‹ˆë‹¤.]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[ì‚¬ëƒ¥ê¾¼ì˜ ë°¤]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[ê°ì„±]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[ì´ ì‚¬ëƒ¥ì—ì„œ ë‚˜ëŠ” ì‚´ì•„ë‚¨ìœ¼ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[ì´ ì§ìŠ¹ë“¤ì´ ëª¨ë‘ ì£½ê¸° ì „ì—ëŠ”, ë‚˜ëŠ” ì“°ëŸ¬ì§€ì§€ ì•Šìœ¼ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[ì§ìŠ¹ë“¤ì´ì—¬! ë‚´ê²Œë¡œ ì˜¤ë„ˆë¼!]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[ë„¤ë†ˆë³´ë‹¤ ë” ê°•í•œ ì§ìŠ¹ë„ ë¬´ì°”ëŸ¬ë³¸ ëª¸ì´ë‹¤!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[ë†ˆë“¤ì´ ì™”ë˜ ê³³ìœ¼ë¡œ ë˜ëŒë ¤ ë³´ë‚´ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[ìš°ë¦¬ì˜ íž˜ ì•žì—ì„œëŠ”, ì € ì•…í•œ ì§ìŠ¹ë“¤ë„ ìƒëŒ€ê°€ ë˜ì§€ ì•ŠëŠ”ë‹¤!]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[ë‚´ê°€ ë„¤ë†ˆì˜ ìš´ëª…ì„ ë°›ì•„ë“¤ì¼ ê²ƒ ê°™ìœ¼ëƒ!]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[ê´‘ëž€]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[ìš°ë¦¬ë„ ì–¸ì  ê°€ëŠ” ì§ìŠ¹ì´ ë  ê²ƒì´ë‹¤!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[ì§ìŠ¹ë“¤... ì˜¨ ì²œì§€ì— ì§ìŠ¹ë“¤ ë¿ì´ë¡œêµ°!]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[ì‚¬ëƒ¥ì˜ í–¥ê¸°... í”¼ë¡œë‹¤!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[ë„¤ë†ˆë„ ê°ì—¼ëêµ°? ë¬¼ëŸ¬ë‚˜!]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[ì´ ë§›! ì´ í–¥ê¸°! í”¼ë¡œë‹¤!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[ë‚´ê°€ ìƒëŒ€í•˜ê³  ë§í…Œë‹¤!]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[ë‚´ ì•žì—ì„œ ë¬¼ëŸ¬ë‚˜!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[ì‚¬ëƒ¥ì˜ í–¥ê¸°ë¼. ë¯¸ì³ë²„ë¦´ ì§€ê²½ì´êµ°!]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[ì•žì„ ë³¼ ìˆ˜ê°€ ì—†ì–´... ë¶‰ì€ ë¹›ë°–ì— ë³´ì´ì§ˆ ì•Šì•„!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[ë‚´ê°€ ì£½ì—¬ë²„ë¦´ ê±°ì•¼! ì € í”¼ëŠ”! ë‚˜ì˜ ê²ƒì´ëž€ ë§ì´ë‹¤!]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[ê·¸ ê¿ˆì†ìœ¼ë¡œ ë‚  ëŒë ¤ë³´ë‚´ì¤˜!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[ëª…ë ¹í•˜ì§€ ë§ˆë¼!]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[ì—¬ê¸°ì„œ ì•„ì§ í•  ì¼ì´ ë‚¨ì•„ìžˆë‹¤.]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[ì† ëŒ€ì§€ë§ˆ!]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[ë†ˆë“¤ì´ ë‚´ í”¼ë¥¼ ë”°ë¼ì˜¤ëŠ”êµ°!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[ì£½ì¼ ì§ìŠ¹ë“¤ì´ ë‚¨ì•„ìžˆì§€ ì•Šë‚˜!]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[ë„ë§ì¹˜ì§€ ë§ˆë¼. ì´ ê²ìŸì´ë“¤ì•„!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[í•˜... í¬í•«... í¬í•˜í•˜í•˜í•˜í•˜í•˜!]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[ê·¸ë”°ìœ„ ê±¸ë¡œ ë‚´ê°€ ì“°ëŸ¬ì§ˆ ê²ƒ ê°™ë‚˜!?]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[ë¬¼ëŸ¬ì„œë¼. ì§ìŠ¹ì•„!]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[ì•ˆë¼! ë†ˆë“¤ì´ ë‚  ê°ì—¼ì‹œí‚¬ê±°ì•¼!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[ë„¤ë†ˆë„ ì¡°ë§Œê°„ ì € ê¼´ì´ ë‚˜ë¦¬ë¼!]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[ë‚˜ëŒ€ì‹  ìž˜ í•´ì£¼ëŠ”êµ¬ë§Œ.]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[ë„¤ë†ˆë„ í•œ íŒ¨ê±°ë¦¬êµ°. ê·¸ë ‡ì§€ ì•Šë‚˜?]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[ê¶ì§€ì— ì•„ì£¼ ì‰½ê²Œ ëª°ë ¤ì£¼ì‹œëŠ”êµ¬ë§Œ.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[ë„¤ë†ˆì˜ ë„ì›€ë”°ìœˆ í•„ìš”ì—†ì–´.]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[ë¬¼ëŸ¬ë‚˜!]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[ì´ ëƒ„ìƒˆ... ë„ˆë¬´ ê°•ë ¬í•´!]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[ì•„ì£¼ ë©‹ì ¸!]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[ìœ¼ìŒ... ì´ë ‡ê²Œ?]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[ê±°ì˜ ë‹¤ ëì–´...]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[ì•ˆë¼... ê·¸ ê¿ˆ ì†ìœ¼ë¡  ëŒì•„ê°€ê³  ì‹¶ì§€ ì•Šì•„...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[ì™œ ì‰¬ê³  ìžˆëŠ”ê±°ì§€? ì‚¬ëƒ¥ì€ ì•„ì§ ëë‚˜ì§€ ì•Šì•˜ë‹¤.]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(ìœ¼ë¥´ë ëŒ€ë©°) ê¹¨ì–´... ìžˆì–´ì•¼ë§Œ... í•´...]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[ì—¬ê¸° ê³„ì† ìžˆì„ ìˆœ ì—†ì–´!]]></entry>
+	</language>
+	
+	<language id="schinese">
+		<entry id="effect_health_damage_format"><![CDATA[æŸå¤±%dç”Ÿå‘½]]></entry>
+		
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_100_tooltip"><![CDATA[{colour_start|bleed}æµè¡€{colour_end} (å¯¹{colour_start|stun}çœ©æ™•{colour_end}) (åŸºç¡€100%%)
+		1ç‚¹/å›žåˆ æŒç»­3å›žåˆ]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_110_tooltip"><![CDATA[{colour_start|bleed}æµè¡€{colour_end} (å¯¹{colour_start|stun}çœ©æ™•{colour_end}) (åŸºç¡€110%%)
+		1ç‚¹/å›žåˆ æŒç»­3å›žåˆ]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_120_tooltip"><![CDATA[{colour_start|bleed}æµè¡€{colour_end} (å¯¹{colour_start|stun}çœ©æ™•{colour_end}) (åŸºç¡€120%%)
+		2ç‚¹/å›žåˆ æŒç»­3å›žåˆ]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_130_tooltip"><![CDATA[{colour_start|bleed}æµè¡€{colour_end} (å¯¹{colour_start|stun}çœ©æ™•{colour_end}) (åŸºç¡€130%%)
+		2ç‚¹/å›žåˆ æŒç»­3å›žåˆ]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_visceral_bleed_140_tooltip"><![CDATA[{colour_start|bleed}æµè¡€{colour_end} (å¯¹{colour_start|stun}çœ©æ™•{colour_end}) (åŸºç¡€140%%)
+		3ç‚¹/å›žåˆ æŒç»­3å›žåˆ]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_kh_bma_tool_tip"><![CDATA[-30%% è¿œç¨‹ä¼¤å®³ (æ¯åœºæˆ˜æ–—
+		ç¬¬ä¸€æ¬¡è¿œç¨‹æ”»å‡»é™¤å¤–)]]></entry>
+
+
+		<entry id="hero_class_name_chorus"><![CDATA[ç‚¸è¯æ¡¶çŒŽäºº]]></entry>
+		<entry id="str_incompatible_party_chorus_limit"><![CDATA[ä¸è¡Œ]]></entry>
+		<entry id="str_incompatible_party_member_chorus_limit"><![CDATA[ä¸è¡Œ]]></entry>
+
+		<entry id="action_verbose_body_blacksmith_chorus"><![CDATA[å’Œè®¸å¤šé›…å—çš„çŒŽäººä¸€æ ·ï¼Œç‚¸è¯æ¡¶çŒŽäººç©¿ç€è½»é‡çš„çš®ç”²ï¼Œè®©ä»–æœ‰å¾ˆå¼ºçš„æœºåŠ¨æ€§ï¼Œç”¨ä»¥æŠµæ¶ˆä½¿ç”¨é‡åž‹æ­¦å™¨å¸¦æ¥çš„è´Ÿæ‹…ã€‚ä»–çš„é‚£æŠŠé•¿çŸ›è¿˜å¯ä»¥ä½œä¸ºç«æžªä½¿ç”¨ï¼Œç”šè‡³å‘å°„ç‚¸è¯ã€‚ç‚¸è¯æ¡¶æœ‰ä¸€å¥è¯ï¼šã€Œå¦‚æžœä¸€ä»¶æ­¦å™¨æ²¡æœ‰ç«è¯ï¼Œå®ƒå°±ä¸æ˜¯å¥½æ­¦å™¨ã€‚ã€]]></entry>
+		<entry id="action_verbose_body_guild_chorus"><![CDATA[ç‚¸è¯æ¡¶çŒŽäººæ˜¯é›…å—è¡—é“ä¸Šæ¸…ç†é‡Žå…½çš„ä½¼ä½¼è€…ï¼Œä»–ä»¬çš„é€Ÿåº¦å’Œé‡åž‹æ­¦å™¨æ˜¯å…¶ä»–çŒŽäººæ— æ³•æ¯”æ‹Ÿçš„ï¼Œå› ä¸ºä»–ä»¬åœ¨æ¯ä¸ªç‹©çŒŽçš„å¤œæ™šéƒ½åªç•™ä¸‹äº†è¢«çƒ§ç„¦çš„è¡€æ¶²å’Œç°çƒ¬ã€‚]]></entry>
+		<entry id="action_verbose_body_camping_trainer_chorus"><![CDATA[ç‹©çŒŽçš„å¤œæ™šå¯èƒ½æ˜¯æ¼«é•¿çš„ï¼Œç‚¸è¯æ¡¶çŒŽäººç†Ÿç»ƒçš„ä¸ä»…ä»…æ˜¯å‡»æ€é‡Žå…½ï¼Œè¿˜æœ‰è°ƒæ•´è£…å¤‡ä¸ºä¸‹ä¸€ä¸ªç›®æ ‡åšå‡†å¤‡ã€‚ç‚¸è¯æ¡¶å¯ä»¥éšæ—¶è°ƒæ•´è£…å¤‡ï¼Œæ‰¾åˆ°æœ€ä½³çš„èº²é¿åŸ‹ä¼çš„åœ°æ–¹ï¼Œç”šè‡³åœ¨è¯¥ä¼‘å…»çš„æ—¶å€™ï¼Œè¿˜å¯ä»¥ç…§é¡¾è‡ªå·±çš„ä¼¤å£ã€‚]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_clutch"><![CDATA[å—åˆ°ä¼¤å®³:]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_calamity_tooltip"><![CDATA[{colour_start|stealth}æ¸¸é­‚{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_CoMSTR"><![CDATA[{colour_start|stealth}å¯åœ¨å†œåº„ä½¿ç”¨{colour_end}]]></entry>
+		<entry id="buff_stat_tooltip_upgrade_discount_farm"><![CDATA[å†œåº„]]></entry>
+		<entry id="buff_rule_data_tooltip_farm"><![CDATA[å†œåº„]]></entry>
+
+		
+		<entry id="combat_skill_name_chorus_spear_thrust"><![CDATA[é•¿äºˆçªåˆº]]></entry>
+		<entry id="combat_skill_name_chorus_flak_shot"><![CDATA[æ•£å¼¹å°„å‡»]]></entry>
+		<entry id="combat_skill_name_chorus_staggering_shot"><![CDATA[æ‹¦é˜»å°„å‡»]]></entry>
+		<entry id="combat_skill_name_chorus_nail_bomb"><![CDATA[é’‰å­ç‚¸å¼¹]]></entry>
+		<entry id="combat_skill_name_chorus_visceral"><![CDATA[å†…è„æ”»å‡»]]></entry>
+		<entry id="combat_skill_name_chorus_rally"><![CDATA[é›†å…ƒæ–©å‡»]]></entry>
+		<entry id="combat_skill_name_chorus_blood_bullets"><![CDATA[è¡€å¼¹]]></entry>
+		<entry id="combat_skill_name_chorus_move"><![CDATA[ç§»åŠ¨]]></entry>
+		<entry id="upgrade_tree_name_chorus.spear_thrust"><![CDATA[é•¿äºˆçªåˆº]]></entry>
+		<entry id="upgrade_tree_name_chorus.flak_shot"><![CDATA[æ•£å¼¹å°„å‡»]]></entry>
+		<entry id="upgrade_tree_name_chorus.staggering_shot"><![CDATA[æ‹¦é˜»å°„å‡»]]></entry>
+		<entry id="upgrade_tree_name_chorus.nail_bomb"><![CDATA[é’‰å­ç‚¸å¼¹]]></entry>
+		<entry id="upgrade_tree_name_chorus.visceral"><![CDATA[å†…è„æ”»å‡»]]></entry>
+		<entry id="upgrade_tree_name_chorus.rally"><![CDATA[é›†å…ƒæ–©å‡»]]></entry>
+		<entry id="upgrade_tree_name_chorus.blood_bullets"><![CDATA[è¡€å¼¹]]></entry>
+
+		<entry id="chorus_weapon_0"><![CDATA[ç”Ÿé”ˆçš„æ­¥æžªçŸ›]]></entry>
+		<entry id="chorus_weapon_1"><![CDATA[é”‹åˆ©çš„æ­¥æžªçŸ›]]></entry>
+		<entry id="chorus_weapon_2"><![CDATA[å®Œå¥½çš„æ­¥æžªçŸ›]]></entry>
+		<entry id="chorus_weapon_3"><![CDATA[é²œè¡€æ·‹æ¼“çš„æ­¥æžªçŸ›]]></entry>
+		<entry id="chorus_weapon_4"><![CDATA[â€œç­å…½å™¨â€]]></entry>
+		<entry id="upgrade_tree_name_chorus.weapon"><![CDATA[æ­¥æžªçŸ›]]></entry>
+		<entry id="chorus_armour_0"><![CDATA[ç ´çƒ‚çš„çš®è¡£]]></entry>
+		<entry id="chorus_armour_1"><![CDATA[Iæ–°æ‰‹çš„åˆ¶æœ]]></entry>
+		<entry id="chorus_armour_2"><![CDATA[ç›–æ»¡ç°çš„åˆ¶æœ]]></entry>
+		<entry id="chorus_armour_3"><![CDATA[é²œè¡€æ·‹æ¼“çš„åˆ¶æœ]]></entry>
+		<entry id="chorus_armour_4"><![CDATA[â€œé…‹æ‹‰çš„åˆ¶æœâ€]]></entry>
+		<entry id="upgrade_tree_name_chorus.armour"><![CDATA[ç‚¸è¯æ¡¶çš„åˆ¶æœ]]></entry>
+
+		<entry id="effect_tooltip_target_group_other"><![CDATA[å…¶ä»–æ•Œæ–¹:]]></entry>
+
+		<entry id="chorus+str_monster_user_selected_targets_kill_pill"><![CDATA[æˆ‘çš„ç‹©çŒŽç»ˆäºŽè¦ç»“æŸäº†å—ï¼Ÿ]]></entry>
+
+
+
+
+		<entry id="camping_skill_name_kh_blood_vile"><![CDATA[è¡€ç“¶]]></entry>
+		<entry id="camping_skill_name_kh_warding_incense"><![CDATA[è¾Ÿé‚ªè–°é¦™]]></entry>
+		<entry id="camping_skill_name_kh_lead_the_hunt"><![CDATA[å¸¦é¢†ç‹©çŒŽ]]></entry>
+		<entry id="camping_skill_name_kh_workshop_tools"><![CDATA[å·¥åŠå·¥å…·]]></entry>
+
+		<entry id="buff_stat_tooltip_upgrade_discount_free"><![CDATA[{colour_start|notable}ä¸æ¶ˆè€—è¡ŒåŠ¨{colour_end}]]></entry>
+
+		<entry id="trinket_hero_class_requirement_seperator"><![CDATA[æˆ–]]></entry>
+		
+		<entry id="party_name_kh_party_00"><![CDATA[å·¥åŠå¼‚ç«¯]]></entry>
+		<entry id="party_name_kh_party_01"><![CDATA[é›…å—çŒŽäºº]]></entry>
+
+		<entry id="chorus+str_bark_first_aid"><![CDATA[è¡€çš„è…¥å‘³ä¼šå¸å¼•ç€é‡Žå…½]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[æˆ‘æ¥å¸®ä½ åŒ…æ‰Ž]]></entry>
+		<entry id="chorus+str_bark_first_aid"><![CDATA[è¿™è™½ç„¶ä¸æ˜¯æ—§ç¥žçš„è¡€ï¼Œä¸è¿‡è¿˜æ˜¯æœ‰ç”¨]]></entry>
+
+		<entry id="chorus+str_bark_encourage"><![CDATA[ç‹©çŒŽå¿«è¦ç»“æŸäº†]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[è¿™äº›é‡Žå…½éƒ½æ˜¯ç®€å•ã€ä½Žçº§çš„ç”Ÿç‰©]]></entry>
+		<entry id="chorus+str_bark_encourage"><![CDATA[æˆ‘ä»¬ä¼šè§£å†³è¿™ä¸ªå›°æ‰°äººä»¬çš„ç¥¸å®³]]></entry>
+
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[ç«ç‚¬çš„ç«å…‰èƒ½ä½¿æˆ‘ä»¬å®‰å…¨]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[æˆ‘ä»¬ä¸ä¼šå› ä¸ºç–¯ç‹‚çš„è€³è¯­è€ŒåŠ¨æ‘‡]]></entry>
+		<entry id="chorus+str_bark_pep_talk"><![CDATA[æŠµæŠ—è¡€çš„å¬å”¤]]></entry>
+
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[æ—§ç¥žçš„è¡€èƒ½åŒ»ç™¾ç—…]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[æ„Ÿè°¢æ²»æ„ˆæ•™ä¼šçš„ä¿®å¥³ä»¬]]></entry>
+		<entry id="chorus+str_bark_kh_blood_vile"><![CDATA[æ„¿æ²»æ„ˆæ•™ä¼šä¿ä½‘æˆ‘ä»¬]]></entry>
+
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[è¿™äº›è–°é¦™ä¼šè®©é‡Žå…½ä¸æ•¢é è¿‘]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[é›…å—äººåœ¨ç‹©çŒŽæ—¶éƒ½ä¼šçƒ§è¿™äº›]]></entry>
+		<entry id="chorus+str_bark_kh_warding_incense"><![CDATA[è¿™ç§æ°”å‘³ä¼šé©±èµ¶å¤§å¤šæ•°é‡Žå…½]]></entry>
+
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[åœ£å…‰æ‰¿è¯ºåœ¨æœ€é»‘æš—çš„ç‹©çŒŽä¸­ä¿è¯å®‰å…¨]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[çŒŽäººä¸ä¼šæˆä¸ºçŒŽç‰©]]></entry>
+		<entry id="chorus+str_bark_kh_lead_the_hunt"><![CDATA[ä¸æ€å…‰æ‰€æœ‰é‡Žå…½ï¼Œæˆ‘æ˜¯ä¸ä¼šç½¢ä¼‘çš„]]></entry>
+
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[è®©æˆ‘å¥½å¥½åŠ å·¥å®ƒä¸€ä¸‹]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[æˆ‘å¯ä»¥å¸®ä½ æ”¹é€ ]]></entry>
+		<entry id="chorus+str_bark_kh_workshop_tools"><![CDATA[ä¸å¿…ä¸Žé‚£äº›ç”Ÿç‰©æ­£é¢äº¤é”‹]]></entry>
+
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ç»™æˆ‘åœä½]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[ä»€ä¹ˆï¼Ÿ]]></entry>
+		<entry id="chorus+str_override_invalid_rejection"><![CDATA[æ‰“ä½]]></entry>
+
+		<entry id="chorus+str_critbyhero"><![CDATA[Umbasa. (é˜¿é—¨)]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[åˆä¸€å¤´é‡Žå…½å€’ä¸‹]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[ä½ å°†ä¸å†ç¥¸å®³è¿™ä¸ªä¸–ç•Œï¼]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[è¿™äº›é‡Žå…½æ²¡èµ„æ ¼å¾—åˆ°é…‹æ‹‰çš„æ€œæ‚¯]]></entry>
+		<entry id="chorus+str_critbyhero"><![CDATA[ç¦»ç»“æŸè¿™åœºç‹©çŒŽåˆè¿‘äº†ä¸€æ­¥]]></entry>
+
+		<entry id="town_event_description_first_chorus"><![CDATA[æœ€è¿‘ï¼Œä¸€ä¸ªæ‰‹æŒä»Žæœªè§è¿‡çš„æžªæ”¯çš„ç”·å­ï¼Œè·Œè·Œæ’žæ’žåœ°æ¥åˆ°äº†å°é•‡ã€‚ä»–ä¸åœåœ°å˜€å’•ç€ä»€ä¹ˆè¦é€ƒç¦»ã€Œæ¢¦å¢ƒã€ã€‚]]></entry>
+		<entry id="town_event_title_first_chorus"><![CDATA[å·¥åŠå¼‚ç«¯]]></entry>
+		
+		<entry id="town_event_description_bonus_recruit_chorus"><![CDATA[å·²æ•…ç›Ÿçº¦çš„æ™šæœŸå¹¸å­˜è€…ï¼Œä»–ä»¬å¸¦æ¥çš„å†›ç«åº“ä¹Ÿè®¸è¶³ä»¥å¤·å¹³æˆ‘ä»¬çš„å¯¹æ‰‹ã€‚]]></entry>
+		<entry id="town_event_title_bonus_recruit_chorus"><![CDATA[æ—§é›…å—çš„çŒŽäºº]]></entry>
+		
+		<entry id="town_event_description_idle_resolve_level_chorus"><![CDATA[åœ¨æœ€é»‘æš—çš„å¤œæ™šï¼Œå¯æ€•çš„å¨èƒæ½œä¼åœ¨å°é•‡ï¼Œç‚¸è¯æ¡¶å¼€å§‹æ¸…ç†åœ¨æˆ‘ä»¬é•‡ä¸Šæ¨ªè¡Œçš„é‡Žå…½ã€‚]]></entry>
+		<entry id="town_event_title_idle_resolve_level_chorus"><![CDATA[çŒŽäººä¹‹å¤œ]]></entry>
+
+		<entry id="str_virtue_name_kh_vigilant"><![CDATA[æœºè­¦]]></entry>    
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[æˆ‘ä¼šåœ¨è¿™æ¬¡ç‹©çŒŽä¸­æ´»ä¸‹æ¥ï¼]]></entry>
+		<entry id="chorus+str_virtued_kh_vigilant"><![CDATA[è¿™äº›é‡Žå…½ä¼šå€’ä¸‹ï¼]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[æ”¾é©¬è¿‡æ¥ï¼Œé‡Žå…½ï¼]]></entry>
+		<entry id="chorus+str_stress_heal_self_kh_vigilant"><![CDATA[æˆ‘æ€è¿‡æ¯”ä½ æ›´å¼ºå¤§çš„é‡Žå…½ï¼]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[æŠŠç‰ ä»¬ä»Žå“ªé‡Œæ¥å°±ä»Žå“ªé‡Œèµ¶å›žåŽ»ï¼]]></entry>
+		<entry id="chorus+str_stress_heal_party_kh_vigilant"><![CDATA[è¿™äº›é‡Žå…½åœ¨æˆ‘ä»¬é¢å‰ä»€ä¹ˆéƒ½ä¸æ˜¯ï¼]]></entry>
+		<entry id="str_block_effect_kh_vigilant"><![CDATA[æˆ‘ä¸ä¼šåŠ å…¥ä½ ä»¬çš„æœ«æ—¥ï¼]]></entry>
+		
+		<entry id="str_affliction_name_kh_frenzied"><![CDATA[ç‹‚ä¹±]]></entry>
+		<entry id="str_roster_list_kh_frenzied_bark"><![CDATA[æ—©æ™šæˆ‘ä»¬å…¨éƒ½ä¼šæˆä¸ºé‡Žå…½ï¼]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[é‡Žå…½â€¦åˆ°å¤„éƒ½æ˜¯é‡Žå…½ï¼]]></entry>
+		<entry id="chorus+str_afflicted_kh_frenzied"><![CDATA[ç‹©çŒŽçš„æ°”å‘³â€¦é²œè¡€ï¼]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[ä½ å·²ç»æ„ŸæŸ“äº†å¯¹å§ï¼Ÿç¦»æˆ‘è¿œä¸€ç‚¹ï¼]]></entry>
+		<entry id="chorus+str_attack_friendly_kh_frenzied"><![CDATA[è¿™å‘³é“ï¼è¿™æ°”å‘³ï¼è¡€å•Šï¼]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[æˆ‘è¦ä¸Šåœºäº†ï¼]]></entry>
+		<entry id="chorus+str_change_pos_fwd_kh_frenzied"><![CDATA[åˆ«æŒ¡è·¯ï¼]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[é‚£äº›ç‹©çŒŽçš„æ°”å‘³ï¼å¿«è¦æŠŠæˆ‘ç–¯ç‹‚ï¼]]></entry>
+		<entry id="chorus+str_random_command_kh_frenzied"><![CDATA[æˆ‘æ€è€ƒå¾ˆæ··ä¹±ï¼çœ¼å‰ä¸€åˆ‡éƒ½æ˜¯é²œçº¢è‰²ï¼]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[å…¨éƒ½æ”¾é©¬è¿‡æ¥ï¼ç»™æˆ‘ä½ ä»¬çš„è¡€ï¼]]></entry>
+		<entry id="chorus+str_mark_self_kh_frenzied"><![CDATA[å¸¦æˆ‘å›žåˆ°æ¢¦ä¸­å§]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[åˆ«å‘½ä»¤æˆ‘ï¼]]></entry>
+		<entry id="chorus+str_block_move_kh_frenzied"><![CDATA[æˆ‘è¿˜æ²¡å®Œï¼]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[åˆ«ç¢°æˆ‘ï¼]]></entry>
+		<entry id="chorus+str_block_heal_kh_frenzied"><![CDATA[ä½ åªæ˜¯æƒ³å¾—åˆ°æˆ‘çš„è¡€ï¼]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[è¿˜æœ‰ä¼™å…½ç­‰ç€æˆ‘å± æ€ï¼]]></entry>
+		<entry id="chorus+str_block_combat_retreat_kh_frenzied"><![CDATA[Dåˆ«è·‘å‘€ï¼Œèƒ†å°é¬¼]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[å“ˆâ€¦å“ˆå“ˆâ€¦å“ˆå“ˆå“ˆå“ˆå“ˆï¼]]></entry>
+		<entry id="chorus+str_comment_self_hit_kh_frenzied"><![CDATA[ä½ ä»¥ä¸ºè¿™å°±å¯ä»¥æ‰“å€’æˆ‘å—ï¼ï¼Ÿ]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[èµ°å¼€ï¼Œé‡Žå…½ï¼]]></entry>
+		<entry id="chorus+str_comment_self_missed_kh_frenzied"><![CDATA[ä¸è¦ï¼ä»–ä»¬ä¼šæ„ŸæŸ“æˆ‘ï¼]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[ä½ æ—©æ™šä¼šæˆä¸ºä»–ä»¬çš„ä¸€å‘˜]]></entry>
+		<entry id="chorus+str_comment_ally_hit_kh_frenzied"><![CDATA[ä½ æ­»æ€»æ¯”æˆ‘æ­»å¥½]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[ä½ è·Ÿä»–ä»¬æ˜¯ä¸€ä¼™çš„å¯¹ä¸å¯¹ï¼]]></entry>
+		<entry id="chorus+str_comment_ally_missed_kh_frenzied"><![CDATA[è¿™å°±ä¸è¡Œäº†ï¼Ÿ]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[æˆ‘ä¸éœ€è¦ä½ çš„å¸®å¿™]]></entry>
+		<entry id="chorus+str_block_camping_skill_target_kh_frenzied"><![CDATA[ç¦»æˆ‘è¿œä¸€ç‚¹ï¼]]></entry>
+		
+		<entry id="str_heart_attack_kh_frenzied"><![CDATA[è¿™é¦™å‘³â€¦å¤ªå¼ºçƒˆäº†ï¼]]></entry>
+
+		<entry id="chorus+str_bark_hobby"><![CDATA[çœŸæ£’ï¼]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[å””â€¦å°±è¿™æ ·ï¼Ÿ]]></entry>
+		<entry id="chorus+str_bark_hobby"><![CDATA[åªå·®ä¸€ç‚¹ç‚¹â€¦]]></entry>
+		<entry id="chorus+str_bark_deathsdoor"><![CDATA[ä¸ï¼Œæˆ‘ä¸æƒ³å›žåˆ°æ¢¦ä¸­â€¦]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[æˆ‘ä»¬ä¸ºä»€ä¹ˆè¦ä¼‘æ¯ï¼Ÿç‹©çŒŽè¿˜æ²¡ç»“æŸå‘¢ï¼]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[(å’†å“®) å¾—â€¦ä¿æŒâ€¦æ¸…é†’â€¦]]></entry>
+		<entry id="chorus+str_bark_stress_camp_kh_frenzied"><![CDATA[æˆ‘ä»¬ä¸èƒ½å¾…åœ¨è¿™ï¼]]></entry>
+	</language>
+	
+</root>

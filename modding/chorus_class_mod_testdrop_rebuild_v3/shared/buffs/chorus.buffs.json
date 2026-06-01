@@ -1,0 +1,292 @@
+{
+	"buffs": [{
+			"id": "KH Damage VS Bleed Buff Low",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.15,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "bleeding"
+			}
+		},
+		{
+			"id": "KH Damage VS Bleed Buff High",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.15,
+			"remove_if_not_active": false,
+			"rule_type": "actorStatus",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": "bleeding"
+			}
+		}, {
+			"id": "KHflakStunDebuff",
+			"stat_type": "resistance",
+			"stat_sub_type": "stun",
+			"amount": -0.05,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletAccBuff1",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "attack_rating",
+			"amount": 0.05,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletAccBuff2",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "attack_rating",
+			"amount": 0.06,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletAccBuff3",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "attack_rating",
+			"amount": 0.07,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletAccBuff4",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "attack_rating",
+			"amount": 0.08,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletAccBuff5",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "attack_rating",
+			"amount": 0.1,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletDamLowBuff",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_low",
+			"amount": 0.5,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletDamHighBuff",
+			"stat_type": "combat_stat_multiply",
+			"stat_sub_type": "damage_high",
+			"amount": 0.5,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletCritBuff1",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": 0.05,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletCritBuff2",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": 0.06,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletCritBuff3",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": 0.07,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletCritBuff4",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": 0.08,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "BloodBulletCritBuff5",
+			"stat_type": "combat_stat_add",
+			"stat_sub_type": "crit_chance",
+			"amount": 0.1,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "rangedonly",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "RallyHealBuff1",
+			"stat_type": "hp_heal_amount",
+			"stat_sub_type": "",
+			"amount": 1,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "RallyHealBuff2",
+			"stat_type": "hp_heal_amount",
+			"stat_sub_type": "",
+			"amount": 2,
+			"duration": 3,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "DeathsDoorHealDebuff",
+			"stat_type": "hp_heal_percent",
+			"stat_sub_type": "",
+			"amount": -3,
+			"remove_if_not_active": false,
+			"rule_type": "riposte",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHriposteHealBuff1",
+			"stat_type": "riposte",
+			"stat_sub_type": "KHriposte Heal1",
+			"amount": 1,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHriposteHealBuff2",
+			"stat_type": "riposte",
+			"stat_sub_type": "KHriposte Heal2",
+			"amount": 1,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		},
+		{
+			"id": "KHriposteHealBuff3",
+			"stat_type": "riposte",
+			"stat_sub_type": "KHriposte Heal3",
+			"amount": 1,
+			"remove_if_not_active": false,
+			"rule_type": "always",
+			"is_false_rule": false,
+			"rule_data": {
+				"float": 0,
+				"string": ""
+			}
+		}
+
+	]
+
+}

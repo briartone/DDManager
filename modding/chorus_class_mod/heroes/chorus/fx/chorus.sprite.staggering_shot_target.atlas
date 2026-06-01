@@ -1,0 +1,90 @@
+
+chorus.sprite.staggering_shot_target.png
+size: 518,180
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hole
+  rotate: false
+  xy: 357, 65
+  size: 55, 113
+  orig: 55, 113
+  offset: 0, 0
+  index: -1
+impact_inner
+  rotate: false
+  xy: 414, 97
+  size: 85, 81
+  orig: 85, 81
+  offset: 0, 0
+  index: -1
+impact_outer
+  rotate: false
+  xy: 201, 60
+  size: 154, 118
+  orig: 154, 118
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 7
+  size: 197, 171
+  orig: 197, 171
+  offset: 0, 0
+  index: -1
+shard_inner01
+  rotate: false
+  xy: 419, 2
+  size: 52, 27
+  orig: 52, 27
+  offset: 0, 0
+  index: -1
+shard_inner02
+  rotate: false
+  xy: 414, 68
+  size: 81, 27
+  orig: 81, 27
+  offset: 0, 0
+  index: -1
+shard_inner03
+  rotate: true
+  xy: 395, 4
+  size: 59, 22
+  orig: 59, 22
+  offset: 0, 0
+  index: -1
+shard_inner04
+  rotate: true
+  xy: 491, 14
+  size: 52, 25
+  orig: 52, 25
+  offset: 0, 0
+  index: -1
+shard_outer01
+  rotate: true
+  xy: 201, 2
+  size: 56, 39
+  orig: 56, 39
+  offset: 0, 0
+  index: -1
+shard_outer02
+  rotate: false
+  xy: 242, 18
+  size: 91, 40
+  orig: 91, 40
+  offset: 0, 0
+  index: -1
+shard_outer03
+  rotate: false
+  xy: 419, 31
+  size: 70, 35
+  orig: 70, 35
+  offset: 0, 0
+  index: -1
+shard_outer04
+  rotate: true
+  xy: 357, 2
+  size: 61, 36
+  orig: 61, 36
+  offset: 0, 0
+  index: -1

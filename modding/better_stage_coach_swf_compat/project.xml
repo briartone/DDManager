@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<Title>Better Stage Coach + SWF Compatibility Patch</Title>
+	<Language>english</Language>
+	<VersionMajor>1</VersionMajor>
+	<VersionMinor>0</VersionMinor>
+	<TargetBuild>0</TargetBuild>
+	<Tags>
+		<Tags>Patch</Tags>
+		<Tags>Compatibility</Tags>
+		<Tags>Gameplay Tweaks</Tags>
+	</Tags>
+	<ItemDescriptionShort>Reapplies Better Stage Coach over SWF's stage coach files.</ItemDescriptionShort>
+	<ItemDescription>
+		Load this after:
+		- Better Stage Coach
+		- SWF (V0.25) - 2goals, QOL, mermaids, sandwiches...
+
+		This patch keeps Better Stage Coach's stage coach behavior
+		when SWF would otherwise overwrite the same files.
+	</ItemDescription>
+</project>

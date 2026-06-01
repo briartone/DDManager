@@ -1,0 +1,183 @@
+{
+    "configuration": {
+        "class_specific_number_of_classes_threshold": 4
+    },
+    "skills": [
+        {
+            "id": "encourage",
+            "level": 0,
+            "cost": 2,
+            "use_limit": 1,
+            "effects": [{
+                "selection": "individual",
+                "requirements": [],
+                "chance": { "code": "a", "amount": 1.0 },
+                "type": "stress_heal_amount",
+                "sub_type": "",
+                "amount": 15
+            }],
+            "hero_classes": ["chorus"],
+            "upgrade_requirements": [{
+                "code": "0",
+                "currency_cost": [{ "type": "gold", "amount": 1750 }],
+                "prerequisite_requirements": []
+            }]
+        },
+        {
+            "id": "first_aid",
+            "level": 0,
+            "cost": 2,
+            "use_limit": 1,
+            "effects": [
+                {
+                    "selection": "individual",
+                    "requirements": [],
+                    "chance": { "code": "a", "amount": 1.0 },
+                    "type": "health_heal_max_health_percent",
+                    "sub_type": "",
+                    "amount": 0.15
+                },
+                {
+                    "selection": "individual",
+                    "requirements": [],
+                    "chance": { "code": "b", "amount": 1.0 },
+                    "type": "remove_bleeding",
+                    "sub_type": "",
+                    "amount": 0
+                },
+                {
+                    "selection": "individual",
+                    "requirements": [],
+                    "chance": { "code": "c", "amount": 1.0 },
+                    "type": "remove_poison",
+                    "sub_type": "",
+                    "amount": 0
+                }
+            ],
+            "hero_classes": ["chorus"],
+            "upgrade_requirements": [{
+                "code": "0",
+                "currency_cost": [{ "type": "gold", "amount": 1750 }],
+                "prerequisite_requirements": []
+            }]
+        },
+        {
+            "id": "pep_talk",
+            "level": 0,
+            "cost": 2,
+            "use_limit": 1,
+            "effects": [{
+                "selection": "individual",
+                "requirements": [],
+                "chance": { "code": "a", "amount": 1.0 },
+                "type": "buff",
+                "sub_type": "campingStressResistBuff",
+                "amount": -0.15
+            }],
+            "hero_classes": ["chorus"],
+            "upgrade_requirements": [{
+                "code": "0",
+                "currency_cost": [{ "type": "gold", "amount": 1750 }],
+                "prerequisite_requirements": []
+            }]
+        },
+        {
+            "id": "chorus_host_nest",
+            "level": 0,
+            "cost": 3,
+            "use_limit": 1,
+            "effects": [{
+                "selection": "self",
+                "requirements": [],
+                "chance": { "code": "a", "amount": 1.0 },
+                "type": "health_heal_max_health_percent",
+                "sub_type": "",
+                "amount": 0.4
+            }],
+            "hero_classes": ["chorus"],
+            "upgrade_requirements": [{
+                "code": "0",
+                "currency_cost": [{ "type": "gold", "amount": 1750 }],
+                "prerequisite_requirements": []
+            }]
+        },
+        {
+            "id": "chorus_thread_the_watch",
+            "level": 0,
+            "cost": 3,
+            "use_limit": 1,
+            "effects": [
+                {
+                    "selection": "self",
+                    "requirements": [],
+                    "chance": { "code": "a", "amount": 1.0 },
+                    "type": "reduce_ambush_chance",
+                    "sub_type": "",
+                    "amount": 1.0
+                },
+                {
+                    "selection": "self",
+                    "requirements": [],
+                    "chance": { "code": "b", "amount": 1.0 },
+                    "type": "buff",
+                    "sub_type": "campingPartySurprise",
+                    "amount": -0.2
+                },
+                {
+                    "selection": "self",
+                    "requirements": [],
+                    "chance": { "code": "c", "amount": 1.0 },
+                    "type": "buff",
+                    "sub_type": "campingMonstersSurprise",
+                    "amount": 0.2
+                }
+            ],
+            "hero_classes": ["chorus"],
+            "upgrade_requirements": [{
+                "code": "0",
+                "currency_cost": [{ "type": "gold", "amount": 1750 }],
+                "prerequisite_requirements": []
+            }]
+        },
+        {
+            "id": "chorus_shared_dream",
+            "level": 0,
+            "cost": 3,
+            "use_limit": 1,
+            "effects": [{
+                "selection": "individual",
+                "requirements": [],
+                "chance": { "code": "a", "amount": 1.0 },
+                "type": "stress_heal_amount",
+                "sub_type": "",
+                "amount": 15
+            }],
+            "hero_classes": ["chorus"],
+            "upgrade_requirements": [{
+                "code": "0",
+                "currency_cost": [{ "type": "gold", "amount": 1750 }],
+                "prerequisite_requirements": []
+            }]
+        },
+        {
+            "id": "chorus_signal_clarity",
+            "level": 0,
+            "cost": 3,
+            "use_limit": 1,
+            "effects": [{
+                "selection": "individual",
+                "requirements": [],
+                "chance": { "code": "a", "amount": 1.0 },
+                "type": "buff",
+                "sub_type": "campingStressResistBuff",
+                "amount": -0.15
+            }],
+            "hero_classes": ["chorus"],
+            "upgrade_requirements": [{
+                "code": "0",
+                "currency_cost": [{ "type": "gold", "amount": 1750 }],
+                "prerequisite_requirements": []
+            }]
+        }
+    ]
+}

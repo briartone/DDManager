@@ -1,0 +1,137 @@
+
+-------------------------------------------------------------------------------
+Parsing project file - D:\DarkestDungeonMods\Keg Hunter Release\project.xml
+Mod Data Directory = D:/DarkestDungeonMods/Keg Hunter Release/
+
+-------------------------------------------------------------------------------
+Processing Map Files files...
+
+-------------------------------------------------------------------------------
+Running Localization...
+Parsing localization/keg_hunter.string_table.xml
+Parsing localization/keg_hunter_tooltip.string_table.xml
+Parsing localization/trinkets_keg_hunter.string_table.xml
+
+Building Languages
+Exporting .loc2 files
+
+-------------------------------------------------------------------------------
+Searching for preview icon file D:/DarkestDungeonMods/Keg Hunter Release/preview_icon.png...FOUND!
+<UploadMode> - Set to direct_upload
+
+
+-------------------------------------------------------------------------------
+Detected 3 unchanged files
+The following files are unchanged and will be uploaded...
+D:/DarkestDungeonMods/Keg Hunter Release/overlays/poptext_hp_heal_dot.png
+D:/DarkestDungeonMods/Keg Hunter Release/overlays/tray_dot_hp_heal.png
+
+-------------------------------------------------------------------------------
+Modded files...
+
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.afflicted.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.attack_blood_bullets.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.attack_flak_shot.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.attack_nail_bomb.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.attack_rally.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.attack_spear_thrust.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.attack_staggering_shot.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.attack_visceral.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.camp.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.combat.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.defend.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.heroic.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.idle.png
+heroes/keg_hunter/keg_hunter_A/anim/keg_hunter.sprite.investigate.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.afflicted.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.attack_blood_bullets.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.attack_flak_shot.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.attack_nail_bomb.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.attack_rally.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.attack_spear_thrust.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.attack_staggering_shot.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.attack_visceral.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.camp.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.combat.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.defend.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.heroic.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.idle.png
+heroes/keg_hunter/keg_hunter_B/anim/keg_hunter.sprite.investigate.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.afflicted.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.attack_blood_bullets.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.attack_flak_shot.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.attack_nail_bomb.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.attack_rally.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.attack_spear_thrust.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.attack_staggering_shot.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.attack_visceral.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.camp.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.combat.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.defend.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.heroic.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.idle.png
+heroes/keg_hunter/keg_hunter_C/anim/keg_hunter.sprite.investigate.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.afflicted.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.attack_blood_bullets.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.attack_flak_shot.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.attack_nail_bomb.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.attack_rally.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.attack_spear_thrust.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.attack_staggering_shot.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.attack_visceral.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.camp.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.combat.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.defend.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.heroic.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.idle.png
+heroes/keg_hunter/keg_hunter_D/anim/keg_hunter.sprite.investigate.png
+campaign/town/town_event/town_event.image_bonus_recruit_keg_hunter.png
+campaign/town/town_event/town_event.image_first_keg_hunter.png
+campaign/town/town_event/town_event.image_idle_resolve_level_keg_hunter.png
+heroes/keg_hunter/anim/keg_hunter.sprite.afflicted.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.afflicted.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_blood_bullets.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_blood_bullets.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_flak_shot.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_flak_shot.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_nail_bomb.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_nail_bomb.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_rally.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_rally.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_spear_thrust.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_spear_thrust.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_staggering_shot.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_staggering_shot.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_visceral.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.attack_visceral.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.camp.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.camp.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.combat.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.combat.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.defend.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.defend.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.heroic.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.heroic.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.idle.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.idle.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.investigate.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.investigate.skel
+heroes/keg_hunter/anim/keg_hunter.sprite.walk.atlas
+heroes/keg_hunter/anim/keg_hunter.sprite.walk.skel
+heroes/keg_hunter/fx/keg_hunter.sprite.blood_bullets.atlas
+heroes/keg_hunter/fx/keg_hunter.sprite.blood_bullets.png
+heroes/keg_hunter/fx/keg_hunter.sprite.blood_bullets.skel
+heroes/keg_hunter/fx/keg_hunter.sprite.flak_shot.atlas
+heroes/keg_hunter/fx/keg_hunter.sprite.flak_shot.png
+heroes/keg_hunter/fx/keg_hunter.sprite.flak_shot.skel
+heroes/keg_hunter/fx/keg_hunter.sprite.flak_shot_target.atlas
+heroes/keg_hunter/fx/keg_hunter.sprite.flak_shot_target.png
+heroes/keg_hunter/fx/keg_hunter.sprite.flak_shot_target.skel
+heroes/keg_hunter/fx/keg_hunter.sprite.nail_bomb.atlas
+heroes/keg_hunter/fx/keg_hunter.sprite.nail_bomb.png
+heroes/keg_hunter/fx/keg_hunter.sprite.nail_bomb.skel
+heroes/keg_hunter/fx/keg_hunter.sprite.nail_bomb_target.atlas
+heroes/keg_hunter/fx/keg_hunter.sprite.nail_bomb_target.png
+heroes/keg_hunter/fx/keg_hunter.sprite.nail_bomb_target.skel
+heroes/keg_hunter/fx/keg_hunter.sprite.rally.atlas
+heroes/keg_hunter/fx/keg_hunter.sprite.rally.png

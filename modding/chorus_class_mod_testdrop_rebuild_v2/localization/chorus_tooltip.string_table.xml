@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <language id="english">
+  
+    <!--Tooltips-->
+	<entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_cooldown_X"><![CDATA[{colour_start|notable}Cooldown{colour_end}]]></entry>
+	<entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_cooldown_A"><![CDATA[{colour_start|notable}Cooldown: 3 rds{colour_end}]]></entry>
+	
+	
+	<entry id="buff_stat_tooltip_upgrade_discount_meanad_tooltip_clear"><![CDATA[Clear {colour_start|debuff}Debuffs{colour_end}]]></entry>
+
+	
+	
+
+	 
+   </language>
+  
+ <language id="french">
+   <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+  </language>
+  
+  <language id="german">
+   <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+  </language>
+  
+  <language id="spanish">
+   <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+  </language>
+  
+  <language id="brazilian">
+   <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+  </language>
+  
+  <language id="russian">
+   <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+  </language>
+  
+   <language id="polish">
+    <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+  </language>
+  
+  <language id="czech">
+   <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+  </language>
+  
+  <language id="italian">
+   <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+  </language>
+  
+  <language id="schinese">
+  <!--Tooltips-->
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_forward"><![CDATA[{colour_start|move} Forward{colour_end} 3]]></entry>
+   <entry id="buff_stat_tooltip_upgrade_discount_MyTemplate_tooltip_force_guard"><![CDATA[Force {colour_start|move} Guard{colour_end} by Enemy]]></entry>
+  
+ </language>
+
+</root>
+

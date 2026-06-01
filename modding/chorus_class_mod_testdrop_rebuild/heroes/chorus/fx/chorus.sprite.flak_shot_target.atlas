@@ -1,0 +1,62 @@
+
+keg_hunter.sprite.flak_shot_target.png
+size: 341,295
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hole
+  rotate: true
+  xy: 147, 92
+  size: 66, 120
+  orig: 66, 120
+  offset: 0, 0
+  index: -1
+impact_inner
+  rotate: false
+  xy: 101, 17
+  size: 60, 33
+  orig: 60, 33
+  offset: 0, 0
+  index: -1
+impact_outer
+  rotate: false
+  xy: 147, 174
+  size: 160, 105
+  orig: 160, 105
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 16, 66
+  size: 213, 115
+  orig: 213, 115
+  offset: 0, 0
+  index: -1
+shard01
+  rotate: true
+  xy: 177, 22
+  size: 54, 38
+  orig: 54, 38
+  offset: 0, 0
+  index: -1
+shard02
+  rotate: true
+  xy: 283, 69
+  size: 89, 42
+  orig: 89, 42
+  offset: 0, 0
+  index: -1
+shard03
+  rotate: false
+  xy: 16, 17
+  size: 69, 33
+  orig: 69, 33
+  offset: 0, 0
+  index: -1
+shard04
+  rotate: true
+  xy: 231, 16
+  size: 60, 32
+  orig: 60, 32
+  offset: 0, 0
+  index: -1

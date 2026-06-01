@@ -44,6 +44,7 @@ if (-not (Test-Path $runtimeHook)) {
 python -m PyInstaller `
     --noconfirm `
     --clean `
+    --noupx `
     --windowed `
     --onedir `
     --name $appName `

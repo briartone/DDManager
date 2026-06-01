@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<PreviewIconFile>preview_icon.png</PreviewIconFile>
+	<ItemDescriptionShort>Compatibility patch for SWF and 24-slot inventory UI</ItemDescriptionShort>
+	<ModDataPath>C:/Users/areas/OneDrive/Documents/DD Manager/modding/swf_trinkets24_compat/</ModDataPath>
+	<Title>SWF + 24 Inventory Compatibility Patch</Title>
+	<Language>english</Language>
+	<UpdateDetails/>
+	<Visibility>private</Visibility>
+	<UploadMode>dont_upload</UploadMode>
+	<VersionMajor>1</VersionMajor>
+	<VersionMinor>0</VersionMinor>
+	<TargetBuild>0</TargetBuild>
+	<Tags>
+		<Tags>Patch</Tags>
+		<Tags>Compatibility</Tags>
+		<Tags>UI</Tags>
+		<Tags>Gameplay Tweaks</Tags>
+	</Tags>
+	<ItemDescription>
+		Restores a 24-slot inventory, 24-slot provision bag, and 8 trinket slots
+		while keeping SWF enabled.
+
+		Load this after:
+		- SWF (V0.25) - 2goals, QOL, mermaids, sandwiches...
+		- Trinkets 8, 24 Inventory, 10 Quirks
+	</ItemDescription>
+</project>

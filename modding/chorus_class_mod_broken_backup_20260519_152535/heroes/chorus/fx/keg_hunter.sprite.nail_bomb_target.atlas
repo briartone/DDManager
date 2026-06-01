@@ -1,0 +1,188 @@
+
+keg_hunter.sprite.nail_bomb_target.png
+size: 908,261
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blast
+  rotate: false
+  xy: 16, 29
+  size: 265, 216
+  orig: 265, 216
+  offset: 0, 0
+  index: -1
+nail_00
+  rotate: false
+  xy: 840, 194
+  size: 48, 18
+  orig: 48, 18
+  offset: 0, 0
+  index: -1
+nail_01
+  rotate: true
+  xy: 787, 34
+  size: 38, 26
+  orig: 38, 26
+  offset: 0, 0
+  index: -1
+nail_02
+  rotate: true
+  xy: 629, 16
+  size: 23, 47
+  orig: 23, 47
+  offset: 0, 0
+  index: -1
+nail_03
+  rotate: false
+  xy: 738, 19
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+nail_04
+  rotate: true
+  xy: 840, 228
+  size: 17, 50
+  orig: 17, 50
+  offset: 0, 0
+  index: -1
+shrapnel_00
+  rotate: false
+  xy: 629, 142
+  size: 82, 103
+  orig: 82, 103
+  offset: 0, 0
+  index: -1
+shrapnel_01
+  rotate: true
+  xy: 868, 71
+  size: 29, 21
+  orig: 29, 21
+  offset: 0, 0
+  index: -1
+shrapnel_02
+  rotate: false
+  xy: 872, 46
+  size: 10, 9
+  orig: 10, 9
+  offset: 0, 0
+  index: -1
+shrapnel_03
+  rotate: true
+  xy: 838, 87
+  size: 10, 12
+  orig: 10, 12
+  offset: 0, 0
+  index: -1
+shrapnel_04
+  rotate: false
+  xy: 838, 113
+  size: 14, 20
+  orig: 14, 20
+  offset: 0, 0
+  index: -1
+shrapnel_05
+  rotate: false
+  xy: 872, 20
+  size: 9, 10
+  orig: 9, 10
+  offset: 0, 0
+  index: -1
+shrapnel_06
+  rotate: true
+  xy: 692, 68
+  size: 58, 38
+  orig: 58, 38
+  offset: 0, 0
+  index: -1
+shrapnel_07
+  rotate: false
+  xy: 794, 100
+  size: 28, 30
+  orig: 28, 30
+  offset: 0, 0
+  index: -1
+shrapnel_08
+  rotate: false
+  xy: 727, 188
+  size: 32, 57
+  orig: 32, 57
+  offset: 0, 0
+  index: -1
+smoke
+  rotate: true
+  xy: 297, 31
+  size: 214, 316
+  orig: 214, 316
+  offset: 0, 0
+  index: -1
+sparks_00
+  rotate: false
+  xy: 746, 88
+  size: 32, 38
+  orig: 32, 38
+  offset: 0, 0
+  index: -1
+sparks_01
+  rotate: true
+  xy: 868, 155
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+sparks_02
+  rotate: false
+  xy: 727, 142
+  size: 37, 30
+  orig: 37, 30
+  offset: 0, 0
+  index: -1
+sparks_03
+  rotate: true
+  xy: 868, 116
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+sparks_04
+  rotate: false
+  xy: 829, 28
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+sparks_05
+  rotate: true
+  xy: 692, 16
+  size: 36, 30
+  orig: 36, 30
+  offset: 0, 0
+  index: -1
+sparks_06
+  rotate: true
+  xy: 780, 146
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+sparks_07
+  rotate: true
+  xy: 824, 149
+  size: 29, 28
+  orig: 29, 28
+  offset: 0, 0
+  index: -1
+sparks_08
+  rotate: true
+  xy: 629, 55
+  size: 71, 47
+  orig: 71, 47
+  offset: 0, 0
+  index: -1
+sparks_blast
+  rotate: false
+  xy: 775, 194
+  size: 49, 51
+  orig: 49, 51
+  offset: 0, 0
+  index: -1

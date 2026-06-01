@@ -84,3 +84,5 @@ Non-Steam note:
 
 
 See [`CHANGELOG.md`](CHANGELOG.md) for patch and release notes.
+
+For reviewer-oriented build steps, see [`BUILD.md`](BUILD.md).

@@ -1,0 +1,22 @@
+{
+	"sets": [
+
+
+		{
+			"id": "cc_chorus",
+			"buffs": [
+				"KHtrinketBeastDamageBuffLow20",
+				"KHtrinketBeastDamageBuffHigh20",
+				"KHtrinketVampireDamageBuffLow20",
+				"KHtrinketVampireDamageBuffHigh20",
+				"KHtrinketBeastStressDebuff20"
+			]
+		},
+		{
+			"id": "MB_chorus",
+			"buffs": [
+
+			]
+		}
+	]
+}

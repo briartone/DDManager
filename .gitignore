@@ -25,6 +25,7 @@ import os.py
 persist.game*.json
 _orig.decoded.json
 _real_state_sample*.json
+start_new_campaign_research.txt
 
 # OS junk
 Thumbs.db

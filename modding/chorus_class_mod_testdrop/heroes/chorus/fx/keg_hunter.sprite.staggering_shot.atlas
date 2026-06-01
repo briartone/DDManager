@@ -1,0 +1,104 @@
+
+keg_hunter.sprite.staggering_shot.png
+size: 1652,590
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+attack_hipshot
+  rotate: false
+  xy: 2, 4
+  size: 697, 584
+  orig: 699, 586
+  offset: 1, 1
+  index: -1
+muzzle_flash
+  rotate: false
+  xy: 1223, 5
+  size: 147, 120
+  orig: 147, 120
+  offset: 0, 0
+  index: -1
+rim_light
+  rotate: true
+  xy: 1223, 127
+  size: 461, 241
+  orig: 463, 243
+  offset: 1, 1
+  index: -1
+shading
+  rotate: true
+  xy: 701, 48
+  size: 540, 520
+  orig: 542, 522
+  offset: 1, 1
+  index: -1
+shot
+  rotate: false
+  xy: 1372, 53
+  size: 208, 72
+  orig: 208, 72
+  offset: 0, 0
+  index: -1
+smoke
+  rotate: false
+  xy: 1466, 407
+  size: 184, 181
+  orig: 184, 181
+  offset: 0, 0
+  index: -1
+smoke_orange
+  rotate: false
+  xy: 1466, 224
+  size: 184, 181
+  orig: 184, 181
+  offset: 0, 0
+  index: -1
+sparks01
+  rotate: true
+  xy: 701, 6
+  size: 40, 36
+  orig: 40, 36
+  offset: 0, 0
+  index: -1
+sparks02
+  rotate: false
+  xy: 861, 18
+  size: 28, 28
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
+sparks03
+  rotate: true
+  xy: 739, 3
+  size: 43, 32
+  orig: 43, 32
+  offset: 0, 0
+  index: -1
+sparks04
+  rotate: true
+  xy: 891, 12
+  size: 34, 20
+  orig: 34, 20
+  offset: 0, 0
+  index: -1
+sparks05
+  rotate: true
+  xy: 773, 2
+  size: 44, 30
+  orig: 44, 30
+  offset: 0, 0
+  index: -1
+sparks06
+  rotate: true
+  xy: 834, 11
+  size: 35, 25
+  orig: 35, 25
+  offset: 0, 0
+  index: -1
+sparks07
+  rotate: false
+  xy: 805, 13
+  size: 27, 33
+  orig: 27, 33
+  offset: 0, 0
+  index: -1

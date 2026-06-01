@@ -1,0 +1,157 @@
+{
+	"traits": [{
+			"id": "kh_frenzied",
+			"is_generated": false,
+			"overstress_type": "affliction",
+			"curio_tag": "none",
+			"curio_tag_chance": 0.5,
+			"keep_loot": false,
+			"generate_chance_modifier": 0.0,
+			"buff_ids": [
+				"KHfrenzied_Dlow",
+				"KHfrenzied_Dhigh",
+				"KHfrenzied_defend",
+				"KHfrenzied_acc",
+				"KHfrenzied_stress"
+			],
+			"combat_start_turn_act_outs": [{
+					"id": "nothing",
+					"data": {
+						"number_value": 0.0,
+						"string_value": ""
+					},
+					"chance": 19
+				},
+				{
+					"id": "attack_friendly",
+					"data": {
+						"number_value": 0.05,
+						"string_value": "KHbomb Bleed 1"
+					},
+					"chance": 2
+				},
+				{
+					"id": "change_pos",
+					"data": {
+						"number_value": -1.0,
+						"string_value": ""
+					},
+					"chance": 2
+				},
+				{
+					"id": "random_command",
+					"data": {
+						"number_value": 0.0,
+						"string_value": ""
+					},
+					"chance": 1
+				},
+				{
+					"id": "mark_self",
+					"data": {
+						"number_value": 0.0,
+						"string_value": ""
+					},
+					"chance": 1
+				}
+			],
+			"reaction_act_outs": [{
+					"id": "block_move",
+					"data": {
+						"effect": ""
+					},
+					"chance": 0.33
+				},
+				{
+					"id": "block_heal",
+					"data": {
+						"effect": ""
+					},
+					"chance": 0.33
+				},
+				{
+					"id": "block_combat_retreat",
+					"data": {
+						"effect": ""
+					},
+					"chance": 0.33
+				},
+				{
+					"id": "comment_self_hit",
+					"data": {
+						"effect": "BarkStress"
+					},
+					"chance": 0.2
+				},
+				{
+					"id": "comment_self_missed",
+					"data": {
+						"effect": "BarkStress"
+					},
+					"chance": 0.2
+				},
+				{
+					"id": "comment_ally_hit",
+					"data": {
+						"effect": "BarkStress"
+					},
+					"chance": 0.2
+				},
+				{
+					"id": "block_camping_skill_target",
+					"data": {
+						"effect": ""
+					},
+					"chance": 0.33
+				}
+			]
+		},
+		{
+			"id": "kh_vigilant",
+			"is_generated": false,
+			"overstress_type": "virtue",
+			"curio_tag": "none",
+			"curio_tag_chance": 0.5,
+			"keep_loot": false,
+			"generate_chance_modifier": 0.0,
+			"buff_ids": [
+				"KHvigilant_Dlow",
+				"KHvigilant_Dhigh",
+				"KHvigilant_defend",
+				"KHvigilant_heal_received"
+			],
+			"combat_start_turn_act_outs": [{
+					"id": "nothing",
+					"data": {
+						"number_value": 0.0,
+						"string_value": ""
+					},
+					"chance": 6
+				},
+				{
+					"id": "stress_heal_self",
+					"data": {
+						"number_value": 0.0,
+						"string_value": "HealStressVirtued"
+					},
+					"chance": 1
+				},
+				{
+					"id": "stress_heal_party",
+					"data": {
+						"number_value": 0.0,
+						"string_value": "HealStressVirtuedParty"
+					},
+					"chance": 1
+				}
+			],
+			"reaction_act_outs": [{
+				"id": "block_effect",
+				"data": {
+					"effect": "BarkStressHeal"
+				},
+				"chance": 1
+			}]
+		}
+	]
+}

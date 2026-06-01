@@ -1,0 +1,20 @@
+inventory_item_layout:
+	.icon_size	72 144
+	.icon_offset 4 0 
+	.amount_text_offset 14 4 
+	.cost_offset 37 157
+	.controller_button_offset 17 124
+
+inventory_curio_tracker_layout:
+	.icon_offset 24 118
+	.controller_active_icon_slide_offset 0 -24
+	.controller_active_icon_slide_animation_time 0.3
+	.controller_active_icon_slide_out_ease_function easeOutSine
+	.controller_active_icon_slide_in_ease_function easeInSine
+
+inventory_item_tooltip_layout:
+	.offset 85 0	
+	.text_width	200
+
+inventory_outline:
+	.variance_count 12 

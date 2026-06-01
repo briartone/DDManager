@@ -1,0 +1,139 @@
+
+keg_hunter.sprite.idle.png
+size: 1504,570
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Idle/Ascot
+  rotate: false
+  xy: 1413, 307
+  size: 75, 116
+  orig: 75, 116
+  offset: 0, 0
+  index: -1
+Idle/BootLeft
+  rotate: false
+  xy: 1276, 75
+  size: 100, 98
+  orig: 100, 98
+  offset: 0, 0
+  index: -1
+Idle/BootRight
+  rotate: true
+  xy: 1276, 189
+  size: 73, 108
+  orig: 73, 108
+  offset: 0, 0
+  index: -1
+Idle/Cap
+  rotate: true
+  xy: 502, 18
+  size: 192, 92
+  orig: 192, 92
+  offset: 0, 0
+  index: -1
+Idle/Cape
+  rotate: false
+  xy: 896, 257
+  size: 254, 297
+  orig: 254, 297
+  offset: 0, 0
+  index: -1
+Idle/CapeShoulders
+  rotate: false
+  xy: 1166, 439
+  size: 289, 115
+  orig: 289, 115
+  offset: 0, 0
+  index: -1
+Idle/CoatTailBack
+  rotate: false
+  xy: 610, 25
+  size: 167, 185
+  orig: 167, 185
+  offset: 0, 0
+  index: -1
+Idle/CoatTailLeft
+  rotate: false
+  xy: 952, 44
+  size: 141, 197
+  orig: 141, 197
+  offset: 0, 0
+  index: -1
+Idle/CoatTailRight
+  rotate: true
+  xy: 1166, 278
+  size: 145, 231
+  orig: 145, 231
+  offset: 0, 0
+  index: -1
+Idle/Collar
+  rotate: true
+  xy: 187, 16
+  size: 194, 128
+  orig: 194, 128
+  offset: 0, 0
+  index: -1
+Idle/Feather
+  rotate: false
+  xy: 793, 17
+  size: 143, 209
+  orig: 143, 209
+  offset: 0, 0
+  index: -1
+Idle/Head
+  rotate: false
+  xy: 16, 24
+  size: 155, 157
+  orig: 155, 157
+  offset: 0, 0
+  index: -1
+Idle/LeftForearm
+  rotate: false
+  xy: 1400, 114
+  size: 83, 70
+  orig: 83, 70
+  offset: 0, 0
+  index: -1
+Idle/LegCrotch
+  rotate: false
+  xy: 331, 17
+  size: 155, 193
+  orig: 155, 193
+  offset: 0, 0
+  index: -1
+Idle/Poncho
+  rotate: true
+  xy: 738, 242
+  size: 312, 142
+  orig: 312, 142
+  offset: 0, 0
+  index: -1
+Idle/RightForearm
+  rotate: true
+  xy: 1413, 200
+  size: 91, 74
+  orig: 91, 74
+  offset: 0, 0
+  index: -1
+Idle/Spear
+  rotate: false
+  xy: 95, 226
+  size: 627, 328
+  orig: 627, 328
+  offset: 0, 0
+  index: -1
+Idle/TorsoBelt
+  rotate: true
+  xy: 1109, 73
+  size: 168, 151
+  orig: 168, 151
+  offset: 0, 0
+  index: -1
+Idle/shadow
+  rotate: true
+  xy: 16, 197
+  size: 357, 63
+  orig: 357, 63
+  offset: 0, 0
+  index: -1

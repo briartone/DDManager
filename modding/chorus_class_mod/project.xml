@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<PreviewIconFile>preview_icon.png</PreviewIconFile>
+	<ItemDescriptionShort/>
+	<ModDataPath>C:/DDModding/chorus_class_mod/</ModDataPath>
+	<Title>The Chorus</Title>
+	<Language>english</Language>
+	<UpdateDetails/>
+	<Visibility>public</Visibility>
+	<UploadMode>direct_upload</UploadMode>
+	<VersionMajor>0</VersionMajor>
+	<VersionMinor>0</VersionMinor>
+	<TargetBuild>0</TargetBuild>
+	<Tags>
+		<Tags>New Class</Tags>
+		<Tags>support</Tags>
+		<Tags>hive mind</Tags>
+	</Tags>
+	<ItemDescription>
+		[img]https://i.imgur.com/G5gOUdH.png[/img]
+
+		[i]&quot;A survivor of Old Yharnam and a Hunter who escaped the Dream!&quot;[/i]
+		 
+		[h1][b]Introduction[/b][/h1]
+		[h1]------------------------------------------[/h1]
+		The Chorus is a new class mod for Darkest Dungeon inspired by the Chorus Hunters of Bloodborne. Having traversed the depths of the Chalice Dungeons, the Chorus had managed to follow a series of tunnels and rooms that eventually exited onto the coast near the Hamlet. His class uses a variety of techniques shown by the Hunters of Bloodborne, using high speed and devastating attacks to their advantage.
+
+		Wielding his trusty Rifle Spear, the Chorus continues his duty of protecting the common folk from the beasts that plague the land around him. Slash and shoot your way through the hordes of monsters that threaten the estate!
+		 
+		[h1][b]Combat Skills[/b][/h1]
+		[h1]------------------------------------------[/h1]
+		 
+		[b]Spear Thrust[/b]
+		[img]https://i.imgur.com/YXxBZ2F.png[/img]
+		XOOO OOXX
+		[i]The Chorus lunges forward with his Rifle Spear [/i]
+		 
+		Standard melee attack. Deals bonus damage against bleeding targets.
+		 
+		[b]Flak Shot[/b]
+		[img]https://i.imgur.com/dy3XK8x.png[/img]
+		XXOO O+OXX
+		[i]The Chorus fires his Rifle Spear, the wide spread hitting multiple targets.[/i]
+		 
+		Decent damage against front two targets. Moves the Chorus back one. Makes targets easier to stun.
+		 
+		[b]Staggering Shot[/b]
+		[img]https://i.imgur.com/06ZccQv.png[/img]
+		XXOO OOXX
+		[i]The Chorus lets off a well timed shot, staggering his enemy and stunning them.[/i]
+		 
+		Low damage. High stun chance. Slows target down considerably.
+		 
+		[b]Nail Bomb[/b]
+		[img]https://i.imgur.com/rqOoC45.png[/img]
+		XOOX O+O+O+O
+		[i]The Chorus lobs forth a nail bomb.[/i]
+		 
+		Low damage. Deals Bleed.
+		 
+		[b]Visceral Attack[/b]
+		[img]https://i.imgur.com/0mpURjo.png[/img]
+		XOOO OOOX
+		[i]The Chorus dashes towards his staggered apponent, tearing into them without mercy.[/i]
+		 
+		Low damage, high damage vs stunned. Deals bleed vs stun. Removes stun and applies stun remove buff. Moves forward one.
+		 
+		[b]Rallying Slash[/b]
+		[img]https://i.imgur.com/GElGJLw.png[/img]
+		OOOX OOXX
+		[i]The Chorus retaliates, rallying against his enemy to regain health.[/i]
+		 
+		Forward 3. Low damage. Low healing. Triggers riposte that heals for 3 turns.
+		 
+		[b]Blood Bullets[/b]
+		[img]https://i.imgur.com/DxOu1HO.png[/img]
+		XOOO
+		[i]The Chorus draws from his own vitality, generating strong bullets of solidifed blood.[/i]
+		 
+		Deal 15% damage to self. Set bleed for two turns. Increase accuracy, damage, and crit for ranged weapons.
+
+		[h1][b]Camping Skills[/b][/h1]
+		[h1]------------------------------------------[/h1]
+		 
+		[b]Blood Vial[/b]
+		[img]https://i.imgur.com/mzeYiIM.png[/img]
+		Time Cost: 3
+		[i]The Chorus injects himself with a vial of the Healing Church blood, revitalizing himself.[/i]
+		 
+		Self heal.
+		 
+		[b]Warding Incense[/b]
+		[img]https://i.imgur.com/AAU1ZgC.png[/img]
+		Time Cost: 3
+		[i]The Chorus lights multiple incense that&apos;re known for warding off beasts.[/i]
+		 
+		Reduce party surprise chance. Increase monster surprise. Prevents night time ambush.
+		 
+		[b]Lead the Hunt[/b]
+		[img]https://i.imgur.com/enRa3rA.png[/img]
+		Time Cost: 3
+		[i]The Chorus rallies the party to fight on.[/i]
+		 
+		Bonus damage against beasts. Reduces stress received and increases scouting chance at low torch light.
+		 
+		[b]Workshop Tools[/b]
+		[img]https://i.imgur.com/aV28oK6.png[/img]
+		Time Cost: 2
+		[i]The Chorus has mastered his tools used to improve weapons and mechanical devices.[/i]
+		 
+		Bonus crit, stun chance, and move chance on ranged skills.
+		 
+		[h1][b]Other Information[/b][/h1]
+		[h1]------------------------------------------[/h1]
+		[list]
+		[*]The Chorus&apos;s canon name is Loy Goodwin
+		[*]The Chorus is not religious.
+		[*]He uses the Training Ring.
+		[*]On crit, he applies a guaranteed bleed to those who aren&apos;t 200% resistant 
+		[*]This mod comes with 8 class specific trinkets for Chorus, including Crimson Court, COM.
+		[/list]
+		 
+		[h1][b]Credits[/b][/h1]
+		[h1]------------------------------------------[/h1]
+		[list]
+		[*]MoonKanin: Concest, sprites, animation, viscual fx, icon and trinket art, strings, programming
+		[*]Shay: Sound design, sharing his template for the mod description
+		[*]Uncanny Gemstar: Ability balancing and programming
+		[*]Cryptix: Professional bug exterminator
+		[/list]
+
+		[h1][b]Localization[/b][/h1]
+		[h1]------------------------------------------[/h1]
+		[list]
+		[*]Lydek (French)
+		[*]ShallowIris (Korean (both A and B))
+		[*]Rainturtle (Chinese)
+		[*]Magic (Russian)
+		[*]Eclair27 (Spanish)
+		[/list]
+
+		[h1][b]Testers[/b][/h1]
+		[h1]------------------------------------------[/h1]
+		[list]
+		[*]Grood
+		[*]Braynch
+		[*]Chapel
+		[*]BattedMH
+		[*]Uncanny Gemstar (what a bro helping me until the end)
+		[*]Bean Consumer
+		[*]Lydek
+		[*]NepNep
+		[*]Woona
+		[*]TheDonMafia
+		[/list]
+
+		There will be more Bloodborne related mods following over the next several months, and if you wish to support me and gain access to the raw art and animation files as well as behind the scenes concept art and design notes upon release of each finished mod, you can subscribe to my [url=https://www.patreon.com/KaninDungeon]Patreon[/url] where the Chorus Hunter&apos;s files will soon be.
+
+		[url=https://www.patreon.com/KaninDungeon][img]https://i.imgur.com/Pf8cBGi.png[/img][/url]
+
+		[h1][b]Legal[/b][/h1]
+		[h1]------------------------------------------[/h1]
+		This item and its contents may not be uploaded on any website, except on Steam under the profile [url=https://steamcommunity.com/profiles/76561198141196103/]MoonKanin[/url], or with MoonKanin&apos;s direct permission.
+
+		This mod is not an official Red Hook Studios product or product modification, and Red Hook Studios Inc. is not responsible in any way for changes or damages that may result from using the mod. Furthermore, Ã¢â‚¬Å“Darkest DungeonÃ¢â‚¬Â and the Darkest Dungeon logo are trademarks of Red Hook Studios Inc. All content in the game is Copyright Red Hook Studios Inc. All rights reserved.
+	</ItemDescription>
+	<PublishedFileId>2248772895</PublishedFileId>
+</project>
+

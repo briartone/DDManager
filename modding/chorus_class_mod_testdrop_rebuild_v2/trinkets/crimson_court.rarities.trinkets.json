@@ -1,0 +1,10 @@
+{
+   "rarities":
+   [
+        {
+            "id": "crimson_court",
+            "award_category": "universal",
+            "insert_before": "very_rare"
+        }
+   ]
+}

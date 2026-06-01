@@ -1,0 +1,3 @@
+campaign/town/buildings/stage_coach/stage_coach.building.json
+upgrades/building/stage_coach.upgrades.json
+project.xml

@@ -1,0 +1,13 @@
+
+chorus.sprite.rally.png
+size: 941,200
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+trail
+  rotate: false
+  xy: 16, 16
+  size: 909, 168
+  orig: 909, 168
+  offset: 0, 0
+  index: -1

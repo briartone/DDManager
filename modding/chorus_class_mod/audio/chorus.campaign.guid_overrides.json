@@ -1,0 +1,87 @@
+{
+	"event_guid_overrides": [{
+			"event_id": "event:/char/ally/chorus_spear_thrust",
+			"guid_override": "{ea690b1d-fc4c-4070-bad8-1725e89adc0e}"
+		},
+		{
+			"event_id": "event:/char/ally/chorus_spear_thrust_miss",
+			"guid_override": "{a768b453-e4cc-4308-a3ef-edf3937e7b1e}"
+		},
+
+		{
+			"event_id": "event:/char/ally/chorus_flak_shot",
+			"guid_override": "{77b644b6-9ee0-4827-a6cd-62cab8fa459f}"
+		},
+		{
+			"event_id": "event:/char/ally/chorus_flak_shot_miss",
+			"guid_override": "{82e347e2-7bdd-4be7-a304-b40975e832c7}"
+		},
+
+		{
+			"event_id": "event:/char/ally/chorus_staggering_shot",
+			"guid_override": "{fb2decff-4fd8-4e49-897f-af4e853912b0}"
+		},
+		{
+			"event_id": "event:/char/ally/chorus_staggering_shot_miss",
+			"guid_override": "{55a1e4d9-551a-4987-84ce-6dbc108dd822}"
+		},
+
+		{
+			"event_id": "event:/char/ally/chorus_nail_bomb",
+			"guid_override": "{8b187ef3-b7f5-4964-bf6e-afcc6e7946b1}"
+		},
+		{
+			"event_id": "event:/char/ally/chorus_nail_bomb_miss",
+			"guid_override": "{70c3e692-6896-424c-92a4-d53ff41ea865}"
+		},
+
+		{
+			"event_id": "event:/char/ally/chorus_visceral",
+			"guid_override": "{18806274-9ba9-4d4a-b212-1bd41076281b}"
+		},
+		{
+			"event_id": "event:/char/ally/chorus_visceral_miss",
+			"guid_override": "{8ace6db4-8bf2-42af-b594-c90a741ac535}"
+		},
+
+		{
+			"event_id": "event:/char/ally/chorus_rally",
+			"guid_override": "{5f3a44f3-fcf0-4754-8d39-4819068c8c2c}"
+		},
+		{
+			"event_id": "event:/char/ally/chorus_rally_miss",
+			"guid_override": "{ad1b1d5b-e3b4-4f43-853c-8c3b9fe3502e}"
+		},
+
+		{
+			"event_id": "event:/char/ally/chorus_riposte1",
+			"guid_override": "{5f3a44f3-fcf0-4754-8d39-4819068c8c2c}"
+		},
+		{
+			"event_id": "event:/char/ally/chorus_riposte1_miss",
+			"guid_override": "{ad1b1d5b-e3b4-4f43-853c-8c3b9fe3502e}"
+		},
+
+		{
+			"event_id": "event:/char/ally/chorus_blood_bullets",
+			"guid_override": "{b881412e-0709-4013-a009-ecb193847d3f}"
+		},
+
+		{
+			"event_id": "event:/camp/skill/kh_blood_vile",
+			"guid_override": "{1249afa6-c876-4206-9370-79f2b9a0c0ff}"
+		},
+		{
+			"event_id": "event:/camp/skill/kh_warding_incense",
+			"guid_override": "{5db0712a-87cb-4a8b-9557-12a9f5ef0fd5}"
+		},
+		{
+			"event_id": "event:/camp/skill/kh_lead_the_hunt",
+			"guid_override": "{e4408367-a6de-42c8-a913-6293827f4e5d}"
+		},
+		{
+			"event_id": "event:/camp/skill/kh_workshop_tools",
+			"guid_override": "{4cb408a4-68fe-4038-9183-1ccb2a1e0919}"
+		}
+	]
+}

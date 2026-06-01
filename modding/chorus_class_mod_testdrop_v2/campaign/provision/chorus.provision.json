@@ -1,0 +1,10 @@
+{
+    "raid_starting_hero_class_item_lists": [{
+        "hero_class": "chorus",
+        "item_lists": [{
+            "type": "supply",
+            "id": "torch",
+            "amount": 1
+        }]
+    }]
+}

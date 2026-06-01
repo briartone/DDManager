@@ -1,0 +1,132 @@
+
+keg_hunter.sprite.combat.png
+size: 2014,477
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ascot
+  rotate: false
+  xy: 964, 29
+  size: 84, 106
+  orig: 84, 106
+  offset: 0, 0
+  index: -1
+Cap
+  rotate: false
+  xy: 1064, 34
+  size: 187, 101
+  orig: 187, 101
+  offset: 0, 0
+  index: -1
+Cape
+  rotate: false
+  xy: 702, 149
+  size: 243, 312
+  orig: 243, 312
+  offset: 0, 0
+  index: -1
+CapeShoulders
+  rotate: true
+  xy: 1783, 171
+  size: 290, 215
+  orig: 290, 215
+  offset: 0, 0
+  index: -1
+CoatTailDown
+  rotate: true
+  xy: 961, 151
+  size: 310, 163
+  orig: 310, 163
+  offset: 0, 0
+  index: -1
+CoatTailsUp
+  rotate: true
+  xy: 1330, 159
+  size: 302, 134
+  orig: 302, 134
+  offset: 0, 0
+  index: -1
+Collar
+  rotate: false
+  xy: 1267, 17
+  size: 172, 121
+  orig: 172, 121
+  offset: 0, 0
+  index: -1
+Feather
+  rotate: true
+  xy: 1783, 19
+  size: 136, 207
+  orig: 136, 207
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 1632, 23
+  size: 135, 123
+  orig: 135, 123
+  offset: 0, 0
+  index: -1
+LeftFoot
+  rotate: false
+  xy: 826, 25
+  size: 122, 108
+  orig: 122, 108
+  offset: 0, 0
+  index: -1
+LeftForearm
+  rotate: false
+  xy: 702, 16
+  size: 108, 117
+  orig: 108, 117
+  offset: 0, 0
+  index: -1
+Legs
+  rotate: true
+  xy: 1480, 162
+  size: 299, 154
+  orig: 299, 154
+  offset: 0, 0
+  index: -1
+Poncho
+  rotate: true
+  xy: 1140, 154
+  size: 307, 174
+  orig: 307, 174
+  offset: 0, 0
+  index: -1
+RightFoot
+  rotate: false
+  xy: 1650, 315
+  size: 100, 146
+  orig: 100, 146
+  offset: 0, 0
+  index: -1
+RightForearm
+  rotate: true
+  xy: 1650, 212
+  size: 87, 97
+  orig: 87, 97
+  offset: 0, 0
+  index: -1
+Spear
+  rotate: false
+  xy: 16, 63
+  size: 591, 398
+  orig: 591, 398
+  offset: 0, 0
+  index: -1
+TorsoBelt
+  rotate: false
+  xy: 1455, 18
+  size: 161, 125
+  orig: 161, 125
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 623, 104
+  size: 357, 63
+  orig: 357, 63
+  offset: 0, 0
+  index: -1

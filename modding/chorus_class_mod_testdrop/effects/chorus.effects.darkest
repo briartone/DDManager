@@ -1,0 +1,66 @@
+// Frontline fallback strike adds a small self-dodge buff to help the Chorus slip back into position.
+effect: .name "CH_sting_pullback_1" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 4% .duration 1 .on_hit true .on_miss true
+effect: .name "CH_sting_pullback_2" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 5% .duration 1 .on_hit true .on_miss true
+effect: .name "CH_sting_pullback_3" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 6% .duration 1 .on_hit true .on_miss true
+effect: .name "CH_sting_pullback_4" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 7% .duration 1 .on_hit true .on_miss true
+effect: .name "CH_sting_pullback_5" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 8% .duration 1 .on_hit true .on_miss true
+
+// Designated host: target gets protection and dodge, Chorus gets a smaller benefit and a tiny self-heal.
+effect: .name "CH_host_target_1" .target "target" .chance 100% .heal 1 .combat_stat_buff 1 .protection_rating_add 3% .defense_rating_add 3% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_host_target_2" .target "target" .chance 100% .heal 2 .combat_stat_buff 1 .protection_rating_add 4% .defense_rating_add 4% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_host_target_3" .target "target" .chance 100% .heal 2 .combat_stat_buff 1 .protection_rating_add 5% .defense_rating_add 5% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_host_target_4" .target "target" .chance 100% .heal 3 .combat_stat_buff 1 .protection_rating_add 6% .defense_rating_add 6% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_host_target_5" .target "target" .chance 100% .heal 3 .combat_stat_buff 1 .protection_rating_add 7% .defense_rating_add 7% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+
+effect: .name "CH_host_self_1" .target "performer" .chance 100% .heal 1 .combat_stat_buff 1 .defense_rating_add 3% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_host_self_2" .target "performer" .chance 100% .heal 1 .combat_stat_buff 1 .defense_rating_add 4% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_host_self_3" .target "performer" .chance 100% .heal 2 .combat_stat_buff 1 .defense_rating_add 5% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_host_self_4" .target "performer" .chance 100% .heal 2 .combat_stat_buff 1 .defense_rating_add 6% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_host_self_5" .target "performer" .chance 100% .heal 3 .combat_stat_buff 1 .defense_rating_add 7% .duration 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+
+// Direct ally healing plus tiny self-stabilization to reinforce the "network" feel.
+effect: .name "CH_shared_vitality_heal_1" .target "target" .chance 100% .heal 3 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_shared_vitality_heal_2" .target "target" .chance 100% .heal 4 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_shared_vitality_heal_3" .target "target" .chance 100% .heal 5 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_shared_vitality_heal_4" .target "target" .chance 100% .heal 6 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_shared_vitality_heal_5" .target "target" .chance 100% .heal 7 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+
+effect: .name "CH_shared_vitality_self_1" .target "performer" .chance 100% .healstress 1 .on_hit true .on_miss false
+effect: .name "CH_shared_vitality_self_2" .target "performer" .chance 100% .healstress 1 .on_hit true .on_miss false
+effect: .name "CH_shared_vitality_self_3" .target "performer" .chance 100% .healstress 2 .on_hit true .on_miss false
+effect: .name "CH_shared_vitality_self_4" .target "performer" .chance 100% .healstress 2 .on_hit true .on_miss false
+effect: .name "CH_shared_vitality_self_5" .target "performer" .chance 100% .healstress 3 .on_hit true .on_miss false
+
+// Broad party support. Uses performer_group for team buffs and performer_group_other for small stress relief.
+effect: .name "CH_hymn_party_1" .target "performer_group" .chance 100% .combat_stat_buff 1 .accuracy_rating_add 3 .speed_rating_add 1 .duration 3 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+effect: .name "CH_hymn_party_2" .target "performer_group" .chance 100% .combat_stat_buff 1 .accuracy_rating_add 4 .speed_rating_add 1 .duration 3 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+effect: .name "CH_hymn_party_3" .target "performer_group" .chance 100% .combat_stat_buff 1 .accuracy_rating_add 5 .speed_rating_add 1 .duration 3 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+effect: .name "CH_hymn_party_4" .target "performer_group" .chance 100% .combat_stat_buff 1 .accuracy_rating_add 5 .speed_rating_add 2 .duration 3 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+effect: .name "CH_hymn_party_5" .target "performer_group" .chance 100% .combat_stat_buff 1 .accuracy_rating_add 6 .speed_rating_add 2 .duration 3 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+
+effect: .name "CH_hymn_stress_1" .target "performer_group_other" .chance 60% .healstress 1 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+effect: .name "CH_hymn_stress_2" .target "performer_group_other" .chance 65% .healstress 1 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+effect: .name "CH_hymn_stress_3" .target "performer_group_other" .chance 70% .healstress 2 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+effect: .name "CH_hymn_stress_4" .target "performer_group_other" .chance 75% .healstress 2 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+effect: .name "CH_hymn_stress_5" .target "performer_group_other" .chance 80% .healstress 2 .on_hit true .on_miss false .queue true .apply_once true .individual_target_actor_rolls true
+
+// Reposition and self-dodge buff.
+effect: .name "CH_relay_impulse_self_1" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 8% .speed_rating_add 1 .duration 2 .on_hit true .on_miss false
+effect: .name "CH_relay_impulse_self_2" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 10% .speed_rating_add 1 .duration 2 .on_hit true .on_miss false
+effect: .name "CH_relay_impulse_self_3" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 12% .speed_rating_add 2 .duration 2 .on_hit true .on_miss false
+effect: .name "CH_relay_impulse_self_4" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 14% .speed_rating_add 2 .duration 2 .on_hit true .on_miss false
+effect: .name "CH_relay_impulse_self_5" .target "performer" .chance 100% .combat_stat_buff 1 .defense_rating_add 16% .speed_rating_add 2 .duration 2 .on_hit true .on_miss false
+
+// Rearline disruption.
+effect: .name "CH_static_debuff_1" .target "target" .chance 100% .combat_stat_buff 1 .speed_rating_add -2 .attack_rating_add -5% .duration 2 .on_hit true .on_miss false
+effect: .name "CH_static_debuff_2" .target "target" .chance 110% .combat_stat_buff 1 .speed_rating_add -2 .attack_rating_add -6% .duration 2 .on_hit true .on_miss false
+effect: .name "CH_static_debuff_3" .target "target" .chance 120% .combat_stat_buff 1 .speed_rating_add -3 .attack_rating_add -6% .duration 2 .on_hit true .on_miss false
+effect: .name "CH_static_debuff_4" .target "target" .chance 130% .combat_stat_buff 1 .speed_rating_add -3 .attack_rating_add -7% .duration 2 .on_hit true .on_miss false
+effect: .name "CH_static_debuff_5" .target "target" .chance 140% .combat_stat_buff 1 .speed_rating_add -4 .attack_rating_add -8% .duration 2 .on_hit true .on_miss false
+
+// Self-preservation without tanking.
+effect: .name "CH_surge_self_1" .target "performer" .chance 100% .heal 2 .healstress 1 .combat_stat_buff 1 .defense_rating_add 10% .duration 2 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_surge_self_2" .target "performer" .chance 100% .heal 3 .healstress 1 .combat_stat_buff 1 .defense_rating_add 12% .duration 2 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_surge_self_3" .target "performer" .chance 100% .heal 4 .healstress 2 .combat_stat_buff 1 .defense_rating_add 14% .duration 2 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_surge_self_4" .target "performer" .chance 100% .heal 5 .healstress 2 .combat_stat_buff 1 .defense_rating_add 16% .duration 2 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
+effect: .name "CH_surge_self_5" .target "performer" .chance 100% .heal 6 .healstress 3 .combat_stat_buff 1 .defense_rating_add 18% .duration 2 .on_hit true .on_miss false .queue true .source_heal_type hero_skill .can_crit_heal true
